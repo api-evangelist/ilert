@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/ManualAlert",
+  "title": "ManualAlert",
+  "required": [
+    "alertSource",
+    "summary"
+  ],
+  "type": "object",
+  "properties": {
+    "summary": {
+      "type": "string"
+    },
+    "details": {
+      "type": "string"
+    },
+    "alertSource": {
+      "$ref": "#/components/schemas/SimpleIdField64"
+    },
+    "escalationPolicy": {
+      "$ref": "#/components/schemas/SimpleIdField64"
+    },
+    "priority": {
+      "$ref": "#/components/schemas/AlertPriority"
+    },
+    "assignedTo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        }
+      },
+      "description": "This field (type: User) is deprecated, please use 'responders' instead"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/EventImage"
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/EventLink"
+      }
+    },
+    "responders": {
+      "type": "array",
+      "description": "List of responders (users), only user.id is required.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/UserRel"
+          }
+        }
+      }
+    }
+  }
+}

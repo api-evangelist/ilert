@@ -1,0 +1,17 @@
+{
+  "summary": "Get the subscribers (users and teams) of a service",
+  "description": "",
+  "method": "GET",
+  "path": "/services/{id}/private-subscribers",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1.0,
+      "name": "string",
+      "type": "USER"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "summary": "Create a duty notification preference",
+  "description": "",
+  "method": "POST",
+  "path": "/users/{user-id}/notification-preferences/duties",
+  "parameters": {
+    "user-id": "string"
+  },
+  "request_body": {
+    "beforeMin": 1,
+    "contact": {},
+    "method": "EMAIL",
+    "type": "ON_CALL"
+  },
+  "response": {
+    "id": 1,
+    "beforeMin": 1,
+    "contact": {},
+    "method": "EMAIL",
+    "type": "ON_CALL"
+  }
+}

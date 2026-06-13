@@ -1,0 +1,43 @@
+{
+  "summary": "Update an existing maintenance window.",
+  "description": "",
+  "method": "PUT",
+  "path": "/maintenance-windows/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "timezone": "Europe/Berlin",
+    "start": "string",
+    "end": "string",
+    "summary": "string",
+    "description": "string",
+    "alertSources": [
+      {
+        "id": null,
+        "teams": null,
+        "name": null,
+        "iconUrl": null,
+        "lightIconUrl": null,
+        "darkIconUrl": null
+      }
+    ]
+  },
+  "response": {
+    "timezone": "Europe/Berlin",
+    "start": "string",
+    "end": "string",
+    "summary": "string",
+    "description": "string",
+    "alertSources": [
+      {
+        "id": null,
+        "teams": null,
+        "name": null,
+        "iconUrl": null,
+        "lightIconUrl": null,
+        "darkIconUrl": null
+      }
+    ]
+  }
+}

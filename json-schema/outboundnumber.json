@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/OutboundNumber",
+  "title": "OutboundNumber",
+  "type": "object",
+  "properties": {
+    "countryCode": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "supportsInboundSms": {
+      "type": "boolean"
+    },
+    "types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "SMS",
+          "VOICE"
+        ]
+      }
+    }
+  }
+}

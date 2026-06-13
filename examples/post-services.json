@@ -1,0 +1,23 @@
+{
+  "summary": "Create a new service.",
+  "description": "",
+  "method": "POST",
+  "path": "/services",
+  "parameters": {},
+  "request_body": {
+    "id": 1.0,
+    "name": "string",
+    "alias": "string",
+    "status": "OPERATIONAL",
+    "description": "string",
+    "oneOpenIncidentOnly": true
+  },
+  "response": {
+    "id": 1.0,
+    "name": "string",
+    "alias": "string",
+    "status": "OPERATIONAL",
+    "description": "string",
+    "oneOpenIncidentOnly": true
+  }
+}

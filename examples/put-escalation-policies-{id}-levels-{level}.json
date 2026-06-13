@@ -1,0 +1,62 @@
+{
+  "summary": "Replace an escalation rule at the specified level.",
+  "description": "",
+  "method": "PUT",
+  "path": "/escalation-policies/{id}/levels/{level}",
+  "parameters": {
+    "id": 1.0,
+    "level": 1
+  },
+  "request_body": {
+    "escalationTimeout": 1,
+    "user": {
+      "id": 1.0
+    },
+    "schedule": {
+      "id": 1.0
+    },
+    "team": {
+      "id": 1.0
+    },
+    "users": [
+      {
+        "id": null,
+        "firstName": null,
+        "lastName": null
+      }
+    ],
+    "schedules": [
+      {
+        "id": null,
+        "name": null,
+        "type": null
+      }
+    ]
+  },
+  "response": {
+    "escalationTimeout": 1,
+    "user": {
+      "id": 1.0
+    },
+    "schedule": {
+      "id": 1.0
+    },
+    "team": {
+      "id": 1.0
+    },
+    "users": [
+      {
+        "id": null,
+        "firstName": null,
+        "lastName": null
+      }
+    ],
+    "schedules": [
+      {
+        "id": null,
+        "name": null,
+        "type": null
+      }
+    ]
+  }
+}

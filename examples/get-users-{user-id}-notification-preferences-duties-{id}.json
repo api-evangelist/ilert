@@ -1,0 +1,18 @@
+{
+  "summary": "Get specific notification preferences duty",
+  "description": "",
+  "method": "GET",
+  "path": "/users/{user-id}/notification-preferences/duties/{id}",
+  "parameters": {
+    "user-id": "string",
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "beforeMin": 1,
+    "contact": {},
+    "method": "EMAIL",
+    "type": "ON_CALL"
+  }
+}

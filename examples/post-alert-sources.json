@@ -1,0 +1,33 @@
+{
+  "summary": "Create a new alert source.",
+  "description": "",
+  "method": "POST",
+  "path": "/alert-sources",
+  "parameters": {},
+  "request_body": {
+    "id": 1,
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "name": "string",
+    "iconUrl": "string",
+    "lightIconUrl": "string",
+    "darkIconUrl": "string"
+  },
+  "response": {
+    "id": 1,
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "name": "string",
+    "iconUrl": "string",
+    "lightIconUrl": "string",
+    "darkIconUrl": "string"
+  }
+}

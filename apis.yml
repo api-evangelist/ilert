@@ -63,6 +63,16 @@ apis:
         url: https://github.com/iLert/terraform-provider-ilert
       - type: MCPServer
         url: https://github.com/iLert/mcp-ilert
+      - type: OpenAPI
+        url: openapi/ilert-ilert-rest-api-openapi.yml
+      - type: JSONSchema
+        url: json-schema/
+      - type: Examples
+        url: examples/
+      - type: Vocabulary
+        url: vocabulary/ilert-vocabulary.yml
+      - type: JSONLDContext
+        url: json-ld/ilert-context.jsonld
     contact:
       - FN: ilert Support
         url: https://docs.ilert.com/

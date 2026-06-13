@@ -1,0 +1,32 @@
+{
+  "summary": "Update the specific Metric Data Source",
+  "description": "",
+  "method": "PUT",
+  "path": "/metric-data-sources/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "name": "string",
+    "type": "DATADOG",
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "metadata": {}
+  },
+  "response": {
+    "id": 1.0,
+    "name": "string",
+    "type": "DATADOG",
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "metadata": {}
+  }
+}

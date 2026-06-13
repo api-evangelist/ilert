@@ -1,0 +1,23 @@
+{
+  "summary": "Create a new status page.",
+  "description": "",
+  "method": "POST",
+  "path": "/status-pages",
+  "parameters": {},
+  "request_body": {
+    "id": 1.0,
+    "name": "string",
+    "domain": "string",
+    "subdomain": "string",
+    "timezone": "Europe/Berlin",
+    "faviconUrl": "string"
+  },
+  "response": {
+    "id": 1.0,
+    "name": "string",
+    "domain": "string",
+    "subdomain": "string",
+    "timezone": "Europe/Berlin",
+    "faviconUrl": "string"
+  }
+}

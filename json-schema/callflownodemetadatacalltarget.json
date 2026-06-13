@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/CallFlowNodeMetadataCallTarget",
+  "title": "CallFlowNodeMetadataCallTarget",
+  "type": "object",
+  "required": [
+    "target",
+    "type"
+  ],
+  "properties": {
+    "target": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "USER",
+        "ON_CALL_SCHEDULE",
+        "NUMBER"
+      ]
+    }
+  }
+}

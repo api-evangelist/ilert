@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/CParamsSysdig",
+  "title": "CParamsSysdig",
+  "type": "object",
+  "properties": {
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "eventFilter": {
+      "type": "string"
+    }
+  }
+}

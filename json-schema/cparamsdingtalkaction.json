@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/CParamsDingTalkAction",
+  "title": "CParamsDingTalkAction",
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string"
+    },
+    "secret": {
+      "type": "string"
+    },
+    "isAtAll": {
+      "type": "boolean"
+    },
+    "atMobiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

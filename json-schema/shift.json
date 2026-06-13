@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/Shift",
+  "title": "Shift",
+  "type": "object",
+  "properties": {
+    "user": {
+      "$ref": "#/components/schemas/User"
+    },
+    "end": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "start": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "summary": "Update a specific call flow.",
+  "description": "",
+  "method": "PUT",
+  "path": "/call-flows/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "id": 1,
+    "name": "string",
+    "language": "de",
+    "assignedNumber": {
+      "id": 1,
+      "name": "string",
+      "phoneNumber": null
+    },
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "root": {
+      "id": 1,
+      "name": "string",
+      "nodeType": "ROOT",
+      "metadata": null,
+      "branches": [
+        null
+      ]
+    }
+  },
+  "response": {
+    "id": 1,
+    "name": "string",
+    "language": "de",
+    "assignedNumber": {
+      "id": 1,
+      "name": "string",
+      "phoneNumber": null
+    },
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "root": {
+      "id": 1,
+      "name": "string",
+      "nodeType": "ROOT",
+      "metadata": null,
+      "branches": [
+        null
+      ]
+    }
+  }
+}

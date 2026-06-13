@@ -1,0 +1,17 @@
+{
+  "summary": "Add subscribers (users and teams) to an incident",
+  "description": "",
+  "method": "POST",
+  "path": "/incidents/{id}/private-subscribers",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": [
+    {
+      "id": 1.0,
+      "name": "string",
+      "type": "USER"
+    }
+  ],
+  "response": null
+}

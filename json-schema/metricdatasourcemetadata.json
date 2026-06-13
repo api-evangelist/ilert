@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/MetricDataSourceMetadata",
+  "title": "MetricDataSourceMetadata",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/MParamsDatadog"
+    },
+    {
+      "$ref": "#/components/schemas/MParamsPrometheus"
+    }
+  ]
+}

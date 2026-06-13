@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/MDataDogMetadata",
+  "title": "MDataDogMetadata",
+  "required": [
+    "query"
+  ],
+  "type": "object",
+  "properties": {
+    "query": {
+      "type": "string"
+    }
+  }
+}

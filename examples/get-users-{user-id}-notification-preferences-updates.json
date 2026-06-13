@@ -1,0 +1,18 @@
+{
+  "summary": "Get update notification preferences of a user",
+  "description": "",
+  "method": "GET",
+  "path": "/users/{user-id}/notification-preferences/updates",
+  "parameters": {
+    "user-id": "string"
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "contact": {},
+      "method": "EMAIL",
+      "type": "ALERT_ACCEPTED"
+    }
+  ]
+}

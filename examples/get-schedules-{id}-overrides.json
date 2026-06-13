@@ -1,0 +1,24 @@
+{
+  "summary": "Get overrides for the specified schedule.",
+  "description": "",
+  "method": "GET",
+  "path": "/schedules/{id}/overrides",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": [
+    {
+      "user": {
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "email": null,
+        "timezone": null,
+        "position": null
+      },
+      "end": "string",
+      "start": "string"
+    }
+  ]
+}

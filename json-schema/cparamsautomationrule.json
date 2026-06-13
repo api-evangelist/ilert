@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/CParamsAutomationRule",
+  "title": "CParamsAutomationRule",
+  "required": [
+    "alertType",
+    "serviceIds",
+    "serviceStatus"
+  ],
+  "type": "object",
+  "properties": {
+    "alertType": {
+      "type": "string",
+      "enum": [
+        "CREATED",
+        "ACCEPTED"
+      ]
+    },
+    "resolveIncident": {
+      "type": "boolean",
+      "default": false
+    },
+    "serviceStatus": {
+      "$ref": "#/components/schemas/ServiceStatus"
+    },
+    "templateId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "sendNotification": {
+      "type": "boolean",
+      "default": false
+    },
+    "serviceIds": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int64"
+      }
+    }
+  }
+}

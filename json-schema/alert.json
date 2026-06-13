@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/Alert",
+  "title": "Alert",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "details": {
+      "type": "string"
+    },
+    "reportTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "resolvedOn": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "ACCEPTED",
+        "RESOLVED"
+      ]
+    },
+    "alertSource": {
+      "$ref": "#/components/schemas/AlertSource"
+    },
+    "escalationPolicy": {
+      "$ref": "#/components/schemas/EscalationPolicy"
+    },
+    "priority": {
+      "$ref": "#/components/schemas/AlertPriority"
+    },
+    "alertKey": {
+      "type": "string"
+    },
+    "assignedTo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        }
+      },
+      "description": "This field (type: User) is deprecated, please use 'responders' instead"
+    },
+    "nextEscalation": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "escalationRules": {
+      "type": "array",
+      "readOnly": true,
+      "items": {
+        "$ref": "#/components/schemas/EscalationRule"
+      }
+    },
+    "nextEscalationUser": {
+      "$ref": "#/components/schemas/User"
+    },
+    "nextEscalationRuleIndex": {
+      "type": "number",
+      "readOnly": true
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/EventImage"
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/EventLink"
+      }
+    },
+    "responders": {
+      "type": "array",
+      "readOnly": true,
+      "items": {
+        "$ref": "#/components/schemas/AlertResponder"
+      }
+    },
+    "severity": {
+      "maximum": 5,
+      "minimum": 1,
+      "type": "integer",
+      "format": "int32",
+      "description": "Optional severity in range 1..5."
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Optional key/value labels that are attached to the alert."
+    },
+    "customDetails": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Free-form custom key/value details attached to the alert. This is the original event payload of the integration. Only present with ?include=customDetails on the single-alert GET (not on the list endpoint)."
+    },
+    "linkedIncidentId": {
+      "type": "integer",
+      "format": "int64",
+      "readOnly": true,
+      "description": "Id of the incident this alert is linked to, if any."
+    },
+    "mergedIntoId": {
+      "type": "integer",
+      "format": "int64",
+      "readOnly": true,
+      "description": "Id of the alert this alert has been merged into, if any."
+    },
+    "mergeState": {
+      "type": "string",
+      "readOnly": true,
+      "enum": [
+        "NONE",
+        "MAIN",
+        "MERGED"
+      ],
+      "description": "The merge state of the alert."
+    }
+  }
+}

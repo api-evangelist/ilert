@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/StatusPageNoIncludes",
+  "title": "StatusPageNoIncludes",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "name": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "subdomain": {
+      "type": "string"
+    },
+    "timezone": {
+      "$ref": "#/components/schemas/TimeZone"
+    },
+    "faviconUrl": {
+      "type": "string"
+    },
+    "logoUrl": {
+      "type": "string"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "PRIVATE",
+        "PUBLIC"
+      ]
+    },
+    "hiddenFromSearch": {
+      "type": "boolean"
+    },
+    "showSubscribeAction": {
+      "type": "boolean"
+    },
+    "showIncidentHistoryOption": {
+      "type": "boolean"
+    },
+    "pageTitle": {
+      "type": "string"
+    },
+    "pageDescription": {
+      "type": "string"
+    },
+    "pageLayout": {
+      "type": "string",
+      "enum": [
+        "SINGLE_COLUMN",
+        "RESPONSIVE"
+      ]
+    },
+    "logoRedirectUrl": {
+      "type": "string"
+    },
+    "activated": {
+      "type": "boolean"
+    },
+    "status": {
+      "$ref": "#/components/schemas/ServiceStatus"
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamRel"
+      }
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ServiceNoIncludes"
+      }
+    },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/MetricNoIncludes"
+      }
+    },
+    "ipWhitelist": {
+      "type": "array",
+      "description": "ipv4 or ipv6 addresses to give access to. Can only be set on 'PRIVATE' status pages",
+      "items": {
+        "type": "string"
+      }
+    },
+    "structure": {
+      "$ref": "#/components/schemas/StatusPageStructure"
+    },
+    "appearance": {
+      "type": "string",
+      "enum": [
+        "LIGHT",
+        "DARK"
+      ]
+    }
+  }
+}

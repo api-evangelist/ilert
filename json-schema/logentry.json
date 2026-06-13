@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/LogEntry",
+  "title": "LogEntry",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "logEntryType": {
+      "type": "string",
+      "enum": [
+        "ConnectorAutomaticResultErrorLogEntry",
+        "ConnectorAutomaticResultLogEntry",
+        "AlertActionErrorLogEntry",
+        "AlertActionFailLogEntry",
+        "AlertActionSuccessLogEntry",
+        "AlertNotRoutedLogEntry",
+        "AlertReceivedLogEntry",
+        "AlertRoutedSuccessfulLogEntry",
+        "AlertSourceResponseLogEntry",
+        "CallLogEntry",
+        "EmailReceivedLogEntry",
+        "EmailResolvedLogEntry",
+        "FilterableLogEntryType",
+        "HeartbeatOverdueLogEntry",
+        "HeartbeatResolvedLogEntry",
+        "AlertAssignedBySystemLogEntry",
+        "AlertAssignedByUserLogEntry",
+        "AlertAssignedToPolicyLogEntry",
+        "AlertAssignedToScheduleLogEntry",
+        "AlertAutoResolvedLogEntry",
+        "AlertCommentAddedBySystemLogEntry",
+        "AlertCommentAddedLogEntry",
+        "AlertCommentPublishedLogEntry",
+        "AlertCreatedByUserLogEntry",
+        "AlertRaisedBySystemLogEntry",
+        "AlertRaisedByUserLogEntry",
+        "AlertSummaryChangedLogEntry",
+        "IncomingCallLogEntry",
+        "LowPriorityCallLog",
+        "MailboxCallLogEntry",
+        "MailboxRecordReceivedLog",
+        "MailboxTranscribedReceivedLog",
+        "NobodyOnCallLogEntry",
+        "NotificationLogEntry",
+        "ParallelCallLogEntry",
+        "PhoneNumberNotSetLogEntry",
+        "PhoneNumberBlockedLogEntry",
+        "QueueResultLogEntry",
+        "StakeholderAddedBySystemLogEntry",
+        "StakeholderAddedLogEntry",
+        "StakeholderRemovedLogEntry",
+        "StakeholderResubscribedLogEntry",
+        "StakeholderUnsubscribedLogEntry",
+        "UserResponseLogEntry",
+        "InComIncidentCreatedLogEntry",
+        "InComIncidentResolvedLogEntry",
+        "InComServiceTransitionLogEntry",
+        "InComLinkedLogEntry",
+        "InComUnlinkedLogEntry",
+        "AlertChannelAttachedByUserLogEntry",
+        "AlertChannelDetachedByUserLogEntry",
+        "AlertEscalatedToLevelLogEntry"
+      ]
+    },
+    "text": {
+      "type": "string"
+    },
+    "alertId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "filterTypes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/LogFilterType"
+      }
+    },
+    "vars": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  }
+}

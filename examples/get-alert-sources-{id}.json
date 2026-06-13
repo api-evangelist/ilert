@@ -1,0 +1,26 @@
+{
+  "summary": "Get the alert source with specified id or alternatively integration key.",
+  "description": "",
+  "method": "GET",
+  "path": "/alert-sources/{id}",
+  "parameters": {
+    "id": "string",
+    "include": [
+      "detailsTemplate"
+    ]
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "name": "string",
+    "iconUrl": "string",
+    "lightIconUrl": "string",
+    "darkIconUrl": "string"
+  }
+}

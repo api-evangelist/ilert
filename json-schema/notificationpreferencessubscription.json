@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/NotificationPreferencesSubscription",
+  "title": "NotificationPreferencesSubscription",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "contact": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ContactPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/ContactEmail"
+        }
+      ]
+    },
+    "method": {
+      "$ref": "#/components/schemas/NotificationPreferenceSubscriptionMethod"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/TeamMember",
+  "title": "TeamMember",
+  "type": "object",
+  "properties": {
+    "user": {
+      "$ref": "#/components/schemas/User"
+    },
+    "role": {
+      "$ref": "#/components/schemas/TeamRole"
+    }
+  }
+}

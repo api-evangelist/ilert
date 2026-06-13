@@ -1,0 +1,56 @@
+{
+  "summary": "Update an on-call schedule.",
+  "description": "",
+  "method": "PUT",
+  "path": "/schedules/{id}",
+  "parameters": {
+    "id": 1.0,
+    "abort-on-gaps": true
+  },
+  "request_body": {
+    "id": 1,
+    "name": "string",
+    "timezone": "Europe/Berlin",
+    "type": "STATIC",
+    "scheduleLayers": [
+      {
+        "name": null,
+        "startsOn": null,
+        "endsOn": null,
+        "users": null,
+        "rotation": null,
+        "restrictionType": null
+      }
+    ],
+    "shifts": [
+      {
+        "user": null,
+        "end": null,
+        "start": null
+      }
+    ]
+  },
+  "response": {
+    "id": 1,
+    "name": "string",
+    "timezone": "Europe/Berlin",
+    "type": "STATIC",
+    "scheduleLayers": [
+      {
+        "name": null,
+        "startsOn": null,
+        "endsOn": null,
+        "users": null,
+        "rotation": null,
+        "restrictionType": null
+      }
+    ],
+    "shifts": [
+      {
+        "user": null,
+        "end": null,
+        "start": null
+      }
+    ]
+  }
+}

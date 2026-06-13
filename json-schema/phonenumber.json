@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/PhoneNumber",
+  "title": "PhoneNumber",
+  "type": "object",
+  "properties": {
+    "regionCode": {
+      "type": "string"
+    },
+    "number": {
+      "type": "string"
+    }
+  }
+}

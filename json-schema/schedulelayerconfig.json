@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/ScheduleLayerConfig",
+  "title": "ScheduleLayerConfig",
+  "required": [
+    "rotation",
+    "startsOn",
+    "users"
+  ],
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "startsOn": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "endsOn": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "users": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/UserRel"
+      }
+    },
+    "rotation": {
+      "type": "string",
+      "format": "P7D"
+    },
+    "restrictionType": {
+      "type": "string",
+      "description": "Note: 'TIMES_OF_DAY' is just a UI state representation, the API always uses 'TIMES_OF_WEEK'",
+      "enum": [
+        "TIMES_OF_WEEK"
+      ]
+    },
+    "restrictions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ScheduleLayerRestriction"
+      }
+    }
+  }
+}

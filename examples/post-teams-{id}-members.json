@@ -1,0 +1,31 @@
+{
+  "summary": "Add a new team member to specific team",
+  "description": "",
+  "method": "POST",
+  "path": "/teams/{id}/members",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "user": {
+      "id": 1,
+      "firstName": "string",
+      "lastName": "string",
+      "email": "string",
+      "timezone": null,
+      "position": "string"
+    },
+    "role": "STAKEHOLDER"
+  },
+  "response": {
+    "user": {
+      "id": 1,
+      "firstName": "string",
+      "lastName": "string",
+      "email": "string",
+      "timezone": null,
+      "position": "string"
+    },
+    "role": "STAKEHOLDER"
+  }
+}

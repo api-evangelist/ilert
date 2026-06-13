@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/AlertSourceTemplate",
+  "title": "AlertSourceTemplate",
+  "type": "object",
+  "properties": {
+    "textTemplate": {
+      "type": "string",
+      "description": "For more information on alert source templating, please visit: https://docs.ilert.com/alerting/alert-sources#alert-template.\n\n Example: <br />`Hi {{ users[0].name }} there!` \n\nYou can use the text template instead of elements by adding the include `textTemplate` to your request. Any version can be used for POST or PUT requests."
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AlertSourceTemplateElement"
+      }
+    }
+  }
+}

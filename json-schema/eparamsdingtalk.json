@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/EParamsDingTalk",
+  "title": "EParamsDingTalk",
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string"
+    },
+    "secret": {
+      "type": "string"
+    }
+  }
+}

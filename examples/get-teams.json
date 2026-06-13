@@ -1,0 +1,24 @@
+{
+  "summary": "Get teams.",
+  "description": "",
+  "method": "GET",
+  "path": "/teams",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1,
+    "members": 1.0
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "name": "string",
+      "visibility": "PUBLIC",
+      "members": [
+        null
+      ],
+      "createdAt": "string",
+      "updatedAt": "string"
+    }
+  ]
+}

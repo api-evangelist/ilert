@@ -1,0 +1,19 @@
+{
+  "summary": "Get alert notification preferences of a user",
+  "description": "",
+  "method": "GET",
+  "path": "/users/{user-id}/notification-preferences/alerts",
+  "parameters": {
+    "user-id": "string"
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "method": "EMAIL",
+      "contact": {},
+      "delayMin": 1,
+      "type": "LOW_PRIORITY"
+    }
+  ]
+}

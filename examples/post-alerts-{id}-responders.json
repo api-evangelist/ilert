@@ -1,0 +1,19 @@
+{
+  "summary": "Add an additional responder to the alert.",
+  "description": "",
+  "method": "POST",
+  "path": "/alerts/{id}/responders",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "user": {
+      "id": 1,
+      "firstName": "string",
+      "lastName": "string"
+    },
+    "status": "PENDING",
+    "acceptedAt": "string"
+  }
+}

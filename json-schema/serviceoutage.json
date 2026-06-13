@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/ServiceOutage",
+  "title": "ServiceOutage",
+  "type": "object",
+  "properties": {
+    "status": {
+      "$ref": "#/components/schemas/ServiceStatus"
+    },
+    "from": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "until": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

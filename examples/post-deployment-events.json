@@ -1,0 +1,21 @@
+{
+  "summary": "Post a deployment event to ilert.",
+  "description": "Use the Deployment events API to integrate your CI & CD tools or custom deployment workflows with ilert. Create a new deployment pipeline to generate an integration key for this endpoint.",
+  "method": "POST",
+  "path": "/deployment-events",
+  "parameters": {},
+  "request_body": {
+    "integrationKey": "string",
+    "summary": "string",
+    "timestamp": 1,
+    "userEmail": "string",
+    "customDetails": {},
+    "links": [
+      {
+        "href": null,
+        "text": null
+      }
+    ]
+  },
+  "response": null
+}

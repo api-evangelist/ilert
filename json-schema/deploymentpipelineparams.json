@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/DeploymentPipelineParams",
+  "title": "DeploymentPipelineParams",
+  "type": "object",
+  "description": "Dynamic params based on the chosen integration type of the pipeline",
+  "default": "null",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/DPipeAPIParams"
+    },
+    {
+      "$ref": "#/components/schemas/DPipeGithubParams"
+    }
+  ]
+}

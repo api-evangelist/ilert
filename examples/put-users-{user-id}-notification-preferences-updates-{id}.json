@@ -1,0 +1,21 @@
+{
+  "summary": "Update a user's update notification preference",
+  "description": "",
+  "method": "PUT",
+  "path": "/users/{user-id}/notification-preferences/updates/{id}",
+  "parameters": {
+    "user-id": "string",
+    "id": 1.0
+  },
+  "request_body": {
+    "contact": {},
+    "method": "EMAIL",
+    "type": "ALERT_ACCEPTED"
+  },
+  "response": {
+    "id": 1,
+    "contact": {},
+    "method": "EMAIL",
+    "type": "ALERT_ACCEPTED"
+  }
+}

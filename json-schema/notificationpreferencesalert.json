@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/NotificationPreferencesAlert",
+  "title": "NotificationPreferencesAlert",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "method": {
+      "$ref": "#/components/schemas/NotificationPreferenceAlertMethod"
+    },
+    "contact": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ContactPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/ContactEmail"
+        }
+      ]
+    },
+    "delayMin": {
+      "$ref": "#/components/schemas/NotificationPreferencesAlertDelayMin"
+    },
+    "type": {
+      "$ref": "#/components/schemas/NotificationPreferenceAlertType"
+    }
+  }
+}

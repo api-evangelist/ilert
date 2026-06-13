@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/Connector",
+  "title": "Connector",
+  "required": [
+    "name",
+    "type"
+  ],
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "#/components/schemas/ConnectorType"
+    },
+    "name": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "params": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/EParamsDatadog"
+        },
+        {
+          "$ref": "#/components/schemas/EParamsJira"
+        },
+        {
+          "$ref": "#/components/schemas/EParamsMicrosoftTeams"
+        },
+        {
+          "$ref": "#/components/schemas/EParamsServiceNow"
+        },
+        {
+          "$ref": "#/components/schemas/EParamsSlack"
+        },
+        {
+          "$ref": "#/components/schemas/EParamsZendesk"
+        },
+        {
+          "$ref": "#/components/schemas/EParamsDiscord"
+        },
+        {
+          "$ref": "#/components/schemas/EParamsGithub"
+        },
+        {
+          "$ref": "#/components/schemas/EParamsTopdesk"
+        },
+        {
+          "$ref": "#/components/schemas/EParamsAWSLambda"
+        },
+        {
+          "$ref": "#/components/schemas/EParamsAzureFunction"
+        },
+        {
+          "$ref": "#/components/schemas/EParamsGoogleFunction"
+        },
+        {
+          "$ref": "#/components/schemas/EParamsSysdig"
+        },
+        {
+          "$ref": "#/components/schemas/EParamsStatusPageIO"
+        },
+        {
+          "$ref": "#/components/schemas/EParamsDingTalk"
+        },
+        {
+          "$ref": "#/components/schemas/EParamsZabbix"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Get escalation policy with the specified id.",
+  "description": "",
+  "method": "GET",
+  "path": "/escalation-policies/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "name": "string",
+    "escalationRules": [
+      {
+        "escalationTimeout": null,
+        "user": null,
+        "schedule": null,
+        "team": null,
+        "users": null,
+        "schedules": null
+      }
+    ],
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "repeating": true,
+    "frequency": 1
+  }
+}

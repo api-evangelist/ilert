@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/CParamsMicrosoftTeams",
+  "title": "CParamsMicrosoftTeams",
+  "required": [
+    "channelId",
+    "teamId"
+  ],
+  "type": "object",
+  "properties": {
+    "channelId": {
+      "type": "string"
+    },
+    "channelName": {
+      "type": "string"
+    },
+    "teamId": {
+      "type": "string"
+    },
+    "teamName": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "chat",
+        "meeting"
+      ]
+    }
+  }
+}

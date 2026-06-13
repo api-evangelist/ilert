@@ -1,0 +1,23 @@
+{
+  "summary": "Update a user's duty notification preference",
+  "description": "",
+  "method": "PUT",
+  "path": "/users/{user-id}/notification-preferences/duties/{id}",
+  "parameters": {
+    "user-id": "string",
+    "id": 1.0
+  },
+  "request_body": {
+    "beforeMin": 1,
+    "contact": {},
+    "method": "EMAIL",
+    "type": "ON_CALL"
+  },
+  "response": {
+    "id": 1,
+    "beforeMin": 1,
+    "contact": {},
+    "method": "EMAIL",
+    "type": "ON_CALL"
+  }
+}

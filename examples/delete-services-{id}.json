@@ -1,0 +1,11 @@
+{
+  "summary": "Remove a specific service.",
+  "description": "",
+  "method": "DELETE",
+  "path": "/services/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": null
+}

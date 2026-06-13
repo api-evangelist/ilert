@@ -1,0 +1,22 @@
+{
+  "summary": "Get Metric Data Sources",
+  "description": "",
+  "method": "GET",
+  "path": "/metric-data-sources",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1.0,
+      "name": "string",
+      "type": "DATADOG",
+      "teams": [
+        null
+      ],
+      "metadata": {}
+    }
+  ]
+}

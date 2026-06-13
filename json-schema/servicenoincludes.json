@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/ServiceNoIncludes",
+  "title": "ServiceNoIncludes",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "name": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/components/schemas/ServiceStatus"
+    },
+    "description": {
+      "type": "string"
+    },
+    "oneOpenIncidentOnly": {
+      "type": "boolean"
+    },
+    "showUptimeHistory": {
+      "type": "boolean"
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamRel"
+      }
+    }
+  }
+}

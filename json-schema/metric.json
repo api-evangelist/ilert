@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/Metric",
+  "title": "Metric",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "aggregationType": {
+      "$ref": "#/components/schemas/MetricAggregationType"
+    },
+    "displayType": {
+      "$ref": "#/components/schemas/MetricDisplayType"
+    },
+    "interpolateGaps": {
+      "type": "boolean",
+      "default": false
+    },
+    "lockYAxisMax": {
+      "type": "number",
+      "format": "double"
+    },
+    "lockYAxisMin": {
+      "type": "number",
+      "format": "double"
+    },
+    "mouseOverDecimal": {
+      "maximum": 6,
+      "minimum": 0,
+      "type": "number",
+      "format": "int32"
+    },
+    "showValuesOnMouseOver": {
+      "type": "boolean",
+      "default": false
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamRel"
+      }
+    },
+    "unitLabel": {
+      "type": "string"
+    },
+    "integrationKey": {
+      "type": "string"
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/MetricMetadata"
+    },
+    "dataSource": {
+      "$ref": "#/components/schemas/MetricDataSource"
+    }
+  }
+}

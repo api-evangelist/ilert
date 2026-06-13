@@ -1,0 +1,23 @@
+{
+  "summary": "Create a new connector.",
+  "description": "",
+  "method": "POST",
+  "path": "/connectors",
+  "parameters": {},
+  "request_body": {
+    "id": "string",
+    "type": "jira",
+    "name": "string",
+    "createdAt": "string",
+    "updatedAt": "string",
+    "params": {}
+  },
+  "response": {
+    "id": "string",
+    "type": "jira",
+    "name": "string",
+    "createdAt": "string",
+    "updatedAt": "string",
+    "params": {}
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/Integration",
+  "title": "Integration",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "INBOUND",
+        "NATIVE",
+        "OUTBOUND"
+      ]
+    },
+    "iconUrl": {
+      "type": "string"
+    },
+    "documentationUrl": {
+      "type": "string"
+    },
+    "integrationPath": {
+      "type": "string"
+    }
+  }
+}

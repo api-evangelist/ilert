@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/NotificationPreferencesDutyPost",
+  "title": "NotificationPreferencesDutyPost",
+  "type": "object",
+  "properties": {
+    "beforeMin": {
+      "$ref": "#/components/schemas/NotificationPreferencesDutyBeforeMin"
+    },
+    "contact": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ContactPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/ContactEmail"
+        }
+      ]
+    },
+    "method": {
+      "$ref": "#/components/schemas/NotificationPreferenceDutyMethod"
+    },
+    "type": {
+      "$ref": "#/components/schemas/NotificationPreferencesDutyTypes"
+    }
+  }
+}

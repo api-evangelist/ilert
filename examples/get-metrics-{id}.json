@@ -1,0 +1,18 @@
+{
+  "summary": "Get a specific Metric",
+  "description": "",
+  "method": "GET",
+  "path": "/metrics/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "id": 1.0,
+    "name": "string",
+    "description": "string",
+    "aggregationType": "AVG",
+    "displayType": "GRAPH",
+    "interpolateGaps": true
+  }
+}

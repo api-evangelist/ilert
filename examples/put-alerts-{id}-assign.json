@@ -1,0 +1,21 @@
+{
+  "summary": "Assign the alert.",
+  "description": "Either provide a user-id, policy-id (escalation policy) or schedule-id (on-call schedule) that the specific alert should be assigned to.",
+  "method": "PUT",
+  "path": "/alerts/{id}/assign",
+  "parameters": {
+    "id": 1.0,
+    "user": "string",
+    "policy": "string",
+    "schedule": "string"
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "summary": "string",
+    "details": "string",
+    "reportTime": "string",
+    "resolvedOn": "string",
+    "status": "PENDING"
+  }
+}

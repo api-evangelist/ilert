@@ -1,0 +1,22 @@
+{
+  "summary": "Create an alert notification preference",
+  "description": "",
+  "method": "POST",
+  "path": "/users/{user-id}/notification-preferences/alerts",
+  "parameters": {
+    "user-id": "string"
+  },
+  "request_body": {
+    "method": "EMAIL",
+    "contact": {},
+    "delayMin": 1,
+    "type": "LOW_PRIORITY"
+  },
+  "response": {
+    "id": 1,
+    "method": "EMAIL",
+    "contact": {},
+    "delayMin": 1,
+    "type": "LOW_PRIORITY"
+  }
+}

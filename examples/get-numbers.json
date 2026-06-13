@@ -1,0 +1,18 @@
+{
+  "summary": "List available phone numbers that ilert uses to send voice and SMS notifications",
+  "description": "",
+  "method": "GET",
+  "path": "/numbers",
+  "parameters": {},
+  "request_body": null,
+  "response": [
+    {
+      "countryCode": "string",
+      "phoneNumber": "string",
+      "supportsInboundSms": true,
+      "types": [
+        "SMS"
+      ]
+    }
+  ]
+}

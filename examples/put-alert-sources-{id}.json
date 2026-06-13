@@ -1,0 +1,35 @@
+{
+  "summary": "Update an existing alert source.",
+  "description": "",
+  "method": "PUT",
+  "path": "/alert-sources/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "id": 1,
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "name": "string",
+    "iconUrl": "string",
+    "lightIconUrl": "string",
+    "darkIconUrl": "string"
+  },
+  "response": {
+    "id": 1,
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "name": "string",
+    "iconUrl": "string",
+    "lightIconUrl": "string",
+    "darkIconUrl": "string"
+  }
+}

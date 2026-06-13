@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/Event",
+  "title": "Event",
+  "required": [
+    "integrationKey",
+    "eventType",
+    "summary"
+  ],
+  "type": "object",
+  "properties": {
+    "integrationKey": {
+      "type": "string"
+    },
+    "eventType": {
+      "type": "string",
+      "description": "the event type",
+      "enum": [
+        "ALERT",
+        "ACCEPT",
+        "RESOLVE",
+        "COMMENT"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "description": "The event summary. Will be used as the alert summary if a new alert will be created."
+    },
+    "details": {
+      "type": "string",
+      "description": "The event details. Will be used as the alert details if a new alert will be created."
+    },
+    "alertKey": {
+      "type": "string",
+      "description": "Used to deduplicate events. If an open alert with the key already exists, the event will be appended to the alert's event log. Otherwise a new alert will be created. We will trim this value if necessary. Upper casing is allowed, however comparison is case insensitive."
+    },
+    "priority": {
+      "$ref": "#/components/schemas/AlertPriority"
+    },
+    "severity": {
+      "maximum": 5,
+      "minimum": 1,
+      "type": "integer",
+      "format": "int32",
+      "description": "Optional severity in range 1..5. Will overwrite the evaluated severity of the alert source."
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/EventImage"
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/EventLink"
+      }
+    },
+    "comments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/EventComment"
+      }
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Optional key/value labels that are attached to the alert."
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/EventServiceRef"
+      },
+      "description": "Optional list of service refs. Usually pass alias; id is optional for rare edge cases."
+    },
+    "customDetails": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "routingKey": {
+      "type": "string",
+      "description": "Optional routing key that overwrites the escalation policy of the alert source for ALERT events. Must map to routingKey of escalation policy"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/CallFlowNodeMetadata",
+  "title": "CallFlowNodeMetadata",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/CallFlowNodeMetadataAudioMessage"
+    },
+    {
+      "$ref": "#/components/schemas/CallFlowNodeMetadataIvrMenu"
+    },
+    {
+      "$ref": "#/components/schemas/CallFlowNodeMetadataVoicemail"
+    },
+    {
+      "$ref": "#/components/schemas/CallFlowNodeMetadataPinCode"
+    },
+    {
+      "$ref": "#/components/schemas/CallFlowNodeMetadataSupportHours"
+    },
+    {
+      "$ref": "#/components/schemas/CallFlowNodeMetadataRouteCall"
+    },
+    {
+      "$ref": "#/components/schemas/CallFlowNodeMetadataCreateAlert"
+    },
+    {
+      "$ref": "#/components/schemas/CallFlowNodeMetadataBlockNumbers"
+    },
+    {
+      "$ref": "#/components/schemas/CallFlowNodeMetadataAgentic"
+    }
+  ]
+}

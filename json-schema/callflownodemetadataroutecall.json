@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/CallFlowNodeMetadataRouteCall",
+  "title": "CallFlowNodeMetadataRouteCall",
+  "type": "object",
+  "required": [
+    "targets"
+  ],
+  "properties": {
+    "holdAudioUrl": {
+      "type": "string"
+    },
+    "targets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CallFlowNodeMetadataCallTarget"
+      }
+    },
+    "callStyle": {
+      "type": "string",
+      "enum": [
+        "ORDERED",
+        "RANDOM",
+        "PARALLEL"
+      ]
+    },
+    "retries": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "callTimeoutSec": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

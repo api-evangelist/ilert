@@ -1,0 +1,21 @@
+{
+  "summary": "Get a specific status page.",
+  "description": "",
+  "method": "GET",
+  "path": "/status-pages/{id}",
+  "parameters": {
+    "id": 1.0,
+    "include": [
+      "subscribed"
+    ]
+  },
+  "request_body": null,
+  "response": {
+    "id": 1.0,
+    "name": "string",
+    "domain": "string",
+    "subdomain": "string",
+    "timezone": "Europe/Berlin",
+    "faviconUrl": "string"
+  }
+}

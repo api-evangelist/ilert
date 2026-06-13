@@ -1,0 +1,24 @@
+{
+  "summary": "Get notifications for the specified alert.",
+  "description": "",
+  "method": "GET",
+  "path": "/alerts/{id}/notifications",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "method": "PUSH",
+      "target": "string",
+      "subject": "string",
+      "alertId": 1,
+      "user": {
+        "id": 1,
+        "firstname": "string",
+        "lastname": "string"
+      }
+    }
+  ]
+}

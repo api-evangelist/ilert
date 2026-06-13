@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/IncidentNoIncludes",
+  "title": "IncidentNoIncludes",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/components/schemas/IncidentStatus"
+    },
+    "message": {
+      "type": "string"
+    },
+    "sendNotification": {
+      "type": "boolean"
+    },
+    "createdAt": {
+      "type": "string",
+      "description": "May be overwritten during the creation of the incident, otherwise read-only",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "description": "May be overwritten during the creation of the incident, otherwise read-only",
+      "format": "date-time"
+    },
+    "affectedServices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "impact": {
+            "$ref": "#/components/schemas/ServiceStatus"
+          },
+          "service": {
+            "$ref": "#/components/schemas/ServiceNoIncludes"
+          }
+        }
+      }
+    },
+    "resolvedOn": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    }
+  }
+}

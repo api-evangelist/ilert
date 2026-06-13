@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/MetricDataSourcePost",
+  "title": "MetricDataSourcePost",
+  "required": [
+    "metadata",
+    "name",
+    "type"
+  ],
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "#/components/schemas/MetricDataSourceType"
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamRel"
+      }
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/MetricDataSourceMetadata"
+    }
+  }
+}

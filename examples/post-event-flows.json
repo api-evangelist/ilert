@@ -1,0 +1,45 @@
+{
+  "summary": "Create a new event flow.",
+  "description": "",
+  "method": "POST",
+  "path": "/event-flows",
+  "parameters": {},
+  "request_body": {
+    "id": 1,
+    "name": "string",
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "root": {
+      "id": 1,
+      "name": "string",
+      "nodeType": "ROOT",
+      "metadata": null,
+      "branches": [
+        null
+      ]
+    }
+  },
+  "response": {
+    "id": 1,
+    "name": "string",
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "root": {
+      "id": 1,
+      "name": "string",
+      "nodeType": "ROOT",
+      "metadata": null,
+      "branches": [
+        null
+      ]
+    }
+  }
+}

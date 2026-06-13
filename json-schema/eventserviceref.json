@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/EventServiceRef",
+  "title": "EventServiceRef",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Optional service id for rare edge cases. Prefer alias."
+    },
+    "alias": {
+      "type": "string",
+      "description": "Service alias (preferred)."
+    }
+  }
+}

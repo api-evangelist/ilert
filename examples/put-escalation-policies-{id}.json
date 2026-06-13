@@ -1,0 +1,53 @@
+{
+  "summary": "Update an existing escalation policy.",
+  "description": "",
+  "method": "PUT",
+  "path": "/escalation-policies/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "id": 1,
+    "name": "string",
+    "escalationRules": [
+      {
+        "escalationTimeout": null,
+        "user": null,
+        "schedule": null,
+        "team": null,
+        "users": null,
+        "schedules": null
+      }
+    ],
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "repeating": true,
+    "frequency": 1
+  },
+  "response": {
+    "id": 1,
+    "name": "string",
+    "escalationRules": [
+      {
+        "escalationTimeout": null,
+        "user": null,
+        "schedule": null,
+        "team": null,
+        "users": null,
+        "schedules": null
+      }
+    ],
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "repeating": true,
+    "frequency": 1
+  }
+}

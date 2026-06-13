@@ -1,0 +1,33 @@
+{
+  "summary": "Create a new team.",
+  "description": "",
+  "method": "POST",
+  "path": "/teams",
+  "parameters": {},
+  "request_body": {
+    "id": 1,
+    "name": "string",
+    "visibility": "PUBLIC",
+    "members": [
+      {
+        "user": null,
+        "role": null
+      }
+    ],
+    "createdAt": "string",
+    "updatedAt": "string"
+  },
+  "response": {
+    "id": 1,
+    "name": "string",
+    "visibility": "PUBLIC",
+    "members": [
+      {
+        "user": null,
+        "role": null
+      }
+    ],
+    "createdAt": "string",
+    "updatedAt": "string"
+  }
+}

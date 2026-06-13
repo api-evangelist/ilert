@@ -1,0 +1,21 @@
+{
+  "summary": "Get the alert with the specified id.",
+  "description": "",
+  "method": "GET",
+  "path": "/alerts/{id}",
+  "parameters": {
+    "id": 1.0,
+    "include": [
+      "escalationRules"
+    ]
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "summary": "string",
+    "details": "string",
+    "reportTime": "string",
+    "resolvedOn": "string",
+    "status": "PENDING"
+  }
+}

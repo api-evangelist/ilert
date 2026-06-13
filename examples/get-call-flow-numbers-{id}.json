@@ -1,0 +1,23 @@
+{
+  "summary": "Get a specific call flow number.",
+  "description": "",
+  "method": "GET",
+  "path": "/call-flow-numbers/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "name": "string",
+    "state": "AVAILABLE",
+    "phoneNumber": {
+      "regionCode": "string",
+      "number": "string"
+    },
+    "assignedTo": {
+      "id": 1,
+      "name": "string"
+    }
+  }
+}

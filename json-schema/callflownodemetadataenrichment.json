@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/CallFlowNodeMetadataEnrichment",
+  "title": "CallFlowNodeMetadataEnrichment",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean"
+    },
+    "informationTypes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "INCIDENT",
+          "MAINTENANCE",
+          "SERVICE_STATUS"
+        ]
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CallFlowNodeMetadataEnrichmentSource"
+      }
+    }
+  }
+}

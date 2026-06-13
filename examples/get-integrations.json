@@ -1,0 +1,21 @@
+{
+  "summary": "List available inbound and outbound integrations. Note: this resource is paginated.",
+  "description": "",
+  "method": "GET",
+  "path": "/integrations",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": "string",
+      "name": "string",
+      "type": "INBOUND",
+      "iconUrl": "string",
+      "documentationUrl": "string",
+      "integrationPath": "string"
+    }
+  ]
+}

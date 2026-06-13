@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/AlertPriorityRule",
+  "title": "AlertPriorityRule",
+  "type": "string",
+  "enum": [
+    "HIGH",
+    "LOW",
+    "HIGH_DURING_SUPPORT_HOURS",
+    "LOW_DURING_SUPPORT_HOURS"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "summary": "Delete the user's specified notification preferences update",
+  "description": "",
+  "method": "DELETE",
+  "path": "/users/{user-id}/notification-preferences/updates/{id}",
+  "parameters": {
+    "user-id": "string",
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": null
+}

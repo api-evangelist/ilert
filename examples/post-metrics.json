@@ -1,0 +1,23 @@
+{
+  "summary": "Create a new metric.",
+  "description": "",
+  "method": "POST",
+  "path": "/metrics",
+  "parameters": {},
+  "request_body": {
+    "name": "string",
+    "description": "string",
+    "aggregationType": "AVG",
+    "displayType": "GRAPH",
+    "interpolateGaps": true,
+    "lockYAxisMax": 1.0
+  },
+  "response": {
+    "id": 1.0,
+    "name": "string",
+    "description": "string",
+    "aggregationType": "AVG",
+    "displayType": "GRAPH",
+    "interpolateGaps": true
+  }
+}

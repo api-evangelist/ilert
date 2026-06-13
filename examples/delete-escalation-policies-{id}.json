@@ -1,0 +1,11 @@
+{
+  "summary": "Delete the specified escalation policy.",
+  "description": "",
+  "method": "DELETE",
+  "path": "/escalation-policies/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": null
+}

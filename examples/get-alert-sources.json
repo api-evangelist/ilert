@@ -1,0 +1,23 @@
+{
+  "summary": "List alert sources.",
+  "description": "",
+  "method": "GET",
+  "path": "/alert-sources",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "teams": [
+        null
+      ],
+      "name": "string",
+      "iconUrl": "string",
+      "lightIconUrl": "string",
+      "darkIconUrl": "string"
+    }
+  ]
+}

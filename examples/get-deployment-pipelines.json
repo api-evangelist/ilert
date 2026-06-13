@@ -1,0 +1,23 @@
+{
+  "summary": "Get deployment pipelines",
+  "description": "",
+  "method": "GET",
+  "path": "/deployment-pipelines",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "name": "string",
+      "integrationType": "string",
+      "integrationKey": "string",
+      "teams": [
+        null
+      ],
+      "createdAt": "string"
+    }
+  ]
+}

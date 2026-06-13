@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/CallFlowNodeMetadataCode",
+  "title": "CallFlowNodeMetadataCode",
+  "type": "object",
+  "required": [
+    "label"
+  ],
+  "properties": {
+    "code": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}

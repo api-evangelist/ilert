@@ -1,0 +1,18 @@
+{
+  "summary": "Get specific phone number",
+  "description": "",
+  "method": "GET",
+  "path": "/users/{user-id}/contacts/phone-numbers/{id}",
+  "parameters": {
+    "user-id": "string",
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "regionCode": "string",
+    "target": "string",
+    "primary": true,
+    "status": "OK"
+  }
+}

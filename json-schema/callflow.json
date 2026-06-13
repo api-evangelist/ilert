@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/CallFlow",
+  "title": "CallFlow",
+  "type": "object",
+  "required": [
+    "name",
+    "language",
+    "root"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "de",
+        "en"
+      ]
+    },
+    "assignedNumber": {
+      "$ref": "#/components/schemas/CallFlowNumber"
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamRel"
+      }
+    },
+    "root": {
+      "$ref": "#/components/schemas/CallFlowNode"
+    }
+  }
+}

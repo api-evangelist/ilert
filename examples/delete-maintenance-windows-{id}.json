@@ -1,0 +1,11 @@
+{
+  "summary": "Delete the specified maintenance window.",
+  "description": "",
+  "method": "DELETE",
+  "path": "/maintenance-windows/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": null
+}

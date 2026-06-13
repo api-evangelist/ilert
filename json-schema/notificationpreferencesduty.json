@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/NotificationPreferencesDuty",
+  "title": "NotificationPreferencesDuty",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "beforeMin": {
+      "$ref": "#/components/schemas/NotificationPreferencesDutyBeforeMin"
+    },
+    "contact": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ContactPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/ContactEmail"
+        }
+      ]
+    },
+    "method": {
+      "$ref": "#/components/schemas/NotificationPreferenceDutyMethod"
+    },
+    "type": {
+      "$ref": "#/components/schemas/NotificationPreferencesDutyTypes"
+    }
+  }
+}

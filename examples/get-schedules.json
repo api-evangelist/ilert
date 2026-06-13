@@ -1,0 +1,28 @@
+{
+  "summary": "List on-call schedules.",
+  "description": "",
+  "method": "GET",
+  "path": "/schedules",
+  "parameters": {
+    "include": [
+      "scheduleLayers"
+    ],
+    "start-index": 1,
+    "max-results": 1
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "name": "string",
+      "timezone": "Europe/Berlin",
+      "type": "STATIC",
+      "scheduleLayers": [
+        null
+      ],
+      "shifts": [
+        null
+      ]
+    }
+  ]
+}

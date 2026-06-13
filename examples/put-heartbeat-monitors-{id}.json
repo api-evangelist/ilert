@@ -1,0 +1,25 @@
+{
+  "summary": "Update an existing heartbeat monitor.",
+  "description": "ATTENTION: changing 'intervalSec' will regenerate the 'integrationKey', you will have to update your monitoring integrations.",
+  "method": "PUT",
+  "path": "/heartbeat-monitors/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "name": "string",
+    "intervalSec": 1,
+    "alertSummary": "string",
+    "alertSource": {
+      "id": 1
+    }
+  },
+  "response": {
+    "id": 1,
+    "name": "string",
+    "state": "UNKNOWN",
+    "intervalSec": 1,
+    "alertSummary": "string",
+    "createdAt": "string"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "summary": "Delete the on-call schedule with the specified id.",
+  "description": "",
+  "method": "DELETE",
+  "path": "/schedules/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": null
+}

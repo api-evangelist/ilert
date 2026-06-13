@@ -1,0 +1,23 @@
+{
+  "summary": "Create a new incident.",
+  "description": "Note: depending on affected services this will publish notifications to subscribers. Use /publish-info to forecast notifications.",
+  "method": "POST",
+  "path": "/incidents",
+  "parameters": {},
+  "request_body": {
+    "id": 1.0,
+    "summary": "string",
+    "status": "INVESTIGATING",
+    "message": "string",
+    "sendNotification": true,
+    "createdAt": "string"
+  },
+  "response": {
+    "id": 1.0,
+    "summary": "string",
+    "status": "INVESTIGATING",
+    "message": "string",
+    "sendNotification": true,
+    "createdAt": "string"
+  }
+}

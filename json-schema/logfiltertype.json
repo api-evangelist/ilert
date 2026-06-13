@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/LogFilterType",
+  "title": "LogFilterType",
+  "type": "string",
+  "enum": [
+    "NOTIFICATIONS",
+    "ALERT_SOURCE_EVENTS",
+    "CALL_ROUTING_EVENTS",
+    "ALERT_UPDATES",
+    "CONNECTOR_EVENTS"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/Schedule",
+  "title": "Schedule",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "timezone": {
+      "$ref": "#/components/schemas/TimeZone"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "STATIC",
+        "RECURRING"
+      ]
+    },
+    "scheduleLayers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ScheduleLayerConfig"
+      }
+    },
+    "shifts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ShiftRel"
+      }
+    },
+    "showGaps": {
+      "type": "boolean"
+    },
+    "defaultShiftDuration": {
+      "type": "string",
+      "format": "P7D"
+    },
+    "currentShift": {
+      "$ref": "#/components/schemas/ShiftRel"
+    },
+    "nextShift": {
+      "$ref": "#/components/schemas/ShiftRel"
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamRel"
+      }
+    }
+  }
+}

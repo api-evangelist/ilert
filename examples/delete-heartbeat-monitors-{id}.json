@@ -1,0 +1,11 @@
+{
+  "summary": "Delete the specified heartbeat monitor.",
+  "description": "",
+  "method": "DELETE",
+  "path": "/heartbeat-monitors/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": null
+}

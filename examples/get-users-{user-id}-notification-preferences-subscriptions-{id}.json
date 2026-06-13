@@ -1,0 +1,16 @@
+{
+  "summary": "Get specific notification preferences subscription",
+  "description": "",
+  "method": "GET",
+  "path": "/users/{user-id}/notification-preferences/subscriptions/{id}",
+  "parameters": {
+    "user-id": "string",
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "contact": {},
+    "method": "EMAIL"
+  }
+}

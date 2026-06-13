@@ -1,0 +1,27 @@
+{
+  "summary": "Get available actions for specified alert.",
+  "description": "",
+  "method": "GET",
+  "path": "/alerts/{id}/actions",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "alertActionId": "string",
+    "connectorId": "string",
+    "type": "string",
+    "name": "string",
+    "iconUrl": "string",
+    "history": [
+      {
+        "id": null,
+        "alertActionId": null,
+        "connectorId": null,
+        "alertId": null,
+        "success": null,
+        "actor": null
+      }
+    ]
+  }
+}

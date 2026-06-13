@@ -1,0 +1,11 @@
+{
+  "summary": "Delete a specific Metric Data Source",
+  "description": "",
+  "method": "DELETE",
+  "path": "/metric-data-sources/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": null
+}

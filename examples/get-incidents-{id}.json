@@ -1,0 +1,21 @@
+{
+  "summary": "Get a specific incident.",
+  "description": "Note: returns an ETag header that can be send to the PUT /incidents/{id} resource as If-Match header to return a 412 Error in case any related resources e.g. Services or Incident have been updated in the mean time.",
+  "method": "GET",
+  "path": "/incidents/{id}",
+  "parameters": {
+    "id": 1.0,
+    "include": [
+      "subscribed"
+    ]
+  },
+  "request_body": null,
+  "response": {
+    "id": 1.0,
+    "summary": "string",
+    "status": "INVESTIGATING",
+    "message": "string",
+    "sendNotification": true,
+    "createdAt": "string"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/EventFlowNodeMetadata",
+  "title": "EventFlowNodeMetadata",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/EventFlowNodeMetadataSupportHours"
+    },
+    {
+      "$ref": "#/components/schemas/EventFlowNodeMetadataRouteEvent"
+    },
+    {
+      "$ref": "#/components/schemas/EventFlowNodeMetadataDefineBranches"
+    },
+    {
+      "$ref": "#/components/schemas/EventFlowNodeMetadataWait"
+    },
+    {
+      "$ref": "#/components/schemas/EventFlowNodeMetadataTransform"
+    }
+  ]
+}

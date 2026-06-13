@@ -1,0 +1,55 @@
+{
+  "summary": "Create a new on-call schedule.",
+  "description": "",
+  "method": "POST",
+  "path": "/schedules",
+  "parameters": {
+    "abort-on-gaps": true
+  },
+  "request_body": {
+    "id": 1,
+    "name": "string",
+    "timezone": "Europe/Berlin",
+    "type": "STATIC",
+    "scheduleLayers": [
+      {
+        "name": null,
+        "startsOn": null,
+        "endsOn": null,
+        "users": null,
+        "rotation": null,
+        "restrictionType": null
+      }
+    ],
+    "shifts": [
+      {
+        "user": null,
+        "end": null,
+        "start": null
+      }
+    ]
+  },
+  "response": {
+    "id": 1,
+    "name": "string",
+    "timezone": "Europe/Berlin",
+    "type": "STATIC",
+    "scheduleLayers": [
+      {
+        "name": null,
+        "startsOn": null,
+        "endsOn": null,
+        "users": null,
+        "rotation": null,
+        "restrictionType": null
+      }
+    ],
+    "shifts": [
+      {
+        "user": null,
+        "end": null,
+        "start": null
+      }
+    ]
+  }
+}

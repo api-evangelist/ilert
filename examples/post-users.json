@@ -1,0 +1,25 @@
+{
+  "summary": "Create a new user. Requires ADMIN privileges.",
+  "description": "**Sample request**\n\n```json\nRequest URL: https://api.ilert.com/api/users\n\n{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john@acme.com\",\n  \"position\": \"Software Engineer\",\n}\n```\n\n**Response**\n\n````json\n{\n  \"id\": 2188373,\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john@acme.com\",\n  \"position\": \"Software Engineer\",\n  \"timezone\": \"Europe/Berlin\",\n  \"language\": \"de\",\n  \"role\": \"RESPONDER\",\n }\n````\n",
+  "method": "POST",
+  "path": "/users",
+  "parameters": {
+    "send-no-invitation": true
+  },
+  "request_body": {
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "timezone": "Europe/Berlin",
+    "position": "string",
+    "department": "string"
+  },
+  "response": {
+    "id": 1,
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "timezone": "Europe/Berlin",
+    "position": "string"
+  }
+}

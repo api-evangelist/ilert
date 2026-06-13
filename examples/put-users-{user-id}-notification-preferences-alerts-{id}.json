@@ -1,0 +1,23 @@
+{
+  "summary": "Update a user's alert notification preference",
+  "description": "",
+  "method": "PUT",
+  "path": "/users/{user-id}/notification-preferences/alerts/{id}",
+  "parameters": {
+    "user-id": "string",
+    "id": 1.0
+  },
+  "request_body": {
+    "method": "EMAIL",
+    "contact": {},
+    "delayMin": 1,
+    "type": "LOW_PRIORITY"
+  },
+  "response": {
+    "id": 1,
+    "method": "EMAIL",
+    "contact": {},
+    "delayMin": 1,
+    "type": "LOW_PRIORITY"
+  }
+}

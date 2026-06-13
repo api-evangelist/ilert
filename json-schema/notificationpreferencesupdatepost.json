@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/NotificationPreferencesUpdatePost",
+  "title": "NotificationPreferencesUpdatePost",
+  "type": "object",
+  "properties": {
+    "contact": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/ContactPhoneNumber"
+        },
+        {
+          "$ref": "#/components/schemas/ContactEmail"
+        }
+      ]
+    },
+    "method": {
+      "$ref": "#/components/schemas/NotificationPreferenceUpdateMethod"
+    },
+    "type": {
+      "$ref": "#/components/schemas/NotificationPreferencesUpdateType"
+    }
+  }
+}

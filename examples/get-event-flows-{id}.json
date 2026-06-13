@@ -1,0 +1,29 @@
+{
+  "summary": "Get a specific event flow.",
+  "description": "",
+  "method": "GET",
+  "path": "/event-flows/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "name": "string",
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "root": {
+      "id": 1,
+      "name": "string",
+      "nodeType": "ROOT",
+      "metadata": null,
+      "branches": [
+        null
+      ]
+    }
+  }
+}

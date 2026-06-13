@@ -1,0 +1,13 @@
+{
+  "summary": "Remove subscriber (user and team) from a status page",
+  "description": "",
+  "method": "DELETE",
+  "path": "/status-pages/{id}/private-subscribers/{subscriber-id}",
+  "parameters": {
+    "id": 1.0,
+    "subscriber-id": 1.0,
+    "subscriber-type": "USER"
+  },
+  "request_body": null,
+  "response": null
+}

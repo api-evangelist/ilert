@@ -1,0 +1,31 @@
+{
+  "summary": "Get log entries for the specified alert.",
+  "description": "",
+  "method": "GET",
+  "path": "/alerts/{id}/log-entries",
+  "parameters": {
+    "id": 1.0,
+    "lang": "en",
+    "start-index": 1,
+    "max-results": 1,
+    "include": [
+      "vars"
+    ],
+    "filter-types": [
+      "NOTIFICATIONS"
+    ]
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "timestamp": "string",
+      "logEntryType": "ConnectorAutomaticResultErrorLogEntry",
+      "text": "string",
+      "alertId": 1,
+      "filterTypes": [
+        null
+      ]
+    }
+  ]
+}

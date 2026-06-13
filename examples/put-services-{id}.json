@@ -1,0 +1,25 @@
+{
+  "summary": "Update the specific service",
+  "description": "",
+  "method": "PUT",
+  "path": "/services/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "id": 1.0,
+    "name": "string",
+    "alias": "string",
+    "status": "OPERATIONAL",
+    "description": "string",
+    "oneOpenIncidentOnly": true
+  },
+  "response": {
+    "id": 1.0,
+    "name": "string",
+    "alias": "string",
+    "status": "OPERATIONAL",
+    "description": "string",
+    "oneOpenIncidentOnly": true
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "summary": "Get a user's phone numbers",
+  "description": "",
+  "method": "GET",
+  "path": "/users/{user-id}/contacts/phone-numbers",
+  "parameters": {
+    "user-id": "string"
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "regionCode": "string",
+      "target": "string",
+      "primary": true,
+      "status": "OK"
+    }
+  ]
+}

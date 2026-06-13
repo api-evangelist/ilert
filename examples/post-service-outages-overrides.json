@@ -1,0 +1,35 @@
+{
+  "summary": "Override a part of a service's outage history",
+  "description": "",
+  "method": "POST",
+  "path": "/service-outages/overrides",
+  "parameters": {},
+  "request_body": {
+    "id": "string",
+    "service": {
+      "id": 1.0,
+      "name": "string",
+      "alias": "string",
+      "status": null,
+      "description": "string",
+      "oneOpenIncidentOnly": true
+    },
+    "status": "OPERATIONAL",
+    "from": "string",
+    "until": "string"
+  },
+  "response": {
+    "id": "string",
+    "service": {
+      "id": 1.0,
+      "name": "string",
+      "alias": "string",
+      "status": null,
+      "description": "string",
+      "oneOpenIncidentOnly": true
+    },
+    "status": "OPERATIONAL",
+    "from": "string",
+    "until": "string"
+  }
+}

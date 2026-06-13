@@ -1,0 +1,15 @@
+{
+  "summary": "Add subscriber (user and team) to a status page",
+  "description": "",
+  "method": "POST",
+  "path": "/status-pages/{id}/private-subscribers",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "id": 1.0,
+    "name": "string",
+    "type": "USER"
+  },
+  "response": null
+}

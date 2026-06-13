@@ -1,0 +1,17 @@
+{
+  "summary": "Set subscribers (users and teams) of a status page",
+  "description": "Note: this is an in place update",
+  "method": "PUT",
+  "path": "/status-pages/{id}/private-subscribers",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": [
+    {
+      "id": 1.0,
+      "name": "string",
+      "type": "USER"
+    }
+  ],
+  "response": null
+}

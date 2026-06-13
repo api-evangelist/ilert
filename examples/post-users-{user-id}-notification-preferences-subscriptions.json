@@ -1,0 +1,18 @@
+{
+  "summary": "Create a subscription notification preference",
+  "description": "",
+  "method": "POST",
+  "path": "/users/{user-id}/notification-preferences/subscriptions",
+  "parameters": {
+    "user-id": "string"
+  },
+  "request_body": {
+    "contact": {},
+    "method": "EMAIL"
+  },
+  "response": {
+    "id": 1,
+    "contact": {},
+    "method": "EMAIL"
+  }
+}

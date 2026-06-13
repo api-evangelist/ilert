@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/ServiceStatus",
+  "title": "ServiceStatus",
+  "type": "string",
+  "description": "the service status",
+  "enum": [
+    "OPERATIONAL",
+    "UNDER_MAINTENANCE",
+    "DEGRADED",
+    "PARTIAL_OUTAGE",
+    "MAJOR_OUTAGE"
+  ]
+}

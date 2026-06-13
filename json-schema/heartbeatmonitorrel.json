@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/HeartbeatMonitorRel",
+  "title": "HeartbeatMonitorRel",
+  "type": "object",
+  "required": [
+    "name",
+    "intervalSec"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "intervalSec": {
+      "type": "integer",
+      "format": "int32",
+      "minimum": 25,
+      "maximum": 2678400,
+      "description": "We recommend using an interval between 3 and 5 minutes, while pinging every 60 seconds. Of course if you are tracking use-cases like backup jobs that run once a week, a larger timeout and less pings suffice."
+    },
+    "alertSummary": {
+      "type": "string"
+    },
+    "alertSource": {
+      "$ref": "#/components/schemas/SimpleIdField64"
+    }
+  }
+}

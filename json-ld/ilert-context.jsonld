@@ -1,0 +1,108 @@
+{
+  "@context": {
+    "@vocab": "https://api.ilert.com/ontology/",
+    "ilert": "https://api.ilert.com/ontology/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "Alert": "ilert:Alert",
+    "Incident": "ilert:Incident",
+    "AlertSource": "ilert:AlertSource",
+    "EscalationPolicy": "ilert:EscalationPolicy",
+    "OnCallSchedule": "ilert:OnCallSchedule",
+    "HeartbeatMonitor": "ilert:HeartbeatMonitor",
+    "StatusPage": "ilert:StatusPage",
+    "EventFlow": "ilert:EventFlow",
+    "Team": "ilert:Team",
+    "User": "ilert:User",
+    "Connector": "ilert:Connector",
+    "Metric": "ilert:Metric",
+    "DeploymentEvent": "ilert:DeploymentEvent",
+    "AlertAction": "ilert:AlertAction",
+    "SupportHours": "ilert:SupportHours",
+    "Notification": "ilert:Notification",
+    "LogEntry": "ilert:LogEntry",
+    "Service": "ilert:Service",
+    "MaintenanceWindow": "ilert:MaintenanceWindow",
+    "id": "@id",
+    "name": "schema:name",
+    "description": "schema:description",
+    "status": "ilert:status",
+    "createdAt": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "updatedAt": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "priority": "ilert:priority",
+    "summary": "schema:description",
+    "assignee": {
+      "@id": "ilert:assignee",
+      "@type": "@id"
+    },
+    "escalationPolicy": {
+      "@id": "ilert:escalationPolicy",
+      "@type": "@id"
+    },
+    "alertSource": {
+      "@id": "ilert:alertSource",
+      "@type": "@id"
+    },
+    "team": {
+      "@id": "ilert:team",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "ilert:Alert",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Alert",
+      "rdfs:comment": "An alert notification in the ilert platform representing an issue requiring attention"
+    },
+    {
+      "@id": "ilert:Incident",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Incident",
+      "rdfs:comment": "An operational incident tracked through ilert incident management"
+    },
+    {
+      "@id": "ilert:AlertSource",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Alert Source",
+      "rdfs:comment": "A configured integration source that generates alerts in ilert"
+    },
+    {
+      "@id": "ilert:EscalationPolicy",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Escalation Policy",
+      "rdfs:comment": "Rules defining how alerts escalate through teams and individuals"
+    },
+    {
+      "@id": "ilert:OnCallSchedule",
+      "@type": "rdfs:Class",
+      "rdfs:label": "On-Call Schedule",
+      "rdfs:comment": "A schedule defining on-call rotations for team members"
+    },
+    {
+      "@id": "ilert:HeartbeatMonitor",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Heartbeat Monitor",
+      "rdfs:comment": "A monitor that triggers alerts when expected heartbeat signals are missed"
+    },
+    {
+      "@id": "ilert:StatusPage",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Status Page",
+      "rdfs:comment": "A public or private status page communicating service health"
+    },
+    {
+      "@id": "ilert:DeploymentEvent",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Deployment Event",
+      "rdfs:comment": "A deployment event tracked to correlate releases with incidents"
+    }
+  ]
+}

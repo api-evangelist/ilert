@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/ServiceOutageOverride",
+  "title": "ServiceOutageOverride",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "service": {
+      "$ref": "#/components/schemas/ServiceNoIncludes"
+    },
+    "status": {
+      "$ref": "#/components/schemas/ServiceStatus"
+    },
+    "from": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "until": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "summary": "Create a new maintenance window.",
+  "description": "",
+  "method": "POST",
+  "path": "/maintenance-windows",
+  "parameters": {},
+  "request_body": {
+    "timezone": "Europe/Berlin",
+    "start": "string",
+    "end": "string",
+    "summary": "string",
+    "description": "string",
+    "alertSources": [
+      {
+        "id": null,
+        "teams": null,
+        "name": null,
+        "iconUrl": null,
+        "lightIconUrl": null,
+        "darkIconUrl": null
+      }
+    ]
+  },
+  "response": {
+    "timezone": "Europe/Berlin",
+    "start": "string",
+    "end": "string",
+    "summary": "string",
+    "description": "string",
+    "alertSources": [
+      {
+        "id": null,
+        "teams": null,
+        "name": null,
+        "iconUrl": null,
+        "lightIconUrl": null,
+        "darkIconUrl": null
+      }
+    ]
+  }
+}

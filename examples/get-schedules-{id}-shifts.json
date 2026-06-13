@@ -1,0 +1,27 @@
+{
+  "summary": "Get shifts for the specified schedule and date range.",
+  "description": "",
+  "method": "GET",
+  "path": "/schedules/{id}/shifts",
+  "parameters": {
+    "id": 1.0,
+    "from": "string",
+    "until": "string",
+    "exclude-overrides": true
+  },
+  "request_body": null,
+  "response": [
+    {
+      "user": {
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "email": null,
+        "timezone": null,
+        "position": null
+      },
+      "end": "string",
+      "start": "string"
+    }
+  ]
+}

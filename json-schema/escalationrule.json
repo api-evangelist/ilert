@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/EscalationRule",
+  "title": "EscalationRule",
+  "required": [
+    "escalationTimeout"
+  ],
+  "type": "object",
+  "properties": {
+    "escalationTimeout": {
+      "type": "integer"
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        }
+      },
+      "description": "This field (type: User) is deprecated, please use 'users' instead"
+    },
+    "schedule": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        }
+      },
+      "description": "This field (type: Schedule) is deprecated, please use 'schedules' instead"
+    },
+    "team": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        }
+      },
+      "description": "This field (type: Team) is deprecated, please use 'teams' instead"
+    },
+    "users": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/UserRel"
+      }
+    },
+    "schedules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ScheduleRel"
+      }
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamRel"
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/DeploymentPipeline",
+  "title": "DeploymentPipeline",
+  "type": "object",
+  "required": [
+    "name",
+    "integrationType"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "integrationType": {
+      "type": "string"
+    },
+    "integrationKey": {
+      "type": "string"
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamRel"
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "params": {
+      "$ref": "#/components/schemas/DeploymentPipelineParams"
+    },
+    "integrationUrl": {
+      "type": "string"
+    }
+  }
+}

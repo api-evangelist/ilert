@@ -1,0 +1,25 @@
+{
+  "summary": "List existing call flows.",
+  "description": "Returns a shallow list of call flows without the full node tree. Use the single resource endpoint to retrieve the complete call flow including all nodes and branches.",
+  "method": "GET",
+  "path": "/call-flows",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "name": "string",
+      "assignedNumber": {
+        "id": null,
+        "name": null,
+        "phoneNumber": null
+      },
+      "teams": [
+        null
+      ]
+    }
+  ]
+}

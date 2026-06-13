@@ -1,0 +1,38 @@
+{
+  "summary": "List alerts (optionally matching certain criteria that are specified by query parameters).",
+  "description": "**Sample URLs**\n* List only alerts that are either in state `PENDING` or `ACCEPTED`: <br /> https://api.ilert.com/api/alerts?states=PENDING&states=ACCEPTED\n* List only alerts that belong to the alert source with ID `1243` or `1743` and where user `jd` is a responder: <br />\n  https://api.ilert.com/api/alerts?sources=1243&sources=1743&responders=jd\n* Paginate first batch for a range of alerts (note: query parameters should be url encoded): <br />\n https://api.ilert.com/api/alerts?start-index=0&max-results=100&from=2021-03-01T21:24:56.771Z&until=2021-04-01T21:24:56.771Z\n* Fetch next page, assuming equal to max-results were returned: <br/>\n https://api.ilert.com/api/alerts?start-index=100&max-results=100&from=2021-03-01T21:24:56.771Z&until=2021-04-01T21:24:56.771Z\n* Pagination should be done based on the `reportTime` field using the parameters `from` and `until` as well as `start-index`. When building a local alert state store the `id` field should be used as identifier. The `alertKey` field is not suitable for this, as it is used to group related alerts to each other.",
+  "method": "GET",
+  "path": "/alerts",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1,
+    "include": [
+      "nextEscalationUser"
+    ],
+    "states": [
+      "PENDING"
+    ],
+    "sources": [
+      1
+    ],
+    "policies": [
+      1
+    ],
+    "responders": [
+      "string"
+    ],
+    "from": "string",
+    "until": "string"
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "summary": "string",
+      "details": "string",
+      "reportTime": "string",
+      "resolvedOn": "string",
+      "status": "PENDING"
+    }
+  ]
+}

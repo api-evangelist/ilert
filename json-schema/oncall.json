@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/OnCall",
+  "title": "OnCall",
+  "type": "object",
+  "properties": {
+    "user": {
+      "$ref": "#/components/schemas/User"
+    },
+    "escalationPolicy": {
+      "$ref": "#/components/schemas/EscalationPolicy"
+    },
+    "schedule": {
+      "$ref": "#/components/schemas/ScheduleRel"
+    },
+    "start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "escalationLevel": {
+      "type": "number"
+    }
+  }
+}

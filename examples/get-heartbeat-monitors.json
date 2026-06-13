@@ -1,0 +1,24 @@
+{
+  "summary": "List heartbeat monitors.",
+  "description": "This resource uses a 'cursor' to paginate. 'start-index' has no effect here.",
+  "method": "GET",
+  "path": "/heartbeat-monitors",
+  "parameters": {
+    "cursor": "string",
+    "max-results": 1,
+    "include": [
+      "integrationKey"
+    ]
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "name": "string",
+      "state": "UNKNOWN",
+      "intervalSec": 1,
+      "alertSummary": "string",
+      "createdAt": "string"
+    }
+  ]
+}

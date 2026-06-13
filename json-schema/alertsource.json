@@ -1,0 +1,180 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/AlertSource",
+  "title": "AlertSource",
+  "required": [
+    "escalationPolicy",
+    "integrationType",
+    "name"
+  ],
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamRel"
+      }
+    },
+    "name": {
+      "type": "string"
+    },
+    "iconUrl": {
+      "type": "string"
+    },
+    "lightIconUrl": {
+      "type": "string"
+    },
+    "darkIconUrl": {
+      "type": "string"
+    },
+    "escalationPolicy": {
+      "$ref": "#/components/schemas/EscalationPolicy"
+    },
+    "integrationType": {
+      "$ref": "#/components/schemas/IntegrationType"
+    },
+    "integrationKey": {
+      "type": "string"
+    },
+    "integrationUrl": {
+      "type": "string",
+      "readOnly": true
+    },
+    "autoResolutionTimeout": {
+      "type": "string",
+      "format": "ISO-8601"
+    },
+    "alertGroupingWindow": {
+      "type": "string",
+      "format": "ISO-8601"
+    },
+    "alertCreation": {
+      "type": "string",
+      "default": "ONE_ALERT_PER_EMAIL",
+      "enum": [
+        "ONE_ALERT_PER_EMAIL",
+        "ONE_ALERT_PER_EMAIL_SUBJECT",
+        "ONE_PENDING_ALERT_ALLOWED",
+        "ONE_OPEN_ALERT_ALLOWED",
+        "OPEN_RESOLVE_ON_EXTRACTION",
+        "ONE_ALERT_GROUPED_PER_WINDOW",
+        "INTELLIGENT_GROUPING"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "readOnly": true,
+      "enum": [
+        "PENDING",
+        "ALL_ACCEPTED",
+        "ALL_RESOLVED",
+        "IN_MAINTENANCE",
+        "DISABLED"
+      ]
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "alertPriorityRule": {
+      "$ref": "#/components/schemas/AlertPriorityRule"
+    },
+    "supportHours": {
+      "$ref": "#/components/schemas/SupportHour"
+    },
+    "bidirectional": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "summaryTemplate": {
+      "$ref": "#/components/schemas/AlertSourceTemplate"
+    },
+    "detailsTemplate": {
+      "$ref": "#/components/schemas/AlertSourceTemplate"
+    },
+    "routingTemplate": {
+      "$ref": "#/components/schemas/AlertSourceTemplate"
+    },
+    "linkTemplates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AlertSourceLinkTemplate"
+      }
+    },
+    "priorityTemplate": {
+      "$ref": "#/components/schemas/AlertSourcePriorityTemplate"
+    },
+    "severityTemplate": {
+      "$ref": "#/components/schemas/AlertSourceSeverityTemplate"
+    },
+    "eventFilter": {
+      "type": "string",
+      "description": "Defines an optional event filter condition in ICL language. This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists."
+    },
+    "alertKeyTemplate": {
+      "$ref": "#/components/schemas/AlertSourceTemplate"
+    },
+    "servicesTemplate": {
+      "type": "array",
+      "description": "Optional list of templates that extract service identifiers from the inbound event payload. Each rendered value is comma-split, and each resulting token is resolved against the tenant's services by alias or name (case-insensitive). Unmatched tokens are silently dropped. Capped at 10 templates and at the alert's per-event services limit. Note: this field is an ?include, it will not appear in lists.",
+      "items": {
+        "$ref": "#/components/schemas/AlertSourceTemplate"
+      }
+    },
+    "eventTypeFilterCreate": {
+      "type": "string",
+      "description": "Defines an optional create alert rule in ICL language. This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists."
+    },
+    "eventTypeFilterAccept": {
+      "type": "string",
+      "description": "Defines an optional accept alert rule in ICL language This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists."
+    },
+    "eventTypeFilterResolve": {
+      "type": "string",
+      "description": "Defines an optional resolve alert rule in ICL language This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists."
+    },
+    "autoRaiseAlerts": {
+      "type": "boolean",
+      "description": "Only effective when a support hour is linked to this alert source."
+    },
+    "scoreThreshold": {
+      "type": "number",
+      "format": "double",
+      "description": "Only used when alertCreation is set to INTELLIGENT_GROUPING."
+    },
+    "severity": {
+      "type": "integer"
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Service"
+      }
+    },
+    "setupStatus": {
+      "type": "string",
+      "enum": [
+        "CREATED",
+        "CREATED_ADVANCED",
+        "CREATED_BIDIRECTIONAL",
+        "FINISHED"
+      ]
+    },
+    "autoCreateServices": {
+      "type": "boolean",
+      "default": false
+    },
+    "createdAt": {
+      "type": "string",
+      "readOnly": true
+    },
+    "updatedAt": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/ConnectorType",
+  "title": "ConnectorType",
+  "type": "string",
+  "enum": [
+    "jira",
+    "microsoft_teams_bot",
+    "servicenow",
+    "slack",
+    "zendesk",
+    "discord",
+    "github",
+    "topdesk",
+    "zammad",
+    "mattermost",
+    "zoom_chat",
+    "dingtalk",
+    "dynamic",
+    "zabbix",
+    "autotask",
+    "google_chat_bot"
+  ]
+}

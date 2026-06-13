@@ -1,0 +1,17 @@
+{
+  "summary": "Add a group to a status page",
+  "description": "",
+  "method": "POST",
+  "path": "/status-pages/{id}/groups",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "id": 1.0,
+    "name": "string"
+  },
+  "response": {
+    "id": 1.0,
+    "name": "string"
+  }
+}

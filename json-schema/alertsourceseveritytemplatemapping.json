@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/AlertSourceSeverityTemplateMapping",
+  "title": "AlertSourceSeverityTemplateMapping",
+  "required": [
+    "severity",
+    "value"
+  ],
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

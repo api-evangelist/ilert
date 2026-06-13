@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/EscalationPolicy",
+  "title": "EscalationPolicy",
+  "required": [
+    "escalationRules",
+    "name"
+  ],
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "escalationRules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/EscalationRule"
+      }
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamRel"
+      }
+    },
+    "repeating": {
+      "type": "boolean",
+      "default": false
+    },
+    "frequency": {
+      "maximum": 9,
+      "minimum": 1,
+      "type": "integer",
+      "format": "int32",
+      "default": 1
+    },
+    "delayMin": {
+      "maximum": 15,
+      "minimum": 0,
+      "type": "integer",
+      "format": "int32",
+      "default": 0
+    },
+    "routingKey": {
+      "type": "string",
+      "description": "optional"
+    }
+  }
+}

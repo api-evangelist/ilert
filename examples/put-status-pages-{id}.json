@@ -1,0 +1,25 @@
+{
+  "summary": "Update the specific status page",
+  "description": "",
+  "method": "PUT",
+  "path": "/status-pages/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "id": 1.0,
+    "name": "string",
+    "domain": "string",
+    "subdomain": "string",
+    "timezone": "Europe/Berlin",
+    "faviconUrl": "string"
+  },
+  "response": {
+    "id": 1.0,
+    "name": "string",
+    "domain": "string",
+    "subdomain": "string",
+    "timezone": "Europe/Berlin",
+    "faviconUrl": "string"
+  }
+}

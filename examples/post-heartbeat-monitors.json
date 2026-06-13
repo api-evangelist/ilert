@@ -1,0 +1,27 @@
+{
+  "summary": "Create a new heartbeat monitor.",
+  "description": "The 'integrationKey' field cannot be set as it is generated automatically. Note: if you are building installation scripts for your hosts, you may send deterministic names and ?include=integrationUrl to still return the 'response.body.integrationUrl' field on 409 (already existing resource) conflict responses. This allows you to run installations with a simple single POST request.",
+  "method": "POST",
+  "path": "/heartbeat-monitors",
+  "parameters": {
+    "include": [
+      "integrationKey"
+    ]
+  },
+  "request_body": {
+    "name": "string",
+    "intervalSec": 1,
+    "alertSummary": "string",
+    "alertSource": {
+      "id": 1
+    }
+  },
+  "response": {
+    "id": 1,
+    "name": "string",
+    "state": "UNKNOWN",
+    "intervalSec": 1,
+    "alertSummary": "string",
+    "createdAt": "string"
+  }
+}

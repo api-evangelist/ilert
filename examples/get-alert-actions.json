@@ -1,0 +1,25 @@
+{
+  "summary": "Get alert actions.",
+  "description": "",
+  "method": "GET",
+  "path": "/alert-actions",
+  "parameters": {
+    "source": 1.0,
+    "connector": "string",
+    "start-index": 1,
+    "max-results": 1
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": "string",
+      "alertSources": [
+        null
+      ],
+      "connectorId": "string",
+      "connectorType": "autotask",
+      "name": "string",
+      "createdAt": "string"
+    }
+  ]
+}

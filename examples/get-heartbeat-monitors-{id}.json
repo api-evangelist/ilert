@@ -1,0 +1,21 @@
+{
+  "summary": "Get the heartbeat monitor with specified id.",
+  "description": "",
+  "method": "GET",
+  "path": "/heartbeat-monitors/{id}",
+  "parameters": {
+    "id": "string",
+    "include": [
+      "integrationKey"
+    ]
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "name": "string",
+    "state": "UNKNOWN",
+    "intervalSec": 1,
+    "alertSummary": "string",
+    "createdAt": "string"
+  }
+}

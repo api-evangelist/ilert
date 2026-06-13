@@ -1,0 +1,18 @@
+{
+  "summary": "Update a user's email",
+  "description": "",
+  "method": "PUT",
+  "path": "/users/{user-id}/contacts/emails/{id}",
+  "parameters": {
+    "user-id": "string",
+    "id": 1.0
+  },
+  "request_body": {
+    "target": "string"
+  },
+  "response": {
+    "id": 1,
+    "target": "string",
+    "status": "OK"
+  }
+}

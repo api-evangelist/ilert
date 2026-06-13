@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/AlertActionType",
+  "title": "AlertActionType",
+  "type": "string",
+  "enum": [
+    "autotask",
+    "jira",
+    "microsoft_teams_bot",
+    "microsoft_teams_webhook",
+    "servicenow",
+    "slack",
+    "slack_webhook",
+    "webhook",
+    "zendesk",
+    "discord",
+    "github",
+    "topdesk",
+    "email",
+    "zapier",
+    "zammad",
+    "mattermost",
+    "zoom_chat",
+    "dingtalk",
+    "aws_event_bridge",
+    "dynamic",
+    "zabbix",
+    "automation_rule",
+    "telegram",
+    "google_chat_bot",
+    "google_chat_webhook"
+  ]
+}

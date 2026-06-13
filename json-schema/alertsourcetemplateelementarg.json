@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/AlertSourceTemplateElementArg",
+  "title": "AlertSourceTemplateElementArg",
+  "type": "object",
+  "properties": {
+    "S": {
+      "type": "string"
+    },
+    "N": {
+      "type": "integer"
+    }
+  }
+}

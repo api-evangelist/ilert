@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/SimpleIdField64",
+  "title": "SimpleIdField64",
+  "required": [
+    "id"
+  ],
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "description": "For POST and PUT requests only the id field is required for sub entities, e.g. status page -> service, alert source -> support hour"
+}

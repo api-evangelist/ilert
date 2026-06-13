@@ -1,0 +1,20 @@
+{
+  "summary": "Create an update notification preference",
+  "description": "",
+  "method": "POST",
+  "path": "/users/{user-id}/notification-preferences/updates",
+  "parameters": {
+    "user-id": "string"
+  },
+  "request_body": {
+    "contact": {},
+    "method": "EMAIL",
+    "type": "ALERT_ACCEPTED"
+  },
+  "response": {
+    "id": 1,
+    "contact": {},
+    "method": "EMAIL",
+    "type": "ALERT_ACCEPTED"
+  }
+}

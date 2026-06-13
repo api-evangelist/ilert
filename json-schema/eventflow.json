@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/EventFlow",
+  "title": "EventFlow",
+  "type": "object",
+  "required": [
+    "name",
+    "root"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamRel"
+      }
+    },
+    "root": {
+      "$ref": "#/components/schemas/EventFlowNode"
+    }
+  }
+}

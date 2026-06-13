@@ -1,0 +1,23 @@
+{
+  "summary": "List alert metrics for the requested resources",
+  "description": "",
+  "method": "GET",
+  "path": "/reports/alerts",
+  "parameters": {
+    "sources": 1.0,
+    "policies": 1.0,
+    "numbers": "string",
+    "from": "string",
+    "until": "string",
+    "timezone": "string",
+    "metric": "string",
+    "group-by": "string",
+    "priority": "string"
+  },
+  "request_body": null,
+  "response": [
+    [
+      null
+    ]
+  ]
+}

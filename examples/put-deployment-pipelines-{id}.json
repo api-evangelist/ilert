@@ -1,0 +1,35 @@
+{
+  "summary": "Update the specific deployment pipeline",
+  "description": "",
+  "method": "PUT",
+  "path": "/deployment-pipelines/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "id": 1,
+    "name": "string",
+    "integrationType": "string",
+    "integrationKey": "string",
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "createdAt": "string"
+  },
+  "response": {
+    "id": 1,
+    "name": "string",
+    "integrationType": "string",
+    "integrationKey": "string",
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "createdAt": "string"
+  }
+}

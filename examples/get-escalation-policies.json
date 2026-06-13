@@ -1,0 +1,25 @@
+{
+  "summary": "List escalation policies.",
+  "description": "",
+  "method": "GET",
+  "path": "/escalation-policies",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "name": "string",
+      "escalationRules": [
+        null
+      ],
+      "teams": [
+        null
+      ],
+      "repeating": true,
+      "frequency": 1
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "summary": "Get incident templates.",
+  "description": "",
+  "method": "GET",
+  "path": "/incident-templates",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1.0,
+      "name": "string",
+      "summary": "string",
+      "status": "INVESTIGATING",
+      "message": "string",
+      "sendNotification": true
+    }
+  ]
+}

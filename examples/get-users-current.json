@@ -1,0 +1,16 @@
+{
+  "summary": "Get the currently authenticated user.",
+  "description": "",
+  "method": "GET",
+  "path": "/users/current",
+  "parameters": {},
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "timezone": "Europe/Berlin",
+    "position": "string"
+  }
+}

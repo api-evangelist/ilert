@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/CParamsZoomMeeting",
+  "title": "CParamsZoomMeeting",
+  "type": "object",
+  "properties": {
+    "password": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "summary": "Resolve the alert.",
+  "description": "",
+  "method": "PUT",
+  "path": "/alerts/{id}/resolve",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "summary": "string",
+    "details": "string",
+    "reportTime": "string",
+    "resolvedOn": "string",
+    "status": "PENDING"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/TimeOfWeek",
+  "title": "TimeOfWeek",
+  "required": [
+    "dayOfWeek",
+    "time"
+  ],
+  "type": "object",
+  "properties": {
+    "dayOfWeek": {
+      "type": "string",
+      "enum": [
+        "MONDAY",
+        "TUESDAY",
+        "WEDNESDAY",
+        "THURSDAY",
+        "FRIDAY",
+        "SATURDAY",
+        "SUNDAY"
+      ]
+    },
+    "time": {
+      "type": "string",
+      "format": "15:00"
+    }
+  }
+}

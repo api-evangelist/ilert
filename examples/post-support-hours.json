@@ -1,0 +1,97 @@
+{
+  "summary": "Create a new support hour.",
+  "description": "",
+  "method": "POST",
+  "path": "/support-hours",
+  "parameters": {},
+  "request_body": {
+    "id": 1,
+    "name": "string",
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "timezone": "Europe/Berlin",
+    "supportDays": {
+      "MONDAY": {
+        "start": null,
+        "end": null
+      },
+      "TUESDAY": {
+        "start": null,
+        "end": null
+      },
+      "WEDNESDAY": {
+        "start": null,
+        "end": null
+      },
+      "THURSDAY": {
+        "start": null,
+        "end": null
+      },
+      "FRIDAY": {
+        "start": null,
+        "end": null
+      },
+      "SATURDAY": {
+        "start": null,
+        "end": null
+      }
+    },
+    "exceptions": [
+      {
+        "name": null,
+        "start": null,
+        "end": null,
+        "supportStatus": null
+      }
+    ]
+  },
+  "response": {
+    "id": 1,
+    "name": "string",
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "timezone": "Europe/Berlin",
+    "supportDays": {
+      "MONDAY": {
+        "start": null,
+        "end": null
+      },
+      "TUESDAY": {
+        "start": null,
+        "end": null
+      },
+      "WEDNESDAY": {
+        "start": null,
+        "end": null
+      },
+      "THURSDAY": {
+        "start": null,
+        "end": null
+      },
+      "FRIDAY": {
+        "start": null,
+        "end": null
+      },
+      "SATURDAY": {
+        "start": null,
+        "end": null
+      }
+    },
+    "exceptions": [
+      {
+        "name": null,
+        "start": null,
+        "end": null,
+        "supportStatus": null
+      }
+    ]
+  }
+}

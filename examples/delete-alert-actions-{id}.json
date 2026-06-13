@@ -1,0 +1,11 @@
+{
+  "summary": "Remove a specific alert action.",
+  "description": "",
+  "method": "DELETE",
+  "path": "/alert-actions/{id}",
+  "parameters": {
+    "id": "string"
+  },
+  "request_body": null,
+  "response": null
+}

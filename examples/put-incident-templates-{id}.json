@@ -1,0 +1,25 @@
+{
+  "summary": "Update the specific incident template",
+  "description": "",
+  "method": "PUT",
+  "path": "/incident-templates/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "id": 1.0,
+    "name": "string",
+    "summary": "string",
+    "status": "INVESTIGATING",
+    "message": "string",
+    "sendNotification": true
+  },
+  "response": {
+    "id": 1.0,
+    "name": "string",
+    "summary": "string",
+    "status": "INVESTIGATING",
+    "message": "string",
+    "sendNotification": true
+  }
+}

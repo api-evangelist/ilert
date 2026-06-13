@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/EventFlowNodeRule",
+  "title": "EventFlowNodeRule",
+  "type": "object",
+  "required": [
+    "name",
+    "target",
+    "operator"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "operator": {
+      "type": "string",
+      "enum": [
+        "SET",
+        "COPY",
+        "MAP",
+        "TEMPLATE",
+        "MERGE",
+        "APPEND_ARRAY"
+      ]
+    },
+    "value": {
+      "$ref": "#/components/schemas/DynamicValue"
+    },
+    "source": {
+      "type": "string"
+    },
+    "mapping": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "nullable": true
+      }
+    },
+    "default": {
+      "$ref": "#/components/schemas/DynamicValue"
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "nullable": true
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string",
+          "nullable": true
+        }
+      }
+    }
+  }
+}

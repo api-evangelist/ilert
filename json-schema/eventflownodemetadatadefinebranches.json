@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/EventFlowNodeMetadataDefineBranches",
+  "title": "EventFlowNodeMetadataDefineBranches",
+  "type": "object",
+  "properties": {
+    "definitions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/EventFlowNodeDefinition"
+      }
+    }
+  }
+}

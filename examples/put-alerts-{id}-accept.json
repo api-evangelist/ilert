@@ -1,0 +1,18 @@
+{
+  "summary": "Accept the Alert.",
+  "description": "",
+  "method": "PUT",
+  "path": "/alerts/{id}/accept",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "summary": "string",
+    "details": "string",
+    "reportTime": "string",
+    "resolvedOn": "string",
+    "status": "PENDING"
+  }
+}

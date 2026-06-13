@@ -1,0 +1,18 @@
+{
+  "summary": "List API key usage metrics for the requested resources",
+  "description": "This endpoint requires 'ADMIN' permissions",
+  "method": "GET",
+  "path": "/reports/api-keys/usage",
+  "parameters": {
+    "scopes": "string",
+    "from": "string",
+    "until": "string",
+    "timezone": "string"
+  },
+  "request_body": null,
+  "response": [
+    [
+      null
+    ]
+  ]
+}

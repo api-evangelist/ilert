@@ -1,0 +1,11 @@
+{
+  "summary": "Delete a specific call flow.",
+  "description": "",
+  "method": "DELETE",
+  "path": "/call-flows/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": null
+}

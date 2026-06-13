@@ -1,0 +1,17 @@
+{
+  "summary": "Get a user's emails",
+  "description": "",
+  "method": "GET",
+  "path": "/users/{user-id}/contacts/emails",
+  "parameters": {
+    "user-id": "string"
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "target": "string",
+      "status": "OK"
+    }
+  ]
+}

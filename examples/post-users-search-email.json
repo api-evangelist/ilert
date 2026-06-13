@@ -1,0 +1,18 @@
+{
+  "summary": "Find a user by email address.",
+  "description": "Search for a user by their email address within the scope of the current account. This endpoint uses POST instead of GET to prevent email addresses from being exposed in URLs, server access logs, and browser history.",
+  "method": "POST",
+  "path": "/users/search-email",
+  "parameters": {},
+  "request_body": {
+    "email": "string"
+  },
+  "response": {
+    "id": 1,
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "timezone": "Europe/Berlin",
+    "position": "string"
+  }
+}

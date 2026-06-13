@@ -1,0 +1,21 @@
+{
+  "summary": "List existing users.",
+  "description": "",
+  "method": "GET",
+  "path": "/users",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "firstName": "string",
+      "lastName": "string",
+      "email": "string",
+      "timezone": "Europe/Berlin",
+      "position": "string"
+    }
+  ]
+}

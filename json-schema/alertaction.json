@@ -1,0 +1,227 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/AlertAction",
+  "title": "AlertAction",
+  "required": [
+    "connectorType",
+    "name"
+  ],
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "alertSources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AlertSource"
+      }
+    },
+    "connectorId": {
+      "type": "string"
+    },
+    "connectorType": {
+      "$ref": "#/components/schemas/AlertActionType"
+    },
+    "name": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "triggerMode": {
+      "type": "string",
+      "enum": [
+        "AUTOMATIC",
+        "MANUAL"
+      ]
+    },
+    "bidirectional": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "escalationEndedDelaySec": {
+      "maximum": 7200,
+      "minimum": 0,
+      "type": "number",
+      "description": "May only be used with triggerType 'alert-escalation-ended' selected"
+    },
+    "notResolvedDelaySec": {
+      "maximum": 7200,
+      "minimum": 0,
+      "type": "number",
+      "description": "May only be used with triggerType 'v-alert-not-resolved' selected"
+    },
+    "triggerTypes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "alert-created",
+          "alert-assigned",
+          "alert-auto-escalated",
+          "alert-acknowledged",
+          "alert-raised",
+          "alert-comment-added",
+          "alert-escalation-ended",
+          "alert-resolved",
+          "alert-responder-added",
+          "alert-responder-removed",
+          "alert-channel-attached",
+          "alert-channel-detached",
+          "v-alert-not-resolved"
+        ]
+      }
+    },
+    "alertFilter": {
+      "type": "object",
+      "description": "This field is deprecated, use 'conditions' instead. If both are used this field is ignored.",
+      "properties": {
+        "operator": {
+          "type": "string",
+          "enum": [
+            "AND",
+            "OR"
+          ]
+        },
+        "predicates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "field": {
+                "type": "string",
+                "enum": [
+                  "ALERT_SUMMARY",
+                  "ALERT_DETAILS",
+                  "ESCALATION_POLICY",
+                  "ALERT_PRIORITY"
+                ]
+              },
+              "criteria": {
+                "type": "string",
+                "enum": [
+                  "CONTAINS_ANY_WORDS",
+                  "CONTAINS_NOT_WORDS",
+                  "CONTAINS_STRING",
+                  "CONTAINS_NOT_STRING",
+                  "IS_STRING",
+                  "IS_NOT_STRING",
+                  "MATCHES_REGEX",
+                  "MATCHES_NOT_REGEX"
+                ]
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "conditions": {
+      "type": "string",
+      "description": "Defines an optional alert filter condition in ICL language. This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. Note: this field is an ?include, it will not appear in lists."
+    },
+    "params": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/CParamsDatadog"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsJira"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsMicrosoftTeams"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsMicrosoftTeamsWebhookOnly"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsServiceNow"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsAutotask"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsSlack"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsWebhook"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsZendesk"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsDiscord"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsGithub"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsTopdesk"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsAWSLambda"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsAzureFunction"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsGoogleFunction"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsEmail"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsSysdig"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsZapier"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsZoomChat"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsZoomMeeting"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsStatusPageIO"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsDingTalk"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsDingTalkAction"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsAutomationRule"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsAutomationRule"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsTelegram"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsGoogleChat"
+        },
+        {
+          "$ref": "#/components/schemas/CParamsGoogleChatWebhookOnly"
+        }
+      ]
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamRel"
+      }
+    }
+  }
+}

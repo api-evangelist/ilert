@@ -1,0 +1,25 @@
+{
+  "summary": "Forecast the affected subscribers and status pages",
+  "description": "Forecast the affected subscribers and status pages as well as notifications that would be send out due to created or update incident.",
+  "method": "POST",
+  "path": "/incidents/publish-info",
+  "parameters": {},
+  "request_body": {
+    "id": 1.0,
+    "summary": "string",
+    "status": "INVESTIGATING",
+    "message": "string",
+    "sendNotification": true,
+    "createdAt": "string"
+  },
+  "response": {
+    "statusPagesInfo": {
+      "id": 1.0,
+      "label": "string"
+    },
+    "privateStatusPages": 1.0,
+    "publicStatusPages": 1.0,
+    "privateSubscribers": 1.0,
+    "publicSubscribers": 1.0
+  }
+}

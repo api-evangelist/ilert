@@ -1,0 +1,55 @@
+{
+  "summary": "Get the support hour with specified id.",
+  "description": "",
+  "method": "GET",
+  "path": "/support-hours/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "name": "string",
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "timezone": "Europe/Berlin",
+    "supportDays": {
+      "MONDAY": {
+        "start": null,
+        "end": null
+      },
+      "TUESDAY": {
+        "start": null,
+        "end": null
+      },
+      "WEDNESDAY": {
+        "start": null,
+        "end": null
+      },
+      "THURSDAY": {
+        "start": null,
+        "end": null
+      },
+      "FRIDAY": {
+        "start": null,
+        "end": null
+      },
+      "SATURDAY": {
+        "start": null,
+        "end": null
+      }
+    },
+    "exceptions": [
+      {
+        "name": null,
+        "start": null,
+        "end": null,
+        "supportStatus": null
+      }
+    ]
+  }
+}

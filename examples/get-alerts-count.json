@@ -1,0 +1,23 @@
+{
+  "summary": "Get the alert count matching the specified criteria.",
+  "description": "",
+  "method": "GET",
+  "path": "/alerts/count",
+  "parameters": {
+    "states": [
+      "PENDING"
+    ],
+    "sources": [
+      1
+    ],
+    "responders": [
+      "string"
+    ],
+    "from": "string",
+    "until": "string"
+  },
+  "request_body": null,
+  "response": {
+    "count": 1
+  }
+}

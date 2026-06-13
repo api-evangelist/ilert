@@ -1,0 +1,99 @@
+{
+  "summary": "Update an existing support hour.",
+  "description": "",
+  "method": "PUT",
+  "path": "/support-hours/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "id": 1,
+    "name": "string",
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "timezone": "Europe/Berlin",
+    "supportDays": {
+      "MONDAY": {
+        "start": null,
+        "end": null
+      },
+      "TUESDAY": {
+        "start": null,
+        "end": null
+      },
+      "WEDNESDAY": {
+        "start": null,
+        "end": null
+      },
+      "THURSDAY": {
+        "start": null,
+        "end": null
+      },
+      "FRIDAY": {
+        "start": null,
+        "end": null
+      },
+      "SATURDAY": {
+        "start": null,
+        "end": null
+      }
+    },
+    "exceptions": [
+      {
+        "name": null,
+        "start": null,
+        "end": null,
+        "supportStatus": null
+      }
+    ]
+  },
+  "response": {
+    "id": 1,
+    "name": "string",
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "timezone": "Europe/Berlin",
+    "supportDays": {
+      "MONDAY": {
+        "start": null,
+        "end": null
+      },
+      "TUESDAY": {
+        "start": null,
+        "end": null
+      },
+      "WEDNESDAY": {
+        "start": null,
+        "end": null
+      },
+      "THURSDAY": {
+        "start": null,
+        "end": null
+      },
+      "FRIDAY": {
+        "start": null,
+        "end": null
+      },
+      "SATURDAY": {
+        "start": null,
+        "end": null
+      }
+    },
+    "exceptions": [
+      {
+        "name": null,
+        "start": null,
+        "end": null,
+        "supportStatus": null
+      }
+    ]
+  }
+}

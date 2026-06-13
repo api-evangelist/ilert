@@ -1,0 +1,12 @@
+{
+  "summary": "Remove group from a status page",
+  "description": "",
+  "method": "DELETE",
+  "path": "/status-pages/{id}/groups/{group-id}",
+  "parameters": {
+    "id": 1.0,
+    "group-id": 1.0
+  },
+  "request_body": null,
+  "response": null
+}

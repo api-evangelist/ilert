@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/Incident",
+  "title": "Incident",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/components/schemas/IncidentStatus"
+    },
+    "message": {
+      "type": "string"
+    },
+    "sendNotification": {
+      "type": "boolean"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "affectedServices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "impact": {
+            "$ref": "#/components/schemas/ServiceStatus"
+          },
+          "service": {
+            "$ref": "#/components/schemas/ServiceNoIncludes"
+          }
+        }
+      }
+    },
+    "resolvedOn": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "subscribed": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "affectedTeams": {
+      "type": "array",
+      "readOnly": true,
+      "items": {
+        "$ref": "#/components/schemas/TeamRel"
+      }
+    }
+  }
+}

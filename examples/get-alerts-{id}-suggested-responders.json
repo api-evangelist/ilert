@@ -1,0 +1,19 @@
+{
+  "summary": "Get available (assignable) responders for the alert with the specified id.",
+  "description": "",
+  "method": "GET",
+  "path": "/alerts/{id}/suggested-responders",
+  "parameters": {
+    "id": 1.0,
+    "lang": "string"
+  },
+  "request_body": null,
+  "response": [
+    {
+      "group": "SUGGESTED",
+      "id": 1.0,
+      "name": "string",
+      "disabled": true
+    }
+  ]
+}

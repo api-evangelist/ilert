@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/ContactPhoneNumber",
+  "title": "ContactPhoneNumber",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "regionCode": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "primary": {
+      "type": "boolean",
+      "description": "May only be enabled for a single phone number contact at a time"
+    },
+    "status": {
+      "$ref": "#/components/schemas/ContactStatus"
+    }
+  }
+}

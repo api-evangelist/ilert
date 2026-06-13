@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/MetricAggregationType",
+  "title": "MetricAggregationType",
+  "type": "string",
+  "enum": [
+    "AVG",
+    "SUM",
+    "MIN",
+    "MAX",
+    "LAST"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "summary": "Get the outages (including applied overrides) of a specific service",
+  "description": "",
+  "method": "GET",
+  "path": "/service-outages",
+  "parameters": {
+    "service": 1.0,
+    "from": "string",
+    "until": "string",
+    "ignore-overrides": true
+  },
+  "request_body": null,
+  "response": [
+    {
+      "status": "OPERATIONAL",
+      "from": "string",
+      "until": "string"
+    }
+  ]
+}

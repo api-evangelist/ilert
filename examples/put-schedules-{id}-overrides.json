@@ -1,0 +1,26 @@
+{
+  "summary": "Add an override shift to a schedule.",
+  "description": "",
+  "method": "PUT",
+  "path": "/schedules/{id}/overrides",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "user": {
+      "id": 1,
+      "firstName": "string",
+      "lastName": "string",
+      "email": "string",
+      "timezone": null,
+      "position": "string"
+    },
+    "end": "string",
+    "start": "string"
+  },
+  "response": {
+    "id": 1,
+    "name": "string",
+    "type": "STATIC"
+  }
+}

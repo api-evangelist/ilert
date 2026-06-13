@@ -1,0 +1,28 @@
+{
+  "summary": "Summarize a list of alert metrics",
+  "description": "",
+  "method": "GET",
+  "path": "/reports/alerts/summary",
+  "parameters": {
+    "sources": 1.0,
+    "policies": 1.0,
+    "numbers": "string",
+    "from": "string",
+    "until": "string",
+    "timezone": "string",
+    "metric": "string",
+    "group-by": "string",
+    "priority": "string"
+  },
+  "request_body": null,
+  "response": [
+    {
+      "alertSourceId": 1.0,
+      "escalationPolicyId": 1.0,
+      "callRoutingNumberPhoneNumber": "string",
+      "count": 1.0,
+      "mtta": 1.0,
+      "mttr": 1.0
+    }
+  ]
+}

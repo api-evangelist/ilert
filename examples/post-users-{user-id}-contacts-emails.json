@@ -1,0 +1,17 @@
+{
+  "summary": "Create a new email",
+  "description": "",
+  "method": "POST",
+  "path": "/users/{user-id}/contacts/emails",
+  "parameters": {
+    "user-id": "string"
+  },
+  "request_body": {
+    "target": "string"
+  },
+  "response": {
+    "id": 1,
+    "target": "string",
+    "status": "OK"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/MultipleTimePoint",
+  "title": "MultipleTimePoint",
+  "type": "object",
+  "properties": {
+    "series": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SingleTimePoint"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "Update the specific connector. (note: type cannot be changed)",
+  "description": "",
+  "method": "PUT",
+  "path": "/connectors/{id}",
+  "parameters": {
+    "id": "string"
+  },
+  "request_body": {
+    "id": "string",
+    "type": "jira",
+    "name": "string",
+    "createdAt": "string",
+    "updatedAt": "string",
+    "params": {}
+  },
+  "response": {
+    "id": "string",
+    "type": "jira",
+    "name": "string",
+    "createdAt": "string",
+    "updatedAt": "string",
+    "params": {}
+  }
+}

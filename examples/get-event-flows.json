@@ -1,0 +1,20 @@
+{
+  "summary": "List existing event flows.",
+  "description": "Returns a shallow list of event flows without the full node tree. Use the single resource endpoint to retrieve the complete event flow including all nodes and branches.",
+  "method": "GET",
+  "path": "/event-flows",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "name": "string",
+      "teams": [
+        null
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Get incidents.",
+  "description": "",
+  "method": "GET",
+  "path": "/incidents",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1,
+    "include": [
+      "subscribed"
+    ],
+    "states": [
+      "INVESTIGATING"
+    ],
+    "services": [
+      1
+    ],
+    "from": "string",
+    "until": "string"
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1.0,
+      "summary": "string",
+      "status": "INVESTIGATING",
+      "message": "string",
+      "sendNotification": true,
+      "createdAt": "string"
+    }
+  ]
+}

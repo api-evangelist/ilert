@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/CallFlowNodeMetadataAgentic",
+  "title": "CallFlowNodeMetadataAgentic",
+  "type": "object",
+  "required": [
+    "textMessage",
+    "intents"
+  ],
+  "properties": {
+    "textMessage": {
+      "type": "string"
+    },
+    "customAudioUrl": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "en",
+        "de",
+        "fr",
+        "es",
+        "nl",
+        "ru",
+        "it"
+      ]
+    },
+    "aiVoiceModel": {
+      "type": "string",
+      "enum": [
+        "emma",
+        "liam",
+        "isabelle",
+        "gordon",
+        "ivy",
+        "ellen"
+      ]
+    },
+    "intents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CallFlowNodeMetadataIntent"
+      }
+    },
+    "gathers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CallFlowNodeMetadataGather"
+      }
+    },
+    "enrichment": {
+      "$ref": "#/components/schemas/CallFlowNodeMetadataEnrichment"
+    }
+  }
+}

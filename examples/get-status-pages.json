@@ -1,0 +1,24 @@
+{
+  "summary": "Get status pages.",
+  "description": "",
+  "method": "GET",
+  "path": "/status-pages",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1,
+    "include": [
+      "subscribed"
+    ]
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1.0,
+      "name": "string",
+      "domain": "string",
+      "subdomain": "string",
+      "timezone": "Europe/Berlin",
+      "faviconUrl": "string"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Create alerts with customised parameters without requiring events from monitoring tools that use our Events API.",
+  "description": "ATTENTION: do not use this endpoint to create monitoring related (or high volumes of) alerts, use '/api/events' instead, you have been warned! Escalation of the alert will be based on the alert source's escalation policy or may be overridden by providing a specific escalation policy or lastly specific set of responders (users), latter will only notify the user(s) and will not escalate any further.",
+  "method": "POST",
+  "path": "/alerts",
+  "parameters": {},
+  "request_body": {
+    "summary": "string",
+    "details": "string",
+    "alertSource": {
+      "id": 1
+    },
+    "escalationPolicy": {
+      "id": 1
+    },
+    "priority": "HIGH",
+    "assignedTo": {
+      "id": 1.0
+    }
+  },
+  "response": {
+    "id": 1,
+    "summary": "string",
+    "details": "string",
+    "reportTime": "string",
+    "resolvedOn": "string",
+    "status": "PENDING"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "summary": "Remove a service outage override",
+  "description": "",
+  "method": "DELETE",
+  "path": "/service-outages/overrides/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": null
+}

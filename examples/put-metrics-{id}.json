@@ -1,0 +1,25 @@
+{
+  "summary": "Update the specific Metric",
+  "description": "",
+  "method": "PUT",
+  "path": "/metrics/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "name": "string",
+    "description": "string",
+    "aggregationType": "AVG",
+    "displayType": "GRAPH",
+    "interpolateGaps": true,
+    "lockYAxisMax": 1.0
+  },
+  "response": {
+    "id": 1.0,
+    "name": "string",
+    "description": "string",
+    "aggregationType": "AVG",
+    "displayType": "GRAPH",
+    "interpolateGaps": true
+  }
+}

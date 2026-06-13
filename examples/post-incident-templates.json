@@ -1,0 +1,23 @@
+{
+  "summary": "Create a new incident template.",
+  "description": "",
+  "method": "POST",
+  "path": "/incident-templates",
+  "parameters": {},
+  "request_body": {
+    "id": 1.0,
+    "name": "string",
+    "summary": "string",
+    "status": "INVESTIGATING",
+    "message": "string",
+    "sendNotification": true
+  },
+  "response": {
+    "id": 1.0,
+    "name": "string",
+    "summary": "string",
+    "status": "INVESTIGATING",
+    "message": "string",
+    "sendNotification": true
+  }
+}

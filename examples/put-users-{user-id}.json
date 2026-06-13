@@ -1,0 +1,25 @@
+{
+  "summary": "Update an existing user.",
+  "description": "",
+  "method": "PUT",
+  "path": "/users/{user-id}",
+  "parameters": {
+    "user-id": "string"
+  },
+  "request_body": {
+    "id": 1,
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "timezone": "Europe/Berlin",
+    "position": "string"
+  },
+  "response": {
+    "id": 1,
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "timezone": "Europe/Berlin",
+    "position": "string"
+  }
+}

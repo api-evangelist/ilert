@@ -1,0 +1,11 @@
+{
+  "summary": "Delete the specified support hour.",
+  "description": "",
+  "method": "DELETE",
+  "path": "/support-hours/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": null
+}

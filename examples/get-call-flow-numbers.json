@@ -1,0 +1,31 @@
+{
+  "summary": "List call flow numbers.",
+  "description": "",
+  "method": "GET",
+  "path": "/call-flow-numbers",
+  "parameters": {
+    "state": "ANY",
+    "include": [
+      "assignedTo"
+    ],
+    "start-index": 1,
+    "max-results": 1,
+    "query": "string"
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "name": "string",
+      "state": "AVAILABLE",
+      "phoneNumber": {
+        "regionCode": null,
+        "number": null
+      },
+      "assignedTo": {
+        "id": null,
+        "name": null
+      }
+    }
+  ]
+}

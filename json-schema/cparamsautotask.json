@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/CParamsAutotask",
+  "title": "CParamsAutotask",
+  "required": [
+    "queueId"
+  ],
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "type": "string"
+    },
+    "queueId": {
+      "type": "string"
+    },
+    "ticketCategory": {
+      "type": "string"
+    },
+    "ticketType": {
+      "type": "string"
+    },
+    "noteType": {
+      "type": "string"
+    },
+    "notePublish": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  }
+}

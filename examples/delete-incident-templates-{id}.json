@@ -1,0 +1,11 @@
+{
+  "summary": "Remove a specific incident template.",
+  "description": "",
+  "method": "DELETE",
+  "path": "/incident-templates/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": null
+}

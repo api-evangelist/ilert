@@ -1,0 +1,18 @@
+{
+  "summary": "Get a specific incident template.",
+  "description": "",
+  "method": "GET",
+  "path": "/incident-templates/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "id": 1.0,
+    "name": "string",
+    "summary": "string",
+    "status": "INVESTIGATING",
+    "message": "string",
+    "sendNotification": true
+  }
+}

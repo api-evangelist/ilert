@@ -1,0 +1,12 @@
+{
+  "summary": "Delete the user's specified email",
+  "description": "",
+  "method": "DELETE",
+  "path": "/users/{user-id}/contacts/emails/{id}",
+  "parameters": {
+    "user-id": "string",
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": null
+}

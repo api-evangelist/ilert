@@ -1,0 +1,11 @@
+{
+  "summary": "Remove a specific member of a specific team.",
+  "description": "",
+  "method": "DELETE",
+  "path": "/teams/{id}/members/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": null
+}

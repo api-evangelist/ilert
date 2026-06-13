@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/EventFlowNodeMetadataRouteEvent",
+  "title": "EventFlowNodeMetadataRouteEvent",
+  "type": "object",
+  "required": [
+    "alertSourceId"
+  ],
+  "properties": {
+    "alertSourceId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "overwritePriority": {
+      "type": "string",
+      "enum": [
+        "HIGH",
+        "LOW"
+      ]
+    },
+    "escalationPolicyId": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

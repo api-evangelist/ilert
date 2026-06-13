@@ -1,0 +1,35 @@
+{
+  "summary": "Update the specific team",
+  "description": "",
+  "method": "PUT",
+  "path": "/teams/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "id": 1,
+    "name": "string",
+    "visibility": "PUBLIC",
+    "members": [
+      {
+        "user": null,
+        "role": null
+      }
+    ],
+    "createdAt": "string",
+    "updatedAt": "string"
+  },
+  "response": {
+    "id": 1,
+    "name": "string",
+    "visibility": "PUBLIC",
+    "members": [
+      {
+        "user": null,
+        "role": null
+      }
+    ],
+    "createdAt": "string",
+    "updatedAt": "string"
+  }
+}

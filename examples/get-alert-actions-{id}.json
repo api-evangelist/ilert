@@ -1,0 +1,30 @@
+{
+  "summary": "Get a specific alert action.",
+  "description": "",
+  "method": "GET",
+  "path": "/alert-actions/{id}",
+  "parameters": {
+    "id": "string",
+    "include": [
+      "conditions"
+    ]
+  },
+  "request_body": null,
+  "response": {
+    "id": "string",
+    "alertSources": [
+      {
+        "id": null,
+        "teams": null,
+        "name": null,
+        "iconUrl": null,
+        "lightIconUrl": null,
+        "darkIconUrl": null
+      }
+    ],
+    "connectorId": "string",
+    "connectorType": "autotask",
+    "name": "string",
+    "createdAt": "string"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "summary": "Get a specific service.",
+  "description": "",
+  "method": "GET",
+  "path": "/services/{id}",
+  "parameters": {
+    "id": 1.0,
+    "include": [
+      "subscribed"
+    ]
+  },
+  "request_body": null,
+  "response": {
+    "id": 1.0,
+    "name": "string",
+    "alias": "string",
+    "status": "OPERATIONAL",
+    "description": "string",
+    "oneOpenIncidentOnly": true
+  }
+}

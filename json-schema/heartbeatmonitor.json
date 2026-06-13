@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/HeartbeatMonitor",
+  "title": "HeartbeatMonitor",
+  "type": "object",
+  "required": [
+    "name",
+    "intervalSec"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "default": "UNKNOWN",
+      "enum": [
+        "UNKNOWN",
+        "HEALTHY",
+        "OVERDUE"
+      ]
+    },
+    "intervalSec": {
+      "type": "integer",
+      "format": "int32",
+      "minimum": 25,
+      "maximum": 2678400
+    },
+    "alertSummary": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "ISO-8601"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "ISO-8601"
+    },
+    "alertSource": {
+      "$ref": "#/components/schemas/AlertSourceRel"
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamRel"
+      }
+    },
+    "integrationKey": {
+      "type": "string"
+    },
+    "integrationUrl": {
+      "type": "string"
+    }
+  }
+}

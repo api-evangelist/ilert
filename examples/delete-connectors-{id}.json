@@ -1,0 +1,11 @@
+{
+  "summary": "Remove a specific connector.",
+  "description": "",
+  "method": "DELETE",
+  "path": "/connectors/{id}",
+  "parameters": {
+    "id": "string"
+  },
+  "request_body": null,
+  "response": null
+}

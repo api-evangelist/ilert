@@ -1,0 +1,18 @@
+{
+  "summary": "Update a group of a status page",
+  "description": "",
+  "method": "PUT",
+  "path": "/status-pages/{id}/groups/{group-id}",
+  "parameters": {
+    "id": 1.0,
+    "group-id": 1.0
+  },
+  "request_body": {
+    "id": 1.0,
+    "name": "string"
+  },
+  "response": {
+    "id": 1.0,
+    "name": "string"
+  }
+}

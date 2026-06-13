@@ -1,0 +1,24 @@
+{
+  "summary": "Get metrics.",
+  "description": "",
+  "method": "GET",
+  "path": "/metrics",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1,
+    "include": [
+      "dataSource"
+    ]
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1.0,
+      "name": "string",
+      "description": "string",
+      "aggregationType": "AVG",
+      "displayType": "GRAPH",
+      "interpolateGaps": true
+    }
+  ]
+}

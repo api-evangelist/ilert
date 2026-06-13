@@ -1,0 +1,26 @@
+{
+  "summary": "Update the specific incident.",
+  "description": "Note: the update will be automatically appended to the incident's update history and publish notifications to subscribers.",
+  "method": "PUT",
+  "path": "/incidents/{id}",
+  "parameters": {
+    "id": 1.0,
+    "If-Match": "string"
+  },
+  "request_body": {
+    "id": 1.0,
+    "summary": "string",
+    "status": "INVESTIGATING",
+    "message": "string",
+    "sendNotification": true,
+    "createdAt": "string"
+  },
+  "response": {
+    "id": 1.0,
+    "summary": "string",
+    "status": "INVESTIGATING",
+    "message": "string",
+    "sendNotification": true,
+    "createdAt": "string"
+  }
+}

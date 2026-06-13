@@ -1,0 +1,29 @@
+{
+  "summary": "List support hours.",
+  "description": "Returns a shallow list of support hours without exception details. Use the single resource endpoint to retrieve the complete support hour including all exceptions.",
+  "method": "GET",
+  "path": "/support-hours",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": 1,
+      "name": "string",
+      "teams": [
+        null
+      ],
+      "timezone": "Europe/Berlin",
+      "supportDays": {
+        "MONDAY": null,
+        "TUESDAY": null,
+        "WEDNESDAY": null,
+        "THURSDAY": null,
+        "FRIDAY": null,
+        "SATURDAY": null
+      }
+    }
+  ]
+}

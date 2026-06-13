@@ -1,0 +1,18 @@
+{
+  "summary": "Get a specific connector.",
+  "description": "",
+  "method": "GET",
+  "path": "/connectors/{id}",
+  "parameters": {
+    "id": "string"
+  },
+  "request_body": null,
+  "response": {
+    "id": "string",
+    "type": "jira",
+    "name": "string",
+    "createdAt": "string",
+    "updatedAt": "string",
+    "params": {}
+  }
+}

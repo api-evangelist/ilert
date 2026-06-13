@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/CallFlowNodeMetadataIvrMenu",
+  "title": "CallFlowNodeMetadataIvrMenu",
+  "type": "object",
+  "required": [
+    "enabledOptions"
+  ],
+  "properties": {
+    "textMessage": {
+      "type": "string"
+    },
+    "customAudioUrl": {
+      "type": "string"
+    },
+    "enabledOptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "aiVoiceModel": {
+      "type": "string",
+      "enum": [
+        "emma",
+        "liam",
+        "isabelle",
+        "gordon",
+        "ivy",
+        "ellen"
+      ]
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "en",
+        "de",
+        "fr",
+        "es",
+        "nl",
+        "ru",
+        "it"
+      ]
+    },
+    "retries": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

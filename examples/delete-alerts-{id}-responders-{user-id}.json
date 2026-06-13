@@ -1,0 +1,12 @@
+{
+  "summary": "Remove a responder from the alert.",
+  "description": "",
+  "method": "DELETE",
+  "path": "/alerts/{id}/responders/{user-id}",
+  "parameters": {
+    "id": 1.0,
+    "user-id": "string"
+  },
+  "request_body": null,
+  "response": null
+}

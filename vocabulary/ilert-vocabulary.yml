@@ -1,0 +1,479 @@
+aid: ilert
+name: ilert API Vocabulary
+description: Domain terms, resource types, and enumeration values from the ilert REST
+  API
+version: v2.2026.5-r.3
+source: https://api.ilert.com/api-docs/openapi.json
+tags:
+- Alert Actions
+- Alert Sources
+- Alerts
+- Call Flow Numbers
+- Call Flows
+- Connectors
+- Contacts
+- Deployment Events
+- Deployment Pipelines
+- Escalation Policies
+- Event Flows
+- Events
+- Heartbeat Monitors
+- Incident Templates
+- Incidents
+- Integrations
+- Log-Entries
+- Maintenance Windows
+- Metric Data Sources
+- Metrics
+- Notification Preferences
+- Notifications
+- Numbers
+- On-Calls
+- Reports
+- Schedules
+- Series
+- Service Outages
+- Services
+- Status Pages
+- Support Hours
+- Teams
+- Users
+resource_types:
+- Alert
+- AlertAction
+- AlertActionResult
+- AlertActionTrigger
+- AlertActionType
+- AlertPriority
+- AlertPriorityRule
+- AlertResponder
+- AlertSource
+- AlertSourceLinkTemplate
+- AlertSourceNoIncludes
+- AlertSourcePriorityTemplate
+- AlertSourcePriorityTemplateMapping
+- AlertSourceRel
+- AlertSourceSeverityTemplate
+- AlertSourceSeverityTemplateMapping
+- AlertSourceTemplate
+- AlertSourceTemplateElement
+- AlertSourceTemplateElementArg
+- CParamsAWSLambda
+- CParamsAutomationRule
+- CParamsAutotask
+- CParamsAzureFunction
+- CParamsDatadog
+- CParamsDingTalk
+- CParamsDingTalkAction
+- CParamsDiscord
+- CParamsEmail
+- CParamsGithub
+- CParamsGoogleChat
+- CParamsGoogleChatWebhookOnly
+- CParamsGoogleFunction
+- CParamsJira
+- CParamsMicrosoftTeams
+- CParamsMicrosoftTeamsWebhookOnly
+- CParamsServiceNow
+- CParamsSlack
+- CParamsStatusPageIO
+- CParamsSysdig
+- CParamsTelegram
+- CParamsTopdesk
+- CParamsWebhook
+- CParamsZapier
+- CParamsZendesk
+- CParamsZoomChat
+- CParamsZoomMeeting
+- CallFlow
+- CallFlowBranch
+- CallFlowListItem
+- CallFlowNode
+- CallFlowNodeMetadata
+- CallFlowNodeMetadataAgentic
+- CallFlowNodeMetadataAudioMessage
+- CallFlowNodeMetadataBlockNumbers
+- CallFlowNodeMetadataCallTarget
+- CallFlowNodeMetadataCode
+- CallFlowNodeMetadataCreateAlert
+- CallFlowNodeMetadataEnrichment
+- CallFlowNodeMetadataEnrichmentSource
+- CallFlowNodeMetadataGather
+- CallFlowNodeMetadataIntent
+- CallFlowNodeMetadataIvrMenu
+- CallFlowNodeMetadataPinCode
+- CallFlowNodeMetadataRouteCall
+- CallFlowNodeMetadataSupportHours
+- CallFlowNodeMetadataVoicemail
+- CallFlowNumber
+- CallFlowNumberAssignedTo
+- CallFlowNumberDetails
+- CallFlowNumberState
+- Connector
+- ConnectorType
+- ContactEmail
+- ContactEmailPost
+- ContactPhoneNumber
+- ContactPhoneNumberPost
+- ContactStatus
+- CountResponse
+- DPipeAPIParams
+- DPipeGithubParams
+- DeploymentEvent
+- DeploymentPipeline
+- DeploymentPipelineParams
+- DynamicValue
+- EParamsAWSLambda
+- EParamsAzureFunction
+- EParamsDatadog
+- EParamsDingTalk
+- EParamsDiscord
+- EParamsGithub
+- EParamsGoogleFunction
+- EParamsJira
+- EParamsMicrosoftTeams
+- EParamsServiceNow
+- EParamsSlack
+- EParamsStatusPageIO
+- EParamsSysdig
+- EParamsTopdesk
+- EParamsZabbix
+- EParamsZendesk
+- EscalationPolicy
+- EscalationRule
+- Event
+- EventComment
+- EventFlow
+- EventFlowBranch
+- EventFlowListItem
+- EventFlowNode
+- EventFlowNodeDefinition
+- EventFlowNodeMetadata
+- EventFlowNodeMetadataDefineBranches
+- EventFlowNodeMetadataRouteEvent
+- EventFlowNodeMetadataSupportHours
+- EventFlowNodeMetadataTransform
+- EventFlowNodeMetadataWait
+- EventFlowNodeRule
+- EventImage
+- EventLink
+- EventResponse
+- EventServiceRef
+- HeartbeatMonitor
+- HeartbeatMonitorNoIncludes
+- HeartbeatMonitorRel
+- Incident
+- IncidentNoIncludes
+- IncidentStatus
+- IncidentTemplate
+- IncidentUpdate
+- IncidentWithHistory
+- Integration
+- IntegrationType
+- LogEntry
+- LogFilterType
+- MDataDogMetadata
+- MParamsDatadog
+- MParamsPrometheus
+- MPrometheusMetadata
+- MaintenanceWindow
+- ManualAlert
+- Metric
+- MetricAggregationType
+- MetricDataSource
+- MetricDataSourceMetadata
+- MetricDataSourceNoIncludes
+- MetricDataSourcePost
+- MetricDataSourceType
+- MetricDisplayType
+- MetricList
+- MetricMetadata
+- MetricNoIncludes
+- MetricPost
+- MultipleTimePoint
+- Notification
+- NotificationPreferenceAlertMethod
+- NotificationPreferenceAlertType
+- NotificationPreferenceDutyMethod
+- NotificationPreferenceSubscriptionMethod
+- NotificationPreferenceUpdateMethod
+- NotificationPreferencesAlert
+- NotificationPreferencesAlertDelayMin
+- NotificationPreferencesAlertPost
+- NotificationPreferencesDuty
+- NotificationPreferencesDutyBeforeMin
+- NotificationPreferencesDutyPost
+- NotificationPreferencesDutyTypes
+- NotificationPreferencesSubscription
+- NotificationPreferencesSubscriptionPost
+- NotificationPreferencesUpdate
+- NotificationPreferencesUpdatePost
+- NotificationPreferencesUpdateType
+- OnCall
+- OutboundNumber
+- PhoneNumber
+- RestError
+- Role
+- Schedule
+- ScheduleLayerConfig
+- ScheduleLayerRestriction
+- ScheduleRel
+- SeriesOption
+- Service
+- ServiceNoIncludes
+- ServiceOutage
+- ServiceOutageOverride
+- ServiceStatus
+- ServiceUptime
+- ServiceUptimeOnly
+- ServiceUptimePercentage
+- Shift
+- ShiftRel
+- SimpleIdField64
+- SimpleIdFieldStr
+- SingleTimePoint
+- StatusPage
+- StatusPageElement
+- StatusPageGroup
+- StatusPageList
+- StatusPageNoIncludes
+- StatusPageStructure
+- SuggestedResponder
+- SupportDay
+- SupportHour
+- SupportHourException
+- SupportHourListItem
+- Team
+- TeamMember
+- TeamRel
+- TeamRole
+- TeamUserOption
+- TeamVisibilityType
+- TimeOfWeek
+- TimeZone
+- UIMenuItem
+- User
+- UserPost
+- UserRel
+path_segments:
+- accept
+- actions
+- alert-actions
+- alert-sources
+- alerts
+- api-keys
+- assign
+- call-flow-numbers
+- call-flows
+- connectors
+- contacts
+- count
+- current
+- deployment-events
+- deployment-pipelines
+- duties
+- emails
+- escalation-policies
+- event-flows
+- events
+- groups
+- heartbeat-monitors
+- incident-templates
+- incidents
+- integrations
+- levels
+- log-entries
+- maintenance-windows
+- members
+- metric-data-sources
+- metrics
+- notification-preferences
+- notifications
+- numbers
+- on-calls
+- overrides
+- phone-numbers
+- private-subscribers
+- publish-info
+- reports
+- resolve
+- responders
+- schedules
+- search-email
+- series
+- service-outages
+- services
+- shifts
+- status-pages
+- subscriptions
+- suggested-responders
+- summary
+- support-hours
+- teams
+- updates
+- usage
+- user-on-call
+- users
+operation_summaries:
+- Get the specified user.
+- Update an existing user.
+- Delete the specified user.
+- Get a user's emails
+- Create a new email
+- Get a specific email
+- Update a user's email
+- Delete the user's specified email
+- Get a user's phone numbers
+- Create a phone number
+- Get specific phone number
+- Update a user's phone number
+- Delete the user's specified phone number
+- Get alert notification preferences of a user
+- Create an alert notification preference
+- Get specific notification preferences alert
+- Update a user's alert notification preference
+- Delete the user's specified notification preferences alert
+- Get duty notification preferences of a user
+- Create a duty notification preference
+- Get specific notification preferences duty
+- Update a user's duty notification preference
+- Delete the user's specified notification preferences duty
+- Get update notification preferences of a user
+- Create an update notification preference
+- Get specific notification preferences update
+- Update a user's update notification preference
+- Delete the user's specified notification preferences update
+- Get subscription notification preferences of a user
+- Create a subscription notification preference
+- Get specific notification preferences subscription
+- Update a user's subscription notification preference
+- Delete the user's specified notification preferences subscription
+- List available phone numbers that ilert uses to send voice and SMS notifications
+- 'List available inbound and outbound integrations. Note: this resource is paginated.'
+- List existing users.
+- Create a new user. Requires ADMIN privileges.
+- Find a user by email address.
+- Get the currently authenticated user.
+- Update the current user.
+- List alerts (optionally matching certain criteria that are specified by query parameters).
+- Create alerts with customised parameters without requiring events from monitoring
+  tools that use our Events API.
+- Get the alert count matching the specified criteria.
+- Get the alert with the specified id.
+- Get available (assignable) responders for the alert with the specified id.
+- Add an additional responder to the alert.
+- Remove a responder from the alert.
+- Assign the alert.
+- Accept the Alert.
+- Resolve the alert.
+- Get notifications for the specified alert.
+- Get log entries for the specified alert.
+- Get available actions for specified alert.
+- Invoke a specific alert action.
+- List on-call schedules.
+- Create a new on-call schedule.
+- Get the on-call schedule with the specified id.
+- Update an on-call schedule.
+- Delete the on-call schedule with the specified id.
+- Get shifts for the specified schedule and date range.
+enumeration_values:
+- ACCEPT
+- ACCEPTED
+- AFFECTED_SERVICES
+- AGENTIC
+- ALERT
+- ALL_ACCEPTED
+- ALL_RESOLVED
+- ANSWERED
+- APPEND_ARRAY
+- AUDIO_MESSAGE
+- AUTOMATIC
+- AlertActionErrorLogEntry
+- AlertActionFailLogEntry
+- AlertActionSuccessLogEntry
+- AlertAssignedBySystemLogEntry
+- AlertAssignedByUserLogEntry
+- AlertAssignedToPolicyLogEntry
+- AlertAssignedToScheduleLogEntry
+- AlertAutoResolvedLogEntry
+- AlertChannelAttachedByUserLogEntry
+- AlertChannelDetachedByUserLogEntry
+- AlertCommentAddedBySystemLogEntry
+- AlertCommentAddedLogEntry
+- AlertCommentPublishedLogEntry
+- AlertCreatedByUserLogEntry
+- AlertEscalatedToLevelLogEntry
+- AlertNotRoutedLogEntry
+- AlertRaisedBySystemLogEntry
+- AlertRaisedByUserLogEntry
+- AlertReceivedLogEntry
+- AlertRoutedSuccessfulLogEntry
+- AlertSourceResponseLogEntry
+- AlertSummaryChangedLogEntry
+- BASIC
+- BLOCK_NUMBERS
+- BOOLEAN
+- BRANCH
+- CA
+- CALLER_NAME
+- CATCH_ALL
+- CH
+- CN
+- COMMENT
+- CONTACT_NUMBER
+- COPY
+- CREATED
+- CREATED_ADVANCED
+- CREATED_BIDIRECTIONAL
+- CREATE_ALERT
+- CallLogEntry
+- ConnectorAutomaticResultErrorLogEntry
+- ConnectorAutomaticResultLogEntry
+- DARK
+- DATE
+- DE
+- DEFINE_BRANCHES
+- DISABLED
+- DURING
+- EMAIL
+- ERROR
+- ES
+- ESCALATION_POLICY
+- EmailReceivedLogEntry
+- EmailResolvedLogEntry
+- FINISHED
+- FR
+- FRIDAY
+- FilterableLogEntryType
+- GB
+- GROUP
+- HEADER
+- HEALTHY
+- HIGH
+- HeartbeatOverdueLogEntry
+- HeartbeatResolvedLogEntry
+- IE
+- IN
+- INBOUND
+- INCIDENT
+- INQUIRY
+- INTELLIGENT_GROUPING
+- IN_MAINTENANCE
+- IVR_MENU
+- InComIncidentCreatedLogEntry
+- InComIncidentResolvedLogEntry
+- InComLinkedLogEntry
+- InComServiceTransitionLogEntry
+- InComUnlinkedLogEntry
+- IncomingCallLogEntry
+- LIGHT
+- LOW
+- LowPriorityCallLog
+- MAIN
+- MANUAL
+- MAP
+- MERGE
+- MERGED
+- MONDAY
+- MailboxCallLogEntry
+- MailboxRecordReceivedLog

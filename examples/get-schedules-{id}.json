@@ -1,0 +1,36 @@
+{
+  "summary": "Get the on-call schedule with the specified id.",
+  "description": "",
+  "method": "GET",
+  "path": "/schedules/{id}",
+  "parameters": {
+    "id": 1.0,
+    "include": [
+      "scheduleLayers"
+    ]
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "name": "string",
+    "timezone": "Europe/Berlin",
+    "type": "STATIC",
+    "scheduleLayers": [
+      {
+        "name": null,
+        "startsOn": null,
+        "endsOn": null,
+        "users": null,
+        "rotation": null,
+        "restrictionType": null
+      }
+    ],
+    "shifts": [
+      {
+        "user": null,
+        "end": null,
+        "start": null
+      }
+    ]
+  }
+}

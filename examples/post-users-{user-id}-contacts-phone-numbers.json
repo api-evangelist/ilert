@@ -1,0 +1,21 @@
+{
+  "summary": "Create a phone number",
+  "description": "",
+  "method": "POST",
+  "path": "/users/{user-id}/contacts/phone-numbers",
+  "parameters": {
+    "user-id": "string"
+  },
+  "request_body": {
+    "regionCode": "string",
+    "target": "string",
+    "primary": true
+  },
+  "response": {
+    "id": 1,
+    "regionCode": "string",
+    "target": "string",
+    "primary": true,
+    "status": "OK"
+  }
+}

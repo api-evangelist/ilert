@@ -1,0 +1,47 @@
+{
+  "summary": "List on-calls with flexible filters",
+  "description": "",
+  "method": "GET",
+  "path": "/on-calls",
+  "parameters": {
+    "policies": 1.0,
+    "policy-levels": "string",
+    "schedules": 1.0,
+    "users": 1.0,
+    "expand": "string",
+    "from": "string",
+    "until": "string",
+    "timezone": "string",
+    "start-index": 1.0,
+    "max-results": 1.0
+  },
+  "request_body": null,
+  "response": [
+    {
+      "user": {
+        "id": null,
+        "firstName": null,
+        "lastName": null,
+        "email": null,
+        "timezone": null,
+        "position": null
+      },
+      "escalationPolicy": {
+        "id": null,
+        "name": null,
+        "escalationRules": null,
+        "teams": null,
+        "repeating": null,
+        "frequency": null
+      },
+      "schedule": {
+        "id": null,
+        "name": null,
+        "type": null
+      },
+      "start": "string",
+      "end": "string",
+      "escalationLevel": 1.0
+    }
+  ]
+}

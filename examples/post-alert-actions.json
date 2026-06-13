@@ -1,0 +1,41 @@
+{
+  "summary": "Create a new alert action.",
+  "description": "",
+  "method": "POST",
+  "path": "/alert-actions",
+  "parameters": {},
+  "request_body": {
+    "id": "string",
+    "alertSources": [
+      {
+        "id": null,
+        "teams": null,
+        "name": null,
+        "iconUrl": null,
+        "lightIconUrl": null,
+        "darkIconUrl": null
+      }
+    ],
+    "connectorId": "string",
+    "connectorType": "autotask",
+    "name": "string",
+    "createdAt": "string"
+  },
+  "response": {
+    "id": "string",
+    "alertSources": [
+      {
+        "id": null,
+        "teams": null,
+        "name": null,
+        "iconUrl": null,
+        "lightIconUrl": null,
+        "darkIconUrl": null
+      }
+    ],
+    "connectorId": "string",
+    "connectorType": "autotask",
+    "name": "string",
+    "createdAt": "string"
+  }
+}

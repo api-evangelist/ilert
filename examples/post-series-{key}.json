@@ -1,0 +1,11 @@
+{
+  "summary": "Ingest a series for a metric",
+  "description": "Post a time point or multiple time points (series) to a metric. User authorization is not required instead provide the integration key of your metric.",
+  "method": "POST",
+  "path": "/series/{key}",
+  "parameters": {
+    "key": "string"
+  },
+  "request_body": {},
+  "response": null
+}

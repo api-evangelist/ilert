@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/StatusPageElement",
+  "title": "StatusPageElement",
+  "required": [
+    "id",
+    "type"
+  ],
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The id of the service or group that this element references",
+      "format": "int64"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "SERVICE",
+        "GROUP"
+      ]
+    },
+    "options": {
+      "type": "string",
+      "description": "Note: 'expand' can only be set when type is 'SERVICE', 'no-graph' can only be set when type is 'GROUP'",
+      "enum": [
+        "expand",
+        "no-graph"
+      ]
+    },
+    "children": {
+      "type": "array",
+      "description": "Optional children of this element. Note: children may only be added to elements of type 'GROUP'",
+      "items": {
+        "$ref": "#/components/schemas/StatusPageElement"
+      }
+    }
+  }
+}

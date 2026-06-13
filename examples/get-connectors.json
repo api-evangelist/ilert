@@ -1,0 +1,21 @@
+{
+  "summary": "Get connectors.",
+  "description": "",
+  "method": "GET",
+  "path": "/connectors",
+  "parameters": {
+    "start-index": 1,
+    "max-results": 1
+  },
+  "request_body": null,
+  "response": [
+    {
+      "id": "string",
+      "type": "jira",
+      "name": "string",
+      "createdAt": "string",
+      "updatedAt": "string",
+      "params": {}
+    }
+  ]
+}

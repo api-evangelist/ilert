@@ -1,0 +1,33 @@
+{
+  "summary": "Create a new deployment pipeline.",
+  "description": "",
+  "method": "POST",
+  "path": "/deployment-pipelines",
+  "parameters": {},
+  "request_body": {
+    "id": 1,
+    "name": "string",
+    "integrationType": "string",
+    "integrationKey": "string",
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "createdAt": "string"
+  },
+  "response": {
+    "id": 1,
+    "name": "string",
+    "integrationType": "string",
+    "integrationKey": "string",
+    "teams": [
+      {
+        "id": null,
+        "name": null
+      }
+    ],
+    "createdAt": "string"
+  }
+}

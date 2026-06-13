@@ -1,0 +1,24 @@
+{
+  "summary": "Get the specific service outage override",
+  "description": "",
+  "method": "GET",
+  "path": "/service-outages/overrides/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "id": "string",
+    "service": {
+      "id": 1.0,
+      "name": "string",
+      "alias": "string",
+      "status": null,
+      "description": "string",
+      "oneOpenIncidentOnly": true
+    },
+    "status": "OPERATIONAL",
+    "from": "string",
+    "until": "string"
+  }
+}

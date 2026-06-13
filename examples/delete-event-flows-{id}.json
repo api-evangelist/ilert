@@ -1,0 +1,11 @@
+{
+  "summary": "Delete a specific event flow.",
+  "description": "",
+  "method": "DELETE",
+  "path": "/event-flows/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": null
+}

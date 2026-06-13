@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/CallFlowNode",
+  "title": "CallFlowNode",
+  "type": "object",
+  "required": [
+    "nodeType"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "nodeType": {
+      "type": "string",
+      "enum": [
+        "ROOT",
+        "IVR_MENU",
+        "AUDIO_MESSAGE",
+        "SUPPORT_HOURS",
+        "ROUTE_CALL",
+        "PARALLEL_ROUTE_CALL",
+        "VOICEMAIL",
+        "PIN_CODE",
+        "CREATE_ALERT",
+        "BLOCK_NUMBERS",
+        "AGENTIC"
+      ]
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/CallFlowNodeMetadata"
+    },
+    "branches": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CallFlowBranch"
+      }
+    }
+  }
+}

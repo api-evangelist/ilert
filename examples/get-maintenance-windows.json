@@ -1,0 +1,32 @@
+{
+  "summary": "List maintenance windows.",
+  "description": "",
+  "method": "GET",
+  "path": "/maintenance-windows",
+  "parameters": {
+    "state": "OPEN",
+    "services": [
+      1
+    ],
+    "sources": [
+      1
+    ],
+    "from": "string",
+    "until": "string",
+    "start-index": 1,
+    "max-results": 1
+  },
+  "request_body": null,
+  "response": [
+    {
+      "timezone": "Europe/Berlin",
+      "start": "string",
+      "end": "string",
+      "summary": "string",
+      "description": "string",
+      "alertSources": [
+        null
+      ]
+    }
+  ]
+}

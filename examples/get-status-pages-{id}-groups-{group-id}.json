@@ -1,0 +1,15 @@
+{
+  "summary": "Get a specific group of a status page",
+  "description": "",
+  "method": "GET",
+  "path": "/status-pages/{id}/groups/{group-id}",
+  "parameters": {
+    "id": 1.0,
+    "group-id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "id": 1.0,
+    "name": "string"
+  }
+}

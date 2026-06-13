@@ -1,0 +1,27 @@
+{
+  "summary": "Get the maintenance window with specified id.",
+  "description": "",
+  "method": "GET",
+  "path": "/maintenance-windows/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "timezone": "Europe/Berlin",
+    "start": "string",
+    "end": "string",
+    "summary": "string",
+    "description": "string",
+    "alertSources": [
+      {
+        "id": null,
+        "teams": null,
+        "name": null,
+        "iconUrl": null,
+        "lightIconUrl": null,
+        "darkIconUrl": null
+      }
+    ]
+  }
+}

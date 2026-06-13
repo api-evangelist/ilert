@@ -1,0 +1,11 @@
+{
+  "summary": "Delete the specified user.",
+  "description": "",
+  "method": "DELETE",
+  "path": "/users/{user-id}",
+  "parameters": {
+    "user-id": "string"
+  },
+  "request_body": null,
+  "response": null
+}

@@ -1,0 +1,23 @@
+{
+  "summary": "Get a specific team.",
+  "description": "",
+  "method": "GET",
+  "path": "/teams/{id}",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "name": "string",
+    "visibility": "PUBLIC",
+    "members": [
+      {
+        "user": null,
+        "role": null
+      }
+    ],
+    "createdAt": "string",
+    "updatedAt": "string"
+  }
+}

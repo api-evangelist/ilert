@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/MaintenanceWindow",
+  "title": "MaintenanceWindow",
+  "type": "object",
+  "properties": {
+    "timezone": {
+      "$ref": "#/components/schemas/TimeZone"
+    },
+    "start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "alertSources": {
+      "maxItems": 50,
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AlertSource"
+      }
+    },
+    "services": {
+      "maxItems": 50,
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ServiceNoIncludes"
+      }
+    },
+    "createdBy": {
+      "type": "string",
+      "readOnly": true
+    },
+    "notifications": {
+      "type": "object",
+      "properties": {
+        "atCreation": {
+          "type": "boolean"
+        },
+        "atStart": {
+          "type": "boolean"
+        },
+        "atEnd": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

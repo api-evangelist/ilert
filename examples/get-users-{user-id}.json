@@ -1,0 +1,18 @@
+{
+  "summary": "Get the specified user.",
+  "description": "",
+  "method": "GET",
+  "path": "/users/{user-id}",
+  "parameters": {
+    "user-id": "string"
+  },
+  "request_body": null,
+  "response": {
+    "id": 1,
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "timezone": "Europe/Berlin",
+    "position": "string"
+  }
+}

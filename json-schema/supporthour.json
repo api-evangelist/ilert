@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.ilert.com/schemas/SupportHour",
+  "title": "SupportHour",
+  "required": [
+    "name",
+    "supportDays",
+    "timezone"
+  ],
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TeamRel"
+      }
+    },
+    "timezone": {
+      "$ref": "#/components/schemas/TimeZone"
+    },
+    "supportDays": {
+      "type": "object",
+      "properties": {
+        "MONDAY": {
+          "$ref": "#/components/schemas/SupportDay"
+        },
+        "TUESDAY": {
+          "$ref": "#/components/schemas/SupportDay"
+        },
+        "WEDNESDAY": {
+          "$ref": "#/components/schemas/SupportDay"
+        },
+        "THURSDAY": {
+          "$ref": "#/components/schemas/SupportDay"
+        },
+        "FRIDAY": {
+          "$ref": "#/components/schemas/SupportDay"
+        },
+        "SATURDAY": {
+          "$ref": "#/components/schemas/SupportDay"
+        },
+        "SUNDAY": {
+          "$ref": "#/components/schemas/SupportDay"
+        }
+      }
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SupportHourException"
+      }
+    }
+  }
+}

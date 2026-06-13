@@ -1,0 +1,41 @@
+{
+  "summary": "Invoke a specific alert action.",
+  "description": "",
+  "method": "POST",
+  "path": "/alerts/{id}/actions",
+  "parameters": {
+    "id": 1.0
+  },
+  "request_body": {
+    "alertActionId": "string",
+    "connectorId": "string",
+    "type": "string",
+    "name": "string",
+    "iconUrl": "string",
+    "history": [
+      {
+        "id": null,
+        "alertActionId": null,
+        "connectorId": null,
+        "alertId": null,
+        "success": null,
+        "actor": null
+      }
+    ]
+  },
+  "response": {
+    "id": "string",
+    "alertActionId": "string",
+    "connectorId": "string",
+    "alertId": 1.0,
+    "success": true,
+    "actor": {
+      "id": 1,
+      "firstName": "string",
+      "lastName": "string",
+      "email": "string",
+      "timezone": null,
+      "position": "string"
+    }
+  }
+}
