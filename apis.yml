@@ -1,0 +1,95 @@
+aid: ilert
+name: ilert
+description: ilert is an AI-first incident management and on-call alerting platform
+  that helps IT and DevOps teams manage alert sources, on-call schedules, escalation
+  policies, incidents, and notification routing. The platform provides a comprehensive
+  REST API for programmatic access to alerts, schedules, escalation policies, heartbeat
+  monitors, status pages, event flows, call routing, and 100+ monitoring integrations.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/ilert/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - Incident Management
+  - On-Call Alerting
+  - Alert Routing
+  - Escalation Policies
+  - On-Call Schedules
+  - Status Pages
+  - Heartbeat Monitoring
+  - Event Management
+  - DevOps
+  - SRE
+  - IT Operations
+apis:
+  - aid: ilert:ilert-rest-api
+    name: ilert REST API
+    description: The ilert REST API provides programmatic access to all platform resources
+      including alert sources, alerts, incidents, escalation policies, on-call schedules,
+      heartbeat monitors, status pages, event flows, call routing, services, metrics,
+      connectors, teams, users, and reporting. Authentication uses bearer token API
+      keys. The base URL is https://api.ilert.com.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+    baseURL: https://api.ilert.com
+    tags:
+      - Incident Management
+      - Alerts
+      - On-Call Scheduling
+      - Escalation Policies
+      - Status Pages
+      - Heartbeat Monitors
+      - Event Flows
+    properties:
+      - type: Documentation
+        url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+      - type: Authentication
+        url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+      - type: RateLimits
+        url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+      - type: APIVersionHistory
+        url: https://docs.ilert.com/developer-docs/api-version-history
+      - type: APISamples
+        url: https://docs.ilert.com/developer-docs/api-samples
+      - type: GoSDK
+        url: https://github.com/iLert/ilert-go
+      - type: JavaScriptSDK
+        url: https://github.com/iLert/ilert-js
+      - type: RustSDK
+        url: https://github.com/iLert/ilert-rust
+      - type: TerraformProvider
+        url: https://github.com/iLert/terraform-provider-ilert
+      - type: MCPServer
+        url: https://github.com/iLert/mcp-ilert
+    contact:
+      - FN: ilert Support
+        url: https://docs.ilert.com/
+        email: support@ilert.com
+common:
+  - type: Website
+    url: https://www.ilert.com/
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs
+  - type: GitHubOrg
+    url: https://github.com/iLert
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/ilert-alerting/
+  - type: Blog
+    url: https://www.ilert.com/blog
+  - type: Pricing
+    url: https://www.ilert.com/pricing
+  - type: StatusPage
+    url: https://status.ilert.com/
+  - type: X
+    url: https://twitter.com/ilerthq
+  - type: Plans
+    url: plans/ilert-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/ilert-rate-limits.yml
+  - type: FinOps
+    url: finops/ilert-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

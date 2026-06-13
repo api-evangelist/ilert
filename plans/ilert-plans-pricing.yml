@@ -1,0 +1,120 @@
+name: ilert Plans and Pricing
+description: Pricing plans for the ilert incident management and on-call alerting
+  platform. Plans are per-user per-month with annual billing available at a 20% discount.
+  All plans include unlimited integrations with monitoring tools.
+url: https://www.ilert.com/pricing
+specificationVersion: '0.1'
+plans:
+  - name: Free
+    description: Essential alerting for small teams getting started with incident
+      management and on-call scheduling.
+    url: https://www.ilert.com/pricing
+    price: 0
+    unit: per month
+    currency: EUR
+    billingCycle: monthly
+    userLimit: 5
+    features:
+      - Up to 5 users
+      - 100 SMS/voice notifications per month
+      - 1 on-call schedule
+      - 1 escalation policy
+      - 1 free public status page
+      - 1 heartbeat monitor
+      - Community support
+      - REST API access
+      - 700+ out-of-the-box integrations
+  - name: Pro
+    description: Full-featured on-call management for growing teams requiring unlimited
+      notifications and advanced scheduling.
+    url: https://www.ilert.com/pricing
+    price: 24
+    unit: per user per month
+    currency: EUR
+    billingCycle: monthly
+    minimumUsers: 3
+    features:
+      - Minimum 3 users
+      - Unlimited SMS/voice notifications
+      - Unlimited on-call schedules
+      - Unlimited escalation policies
+      - Up to 5 responders per escalation
+      - 250 AI credits per month
+      - Single sign-on (SSO)
+      - 25 heartbeat monitors
+      - 10 status page metrics
+      - 99.9% uptime SLA
+      - Business hours email support
+      - REST API access
+      - Terraform provider
+  - name: Scale
+    description: Team-based incident management with AI-powered event intelligence,
+      ITSM integrations, and advanced status pages for scaling organizations.
+    url: https://www.ilert.com/pricing
+    price: 49
+    unit: per user per month
+    currency: EUR
+    billingCycle: monthly
+    minimumUsers: 3
+    features:
+      - All Pro features
+      - Team-based organization
+      - Event intelligence and workflows
+      - AI-powered semantic grouping
+      - ITSM integrations (ServiceNow, Jira, Autotask)
+      - Up to 10 responders per escalation
+      - 1000 AI credits per month
+      - 25 heartbeat monitors
+      - 25 status page metrics
+      - Private and audience-specific status pages
+      - REST API access
+      - Terraform provider
+  - name: Enterprise
+    description: Enterprise-grade incident management with dedicated support, advanced
+      security controls, and highest availability SLA for large organizations.
+    url: https://www.ilert.com/pricing
+    price: custom
+    unit: contact sales
+    currency: EUR
+    billingCycle: annual
+    minimumUsers: 3
+    features:
+      - All Scale features
+      - Up to 25 responders per escalation
+      - 5000 AI credits per month
+      - Up to 99.99% uptime SLA
+      - Dedicated Customer Success Manager
+      - Advanced security controls
+      - Audit logs
+      - Role-based access control (RBAC)
+      - 24/7 phone support
+      - Up to 8 hours monthly Professional Services
+      - Custom integrations
+      - Invoice payment available
+addons:
+  - name: Call Routing
+    description: AI-powered call routing with voice agent capabilities for phone-based
+      incident escalation.
+    billingModel: per-user monthly
+  - name: Heartbeat Monitors - 20 Pack
+    description: Additional heartbeat monitors beyond the plan default, sold in packs
+      of 20 monitors.
+    billingModel: flat rate monthly
+  - name: Heartbeat Monitors - 100 Pack
+    description: Additional heartbeat monitors beyond the plan default, sold in packs
+      of 100 monitors.
+    billingModel: flat rate monthly
+  - name: Heartbeat Monitors - 1000 Pack
+    description: Additional heartbeat monitors beyond the plan default, sold in packs
+      of 1000 monitors.
+    billingModel: flat rate monthly
+  - name: Status Page Subscribers
+    description: Additional status page subscriber capacity for public, private, and
+      audience-specific status pages.
+    billingModel: per subscriber tier
+notes:
+  - Annual billing provides a 20% discount over monthly pricing.
+  - Payment accepted via credit card, SEPA direct debit, or invoice (for annual
+    subscriptions of EUR 2000 or more or Enterprise).
+  - 14-day free trial available with no credit card required.
+  - API access is available across all plans including Free.

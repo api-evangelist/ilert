@@ -1,0 +1,119 @@
+name: ilert FinOps Framework
+description: FinOps cost optimization and cloud financial management guidance for
+  ilert incident management platform spend. Covers cost allocation, optimization
+  levers, and unit economics for teams managing ilert subscription costs.
+url: https://www.ilert.com/pricing
+specificationVersion: '1.0'
+framework: FinOps Framework
+version: '1.0'
+costModel:
+  type: SaaS Subscription
+  billingDimensions:
+    - name: Active Users
+      description: Any user who can receive alerts or is included in an escalation
+        policy is billed as a user. Primary cost driver for the platform.
+      unit: per user per month
+      notes: Carefully audit user lists quarterly to remove inactive or departed
+        team members to reduce user count.
+    - name: Plan Tier
+      description: The selected plan (Free, Pro, Scale, Enterprise) determines per-user
+        price and feature access.
+      tiers:
+        - Free (up to 5 users, EUR 0)
+        - Pro (EUR 24/user/month, minimum 3 users)
+        - Scale (EUR 49/user/month, minimum 3 users)
+        - Enterprise (custom pricing)
+    - name: Billing Cycle
+      description: Annual billing provides a 20% discount compared to monthly billing.
+        Commitment to annual saves significant cost for stable teams.
+      discount: 20% on annual vs monthly
+    - name: Add-On Services
+      description: Optional add-ons including Call Routing (per user), Heartbeat
+        Monitor packs (20/100/1000), and Status Page subscriber tiers add to base
+        subscription cost.
+costAllocation:
+  strategies:
+    - name: Team-Based Cost Allocation
+      description: On Scale and Enterprise plans, use team-based organization features
+        to map ilert users to engineering teams or cost centers for chargeback or
+        showback.
+      applicablePlans:
+        - Scale
+        - Enterprise
+    - name: Department Tagging
+      description: Map on-call schedule participants to organizational cost centers.
+        Track which teams drive the highest user count and allocate subscription
+        costs proportionally.
+    - name: Integration Attribution
+      description: ilert includes unlimited integrations at no additional charge
+        across all plans. Attribute base subscription cost to teams based on number
+        of alert sources owned or escalation policies managed.
+optimization:
+  levers:
+    - name: Right-Size User Count
+      description: Audit active users quarterly. Users who no longer participate
+        in on-call rotations or escalation policies should be deactivated to reduce
+        billable user count.
+      impact: High
+      effort: Low
+    - name: Annual Billing Discount
+      description: Switch from monthly to annual billing to capture a 20% discount.
+        Best applied once team size is stable and the platform is validated for production
+        use.
+      impact: High (20% savings)
+      effort: Low
+    - name: Plan Right-Sizing
+      description: Evaluate whether Scale plan features (event intelligence, ITSM
+        integrations, AI grouping) are actively used. Downgrading to Pro where features
+        are unused can reduce per-user cost from EUR 49 to EUR 24.
+      impact: High (up to 51% per-user savings)
+      effort: Medium
+    - name: Optimize Add-On Usage
+      description: Review heartbeat monitor packs and call routing add-ons. Remove
+        unused heartbeat monitors and ensure call routing is assigned only to users
+        who handle phone escalations.
+      impact: Medium
+      effort: Low
+    - name: Leverage Free Tier for Non-Production
+      description: Use the Free tier (up to 5 users) for staging, QA, or sandbox
+        environments to avoid paying for non-production incident management.
+      impact: Medium
+      effort: Low
+    - name: Consolidate Status Page Subscribers
+      description: Status page subscriber counts drive add-on costs. Audit subscriber
+        lists and remove stale or unused subscriber entries to minimize tier costs.
+      impact: Low to Medium
+      effort: Low
+unitEconomics:
+  metrics:
+    - name: Cost per Alert
+      description: Track total monthly ilert spend divided by total alerts generated
+        to understand cost-per-alert and identify high-noise alert sources that inflate
+        cost.
+      formula: total_monthly_spend / total_alerts_per_month
+    - name: Cost per Incident
+      description: Total monthly ilert spend divided by the number of incidents resolved
+        provides the cost of the incident management capability per incident.
+      formula: total_monthly_spend / incidents_resolved_per_month
+    - name: Cost per On-Call Engineer
+      description: Monthly subscription cost per active on-call participant helps
+        compare ilert spend against alternative solutions or justify headcount in
+        on-call rotations.
+      formula: total_monthly_spend / active_oncall_users
+    - name: Notification Cost Efficiency
+      description: On Free plan, track SMS/voice notification consumption against
+        the 100/month cap. Exceeding this signals readiness to upgrade to Pro for
+        unlimited notifications.
+      threshold:
+        free_plan_sms_voice_monthly: 100
+governance:
+  recommendations:
+    - Designate an owner (SRE lead or FinOps practitioner) to review ilert spend
+      monthly.
+    - Set budget alerts at 80% and 100% of expected ilert spend in your cloud cost
+      management or finance tooling.
+    - Conduct quarterly user audits to right-size active user count before renewal.
+    - Evaluate plan tier fit at each annual renewal against actual feature usage
+      data.
+    - Include ilert subscription costs in engineering team cost allocation reports
+      for full SRE/DevOps total cost of ownership visibility.

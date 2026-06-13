@@ -1,0 +1,90 @@
+name: ilert API Rate Limits
+description: Rate limits applied by the ilert platform to API and integration requests
+  to provide stable throughput and fairness among different accounts. When rate limits
+  are exceeded, requests receive an HTTP 429 Too Many Requests response. Some limits
+  can be increased by contacting ilert support.
+url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+specificationVersion: '0.1'
+limits:
+  - name: API Requests by IP
+    description: General REST API requests rate limit applied per source IP address.
+      Applies to all authenticated API calls using bearer tokens.
+    target: API (IP)
+    requests: 700
+    window: 1 minute
+    windowSeconds: 60
+    scope: per IP address
+    httpStatusOnExceed: 429
+  - name: UI Requests by IP
+    description: Rate limit for requests originating from the ilert web application
+      user interface, applied per source IP address.
+    target: UI (IP)
+    requests: 250
+    window: 1 minute
+    windowSeconds: 60
+    scope: per IP address
+    httpStatusOnExceed: 429
+  - name: Alert Source Integration Key
+    description: Rate limit per integration key for alert source event ingestion.
+      Exceeding this limit triggers warning messages on affected alert sources and
+      related alerts, which automatically clear after 48 hours.
+    target: Integration Key (Alert source)
+    requests: 50
+    window: 1 minute
+    windowSeconds: 60
+    scope: per integration key
+    httpStatusOnExceed: 429
+    note: Warning messages appear on affected alert sources when limit is exceeded;
+      warnings clear automatically after 48 hours.
+  - name: Deployment Pipeline Integration Key
+    description: Rate limit per integration key for deployment pipeline event submissions.
+    target: Integration Key (Deployment pipeline)
+    requests: 10
+    window: 1 minute
+    windowSeconds: 60
+    scope: per integration key
+    httpStatusOnExceed: 429
+  - name: User API Key
+    description: Rate limit for requests made using user-generated API keys for programmatic
+      access to the REST API.
+    target: API Key (User-generated)
+    requests: 120
+    window: 1 minute
+    windowSeconds: 60
+    scope: per API key
+    httpStatusOnExceed: 429
+  - name: Metric Series Integration Key
+    description: Rate limit for metric data ingestion via integration key, measured
+      both in API calls and individual data points.
+    target: Integration Key (Metric series)
+    calls: 12
+    dataPoints: 240
+    window: 1 minute
+    windowSeconds: 60
+    scope: per integration key
+    httpStatusOnExceed: 429
+  - name: Heartbeat Integration Key
+    description: Rate limit for heartbeat monitor check-in requests via integration
+      key.
+    target: Integration Key (Heartbeat)
+    requests: 5
+    window: 1 minute
+    windowSeconds: 60
+    scope: per integration key
+    httpStatusOnExceed: 429
+retryGuidance:
+  httpStatus: 429
+  description: Clients receiving a 429 response may retry their request after a backoff
+    period. Exponential backoff is recommended.
+  suggestedBackoffSeconds:
+    minimum: 10
+    maximum: 30
+  note: Requests are rejected until the next time window begins with no additional
+    consequences beyond the rejection.
+limitIncrease:
+  available: true
+  description: Several rate limits are noted as increasable for use cases requiring
+    higher throughput.
+  contact: https://docs.ilert.com/
+  note: Contact ilert support if your use case requires higher thresholds than the
+    defaults listed.
