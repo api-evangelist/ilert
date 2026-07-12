@@ -78,6 +78,12 @@ apis:
         url: https://docs.ilert.com/
         email: support@ilert.com
 common:
+  - type: TrustCenter
+    url: security/ilert-trust-center.yml
+  - type: DomainSecurity
+    url: security/ilert-domain-security.yml
+  - type: Authentication
+    url: authentication/ilert-authentication.yml
   - type: Website
     url: https://www.ilert.com/
   - type: Documentation
