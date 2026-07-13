@@ -10,12 +10,9 @@
     },
     {
       "source": "https://www.linkedin.com/company/ilert-alerting/",
-      "feed_url": "https://www.linkedin.com/company/ilert-alerting/",
-      "title": "",
-      "saved": 0,
-      "method": "none"
+      "error": "HTTPError"
     }
   ],
-  "post_count": 25,
-  "fetched": "2026-06-27T12:03:07Z"
+  "post_count": 72,
+  "fetched": "2026-07-11T11:50:51Z"
 }
