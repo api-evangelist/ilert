@@ -78,6 +78,8 @@ apis:
         url: https://docs.ilert.com/
         email: support@ilert.com
 common:
+  - type: AgenticAccess
+    url: agentic-access/ilert-agentic-access.yml
   - type: TrustCenter
     url: security/ilert-trust-center.yml
   - type: DomainSecurity
