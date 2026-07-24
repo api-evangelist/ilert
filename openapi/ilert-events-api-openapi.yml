@@ -1,0 +1,144 @@
+openapi: 3.0.1
+info:
+  title: ilert REST Alert Actions Events API
+  description: "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>."
+  version: v2.2026.5-r.3
+  x-logo:
+    url: ./ilert-logo-spaced.png
+    backgroundColor: '#fafafa'
+    altText: ilert documentation logo
+servers:
+- url: /api
+security:
+- apiKey: []
+tags:
+- name: Events
+paths:
+  /events:
+    post:
+      tags:
+      - Events
+      summary: Post an event to ilert.
+      description: "Use the Event API to integrate your monitoring or ticketing tools with ilert. It provides a single API endpoint that allows you to create, accept and resolve alerts in ilert. It is designed around the notion that monitoring tools  send events when \n* a problem occurs (an `ALERT` event in ilert terminology)\n* a problem is acknowledged, indicating that someone is working on the resolution of the problem (an `ACCEPT`event)\n* a problem is resolved (a `RESOLVED`event)\n\nThe API accepts these events, routes them to the alert source to which the integration key belongs, and takes appropriate action.\n\nAn event object contains the following attributes:\n\nAttribute     | Description \n------------- | ------------- \nintegrationKey  | **Required**. The integration key of the alert source. \neventType  | **Required**. Must be either `ALERT`, `ACCEPT`, or `RESOLVE`\nsummary | **Required**. The event summary. Will be used as the alert summary if a new alert is created.\ndetails | Optional. The event details. Will be used as the alert details if a new alert is created.\nalertKey | Optional. For `ALERT` events, the alertKey can be used to deduplicate or group events. If an open alert with the key already exists, the event will be appended to the alert's event log. Otherwise a new alert will be created. For `ACCEPT` and `RESOLVE` events, the alertKey is used to reference the open alert which is to be accepted or resolved by this event.\npriority | Optional. Must be either HIGH or LOW. Will overwrite the evaluated priority of the alert source.\nseverity | Optional. Must be an integer in range 1..5. Will overwrite the evaluated severity of the alert source.\nservices | Optional. A list of service objects, each containing an `alias`.\nlabels | Optional. A map of key/value labels attached to the alert.\nimages | Optional. A list of images containing src, href and alt.\nlinks | Optional. A list of links, containing href and text.\ncustomDetails | Optional. Additional custom details for the event.\nroutingKey | Optional. Overwrite escalation policy for ALERT events.\n\n\n### Getting started\nBefore you can start making API requests, you need to create an API alert source in the ilert web interface:\n1. Go to \"Alert sources\"\n2. Click on \"Add a new alert source\"\n3. Fill out the form chosing \"API\" as the integration type and save.\n\nAn integration key will be generated for the alert source after creation. You can obtain the key on the alert sources' details page. You can only use the key to post events to this alert source and you don't need to provide any other credentials when using the Event API.\n\n### Example: create, accept and  resolve an alert\nThe following example will guide you through a basic workflow where an alert is created, accepted, and resolved.\n\n#### Create alert\nAn alert can be created by posting an `ALERT` event:\n\n**Request**\n```json\nhttps://api.ilert.com/api/events\n\n{\n  \"integrationKey\": \"edf0235f-a720-458e-a7fd-6b001042a4f4\",\n  \"eventType\": \"ALERT\",\n  \"alertKey\": \"srv/mail01\",\n  \"summary\": \"Host srv/mail01 is CRITICAL\"\n}\n```\n\nLet's say we want to post an update saying that the host is down. To do that, we will post another `ALERT` event using the same alertKey:\n\n**Request**\n```json\nhttps://api.ilert.com/api/events\n\n{\n  \"integrationKey\": \"edf0235f-a720-458e-a7fd-6b001042a4f4\",\n  \"eventType\": \"ALERT\",\n  \"alertKey\": \"srv/mail01\",\n  \"summary\": \"Host srv/mail01 is DOWN\"\n}\n```\n\n#### Accept an alert\nContinuing our example from above, we want to accept the alert that we created. In order to that, we post an `ACCEPT`event using the same alertKey that we used when we posted the `ALERT` event.\n\n**Request**\n```json\nhttps://api.ilert.com/api/events\n\n{\n  \"integrationKey\": \"edf0235f-a720-458e-a7fd-6b001042a4f4\",\n  \"eventType\": \"ACCEPT\",\n  \"alertKey\": \"srv/mail01\"\n}\n```\n\nThe alert is now in ACCEPTED state stopping any further notifications.\n\n#### Resolve an alert\nTo resolve the alert, we simply post a `RESOLVE` event using the alert key from above.\n\n**Request**\n```json\nhttps://api.ilert.com/api/events\n\n{\n  \"integrationKey\": \"edf0235f-a720-458e-a7fd-6b001042a4f4\",\n  \"eventType\": \"RESOLVE\",\n  \"alertKey\": \"srv/mail01\"\n}\n```\n\nThe alert is now resolved.\n\n\n\n### Dealing with errors and retries\nWe strongly recommend to implement a retry logic on the client side if an error occurs (ideally using an [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff)). \n\nRetry a failed request for the following errors:\n* any network errors\n* 5xx errors: this indicates an error in ilert\n* 429 Too Many Requests: you have reached your rate limit\n\n\nDo NOT retry a request for the following HTTP response codes:\n* 202 Accepted: the request was successful\n* 400 Bad Request: (check the error message for details)\n"
+      requestBody:
+        description: The event
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+        required: true
+      responses:
+        '202':
+          description: The event has been accepted
+          content: {}
+      security: []
+      x-codegen-request-body-name: event
+components:
+  schemas:
+    EventServiceRef:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Optional service id for rare edge cases. Prefer alias.
+        alias:
+          type: string
+          description: Service alias (preferred).
+    Event:
+      required:
+      - integrationKey
+      - eventType
+      - summary
+      type: object
+      properties:
+        integrationKey:
+          type: string
+        eventType:
+          type: string
+          description: the event type
+          enum:
+          - ALERT
+          - ACCEPT
+          - RESOLVE
+          - COMMENT
+        summary:
+          type: string
+          description: The event summary. Will be used as the alert summary if a new alert will be created.
+        details:
+          type: string
+          description: The event details. Will be used as the alert details if a new alert will be created.
+        alertKey:
+          type: string
+          description: Used to deduplicate events. If an open alert with the key already exists, the event will be appended to the alert's event log. Otherwise a new alert will be created. We will trim this value if necessary. Upper casing is allowed, however comparison is case insensitive.
+        priority:
+          $ref: '#/components/schemas/AlertPriority'
+        severity:
+          maximum: 5
+          minimum: 1
+          type: integer
+          format: int32
+          description: Optional severity in range 1..5. Will overwrite the evaluated severity of the alert source.
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventImage'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventLink'
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventComment'
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+          description: Optional key/value labels that are attached to the alert.
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventServiceRef'
+          description: Optional list of service refs. Usually pass alias; id is optional for rare edge cases.
+        customDetails:
+          type: object
+          additionalProperties: true
+        routingKey:
+          type: string
+          description: Optional routing key that overwrites the escalation policy of the alert source for ALERT events. Must map to routingKey of escalation policy
+    EventImage:
+      type: object
+      properties:
+        src:
+          type: string
+        href:
+          type: string
+        alt:
+          type: string
+    EventComment:
+      type: object
+      properties:
+        creator:
+          type: string
+        content:
+          type: string
+    EventLink:
+      type: object
+      properties:
+        href:
+          type: string
+        text:
+          type: string
+    AlertPriority:
+      type: string
+      enum:
+      - HIGH
+      - LOW
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      description: The Bearer API key of your user <a href='/api-docs/#section/Authentication'>more info</a>.
+      name: Authorization
+      in: header
+x-original-swagger-version: '2.0'

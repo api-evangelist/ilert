@@ -1,0 +1,569 @@
+openapi: 3.0.1
+info:
+  title: ilert REST Alert Actions Call Flows API
+  description: "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>."
+  version: v2.2026.5-r.3
+  x-logo:
+    url: ./ilert-logo-spaced.png
+    backgroundColor: '#fafafa'
+    altText: ilert documentation logo
+servers:
+- url: /api
+security:
+- apiKey: []
+tags:
+- name: Call Flows
+paths:
+  /call-flows:
+    get:
+      tags:
+      - Call Flows
+      summary: List existing call flows.
+      description: Returns a shallow list of call flows without the full node tree. Use the single resource endpoint to retrieve the complete call flow including all nodes and branches.
+      parameters:
+      - name: start-index
+        in: query
+        description: an integer specifying the starting point (beginning with 0) when paging through a list of entities
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: max-results
+        in: query
+        description: the maximum number of results when paging through a list of entities.
+        schema:
+          maximum: 100
+          type: integer
+          format: int32
+          default: 50
+      responses:
+        '200':
+          description: The call flows
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CallFlowListItem'
+    post:
+      tags:
+      - Call Flows
+      summary: Create a new call flow.
+      requestBody:
+        description: the call flow
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CallFlow'
+        required: true
+      responses:
+        '201':
+          description: The newly created call flow
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallFlow'
+      x-codegen-request-body-name: callFlow
+  /call-flows/{id}:
+    get:
+      tags:
+      - Call Flows
+      summary: Get a specific call flow.
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '200':
+          description: The requested call flow
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallFlow'
+    put:
+      tags:
+      - Call Flows
+      summary: Update a specific call flow.
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      requestBody:
+        description: the call flow
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CallFlow'
+        required: true
+      responses:
+        '200':
+          description: The updated call flow
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallFlow'
+      x-codegen-request-body-name: callFlow
+    delete:
+      tags:
+      - Call Flows
+      summary: Delete a specific call flow.
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '204':
+          description: Empty body delete response
+          content: {}
+components:
+  schemas:
+    CallFlowNodeMetadataSupportHours:
+      type: object
+      required:
+      - supportHoursId
+      properties:
+        supportHoursId:
+          type: integer
+          format: int64
+    CallFlowListItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        assignedNumber:
+          $ref: '#/components/schemas/CallFlowNumber'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+    CallFlowNodeMetadataBlockNumbers:
+      type: object
+      required:
+      - blacklist
+      properties:
+        blacklist:
+          type: array
+          items:
+            type: string
+    CallFlowNodeMetadata:
+      oneOf:
+      - $ref: '#/components/schemas/CallFlowNodeMetadataAudioMessage'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataIvrMenu'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataVoicemail'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataPinCode'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataSupportHours'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataRouteCall'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataCreateAlert'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataBlockNumbers'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataAgentic'
+    CallFlowNodeMetadataVoicemail:
+      type: object
+      properties:
+        textMessage:
+          type: string
+        customAudioUrl:
+          type: string
+        language:
+          type: string
+          enum:
+          - en
+          - de
+          - fr
+          - es
+          - nl
+          - ru
+          - it
+        aiVoiceModel:
+          type: string
+          enum:
+          - emma
+          - liam
+          - isabelle
+          - gordon
+          - ivy
+          - ellen
+        disableTranscription:
+          type: boolean
+    CallFlowNodeMetadataIvrMenu:
+      type: object
+      required:
+      - enabledOptions
+      properties:
+        textMessage:
+          type: string
+        customAudioUrl:
+          type: string
+        enabledOptions:
+          type: array
+          items:
+            type: string
+        aiVoiceModel:
+          type: string
+          enum:
+          - emma
+          - liam
+          - isabelle
+          - gordon
+          - ivy
+          - ellen
+        language:
+          type: string
+          enum:
+          - en
+          - de
+          - fr
+          - es
+          - nl
+          - ru
+          - it
+        retries:
+          type: integer
+          format: int64
+    CallFlow:
+      type: object
+      required:
+      - name
+      - language
+      - root
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        language:
+          type: string
+          enum:
+          - de
+          - en
+        assignedNumber:
+          $ref: '#/components/schemas/CallFlowNumber'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        root:
+          $ref: '#/components/schemas/CallFlowNode'
+    CallFlowNodeMetadataIntent:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - INCIDENT
+          - SYSTEM_OUTAGE
+          - SECURITY_BREACH
+          - TECHNICAL_SUPPORT
+          - INQUIRY
+        label:
+          type: string
+        description:
+          type: string
+        examples:
+          type: array
+          items:
+            type: string
+    CallFlowNodeMetadataEnrichmentSource:
+      type: object
+      required:
+      - id
+      - type
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          type: string
+          enum:
+          - STATUS_PAGE
+          - SERVICE
+    CallFlowNodeMetadataPinCode:
+      type: object
+      required:
+      - codes
+      properties:
+        textMessage:
+          type: string
+        customAudioUrl:
+          type: string
+        codes:
+          type: array
+          items:
+            $ref: '#/components/schemas/CallFlowNodeMetadataCode'
+        language:
+          type: string
+          enum:
+          - en
+          - de
+          - fr
+          - es
+          - nl
+          - ru
+          - it
+        retries:
+          type: integer
+          format: int64
+        aiVoiceModel:
+          type: string
+          enum:
+          - emma
+          - liam
+          - isabelle
+          - gordon
+          - ivy
+          - ellen
+    CallFlowNodeMetadataAgentic:
+      type: object
+      required:
+      - textMessage
+      - intents
+      properties:
+        textMessage:
+          type: string
+        customAudioUrl:
+          type: string
+        language:
+          type: string
+          enum:
+          - en
+          - de
+          - fr
+          - es
+          - nl
+          - ru
+          - it
+        aiVoiceModel:
+          type: string
+          enum:
+          - emma
+          - liam
+          - isabelle
+          - gordon
+          - ivy
+          - ellen
+        intents:
+          type: array
+          items:
+            $ref: '#/components/schemas/CallFlowNodeMetadataIntent'
+        gathers:
+          type: array
+          items:
+            $ref: '#/components/schemas/CallFlowNodeMetadataGather'
+        enrichment:
+          $ref: '#/components/schemas/CallFlowNodeMetadataEnrichment'
+    CallFlowBranch:
+      type: object
+      required:
+      - branchType
+      properties:
+        id:
+          type: integer
+          format: int64
+        branchType:
+          type: string
+          enum:
+          - BRANCH
+          - CATCH_ALL
+          - ANSWERED
+        condition:
+          type: string
+        target:
+          $ref: '#/components/schemas/CallFlowNode'
+    CallFlowNodeMetadataRouteCall:
+      type: object
+      required:
+      - targets
+      properties:
+        holdAudioUrl:
+          type: string
+        targets:
+          type: array
+          items:
+            $ref: '#/components/schemas/CallFlowNodeMetadataCallTarget'
+        callStyle:
+          type: string
+          enum:
+          - ORDERED
+          - RANDOM
+          - PARALLEL
+        retries:
+          type: integer
+          format: int64
+        callTimeoutSec:
+          type: integer
+          format: int64
+    CallFlowNodeMetadataAudioMessage:
+      type: object
+      properties:
+        textMessage:
+          type: string
+        customAudioUrl:
+          type: string
+        language:
+          type: string
+          enum:
+          - en
+          - de
+          - fr
+          - es
+          - nl
+          - ru
+          - it
+        aiVoiceModel:
+          type: string
+          enum:
+          - emma
+          - liam
+          - isabelle
+          - gordon
+          - ivy
+          - ellen
+    PhoneNumber:
+      type: object
+      properties:
+        regionCode:
+          type: string
+        number:
+          type: string
+    CallFlowNumber:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        phoneNumber:
+          $ref: '#/components/schemas/PhoneNumber'
+    CallFlowNodeMetadataCode:
+      type: object
+      required:
+      - label
+      properties:
+        code:
+          type: integer
+          format: int64
+        label:
+          type: string
+    CallFlowNode:
+      type: object
+      required:
+      - nodeType
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        nodeType:
+          type: string
+          enum:
+          - ROOT
+          - IVR_MENU
+          - AUDIO_MESSAGE
+          - SUPPORT_HOURS
+          - ROUTE_CALL
+          - PARALLEL_ROUTE_CALL
+          - VOICEMAIL
+          - PIN_CODE
+          - CREATE_ALERT
+          - BLOCK_NUMBERS
+          - AGENTIC
+        metadata:
+          $ref: '#/components/schemas/CallFlowNodeMetadata'
+        branches:
+          type: array
+          items:
+            $ref: '#/components/schemas/CallFlowBranch'
+    CallFlowNodeMetadataCallTarget:
+      type: object
+      required:
+      - target
+      - type
+      properties:
+        target:
+          type: string
+        type:
+          type: string
+          enum:
+          - USER
+          - ON_CALL_SCHEDULE
+          - NUMBER
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    CallFlowNodeMetadataGather:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - CALLER_NAME
+          - CONTACT_NUMBER
+          - EMAIL
+          - INCIDENT
+          - AFFECTED_SERVICES
+        label:
+          type: string
+        varType:
+          type: string
+          enum:
+          - NUMBER
+          - DATE
+          - BOOLEAN
+          - STRING
+        required:
+          type: boolean
+        question:
+          type: string
+    CallFlowNodeMetadataEnrichment:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        informationTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - INCIDENT
+            - MAINTENANCE
+            - SERVICE_STATUS
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/CallFlowNodeMetadataEnrichmentSource'
+    CallFlowNodeMetadataCreateAlert:
+      type: object
+      required:
+      - alertSourceId
+      properties:
+        alertSourceId:
+          type: integer
+          format: int64
+        acceptAlertOnAnswer:
+          type: boolean
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      description: The Bearer API key of your user <a href='/api-docs/#section/Authentication'>more info</a>.
+      name: Authorization
+      in: header
+x-original-swagger-version: '2.0'

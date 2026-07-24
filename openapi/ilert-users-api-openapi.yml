@@ -1,0 +1,321 @@
+openapi: 3.0.1
+info:
+  title: ilert REST Alert Actions Users API
+  description: "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>."
+  version: v2.2026.5-r.3
+  x-logo:
+    url: ./ilert-logo-spaced.png
+    backgroundColor: '#fafafa'
+    altText: ilert documentation logo
+servers:
+- url: /api
+security:
+- apiKey: []
+tags:
+- name: Users
+paths:
+  /users/{user-id}:
+    get:
+      tags:
+      - Users
+      summary: Get the specified user.
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: the user object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    put:
+      tags:
+      - Users
+      summary: Update an existing user.
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: the user object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: false
+      responses:
+        '200':
+          description: the updated user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      x-codegen-request-body-name: user
+    delete:
+      tags:
+      - Users
+      summary: Delete the specified user.
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: if deletion was successful
+          content: {}
+  /users:
+    get:
+      tags:
+      - Users
+      summary: List existing users.
+      parameters:
+      - name: start-index
+        in: query
+        description: an integer specifying the starting point (beginning with 0) when paging through a list of entities
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: max-results
+        in: query
+        description: the maximum number of results when paging through a list of entities.
+        schema:
+          maximum: 100
+          type: integer
+          format: int32
+          default: 50
+      responses:
+        '200':
+          description: list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      tags:
+      - Users
+      summary: Create a new user. Requires ADMIN privileges.
+      parameters:
+      - name: send-no-invitation
+        in: query
+        description: Provide ?send-no-invitation=true if you do not wish to send an invitation email.
+        schema:
+          type: boolean
+          default: false
+      description: "**Sample request**\n\n```json\nRequest URL: https://api.ilert.com/api/users\n\n{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john@acme.com\",\n  \"position\": \"Software Engineer\",\n}\n```\n\n**Response**\n\n````json\n{\n  \"id\": 2188373,\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john@acme.com\",\n  \"position\": \"Software Engineer\",\n  \"timezone\": \"Europe/Berlin\",\n  \"language\": \"de\",\n  \"role\": \"RESPONDER\",\n }\n````\n"
+      requestBody:
+        description: the user object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPost'
+        required: false
+      responses:
+        '201':
+          description: Created. The URI of the created user entity is included in the Location header and the user object is included in the body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      x-codegen-request-body-name: user
+  /users/search-email:
+    post:
+      tags:
+      - Users
+      summary: Find a user by email address.
+      description: Search for a user by their email address within the scope of the current account. This endpoint uses POST instead of GET to prevent email addresses from being exposed in URLs, server access logs, and browser history.
+      requestBody:
+        description: the email to search for
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - email
+              properties:
+                email:
+                  type: string
+                  description: the email address of the user to find
+        required: true
+      responses:
+        '200':
+          description: the matching user object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: no user found with the given email address
+  /users/current:
+    get:
+      tags:
+      - Users
+      summary: Get the currently authenticated user.
+      responses:
+        '200':
+          description: user object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    put:
+      tags:
+      - Users
+      summary: Update the current user.
+      requestBody:
+        description: user object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPost'
+        required: false
+      responses:
+        '200':
+          description: the updated user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      x-codegen-request-body-name: user
+components:
+  schemas:
+    UserPost:
+      required:
+      - email
+      - firstName
+      - lastName
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        timezone:
+          $ref: '#/components/schemas/TimeZone'
+        position:
+          type: string
+        department:
+          type: string
+        avatarUrl:
+          type: string
+          readOnly: true
+        language:
+          type: string
+          enum:
+          - de
+          - en
+        region:
+          type: string
+          enum:
+          - DE
+          - GB
+          - CH
+          - CN
+          - IN
+          - US
+          - FR
+          - ES
+          - CA
+          - IE
+        role:
+          $ref: '#/components/schemas/Role'
+        shiftColor:
+          type: string
+          description: Optional hex-color code for the user's shifts in schedules calendars
+    TimeZone:
+      type: string
+      enum:
+      - Europe/Berlin
+      - America/New_York
+      - America/Los_Angeles
+      - Asia/Istanbul
+    Role:
+      type: string
+      enum:
+      - STAKEHOLDER
+      - GUEST
+      - RESPONDER
+      - USER
+      - ADMIN
+    User:
+      required:
+      - email
+      - firstName
+      - lastName
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        timezone:
+          $ref: '#/components/schemas/TimeZone'
+        position:
+          type: string
+        department:
+          type: string
+        avatarUrl:
+          type: string
+          readOnly: true
+        language:
+          type: string
+          enum:
+          - de
+          - en
+        region:
+          type: string
+          enum:
+          - DE
+          - GB
+          - CH
+          - CN
+          - IN
+          - US
+          - FR
+          - ES
+          - CA
+          - IE
+        role:
+          $ref: '#/components/schemas/Role'
+        shiftColor:
+          type: string
+          description: Optional hex-color code for the user's shifts in schedules calendars
+        mutedUntil:
+          type: string
+          description: Date in ISO-8601
+          format: date-time
+        createdAt:
+          type: string
+          description: Date in ISO-8601
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date in ISO-8601
+          format: date-time
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      description: The Bearer API key of your user <a href='/api-docs/#section/Authentication'>more info</a>.
+      name: Authorization
+      in: header
+x-original-swagger-version: '2.0'

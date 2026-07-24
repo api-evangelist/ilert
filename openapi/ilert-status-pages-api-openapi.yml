@@ -1,0 +1,851 @@
+openapi: 3.0.1
+info:
+  title: ilert REST Alert Actions Status Pages API
+  description: "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>."
+  version: v2.2026.5-r.3
+  x-logo:
+    url: ./ilert-logo-spaced.png
+    backgroundColor: '#fafafa'
+    altText: ilert documentation logo
+servers:
+- url: /api
+security:
+- apiKey: []
+tags:
+- name: Status Pages
+paths:
+  /status-pages:
+    get:
+      tags:
+      - Status Pages
+      summary: Get status pages.
+      parameters:
+      - name: start-index
+        in: query
+        description: an integer specifying the starting point (beginning with 0) when paging through a list of entities
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: max-results
+        in: query
+        description: the maximum number of results when paging through a list of status pages.
+        schema:
+          maximum: 50
+          type: integer
+          format: int32
+          default: 25
+      - name: include
+        in: query
+        description: Describes optional properties that should be included in the response. You may declare multiple. (subscribed)
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - subscribed
+      responses:
+        '200':
+          description: The status pages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StatusPageList'
+    post:
+      tags:
+      - Status Pages
+      summary: Create a new status page.
+      requestBody:
+        description: the status page
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatusPageNoIncludes'
+        required: true
+      responses:
+        '200':
+          description: The newly created status page
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusPageNoIncludes'
+      x-codegen-request-body-name: service
+  /status-pages/{id}:
+    get:
+      tags:
+      - Status Pages
+      summary: Get a specific status page.
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      - name: include
+        in: query
+        description: 'Describes optional properties that should be included in the response. You may declare multiple. (subscribed, uptime, groups, structure). Note: structure is always included by default.'
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - subscribed
+            - uptime
+            - groups
+            - structure
+      responses:
+        '200':
+          description: The requested status page
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusPage'
+    put:
+      tags:
+      - Status Pages
+      summary: Update the specific status page
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      requestBody:
+        description: the status page
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatusPageNoIncludes'
+        required: true
+      responses:
+        '200':
+          description: The updated status page
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusPageNoIncludes'
+      x-codegen-request-body-name: service
+    delete:
+      tags:
+      - Status Pages
+      summary: Remove a specific status page.
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '204':
+          description: Empty body delete response
+          content: {}
+  /status-pages/{id}/groups:
+    get:
+      tags:
+      - Status Pages
+      summary: Get the groups of a status page
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      - name: start-index
+        in: query
+        description: an integer specifying the starting point (beginning with 0) when paging through a list of entities
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: max-results
+        in: query
+        description: the maximum number of results when paging through a list of entities.
+        schema:
+          maximum: 100
+          type: integer
+          format: int32
+          default: 50
+      responses:
+        '200':
+          description: The groups of the status page
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StatusPageGroup'
+    post:
+      tags:
+      - Status Pages
+      summary: Add a group to a status page
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      requestBody:
+        description: Group that should be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatusPageGroup'
+        required: true
+      responses:
+        '201':
+          description: The created group
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusPageGroup'
+      x-codegen-request-body-name: Group
+  /status-pages/{id}/groups/{group-id}:
+    get:
+      tags:
+      - Status Pages
+      summary: Get a specific group of a status page
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      - name: group-id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '200':
+          description: The group of the status page
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusPageGroup'
+        '404':
+          description: The group does not exist
+          content: {}
+    put:
+      tags:
+      - Status Pages
+      summary: Update a group of a status page
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      - name: group-id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      requestBody:
+        description: Group that should be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatusPageGroup'
+        required: true
+      responses:
+        '200':
+          description: The updated group of the status page
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusPageGroup'
+      x-codegen-request-body-name: Group
+    delete:
+      tags:
+      - Status Pages
+      summary: Remove group from a status page
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      - name: group-id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '204':
+          description: the response
+          content: {}
+  /status-pages/{id}/private-subscribers:
+    get:
+      tags:
+      - Status Pages
+      summary: Get the subscribers (users and teams) of a status page
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '200':
+          description: The subscribers of the status page
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamUserOption'
+    put:
+      tags:
+      - Status Pages
+      summary: Set subscribers (users and teams) of a status page
+      description: 'Note: this is an in place update'
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      requestBody:
+        description: subscribers that should be adjusted
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/TeamUserOption'
+        required: true
+      responses:
+        '204':
+          description: the response
+          content: {}
+      x-codegen-request-body-name: subscribers
+    post:
+      tags:
+      - Status Pages
+      summary: Add subscriber (user and team) to a status page
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      requestBody:
+        description: subscriber that should be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamUserOption'
+        required: true
+      responses:
+        '204':
+          description: the response
+          content: {}
+      x-codegen-request-body-name: subscriber
+  /status-pages/{id}/private-subscribers/{subscriber-id}:
+    delete:
+      tags:
+      - Status Pages
+      summary: Remove subscriber (user and team) from a status page
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      - name: subscriber-id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      - name: subscriber-type
+        in: query
+        description: the type of subscriber USER or TEAM
+        required: true
+        schema:
+          type: string
+          enum:
+          - USER
+          - TEAM
+      responses:
+        '204':
+          description: the response
+          content: {}
+      x-codegen-request-body-name: subscriber
+components:
+  schemas:
+    ServiceStatus:
+      type: string
+      description: the service status
+      enum:
+      - OPERATIONAL
+      - UNDER_MAINTENANCE
+      - DEGRADED
+      - PARTIAL_OUTAGE
+      - MAJOR_OUTAGE
+    TimeZone:
+      type: string
+      enum:
+      - Europe/Berlin
+      - America/New_York
+      - America/Los_Angeles
+      - Asia/Istanbul
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    MetricAggregationType:
+      type: string
+      enum:
+      - AVG
+      - SUM
+      - MIN
+      - MAX
+      - LAST
+    StatusPageGroup:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+    StatusPage:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        domain:
+          type: string
+        subdomain:
+          type: string
+        timezone:
+          $ref: '#/components/schemas/TimeZone'
+        faviconUrl:
+          type: string
+        logoUrl:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - PRIVATE
+          - PUBLIC
+        hiddenFromSearch:
+          type: boolean
+        showSubscribeAction:
+          type: boolean
+        showIncidentHistoryOption:
+          type: boolean
+        pageTitle:
+          type: string
+        pageDescription:
+          type: string
+        pageLayout:
+          type: string
+          enum:
+          - SINGLE_COLUMN
+          - RESPONSIVE
+        logoRedirectUrl:
+          type: string
+        activated:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/ServiceStatus'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceUptimeOnly'
+        metrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetricNoIncludes'
+        ipWhitelist:
+          type: array
+          description: ipv4 or ipv6 addresses to give access to. Can only be set on 'PRIVATE' status pages
+          items:
+            type: string
+        structure:
+          $ref: '#/components/schemas/StatusPageStructure'
+        subscribed:
+          type: boolean
+          description: This is an include field, it is not available in the list resource
+          readOnly: true
+        groups:
+          type: array
+          description: This is an include field, it is not available in the list resource. Read-only, use the sub resource to manipulate groups.
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/StatusPageGroup'
+        appearance:
+          type: string
+          enum:
+          - LIGHT
+          - DARK
+        announcement:
+          type: string
+          description: This is an include field, it is not available in the list resource
+        announcementOnPage:
+          type: boolean
+          description: If the announcement should be displayed on the status page
+        announcementInWidget:
+          type: boolean
+          description: If the announcement should be displayed in the popup widget
+        audienceSpecific:
+          type: boolean
+          default: false
+          description: If a private status page should move into audience specific mode
+    StatusPageNoIncludes:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        domain:
+          type: string
+        subdomain:
+          type: string
+        timezone:
+          $ref: '#/components/schemas/TimeZone'
+        faviconUrl:
+          type: string
+        logoUrl:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - PRIVATE
+          - PUBLIC
+        hiddenFromSearch:
+          type: boolean
+        showSubscribeAction:
+          type: boolean
+        showIncidentHistoryOption:
+          type: boolean
+        pageTitle:
+          type: string
+        pageDescription:
+          type: string
+        pageLayout:
+          type: string
+          enum:
+          - SINGLE_COLUMN
+          - RESPONSIVE
+        logoRedirectUrl:
+          type: string
+        activated:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/ServiceStatus'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceNoIncludes'
+        metrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetricNoIncludes'
+        ipWhitelist:
+          type: array
+          description: ipv4 or ipv6 addresses to give access to. Can only be set on 'PRIVATE' status pages
+          items:
+            type: string
+        structure:
+          $ref: '#/components/schemas/StatusPageStructure'
+        appearance:
+          type: string
+          enum:
+          - LIGHT
+          - DARK
+    ServiceNoIncludes:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        alias:
+          type: string
+        status:
+          $ref: '#/components/schemas/ServiceStatus'
+        description:
+          type: string
+        oneOpenIncidentOnly:
+          type: boolean
+        showUptimeHistory:
+          type: boolean
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+    StatusPageList:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        domain:
+          type: string
+        subdomain:
+          type: string
+        timezone:
+          $ref: '#/components/schemas/TimeZone'
+        faviconUrl:
+          type: string
+        logoUrl:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - PRIVATE
+          - PUBLIC
+        hiddenFromSearch:
+          type: boolean
+        showSubscribeAction:
+          type: boolean
+        showIncidentHistoryOption:
+          type: boolean
+        pageTitle:
+          type: string
+        pageDescription:
+          type: string
+        logoRedirectUrl:
+          type: string
+        activated:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/ServiceStatus'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceUptimeOnly'
+        metrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetricNoIncludes'
+        ipWhitelist:
+          type: array
+          description: ipv4 or ipv6 addresses to give access to. Can only be set on 'PRIVATE' status pages
+          items:
+            type: string
+        subscribed:
+          type: boolean
+          description: This is an include field, it is not available in the list resource
+          readOnly: true
+        announcement:
+          type: string
+          description: This is an include field, it is not available in the list resource
+        announcementOnPage:
+          type: boolean
+          description: If the announcement should be displayed on the status page
+        announcementInWidget:
+          type: boolean
+          description: If the announcement should be displayed in the popup widget
+        audienceSpecific:
+          type: boolean
+          default: false
+          description: If a private status page should move into audience specific mode
+    ServiceUptimePercentage:
+      type: object
+      properties:
+        uptimePercentage:
+          type: object
+          properties:
+            p90:
+              maximum: 100
+              minimum: 0
+              type: number
+              format: float
+              readOnly: true
+            p60:
+              maximum: 100
+              minimum: 0
+              type: number
+              format: float
+              readOnly: true
+            p30:
+              maximum: 100
+              minimum: 0
+              type: number
+              format: float
+              readOnly: true
+    MetricNoIncludes:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        description:
+          type: string
+        aggregationType:
+          $ref: '#/components/schemas/MetricAggregationType'
+        displayType:
+          $ref: '#/components/schemas/MetricDisplayType'
+        interpolateGaps:
+          type: boolean
+          default: false
+        lockYAxisMax:
+          type: number
+          format: double
+        lockYAxisMin:
+          type: number
+          format: double
+        mouseOverDecimal:
+          maximum: 6
+          minimum: 0
+          type: number
+          format: int32
+        showValuesOnMouseOver:
+          type: boolean
+          default: false
+        unitLabel:
+          type: string
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+    StatusPageStructure:
+      type: object
+      properties:
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusPageElement'
+      description: This field is not available in the list resource. Describes the structure of a status page. Allows for nesting children. It is not required unless groups are used.
+    ServiceOutage:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ServiceStatus'
+        from:
+          type: string
+          format: date-time
+        until:
+          type: string
+          format: date-time
+    ServiceUptime:
+      type: object
+      properties:
+        rangeStart:
+          type: string
+          format: date-time
+        rangeEnd:
+          type: string
+          format: date-time
+        outages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceOutage'
+        uptimePercentage:
+          $ref: '#/components/schemas/ServiceUptimePercentage'
+    MetricDisplayType:
+      type: string
+      enum:
+      - GRAPH
+      - SINGLE
+    TeamUserOption:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - USER
+          - TEAM
+    StatusPageElement:
+      required:
+      - id
+      - type
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The id of the service or group that this element references
+          format: int64
+        type:
+          type: string
+          enum:
+          - SERVICE
+          - GROUP
+        options:
+          type: string
+          description: 'Note: ''expand'' can only be set when type is ''SERVICE'', ''no-graph'' can only be set when type is ''GROUP'''
+          enum:
+          - expand
+          - no-graph
+        children:
+          type: array
+          description: 'Optional children of this element. Note: children may only be added to elements of type ''GROUP'''
+          items:
+            $ref: '#/components/schemas/StatusPageElement'
+    ServiceUptimeOnly:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        status:
+          $ref: '#/components/schemas/ServiceStatus'
+        description:
+          type: string
+        oneOpenIncidentOnly:
+          type: boolean
+        showUptimeHistory:
+          type: boolean
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        uptime:
+          $ref: '#/components/schemas/ServiceUptime'
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      description: The Bearer API key of your user <a href='/api-docs/#section/Authentication'>more info</a>.
+      name: Authorization
+      in: header
+x-original-swagger-version: '2.0'

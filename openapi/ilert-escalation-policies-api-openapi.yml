@@ -1,0 +1,300 @@
+openapi: 3.0.1
+info:
+  title: ilert REST Alert Actions Escalation Policies API
+  description: "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>."
+  version: v2.2026.5-r.3
+  x-logo:
+    url: ./ilert-logo-spaced.png
+    backgroundColor: '#fafafa'
+    altText: ilert documentation logo
+servers:
+- url: /api
+security:
+- apiKey: []
+tags:
+- name: Escalation Policies
+paths:
+  /escalation-policies:
+    get:
+      tags:
+      - Escalation Policies
+      summary: List escalation policies.
+      parameters:
+      - name: start-index
+        in: query
+        description: an integer specifying the starting point (beginning with 0) when paging through a list of entities
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: max-results
+        in: query
+        description: the maximum number of results when paging through a list of escalation policies.
+        schema:
+          maximum: 50
+          type: integer
+          format: int32
+          default: 50
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EscalationPolicy'
+    post:
+      tags:
+      - Escalation Policies
+      summary: Create a new escalation policy.
+      requestBody:
+        description: the escalation polocy
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EscalationPolicy'
+        required: true
+      responses:
+        '201':
+          description: Created. The URI of the escalation policy is included in the Location header and the entity in the body
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EscalationPolicy'
+      x-codegen-request-body-name: escalation-policy
+  /escalation-policies/resolve:
+    get:
+      tags:
+      - Escalation Policies
+      summary: Resolve an escalation policy by routing key.
+      parameters:
+      - name: routing-key
+        in: query
+        description: routing key expression used to resolve the escalation policy, including ordered comma-separated keys or the special il:{...} policy reference format.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The resolved escalation policy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EscalationPolicy'
+        '403':
+          description: The current user has no permission to access the resolved escalation policy
+          content: {}
+        '404':
+          description: No escalation policy matched the provided routing key
+          content: {}
+  /escalation-policies/{id}:
+    get:
+      tags:
+      - Escalation Policies
+      summary: Get escalation policy with the specified id.
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EscalationPolicy'
+    put:
+      tags:
+      - Escalation Policies
+      summary: Update an existing escalation policy.
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      requestBody:
+        description: the escalation policy
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EscalationPolicy'
+        required: true
+      responses:
+        '200':
+          description: The updated escalation policy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EscalationPolicy'
+      x-codegen-request-body-name: escalation-policy
+    delete:
+      tags:
+      - Escalation Policies
+      summary: Delete the specified escalation policy.
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '204':
+          description: if deletion was successful
+          content: {}
+  /escalation-policies/{id}/levels/{level}:
+    put:
+      tags:
+      - Escalation Policies
+      summary: Replace an escalation rule at the specified level.
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      - name: level
+        in: path
+        description: zero-based escalation level
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        description: the escalation rule
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EscalationRule'
+        required: true
+      responses:
+        '200':
+          description: The updated escalation rule
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EscalationRule'
+      x-codegen-request-body-name: escalation-rule
+components:
+  schemas:
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    UserRel:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+    EscalationRule:
+      required:
+      - escalationTimeout
+      type: object
+      properties:
+        escalationTimeout:
+          type: integer
+        user:
+          type: object
+          properties:
+            id:
+              type: number
+          description: 'This field (type: User) is deprecated, please use ''users'' instead'
+        schedule:
+          type: object
+          properties:
+            id:
+              type: number
+          description: 'This field (type: Schedule) is deprecated, please use ''schedules'' instead'
+        team:
+          type: object
+          properties:
+            id:
+              type: number
+          description: 'This field (type: Team) is deprecated, please use ''teams'' instead'
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRel'
+        schedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleRel'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+    ScheduleRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - STATIC
+          - RECURRING
+    EscalationPolicy:
+      required:
+      - escalationRules
+      - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        escalationRules:
+          type: array
+          items:
+            $ref: '#/components/schemas/EscalationRule'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        repeating:
+          type: boolean
+          default: false
+        frequency:
+          maximum: 9
+          minimum: 1
+          type: integer
+          format: int32
+          default: 1
+        delayMin:
+          maximum: 15
+          minimum: 0
+          type: integer
+          format: int32
+          default: 0
+        routingKey:
+          type: string
+          description: optional
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      description: The Bearer API key of your user <a href='/api-docs/#section/Authentication'>more info</a>.
+      name: Authorization
+      in: header
+x-original-swagger-version: '2.0'

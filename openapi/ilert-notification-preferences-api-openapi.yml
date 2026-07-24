@@ -1,0 +1,719 @@
+openapi: 3.0.1
+info:
+  title: ilert REST Alert Actions Notification Preferences API
+  description: "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>."
+  version: v2.2026.5-r.3
+  x-logo:
+    url: ./ilert-logo-spaced.png
+    backgroundColor: '#fafafa'
+    altText: ilert documentation logo
+servers:
+- url: /api
+security:
+- apiKey: []
+tags:
+- name: Notification Preferences
+paths:
+  /users/{user-id}/notification-preferences/alerts:
+    get:
+      tags:
+      - Notification Preferences
+      summary: Get alert notification preferences of a user
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: the response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NotificationPreferencesAlert'
+    post:
+      tags:
+      - Notification Preferences
+      summary: Create an alert notification preference
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationPreferencesAlertPost'
+        required: true
+      responses:
+        '201':
+          description: the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreferencesAlert'
+      x-codegen-request-body-name: alert notification preference
+  /users/{user-id}/notification-preferences/alerts/{id}:
+    get:
+      tags:
+      - Notification Preferences
+      summary: Get specific notification preferences alert
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '200':
+          description: the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreferencesAlert'
+    put:
+      tags:
+      - Notification Preferences
+      summary: Update a user's alert notification preference
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationPreferencesAlertPost'
+        required: false
+      responses:
+        '200':
+          description: the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreferencesAlert'
+      x-codegen-request-body-name: alert notification preference
+    delete:
+      tags:
+      - Notification Preferences
+      summary: Delete the user's specified notification preferences alert
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '204':
+          description: if deletion was successful
+          content: {}
+  /users/{user-id}/notification-preferences/duties:
+    get:
+      tags:
+      - Notification Preferences
+      summary: Get duty notification preferences of a user
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: the response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NotificationPreferencesDuty'
+    post:
+      tags:
+      - Notification Preferences
+      summary: Create a duty notification preference
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationPreferencesDutyPost'
+        required: true
+      responses:
+        '201':
+          description: the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreferencesDuty'
+      x-codegen-request-body-name: duty notification preference
+  /users/{user-id}/notification-preferences/duties/{id}:
+    get:
+      tags:
+      - Notification Preferences
+      summary: Get specific notification preferences duty
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '200':
+          description: the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreferencesDuty'
+    put:
+      tags:
+      - Notification Preferences
+      summary: Update a user's duty notification preference
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationPreferencesDutyPost'
+        required: false
+      responses:
+        '200':
+          description: the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreferencesDuty'
+      x-codegen-request-body-name: duty notification preference
+    delete:
+      tags:
+      - Notification Preferences
+      summary: Delete the user's specified notification preferences duty
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '204':
+          description: if deletion was successful
+          content: {}
+  /users/{user-id}/notification-preferences/updates:
+    get:
+      tags:
+      - Notification Preferences
+      summary: Get update notification preferences of a user
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: the response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NotificationPreferencesUpdate'
+    post:
+      tags:
+      - Notification Preferences
+      summary: Create an update notification preference
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationPreferencesUpdatePost'
+        required: true
+      responses:
+        '201':
+          description: the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreferencesUpdate'
+      x-codegen-request-body-name: update notification preference
+  /users/{user-id}/notification-preferences/updates/{id}:
+    get:
+      tags:
+      - Notification Preferences
+      summary: Get specific notification preferences update
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '200':
+          description: the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreferencesUpdate'
+    put:
+      tags:
+      - Notification Preferences
+      summary: Update a user's update notification preference
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationPreferencesUpdatePost'
+        required: false
+      responses:
+        '200':
+          description: the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreferencesUpdate'
+      x-codegen-request-body-name: update notification preference
+    delete:
+      tags:
+      - Notification Preferences
+      summary: Delete the user's specified notification preferences update
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '204':
+          description: if deletion was successful
+          content: {}
+  /users/{user-id}/notification-preferences/subscriptions:
+    get:
+      tags:
+      - Notification Preferences
+      summary: Get subscription notification preferences of a user
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: the response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NotificationPreferencesSubscription'
+    post:
+      tags:
+      - Notification Preferences
+      summary: Create a subscription notification preference
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationPreferencesSubscriptionPost'
+        required: true
+      responses:
+        '201':
+          description: the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreferencesSubscription'
+      x-codegen-request-body-name: subscription notification preference
+  /users/{user-id}/notification-preferences/subscriptions/{id}:
+    get:
+      tags:
+      - Notification Preferences
+      summary: Get specific notification preferences subscription
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '200':
+          description: the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreferencesSubscription'
+    put:
+      tags:
+      - Notification Preferences
+      summary: Update a user's subscription notification preference
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationPreferencesSubscriptionPost'
+        required: false
+      responses:
+        '200':
+          description: the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreferencesSubscription'
+      x-codegen-request-body-name: subscription notification preference
+    delete:
+      tags:
+      - Notification Preferences
+      summary: Delete the user's specified notification preferences subscription
+      parameters:
+      - name: user-id
+        in: path
+        description: numeric user id
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '204':
+          description: if deletion was successful
+          content: {}
+components:
+  schemas:
+    NotificationPreferencesUpdatePost:
+      type: object
+      properties:
+        contact:
+          type: object
+          oneOf:
+          - $ref: '#/components/schemas/ContactPhoneNumber'
+          - $ref: '#/components/schemas/ContactEmail'
+        method:
+          $ref: '#/components/schemas/NotificationPreferenceUpdateMethod'
+        type:
+          $ref: '#/components/schemas/NotificationPreferencesUpdateType'
+    NotificationPreferencesSubscriptionPost:
+      type: object
+      properties:
+        contact:
+          type: object
+          oneOf:
+          - $ref: '#/components/schemas/ContactPhoneNumber'
+          - $ref: '#/components/schemas/ContactEmail'
+        method:
+          $ref: '#/components/schemas/NotificationPreferenceSubscriptionMethod'
+    NotificationPreferenceDutyMethod:
+      type: string
+      enum:
+      - EMAIL
+      - SMS
+      - PUSH
+      - WHATSAPP
+      - TELEGRAM
+    NotificationPreferencesDutyPost:
+      type: object
+      properties:
+        beforeMin:
+          $ref: '#/components/schemas/NotificationPreferencesDutyBeforeMin'
+        contact:
+          type: object
+          oneOf:
+          - $ref: '#/components/schemas/ContactPhoneNumber'
+          - $ref: '#/components/schemas/ContactEmail'
+        method:
+          $ref: '#/components/schemas/NotificationPreferenceDutyMethod'
+        type:
+          $ref: '#/components/schemas/NotificationPreferencesDutyTypes'
+    NotificationPreferencesAlertPost:
+      type: object
+      properties:
+        method:
+          $ref: '#/components/schemas/NotificationPreferenceAlertMethod'
+        contact:
+          type: object
+          oneOf:
+          - $ref: '#/components/schemas/ContactPhoneNumber'
+          - $ref: '#/components/schemas/ContactEmail'
+        delayMin:
+          $ref: '#/components/schemas/NotificationPreferencesAlertDelayMin'
+        type:
+          $ref: '#/components/schemas/NotificationPreferenceAlertType'
+    NotificationPreferencesAlertDelayMin:
+      type: integer
+    NotificationPreferenceAlertMethod:
+      type: string
+      enum:
+      - EMAIL
+      - SMS
+      - PUSH
+      - VOICE
+      - WHATSAPP
+      - TELEGRAM
+    NotificationPreferenceSubscriptionMethod:
+      type: string
+      enum:
+      - EMAIL
+      - SMS
+      - PUSH
+    NotificationPreferenceUpdateMethod:
+      type: string
+      enum:
+      - EMAIL
+      - SMS
+      - PUSH
+      - WHATSAPP
+      - TELEGRAM
+    NotificationPreferencesSubscription:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        contact:
+          type: object
+          oneOf:
+          - $ref: '#/components/schemas/ContactPhoneNumber'
+          - $ref: '#/components/schemas/ContactEmail'
+        method:
+          $ref: '#/components/schemas/NotificationPreferenceSubscriptionMethod'
+    NotificationPreferencesDuty:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        beforeMin:
+          $ref: '#/components/schemas/NotificationPreferencesDutyBeforeMin'
+        contact:
+          type: object
+          oneOf:
+          - $ref: '#/components/schemas/ContactPhoneNumber'
+          - $ref: '#/components/schemas/ContactEmail'
+        method:
+          $ref: '#/components/schemas/NotificationPreferenceDutyMethod'
+        type:
+          $ref: '#/components/schemas/NotificationPreferencesDutyTypes'
+    ContactEmail:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        target:
+          type: string
+        status:
+          $ref: '#/components/schemas/ContactStatus'
+    ContactPhoneNumber:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        regionCode:
+          type: string
+        target:
+          type: string
+        primary:
+          type: boolean
+          description: May only be enabled for a single phone number contact at a time
+        status:
+          $ref: '#/components/schemas/ContactStatus'
+    NotificationPreferencesAlert:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        method:
+          $ref: '#/components/schemas/NotificationPreferenceAlertMethod'
+        contact:
+          type: object
+          oneOf:
+          - $ref: '#/components/schemas/ContactPhoneNumber'
+          - $ref: '#/components/schemas/ContactEmail'
+        delayMin:
+          $ref: '#/components/schemas/NotificationPreferencesAlertDelayMin'
+        type:
+          $ref: '#/components/schemas/NotificationPreferenceAlertType'
+    NotificationPreferencesDutyTypes:
+      type: string
+      enum:
+      - ON_CALL
+    ContactStatus:
+      type: string
+      enum:
+      - OK
+      - LOCKED
+      - BLACKLISTED
+    NotificationPreferencesUpdate:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        contact:
+          type: object
+          oneOf:
+          - $ref: '#/components/schemas/ContactPhoneNumber'
+          - $ref: '#/components/schemas/ContactEmail'
+        method:
+          $ref: '#/components/schemas/NotificationPreferenceUpdateMethod'
+        type:
+          $ref: '#/components/schemas/NotificationPreferencesUpdateType'
+    NotificationPreferenceAlertType:
+      type: string
+      enum:
+      - LOW_PRIORITY
+      - HIGH_PRIORITY
+    NotificationPreferencesUpdateType:
+      type: string
+      enum:
+      - ALERT_ACCEPTED
+      - ALERT_RESOLVED
+      - ALERT_ESCALATED
+    NotificationPreferencesDutyBeforeMin:
+      type: integer
+      enum:
+      - 0
+      - 15
+      - 30
+      - 60
+      - 180
+      - 360
+      - 720
+      - 1440
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      description: The Bearer API key of your user <a href='/api-docs/#section/Authentication'>more info</a>.
+      name: Authorization
+      in: header
+x-original-swagger-version: '2.0'

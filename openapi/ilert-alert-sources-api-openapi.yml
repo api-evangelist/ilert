@@ -1,0 +1,1103 @@
+openapi: 3.0.1
+info:
+  title: ilert REST Alert Actions Alert Sources API
+  description: "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>."
+  version: v2.2026.5-r.3
+  x-logo:
+    url: ./ilert-logo-spaced.png
+    backgroundColor: '#fafafa'
+    altText: ilert documentation logo
+servers:
+- url: /api
+security:
+- apiKey: []
+tags:
+- name: Alert Sources
+paths:
+  /alert-sources:
+    get:
+      tags:
+      - Alert Sources
+      summary: List alert sources.
+      parameters:
+      - name: start-index
+        in: query
+        description: an integer specifying the starting point (beginning with 0) when paging through a list of entities
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: max-results
+        in: query
+        description: the maximum number of results when paging through a list of alert sources.
+        schema:
+          maximum: 50
+          type: integer
+          format: int32
+          default: 50
+      responses:
+        '200':
+          description: the alert source object
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AlertSourceNoIncludes'
+    post:
+      tags:
+      - Alert Sources
+      summary: Create a new alert source.
+      requestBody:
+        description: the alert source
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlertSourceRel'
+        required: true
+      responses:
+        '201':
+          description: The URI of the alert source will be included in the location header and the alert source will be included in the body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertSource'
+      x-codegen-request-body-name: alert-source
+  /alert-sources/{id}:
+    get:
+      tags:
+      - Alert Sources
+      summary: Get the alert source with specified id or alternatively integration key.
+      parameters:
+      - name: id
+        in: path
+        description: numeric source id or integration key
+        required: true
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: Describes optional properties that should be included in the response. You may declare multiple. (detailsTemplate, summaryTemplate, routingTemplate, linkTemplates, priorityTemplate, severityTemplate, textTemplate, eventFilter, alertKeyTemplate, servicesTemplate, eventTypeFilterCreate, eventTypeFilterAccept, eventTypeFilterResolve); some may not work in lists; may be used for POST and PUT as well.
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - detailsTemplate
+            - summaryTemplate
+            - routingTemplate
+            - alertKeyTemplate
+            - servicesTemplate
+            - linkTemplates
+            - priorityTemplate
+            - severityTemplate
+            - textTemplate
+            - eventFilter
+            - eventTypeFilterCreate
+            - eventTypeFilterAccept
+            - eventTypeFilterResolve
+      responses:
+        '200':
+          description: the alert source object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertSource'
+    put:
+      tags:
+      - Alert Sources
+      summary: Update an existing alert source.
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      requestBody:
+        description: the alert source
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlertSourceRel'
+        required: true
+      responses:
+        '200':
+          description: the updated alert source object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertSource'
+      x-codegen-request-body-name: alert-source
+    delete:
+      tags:
+      - Alert Sources
+      summary: Delete the specified alert source.
+      parameters:
+      - name: id
+        in: path
+        description: entity ID
+        required: true
+        schema:
+          type: number
+      responses:
+        '204':
+          description: if deletion was successful
+          content: {}
+components:
+  schemas:
+    ServiceStatus:
+      type: string
+      description: the service status
+      enum:
+      - OPERATIONAL
+      - UNDER_MAINTENANCE
+      - DEGRADED
+      - PARTIAL_OUTAGE
+      - MAJOR_OUTAGE
+    IntegrationType:
+      type: string
+      enum:
+      - NAGIOS
+      - ICINGA
+      - EMAIL2
+      - SMS
+      - API
+      - HEARTBEAT2
+      - PRTG
+      - PINGDOM
+      - CLOUDWATCH
+      - AWSPHD
+      - STACKDRIVER
+      - INSTANA
+      - ZABBIX
+      - SOLARWINDS
+      - PROMETHEUS
+      - NEWRELIC
+      - GRAFANA
+      - GITHUB
+      - DATADOG
+      - UPTIMEROBOT
+      - APPDYNAMICS
+      - DYNATRACE
+      - TOPDESK
+      - STATUSCAKE
+      - MONITOR
+      - TOOL
+      - CHECKMK
+      - AUTOTASK
+      - AWSBUDGET
+      - SYSDIG
+      - SERVERDENSITY
+      - ZAPIER
+      - KENTIXAM
+      - JIRA
+      - CONSUL
+      - ZAMMAD
+      - SPLUNK
+      - SERVICENOW
+      - SEARCHGUARD
+      - KUBERNETES
+      - SIGNALFX
+      - AZUREALERTS
+      - TERRAFORMCLOUD
+      - SENTRY
+      - SEMATEXT
+      - SUMOLOGIC
+      - RAYGUN
+      - MXTOOLBOX
+      - ESWATCHER
+      - AMAZONSNS
+      - KAPACITOR
+      - CORTEXXSOAR
+      - ZENDESK
+      - AUVIK
+      - SENSU
+      - NCENTRAL
+      - JUMPCLOUD
+      - SALESFORCE
+      - GUARDDUTY
+      - STATUSHUB
+      - IXON
+      - APIFORTRESS
+      - FRESHSERVICE
+      - APPSIGNAL
+      - LIGHTSTEP
+      - IBMCLOUDFUNCTIONS
+      - CROWDSTRIKE
+      - HUMIO
+      - OHDEAR
+      - MONGODBATLAS
+      - GITLAB
+      - HYPERPING
+      - PAPRISMACLOUD
+      - SAMSARA
+      - PANDORAFMS
+      - MSSCOM
+      - TWILIO
+      - CISCOMERAKI
+      - CHECKLY
+      - POSTHOG
+      - GOOGLESCC
+      - SLACK
+      - MSTEAMS
+      - UPTIMEKUMA
+      - TWILIOERRORS
+      - PARTICLE
+      - CLOUDFLARE
+      - TULIP
+      - GRAYLOG
+      - CATCHPOINT
+      - LOKI
+      - CORTEX
+      - MIMIR
+      - HALOPSA
+      - INFLUXDB
+      - CALLFLOW
+      - HALOITSM
+      - KIBANA
+      - VICTORIAMETRICS
+      - HONEYCOMB
+      - FOURME
+      - KEEP
+      - UBIDOTS
+      - HETRIXTOOLS
+      - POSTMAN
+      - CLUSTERCONTROL
+      - NETDATA
+      - AWX
+      - KAFKA
+      - MQTT
+      - RAPIDSPIKE
+      - HONEYBADGER
+      - HEALTHCHECKSIO
+      - MEZMO
+      - SERVERGUARD24
+      - CISCOTHOUSANDEYES
+      - SITE24X7
+      - ITCONDUCTOR
+      - SAPFRUN
+      - APICA
+      - DASH0
+      - ROLLBAR
+      - GATUS
+      - LIBRENMS
+      - PANTHER
+      - TEAMCITY
+      - ALIBABACLOUD
+      - FLEETDM
+      - CONNECTWISEPSA
+      - DEADMANSSNITCH
+      - FORTISOAR
+      - OPMANAGER
+      - CRONITOR
+      - DOMOTZ
+      - LIVEWATCH
+      - AZUREDEVOPS
+      - LEVELIO
+      - EKARA
+      - SYSAID
+      - PHAREIO
+      - OPSGENIE
+      - WHATAP
+      - SIGNOZ
+      - GOOGLECHAT
+      - DOTCOMMONITOR
+      - UPTIME
+      - HELPSCOUT
+      - SCIENCELOGIC
+      - PULSETIC
+      - WAZUH
+      - SEKOIA
+    EscalationRule:
+      required:
+      - escalationTimeout
+      type: object
+      properties:
+        escalationTimeout:
+          type: integer
+        user:
+          type: object
+          properties:
+            id:
+              type: number
+          description: 'This field (type: User) is deprecated, please use ''users'' instead'
+        schedule:
+          type: object
+          properties:
+            id:
+              type: number
+          description: 'This field (type: Schedule) is deprecated, please use ''schedules'' instead'
+        team:
+          type: object
+          properties:
+            id:
+              type: number
+          description: 'This field (type: Team) is deprecated, please use ''teams'' instead'
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRel'
+        schedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleRel'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+    SimpleIdField64:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+      description: For POST and PUT requests only the id field is required for sub entities, e.g. status page -> service, alert source -> support hour
+    SupportHour:
+      required:
+      - name
+      - supportDays
+      - timezone
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        timezone:
+          $ref: '#/components/schemas/TimeZone'
+        supportDays:
+          type: object
+          properties:
+            MONDAY:
+              $ref: '#/components/schemas/SupportDay'
+            TUESDAY:
+              $ref: '#/components/schemas/SupportDay'
+            WEDNESDAY:
+              $ref: '#/components/schemas/SupportDay'
+            THURSDAY:
+              $ref: '#/components/schemas/SupportDay'
+            FRIDAY:
+              $ref: '#/components/schemas/SupportDay'
+            SATURDAY:
+              $ref: '#/components/schemas/SupportDay'
+            SUNDAY:
+              $ref: '#/components/schemas/SupportDay'
+        exceptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/SupportHourException'
+    AlertSource:
+      required:
+      - escalationPolicy
+      - integrationType
+      - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        name:
+          type: string
+        iconUrl:
+          type: string
+        lightIconUrl:
+          type: string
+        darkIconUrl:
+          type: string
+        escalationPolicy:
+          $ref: '#/components/schemas/EscalationPolicy'
+        integrationType:
+          $ref: '#/components/schemas/IntegrationType'
+        integrationKey:
+          type: string
+        integrationUrl:
+          type: string
+          readOnly: true
+        autoResolutionTimeout:
+          type: string
+          format: ISO-8601
+        alertGroupingWindow:
+          type: string
+          format: ISO-8601
+        alertCreation:
+          type: string
+          default: ONE_ALERT_PER_EMAIL
+          enum:
+          - ONE_ALERT_PER_EMAIL
+          - ONE_ALERT_PER_EMAIL_SUBJECT
+          - ONE_PENDING_ALERT_ALLOWED
+          - ONE_OPEN_ALERT_ALLOWED
+          - OPEN_RESOLVE_ON_EXTRACTION
+          - ONE_ALERT_GROUPED_PER_WINDOW
+          - INTELLIGENT_GROUPING
+        status:
+          type: string
+          readOnly: true
+          enum:
+          - PENDING
+          - ALL_ACCEPTED
+          - ALL_RESOLVED
+          - IN_MAINTENANCE
+          - DISABLED
+        active:
+          type: boolean
+          default: true
+        alertPriorityRule:
+          $ref: '#/components/schemas/AlertPriorityRule'
+        supportHours:
+          $ref: '#/components/schemas/SupportHour'
+        bidirectional:
+          type: boolean
+          readOnly: true
+        summaryTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        detailsTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        routingTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        linkTemplates:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertSourceLinkTemplate'
+        priorityTemplate:
+          $ref: '#/components/schemas/AlertSourcePriorityTemplate'
+        severityTemplate:
+          $ref: '#/components/schemas/AlertSourceSeverityTemplate'
+        eventFilter:
+          type: string
+          description: 'Defines an optional event filter condition in ICL language. This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
+        alertKeyTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        servicesTemplate:
+          type: array
+          description: 'Optional list of templates that extract service identifiers from the inbound event payload. Each rendered value is comma-split, and each resulting token is resolved against the tenant''s services by alias or name (case-insensitive). Unmatched tokens are silently dropped. Capped at 10 templates and at the alert''s per-event services limit. Note: this field is an ?include, it will not appear in lists.'
+          items:
+            $ref: '#/components/schemas/AlertSourceTemplate'
+        eventTypeFilterCreate:
+          type: string
+          description: 'Defines an optional create alert rule in ICL language. This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
+        eventTypeFilterAccept:
+          type: string
+          description: 'Defines an optional accept alert rule in ICL language This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
+        eventTypeFilterResolve:
+          type: string
+          description: 'Defines an optional resolve alert rule in ICL language This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
+        autoRaiseAlerts:
+          type: boolean
+          description: Only effective when a support hour is linked to this alert source.
+        scoreThreshold:
+          type: number
+          format: double
+          description: Only used when alertCreation is set to INTELLIGENT_GROUPING.
+        severity:
+          type: integer
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
+        setupStatus:
+          type: string
+          enum:
+          - CREATED
+          - CREATED_ADVANCED
+          - CREATED_BIDIRECTIONAL
+          - FINISHED
+        autoCreateServices:
+          type: boolean
+          default: false
+        createdAt:
+          type: string
+          readOnly: true
+        updatedAt:
+          type: string
+          readOnly: true
+    IncidentNoIncludes:
+      type: object
+      properties:
+        id:
+          type: number
+        summary:
+          type: string
+        status:
+          $ref: '#/components/schemas/IncidentStatus'
+        message:
+          type: string
+        sendNotification:
+          type: boolean
+        createdAt:
+          type: string
+          description: May be overwritten during the creation of the incident, otherwise read-only
+          format: date-time
+        updatedAt:
+          type: string
+          description: May be overwritten during the creation of the incident, otherwise read-only
+          format: date-time
+        affectedServices:
+          type: array
+          items:
+            type: object
+            properties:
+              impact:
+                $ref: '#/components/schemas/ServiceStatus'
+              service:
+                $ref: '#/components/schemas/ServiceNoIncludes'
+        resolvedOn:
+          type: string
+          format: date-time
+          readOnly: true
+    AlertSourceTemplate:
+      type: object
+      properties:
+        textTemplate:
+          type: string
+          description: "For more information on alert source templating, please visit: https://docs.ilert.com/alerting/alert-sources#alert-template.\n\n Example: <br />`Hi {{ users[0].name }} there!` \n\nYou can use the text template instead of elements by adding the include `textTemplate` to your request. Any version can be used for POST or PUT requests."
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertSourceTemplateElement'
+    AlertSourceSeverityTemplateMapping:
+      required:
+      - severity
+      - value
+      type: object
+      properties:
+        value:
+          type: string
+        severity:
+          type: integer
+          format: int32
+    UserRel:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+    AlertSourcePriorityTemplate:
+      required:
+      - mappings
+      - valueTemplate
+      type: object
+      properties:
+        valueTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        mappings:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertSourcePriorityTemplateMapping'
+    AlertSourceRel:
+      required:
+      - escalationPolicy
+      - integrationType
+      - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        name:
+          type: string
+        iconUrl:
+          type: string
+        lightIconUrl:
+          type: string
+        darkIconUrl:
+          type: string
+        escalationPolicy:
+          $ref: '#/components/schemas/EscalationPolicy'
+        integrationType:
+          $ref: '#/components/schemas/IntegrationType'
+        integrationKey:
+          type: string
+        integrationUrl:
+          type: string
+          readOnly: true
+        autoResolutionTimeout:
+          type: string
+          format: ISO-8601
+        alertGroupingWindow:
+          type: string
+          format: ISO-8601
+        alertCreation:
+          type: string
+          default: ONE_ALERT_PER_EMAIL
+          enum:
+          - ONE_ALERT_PER_EMAIL
+          - ONE_ALERT_PER_EMAIL_SUBJECT
+          - ONE_PENDING_ALERT_ALLOWED
+          - ONE_OPEN_ALERT_ALLOWED
+          - OPEN_RESOLVE_ON_EXTRACTION
+          - ONE_ALERT_GROUPED_PER_WINDOW
+          - INTELLIGENT_GROUPING
+        status:
+          type: string
+          readOnly: true
+          enum:
+          - PENDING
+          - ALL_ACCEPTED
+          - ALL_RESOLVED
+          - IN_MAINTENANCE
+          - DISABLED
+        active:
+          type: boolean
+          default: true
+        alertPriorityRule:
+          $ref: '#/components/schemas/AlertPriorityRule'
+        supportHours:
+          $ref: '#/components/schemas/SimpleIdField64'
+        bidirectional:
+          type: boolean
+          readOnly: true
+        summaryTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        detailsTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        routingTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        linkTemplates:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertSourceLinkTemplate'
+        priorityTemplate:
+          $ref: '#/components/schemas/AlertSourcePriorityTemplate'
+        severityTemplate:
+          $ref: '#/components/schemas/AlertSourceSeverityTemplate'
+        eventFilter:
+          type: string
+          description: 'Defines an optional event filter condition in ICL language. This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
+        alertKeyTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        servicesTemplate:
+          type: array
+          description: 'Optional list of templates that extract service identifiers from the inbound event payload. Each rendered value is comma-split, and each resulting token is resolved against the tenant''s services by alias or name (case-insensitive). Unmatched tokens are silently dropped. Capped at 10 templates and at the alert''s per-event services limit. Note: this field is an ?include, it will not appear in lists.'
+          items:
+            $ref: '#/components/schemas/AlertSourceTemplate'
+        eventTypeFilterCreate:
+          type: string
+          description: 'Defines an optional create alert rule in ICL language. This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
+        eventTypeFilterAccept:
+          type: string
+          description: 'Defines an optional accept alert rule in ICL language This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
+        eventTypeFilterResolve:
+          type: string
+          description: 'Defines an optional resolve alert rule in ICL language This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
+        autoRaiseAlerts:
+          type: boolean
+          description: Only effective when a support hour is linked to this alert source.
+        scoreThreshold:
+          type: number
+          format: double
+          description: Only used when alertCreation is set to INTELLIGENT_GROUPING.
+        severity:
+          type: integer
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
+        setupStatus:
+          type: string
+          enum:
+          - CREATED
+          - CREATED_ADVANCED
+          - CREATED_BIDIRECTIONAL
+          - FINISHED
+        autoCreateServices:
+          type: boolean
+          default: false
+        createdAt:
+          type: string
+          readOnly: true
+        updatedAt:
+          type: string
+          readOnly: true
+    SupportHourException:
+      type: object
+      required:
+      - name
+      - start
+      - end
+      - supportStatus
+      properties:
+        name:
+          type: string
+        start:
+          type: string
+          format: date
+        end:
+          type: string
+          format: date
+        supportStatus:
+          type: string
+          enum:
+          - DURING
+          - OUTSIDE
+    ServiceOutage:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ServiceStatus'
+        from:
+          type: string
+          format: date-time
+        until:
+          type: string
+          format: date-time
+    AlertPriorityRule:
+      type: string
+      enum:
+      - HIGH
+      - LOW
+      - HIGH_DURING_SUPPORT_HOURS
+      - LOW_DURING_SUPPORT_HOURS
+    ScheduleRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - STATIC
+          - RECURRING
+    ServiceNoIncludes:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        alias:
+          type: string
+        status:
+          $ref: '#/components/schemas/ServiceStatus'
+        description:
+          type: string
+        oneOpenIncidentOnly:
+          type: boolean
+        showUptimeHistory:
+          type: boolean
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+    AlertSourceTemplateElement:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - TEXT
+          - VAR
+          - RAW
+        val:
+          type: string
+        func:
+          type: string
+        args:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertSourceTemplateElementArg'
+    IncidentStatus:
+      type: string
+      description: the incident status
+      enum:
+      - INVESTIGATING
+      - IDENTIFIED
+      - MONITORING
+      - RESOLVED
+    Service:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        alias:
+          type: string
+        status:
+          $ref: '#/components/schemas/ServiceStatus'
+        description:
+          type: string
+        oneOpenIncidentOnly:
+          type: boolean
+        showUptimeHistory:
+          type: boolean
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        subscribed:
+          type: boolean
+          readOnly: true
+        uptime:
+          $ref: '#/components/schemas/ServiceUptime'
+        incidents:
+          type: array
+          description: Note that this only contains the latest 10 unresolved incidents, use /api/incidents?service=x if more or specific results are needed
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/IncidentNoIncludes'
+    AlertSourcePriorityTemplateMapping:
+      required:
+      - priority
+      - value
+      type: object
+      properties:
+        value:
+          type: string
+        priority:
+          type: string
+          enum:
+          - LOW
+          - HIGH
+    AlertSourceNoIncludes:
+      required:
+      - escalationPolicy
+      - integrationType
+      - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        name:
+          type: string
+        iconUrl:
+          type: string
+        lightIconUrl:
+          type: string
+        darkIconUrl:
+          type: string
+        escalationPolicy:
+          $ref: '#/components/schemas/EscalationPolicy'
+        integrationType:
+          $ref: '#/components/schemas/IntegrationType'
+        integrationKey:
+          type: string
+        integrationUrl:
+          type: string
+          readOnly: true
+        autoResolutionTimeout:
+          type: string
+          format: ISO-8601
+        alertGroupingWindow:
+          type: string
+          format: ISO-8601
+        alertCreation:
+          type: string
+          default: ONE_ALERT_PER_EMAIL
+          enum:
+          - ONE_ALERT_PER_EMAIL
+          - ONE_ALERT_PER_EMAIL_SUBJECT
+          - ONE_PENDING_ALERT_ALLOWED
+          - ONE_OPEN_ALERT_ALLOWED
+          - OPEN_RESOLVE_ON_EXTRACTION
+          - ONE_ALERT_GROUPED_PER_WINDOW
+          - INTELLIGENT_GROUPING
+        status:
+          type: string
+          readOnly: true
+          enum:
+          - PENDING
+          - ALL_ACCEPTED
+          - ALL_RESOLVED
+          - IN_MAINTENANCE
+          - DISABLED
+        active:
+          type: boolean
+          default: true
+        alertPriorityRule:
+          $ref: '#/components/schemas/AlertPriorityRule'
+        supportHours:
+          $ref: '#/components/schemas/SupportHour'
+        bidirectional:
+          type: boolean
+          readOnly: true
+        autoRaiseAlerts:
+          type: boolean
+          description: Only effective when a support hour is linked to this alert source.
+        scoreThreshold:
+          type: number
+          format: double
+          description: Only used when alertCreation is set to INTELLIGENT_GROUPING.
+        severity:
+          type: integer
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
+        createdAt:
+          type: string
+          readOnly: true
+        updatedAt:
+          type: string
+          readOnly: true
+    SupportDay:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: time
+        end:
+          type: string
+          format: time
+    ServiceUptime:
+      type: object
+      properties:
+        rangeStart:
+          type: string
+          format: date-time
+        rangeEnd:
+          type: string
+          format: date-time
+        outages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceOutage'
+        uptimePercentage:
+          $ref: '#/components/schemas/ServiceUptimePercentage'
+    EscalationPolicy:
+      required:
+      - escalationRules
+      - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        escalationRules:
+          type: array
+          items:
+            $ref: '#/components/schemas/EscalationRule'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        repeating:
+          type: boolean
+          default: false
+        frequency:
+          maximum: 9
+          minimum: 1
+          type: integer
+          format: int32
+          default: 1
+        delayMin:
+          maximum: 15
+          minimum: 0
+          type: integer
+          format: int32
+          default: 0
+        routingKey:
+          type: string
+          description: optional
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    AlertSourceSeverityTemplate:
+      required:
+      - mappings
+      - valueTemplate
+      type: object
+      properties:
+        valueTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        mappings:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertSourceSeverityTemplateMapping'
+    ServiceUptimePercentage:
+      type: object
+      properties:
+        uptimePercentage:
+          type: object
+          properties:
+            p90:
+              maximum: 100
+              minimum: 0
+              type: number
+              format: float
+              readOnly: true
+            p60:
+              maximum: 100
+              minimum: 0
+              type: number
+              format: float
+              readOnly: true
+            p30:
+              maximum: 100
+              minimum: 0
+              type: number
+              format: float
+              readOnly: true
+    AlertSourceTemplateElementArg:
+      type: object
+      properties:
+        S:
+          type: string
+        N:
+          type: integer
+    AlertSourceLinkTemplate:
+      required:
+      - hrefTemplate
+      - text
+      type: object
+      properties:
+        text:
+          type: string
+        hrefTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+    TimeZone:
+      type: string
+      enum:
+      - Europe/Berlin
+      - America/New_York
+      - America/Los_Angeles
+      - Asia/Istanbul
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      description: The Bearer API key of your user <a href='/api-docs/#section/Authentication'>more info</a>.
+      name: Authorization
+      in: header
+x-original-swagger-version: '2.0'
