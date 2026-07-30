@@ -6,7 +6,20 @@ description: ilert is an AI-first incident management and on-call alerting platf
   REST API for programmatic access to alerts, schedules, escalation policies, heartbeat
   monitors, status pages, event flows, call routing, and 100+ monitoring integrations.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ilert.png
 url: https://raw.githubusercontent.com/api-evangelist/ilert/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -24,59 +37,1195 @@ tags:
   - SRE
   - IT Operations
 apis:
-  - aid: ilert:ilert-rest-api
-    name: ilert REST API
-    description: The ilert REST API provides programmatic access to all platform resources
-      including alert sources, alerts, incidents, escalation policies, on-call schedules,
-      heartbeat monitors, status pages, event flows, call routing, services, metrics,
-      connectors, teams, users, and reporting. Authentication uses bearer token API
-      keys. The base URL is https://api.ilert.com.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
-    baseURL: https://api.ilert.com
-    tags:
-      - Incident Management
-      - Alerts
-      - On-Call Scheduling
-      - Escalation Policies
-      - Status Pages
-      - Heartbeat Monitors
-      - Event Flows
-    properties:
-      - type: Documentation
-        url: https://docs.ilert.com/developer-docs/rest-api/api-reference
-      - type: Authentication
-        url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
-      - type: RateLimits
-        url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
-      - type: APIVersionHistory
-        url: https://docs.ilert.com/developer-docs/api-version-history
-      - type: APISamples
-        url: https://docs.ilert.com/developer-docs/api-samples
-      - type: GoSDK
-        url: https://github.com/iLert/ilert-go
-      - type: JavaScriptSDK
-        url: https://github.com/iLert/ilert-js
-      - type: RustSDK
-        url: https://github.com/iLert/ilert-rust
-      - type: TerraformProvider
-        url: https://github.com/iLert/terraform-provider-ilert
-      - type: MCPServer
-        url: https://github.com/iLert/mcp-ilert
-      - type: OpenAPI
-        url: openapi/ilert-ilert-rest-api-openapi.yml
-      - type: JSONSchema
-        url: json-schema/
-      - type: Examples
-        url: examples/
-      - type: Vocabulary
-        url: vocabulary/ilert-vocabulary.yml
-      - type: JSONLDContext
-        url: json-ld/ilert-context.jsonld
-    contact:
-      - FN: ilert Support
-        url: https://docs.ilert.com/
-        email: support@ilert.com
+- aid: ilert:ilert-alert-actions-api
+  name: ilert Alert Actions API
+  description: The Alert Actions API from ilert — 3 operation(s) for alert actions.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Alert Actions
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-alert-actions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-alert-sources-api
+  name: ilert Alert Sources API
+  description: The Alert Sources API from ilert — 2 operation(s) for alert sources.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Alert Sources
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-alert-sources-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-alerts-api
+  name: ilert Alerts API
+  description: The Alerts API from ilert — 11 operation(s) for alerts.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Alerts
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-alerts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-call-flow-numbers-api
+  name: ilert Call Flow Numbers API
+  description: The Call Flow Numbers API from ilert — 2 operation(s) for call flow numbers.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Call Flow Numbers
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-call-flow-numbers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-call-flows-api
+  name: ilert Call Flows API
+  description: The Call Flows API from ilert — 2 operation(s) for call flows.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Call Flows
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-call-flows-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-connectors-api
+  name: ilert Connectors API
+  description: The Connectors API from ilert — 2 operation(s) for connectors.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Connectors
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-connectors-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-contacts-api
+  name: ilert Contacts API
+  description: The Contacts API from ilert — 4 operation(s) for contacts.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-contacts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-deployment-events-api
+  name: ilert Deployment Events API
+  description: The Deployment Events API from ilert — 1 operation(s) for deployment events.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Deployment Events
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-deployment-events-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-deployment-pipelines-api
+  name: ilert Deployment Pipelines API
+  description: The Deployment Pipelines API from ilert — 2 operation(s) for deployment pipelines.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Deployment Pipelines
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-deployment-pipelines-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-escalation-policies-api
+  name: ilert Escalation Policies API
+  description: The Escalation Policies API from ilert — 4 operation(s) for escalation policies.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Escalation Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-escalation-policies-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-event-flows-api
+  name: ilert Event Flows API
+  description: The Event Flows API from ilert — 2 operation(s) for event flows.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Event Flows
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-event-flows-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-events-api
+  name: ilert Events API
+  description: The Events API from ilert — 1 operation(s) for events.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-events-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-heartbeat-monitors-api
+  name: ilert Heartbeat Monitors API
+  description: The Heartbeat Monitors API from ilert — 2 operation(s) for heartbeat monitors.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Heartbeat Monitors
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-heartbeat-monitors-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-incident-templates-api
+  name: ilert Incident Templates API
+  description: The Incident Templates API from ilert — 2 operation(s) for incident templates.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Incident Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-incident-templates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-incidents-api
+  name: ilert Incidents API
+  description: The Incidents API from ilert — 4 operation(s) for incidents.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Incidents
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-incidents-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-integrations-api
+  name: ilert Integrations API
+  description: The Integrations API from ilert — 1 operation(s) for integrations.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Integrations
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-integrations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-log-entries-api
+  name: ilert Log-Entries API
+  description: The Log-Entries API from ilert — 1 operation(s) for log-entries.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Log-Entries
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-log-entries-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-maintenance-windows-api
+  name: ilert Maintenance Windows API
+  description: The Maintenance Windows API from ilert — 2 operation(s) for maintenance windows.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Maintenance Windows
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-maintenance-windows-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-metric-data-sources-api
+  name: ilert Metric Data Sources API
+  description: The Metric Data Sources API from ilert — 2 operation(s) for metric data sources.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Metric Data Sources
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-metric-data-sources-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-metrics-api
+  name: ilert Metrics API
+  description: The Metrics API from ilert — 2 operation(s) for metrics.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Metrics
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-metrics-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-notification-preferences-api
+  name: ilert Notification Preferences API
+  description: >-
+    The Notification Preferences API from ilert — 8 operation(s) for notification preferences.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Notification Preferences
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-notification-preferences-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-notifications-api
+  name: ilert Notifications API
+  description: The Notifications API from ilert — 1 operation(s) for notifications.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-notifications-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-numbers-api
+  name: ilert Numbers API
+  description: The Numbers API from ilert — 1 operation(s) for numbers.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Numbers
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-numbers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-on-calls-api
+  name: ilert On-Calls API
+  description: The On-Calls API from ilert — 1 operation(s) for on-calls.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - On-Calls
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-on-calls-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-reports-api
+  name: ilert Reports API
+  description: The Reports API from ilert — 3 operation(s) for reports.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-reports-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-schedules-api
+  name: ilert Schedules API
+  description: The Schedules API from ilert — 5 operation(s) for schedules.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Schedules
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-schedules-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-series-api
+  name: ilert Series API
+  description: The Series API from ilert — 1 operation(s) for series.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Series
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-series-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-service-outages-api
+  name: ilert Service Outages API
+  description: The Service Outages API from ilert — 3 operation(s) for service outages.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Service Outages
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-service-outages-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-services-api
+  name: ilert Services API
+  description: The Services API from ilert — 3 operation(s) for services.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Services
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-services-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-status-pages-api
+  name: ilert Status Pages API
+  description: The Status Pages API from ilert — 6 operation(s) for status pages.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Status Pages
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-status-pages-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-support-hours-api
+  name: ilert Support Hours API
+  description: The Support Hours API from ilert — 2 operation(s) for support hours.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Support Hours
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-support-hours-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-teams-api
+  name: ilert Teams API
+  description: The Teams API from ilert — 4 operation(s) for teams.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Teams
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-teams-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
+- aid: ilert:ilert-users-api
+  name: ilert Users API
+  description: The Users API from ilert — 4 operation(s) for users.
+  humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  baseURL: https://api.ilert.com
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/ilert-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference
+  - type: Authentication
+    url: https://docs.ilert.com/developer-docs/rest-api/api-reference/introduction/authentication
+  - type: RateLimits
+    url: https://docs.ilert.com/developer-docs/rest-api/alertsource-throttle
+  - type: APIVersionHistory
+    url: https://docs.ilert.com/developer-docs/api-version-history
+  - type: APISamples
+    url: https://docs.ilert.com/developer-docs/api-samples
+  - type: GoSDK
+    url: https://github.com/iLert/ilert-go
+  - type: JavaScriptSDK
+    url: https://github.com/iLert/ilert-js
+  - type: RustSDK
+    url: https://github.com/iLert/ilert-rust
+  - type: TerraformProvider
+    url: https://github.com/iLert/terraform-provider-ilert
+  - type: JSONSchema
+    url: json-schema/
+  - type: Examples
+    url: examples/
+  - type: Vocabulary
+    url: vocabulary/ilert-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/ilert-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/ilert-agentic-access.yml
