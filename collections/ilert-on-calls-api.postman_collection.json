@@ -1,0 +1,226 @@
+{
+  "item": [
+    {
+      "id": "be2747e1-23e2-4b2c-b42c-7a5105f18bbb",
+      "name": "On-Calls",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "00c17ec0-a149-4b41-ad93-a41d958e7bdc",
+          "name": "List on-calls with flexible filters",
+          "request": {
+            "name": "List on-calls with flexible filters",
+            "description": {},
+            "url": {
+              "path": [
+                "on-calls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "policies",
+                  "value": "<number>",
+                  "description": "escalation policy ids to filter on call duties for"
+                },
+                {
+                  "disabled": false,
+                  "key": "policy-levels",
+                  "value": "<string>",
+                  "description": "can be provided instead of 'policies', must be a serialised and urlencoded JSON object e.g. ?policy-levels=\"{ \"id\": 12, \"level\": 1 }\" where id is the policy id and level is the escalation level that should be included"
+                },
+                {
+                  "disabled": false,
+                  "key": "schedules",
+                  "value": "<number>",
+                  "description": "on call schedule ids to filter on call duties for"
+                },
+                {
+                  "disabled": false,
+                  "key": "users",
+                  "value": "<number>",
+                  "description": "user ids to filter on call duties for"
+                },
+                {
+                  "disabled": false,
+                  "key": "expand",
+                  "value": "<string>",
+                  "description": "include full entities for: policy, escalationPolicy or user"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, start of the time range, may not exceed 3 months in total span, defaults to current time"
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<string>",
+                  "description": "date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, end of the time range, must be after 'from', defaults to current time"
+                },
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "Time zone in which the results will be rendered, defaults to UTC"
+                },
+                {
+                  "disabled": false,
+                  "key": "start-index",
+                  "value": "<number>",
+                  "description": "offset for the search results, defaults to 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "max-results",
+                  "value": "<number>",
+                  "description": "limit for the search results, defaults to 50, may not exceed 250"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07d37683-35b2-4959-8faf-c0c1f3c4616d",
+              "name": "returns a list of on-call objects for the searched window",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "on-calls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "policies",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "policy-levels",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schedules",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "users",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start-index",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "max-results",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"user\": {\n      \"email\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"id\": 7153,\n      \"timezone\": \"Europe/Berlin\",\n      \"position\": \"string\",\n      \"department\": \"string\",\n      \"avatarUrl\": \"string\",\n      \"language\": \"de\",\n      \"region\": \"GB\",\n      \"role\": \"USER\",\n      \"shiftColor\": \"string\",\n      \"mutedUntil\": \"2021-12-27T04:32:23.178Z\",\n      \"createdAt\": \"1980-05-22T09:27:14.385Z\",\n      \"updatedAt\": \"1953-09-02T16:22:24.970Z\"\n    },\n    \"escalationPolicy\": {\n      \"escalationRules\": [\n        {\n          \"escalationTimeout\": 3412,\n          \"user\": {\n            \"id\": 8061.7776495700755\n          },\n          \"schedule\": {\n            \"id\": 8381.781730505289\n          },\n          \"team\": {\n            \"id\": 4049.00284556316\n          },\n          \"users\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"schedules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"teams\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"escalationTimeout\": 1742,\n          \"user\": {\n            \"id\": 9254.51231757039\n          },\n          \"schedule\": {\n            \"id\": 3026.9521741340786\n          },\n          \"team\": {\n            \"id\": 7580.212951872444\n          },\n          \"users\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"schedules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"teams\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"name\": \"string\",\n      \"id\": 7252,\n      \"teams\": [\n        {\n          \"id\": 7904,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 6322,\n          \"name\": \"string\"\n        }\n      ],\n      \"repeating\": false,\n      \"frequency\": 1,\n      \"delayMin\": 0,\n      \"routingKey\": \"string\"\n    },\n    \"schedule\": {\n      \"id\": 7151,\n      \"name\": \"string\",\n      \"type\": \"STATIC\"\n    },\n    \"start\": \"1990-08-13T06:53:56.349Z\",\n    \"end\": \"1986-09-11T02:56:11.455Z\",\n    \"escalationLevel\": 5477.288413803777\n  },\n  {\n    \"user\": {\n      \"email\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"id\": 398,\n      \"timezone\": \"Asia/Istanbul\",\n      \"position\": \"string\",\n      \"department\": \"string\",\n      \"avatarUrl\": \"string\",\n      \"language\": \"de\",\n      \"region\": \"CA\",\n      \"role\": \"GUEST\",\n      \"shiftColor\": \"string\",\n      \"mutedUntil\": \"1951-03-06T01:43:43.559Z\",\n      \"createdAt\": \"1947-10-02T07:13:46.883Z\",\n      \"updatedAt\": \"1950-11-20T11:32:46.708Z\"\n    },\n    \"escalationPolicy\": {\n      \"escalationRules\": [\n        {\n          \"escalationTimeout\": 3702,\n          \"user\": {\n            \"id\": 8474.376479951756\n          },\n          \"schedule\": {\n            \"id\": 6849.093811857372\n          },\n          \"team\": {\n            \"id\": 9884.26898890368\n          },\n          \"users\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"schedules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"teams\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"escalationTimeout\": 3810,\n          \"user\": {\n            \"id\": 6868.715876553835\n          },\n          \"schedule\": {\n            \"id\": 6575.156039366159\n          },\n          \"team\": {\n            \"id\": 9294.875334927912\n          },\n          \"users\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"schedules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"teams\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"name\": \"string\",\n      \"id\": 3970,\n      \"teams\": [\n        {\n          \"id\": 6026,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 6344,\n          \"name\": \"string\"\n        }\n      ],\n      \"repeating\": false,\n      \"frequency\": 1,\n      \"delayMin\": 0,\n      \"routingKey\": \"string\"\n    },\n    \"schedule\": {\n      \"id\": 5848,\n      \"name\": \"string\",\n      \"type\": \"STATIC\"\n    },\n    \"start\": \"2016-12-27T09:46:39.043Z\",\n    \"end\": \"2016-10-20T23:02:27.147Z\",\n    \"escalationLevel\": 4142.633711718562\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "42fe8154-0c13-476b-ab52-a03a6dda1554",
+    "name": "ilert REST Alert Actions On-Calls API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>.",
+      "type": "text/plain"
+    }
+  }
+}

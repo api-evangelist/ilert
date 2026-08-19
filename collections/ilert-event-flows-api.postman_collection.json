@@ -1,0 +1,535 @@
+{
+  "item": [
+    {
+      "id": "4dd162dd-0516-483d-995e-52bbc78d38d8",
+      "name": "Event Flows",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "731097ff-c472-4dc5-82d9-5b961544fc9d",
+          "name": "List existing event flows.",
+          "request": {
+            "name": "List existing event flows.",
+            "description": {
+              "content": "Returns a shallow list of event flows without the full node tree. Use the single resource endpoint to retrieve the complete event flow including all nodes and branches.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "event-flows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start-index",
+                  "value": "0",
+                  "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "max-results",
+                  "value": "50",
+                  "description": "the maximum number of results when paging through a list of entities."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f06eaf0-f193-45b9-8445-bed6d23f6600",
+              "name": "The event flows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event-flows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start-index",
+                      "value": "0"
+                    },
+                    {
+                      "key": "max-results",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 4945,\n    \"name\": \"string\",\n    \"teams\": [\n      {\n        \"id\": 6606,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 9204,\n        \"name\": \"string\"\n      }\n    ]\n  },\n  {\n    \"id\": 4131,\n    \"name\": \"string\",\n    \"teams\": [\n      {\n        \"id\": 9477,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 9249,\n        \"name\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1260bc7f-7ed6-45c5-93f9-b633dfe12f8d",
+          "name": "Create a new event flow.",
+          "request": {
+            "name": "Create a new event flow.",
+            "description": {},
+            "url": {
+              "path": [
+                "event-flows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"root\": {\n    \"nodeType\": \"<string>\",\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"metadata\": {\n      \"supportHoursId\": \"<long>\"\n    },\n    \"branches\": [\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/EventFlowNode detected>\"\n        }\n      },\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/EventFlowNode detected>\"\n        }\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e57d3e7c-1392-4005-a081-52b68832c269",
+              "name": "The newly created event flow",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event-flows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"root\": {\n    \"nodeType\": \"<string>\",\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"metadata\": {\n      \"supportHoursId\": \"<long>\"\n    },\n    \"branches\": [\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/EventFlowNode detected>\"\n        }\n      },\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/EventFlowNode detected>\"\n        }\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"root\": {\n    \"nodeType\": \"<string>\",\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"metadata\": {\n      \"supportHoursId\": \"<long>\"\n    },\n    \"branches\": [\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/EventFlowNode detected>\"\n        }\n      },\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/EventFlowNode detected>\"\n        }\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "354070cf-dd06-4ec8-a10e-4574e6f6a199",
+          "name": "Get a specific event flow.",
+          "request": {
+            "name": "Get a specific event flow.",
+            "description": {},
+            "url": {
+              "path": [
+                "event-flows",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "94bbd3d7-f065-499c-93ac-4a0dc5669fc8",
+              "name": "The requested event flow",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event-flows",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"root\": {\n    \"nodeType\": \"<string>\",\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"metadata\": {\n      \"supportHoursId\": \"<long>\"\n    },\n    \"branches\": [\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/EventFlowNode detected>\"\n        }\n      },\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/EventFlowNode detected>\"\n        }\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79629bbf-74fa-4dd0-bacd-f1a2d8df858f",
+          "name": "Update a specific event flow.",
+          "request": {
+            "name": "Update a specific event flow.",
+            "description": {},
+            "url": {
+              "path": [
+                "event-flows",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"root\": {\n    \"nodeType\": \"<string>\",\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"metadata\": {\n      \"supportHoursId\": \"<long>\"\n    },\n    \"branches\": [\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/EventFlowNode detected>\"\n        }\n      },\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/EventFlowNode detected>\"\n        }\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e0523b93-0ee0-4988-9d40-1dd38131a180",
+              "name": "The updated event flow",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event-flows",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"root\": {\n    \"nodeType\": \"<string>\",\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"metadata\": {\n      \"supportHoursId\": \"<long>\"\n    },\n    \"branches\": [\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/EventFlowNode detected>\"\n        }\n      },\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/EventFlowNode detected>\"\n        }\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"root\": {\n    \"nodeType\": \"<string>\",\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"metadata\": {\n      \"supportHoursId\": \"<long>\"\n    },\n    \"branches\": [\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/EventFlowNode detected>\"\n        }\n      },\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/EventFlowNode detected>\"\n        }\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5be0f6b-8483-48fc-8468-9fed97959309",
+          "name": "Delete a specific event flow.",
+          "request": {
+            "name": "Delete a specific event flow.",
+            "description": {},
+            "url": {
+              "path": [
+                "event-flows",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "25528f35-6cf5-42e2-b591-81e971877142",
+              "name": "Empty body delete response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "event-flows",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2c05c47f-91c2-4b1e-841e-98ab65a14ddf",
+    "name": "ilert REST Alert Actions Event Flows API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>.",
+      "type": "text/plain"
+    }
+  }
+}

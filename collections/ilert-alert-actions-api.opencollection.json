@@ -1,0 +1,187 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Alert Actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get available actions for specified alert.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/:id/actions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get available actions for specified alert."
+        },
+        {
+          "info": {
+            "name": "Invoke a specific alert action.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/alerts/:id/actions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invoke a specific alert action."
+        },
+        {
+          "info": {
+            "name": "Get alert actions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alert-actions",
+            "params": [
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "alert source id"
+              },
+              {
+                "name": "connector",
+                "value": "",
+                "type": "query",
+                "description": "connector id"
+              },
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of alert actions."
+              }
+            ]
+          },
+          "docs": "Get alert actions."
+        },
+        {
+          "info": {
+            "name": "Create a new alert action.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/alert-actions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new alert action."
+        },
+        {
+          "info": {
+            "name": "Get a specific alert action.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alert-actions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (conditions); some may not work in lists; may be used for POST and PUT as well."
+              }
+            ]
+          },
+          "docs": "Get a specific alert action."
+        },
+        {
+          "info": {
+            "name": "Update the specific alert action. (note: type cannot be changed)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/alert-actions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the specific alert action. (note: type cannot be changed)"
+        },
+        {
+          "info": {
+            "name": "Remove a specific alert action.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/alert-actions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Remove a specific alert action."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

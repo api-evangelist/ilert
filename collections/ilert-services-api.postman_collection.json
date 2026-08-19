@@ -1,0 +1,780 @@
+{
+  "item": [
+    {
+      "id": "d55338d1-298f-4bb1-bca9-2756537c2a2d",
+      "name": "Services",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "61f4e6da-bb50-4d02-8809-e6eb07151935",
+          "name": "Get services.",
+          "request": {
+            "name": "Get services.",
+            "description": {},
+            "url": {
+              "path": [
+                "services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start-index",
+                  "value": "0",
+                  "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "max-results",
+                  "value": "10",
+                  "description": "the maximum number of results when paging through a list of services. (Note: when using ?include maximum is reduced to 25)"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed, uptime, incidents)"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed, uptime, incidents)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "260f28b4-4909-4fb7-bc53-54bad5bf55df",
+              "name": "The services",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start-index",
+                      "value": "0"
+                    },
+                    {
+                      "key": "max-results",
+                      "value": "10"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5345.679634457433,\n    \"name\": \"string\",\n    \"alias\": \"string\",\n    \"status\": \"MAJOR_OUTAGE\",\n    \"description\": \"string\",\n    \"oneOpenIncidentOnly\": false,\n    \"showUptimeHistory\": false,\n    \"teams\": [\n      {\n        \"id\": 5562,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 4803,\n        \"name\": \"string\"\n      }\n    ],\n    \"subscribed\": false,\n    \"uptime\": {\n      \"rangeStart\": \"1992-11-10T03:03:11.233Z\",\n      \"rangeEnd\": \"2021-02-13T16:05:23.126Z\",\n      \"outages\": [\n        {\n          \"status\": \"UNDER_MAINTENANCE\",\n          \"from\": \"1948-12-21T13:22:54.342Z\",\n          \"until\": \"2006-12-06T23:44:16.308Z\"\n        },\n        {\n          \"status\": \"DEGRADED\",\n          \"from\": \"1963-02-25T22:39:08.807Z\",\n          \"until\": \"1999-05-31T01:05:45.898Z\"\n        }\n      ],\n      \"uptimePercentage\": {\n        \"uptimePercentage\": {\n          \"p90\": 48.41114631167053,\n          \"p60\": 51.511805739972274,\n          \"p30\": 90.15866381458308\n        }\n      }\n    },\n    \"incidents\": [\n      {\n        \"id\": 408.7345162857259,\n        \"summary\": \"string\",\n        \"status\": \"RESOLVED\",\n        \"message\": \"string\",\n        \"sendNotification\": false,\n        \"createdAt\": \"1953-06-06T12:48:28.267Z\",\n        \"updatedAt\": \"1968-01-12T04:42:31.573Z\",\n        \"affectedServices\": [\n          {\n            \"impact\": \"DEGRADED\",\n            \"service\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"oneOpenIncidentOnly\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"showUptimeHistory\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"teams\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"impact\": \"DEGRADED\",\n            \"service\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"oneOpenIncidentOnly\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"showUptimeHistory\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"teams\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ],\n        \"resolvedOn\": \"2013-01-22T02:02:42.941Z\"\n      },\n      {\n        \"id\": 7137.815085413921,\n        \"summary\": \"string\",\n        \"status\": \"INVESTIGATING\",\n        \"message\": \"string\",\n        \"sendNotification\": true,\n        \"createdAt\": \"2008-04-09T22:15:28.639Z\",\n        \"updatedAt\": \"2001-06-12T00:56:15.998Z\",\n        \"affectedServices\": [\n          {\n            \"impact\": \"DEGRADED\",\n            \"service\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"oneOpenIncidentOnly\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"showUptimeHistory\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"teams\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"impact\": \"PARTIAL_OUTAGE\",\n            \"service\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"oneOpenIncidentOnly\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"showUptimeHistory\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"teams\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ],\n        \"resolvedOn\": \"1967-07-11T10:21:33.386Z\"\n      }\n    ]\n  },\n  {\n    \"id\": 5205.6653108980745,\n    \"name\": \"string\",\n    \"alias\": \"string\",\n    \"status\": \"DEGRADED\",\n    \"description\": \"string\",\n    \"oneOpenIncidentOnly\": false,\n    \"showUptimeHistory\": true,\n    \"teams\": [\n      {\n        \"id\": 5063,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 383,\n        \"name\": \"string\"\n      }\n    ],\n    \"subscribed\": true,\n    \"uptime\": {\n      \"rangeStart\": \"1985-01-06T09:19:01.168Z\",\n      \"rangeEnd\": \"1964-01-30T09:32:26.489Z\",\n      \"outages\": [\n        {\n          \"status\": \"MAJOR_OUTAGE\",\n          \"from\": \"2020-12-21T21:20:46.654Z\",\n          \"until\": \"1950-08-20T00:00:21.708Z\"\n        },\n        {\n          \"status\": \"PARTIAL_OUTAGE\",\n          \"from\": \"1984-06-21T05:41:23.980Z\",\n          \"until\": \"1969-08-13T02:19:13.906Z\"\n        }\n      ],\n      \"uptimePercentage\": {\n        \"uptimePercentage\": {\n          \"p90\": 42.32368738819683,\n          \"p60\": 61.33641958334307,\n          \"p30\": 78.58859380486678\n        }\n      }\n    },\n    \"incidents\": [\n      {\n        \"id\": 2677.969390291408,\n        \"summary\": \"string\",\n        \"status\": \"RESOLVED\",\n        \"message\": \"string\",\n        \"sendNotification\": false,\n        \"createdAt\": \"2008-09-30T13:01:13.952Z\",\n        \"updatedAt\": \"1983-06-08T05:51:17.616Z\",\n        \"affectedServices\": [\n          {\n            \"impact\": \"PARTIAL_OUTAGE\",\n            \"service\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"oneOpenIncidentOnly\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"showUptimeHistory\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"teams\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"impact\": \"OPERATIONAL\",\n            \"service\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"oneOpenIncidentOnly\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"showUptimeHistory\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"teams\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ],\n        \"resolvedOn\": \"1948-11-25T19:05:17.499Z\"\n      },\n      {\n        \"id\": 8711.194028265965,\n        \"summary\": \"string\",\n        \"status\": \"IDENTIFIED\",\n        \"message\": \"string\",\n        \"sendNotification\": true,\n        \"createdAt\": \"2023-04-06T13:17:55.412Z\",\n        \"updatedAt\": \"1951-07-08T17:15:13.584Z\",\n        \"affectedServices\": [\n          {\n            \"impact\": \"OPERATIONAL\",\n            \"service\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"oneOpenIncidentOnly\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"showUptimeHistory\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"teams\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"impact\": \"DEGRADED\",\n            \"service\": {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"alias\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"oneOpenIncidentOnly\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"showUptimeHistory\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"teams\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ],\n        \"resolvedOn\": \"2025-11-05T06:09:56.698Z\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "264f09d5-8d03-4308-978a-51b128731166",
+          "name": "Create a new service.",
+          "request": {
+            "name": "Create a new service.",
+            "description": {},
+            "url": {
+              "path": [
+                "services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\",\n  \"alias\": \"<string>\",\n  \"status\": \"<string>\",\n  \"description\": \"<string>\",\n  \"oneOpenIncidentOnly\": \"<boolean>\",\n  \"showUptimeHistory\": \"<boolean>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ef9909d3-54df-4c37-a97b-9746ea1c384e",
+              "name": "The newly created service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\",\n  \"alias\": \"<string>\",\n  \"status\": \"<string>\",\n  \"description\": \"<string>\",\n  \"oneOpenIncidentOnly\": \"<boolean>\",\n  \"showUptimeHistory\": \"<boolean>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\",\n  \"alias\": \"<string>\",\n  \"status\": \"<string>\",\n  \"description\": \"<string>\",\n  \"oneOpenIncidentOnly\": \"<boolean>\",\n  \"showUptimeHistory\": \"<boolean>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a96be05-6fb4-42ea-bbba-96087c271c66",
+          "name": "Get a specific service.",
+          "request": {
+            "name": "Get a specific service.",
+            "description": {},
+            "url": {
+              "path": [
+                "services",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed, uptime, incidents)"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed, uptime, incidents)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "062286fd-fe31-41e3-989b-d51c93a09d7d",
+              "name": "The requested service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9407.649463726,\n  \"name\": \"string\",\n  \"alias\": \"string\",\n  \"status\": \"<string>\",\n  \"description\": \"string\",\n  \"oneOpenIncidentOnly\": false,\n  \"showUptimeHistory\": false,\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"subscribed\": true,\n  \"uptime\": {\n    \"rangeStart\": \"1965-01-25T18:12:43.827Z\",\n    \"rangeEnd\": \"1993-01-24T16:31:20.678Z\",\n    \"outages\": [\n      {\n        \"status\": \"<string>\",\n        \"from\": \"1992-05-14T02:24:11.132Z\",\n        \"until\": \"1989-02-22T19:33:24.149Z\"\n      },\n      {\n        \"status\": \"<string>\",\n        \"from\": \"2021-08-28T17:23:46.826Z\",\n        \"until\": \"1968-12-12T01:29:11.415Z\"\n      }\n    ],\n    \"uptimePercentage\": {\n      \"uptimePercentage\": {\n        \"p90\": 89.66135026607334,\n        \"p60\": 68.3538587920493,\n        \"p30\": 34.97726659056373\n      }\n    }\n  },\n  \"incidents\": [\n    {\n      \"id\": 3351.65615178833,\n      \"summary\": \"string\",\n      \"status\": \"RESOLVED\",\n      \"message\": \"string\",\n      \"sendNotification\": false,\n      \"createdAt\": \"1964-02-06T17:49:24.233Z\",\n      \"updatedAt\": \"2015-05-20T01:57:19.510Z\",\n      \"affectedServices\": [\n        {\n          \"impact\": \"<string>\",\n          \"service\": {\n            \"id\": \"<number>\",\n            \"name\": \"<string>\",\n            \"alias\": \"<string>\",\n            \"status\": \"<string>\",\n            \"description\": \"<string>\",\n            \"oneOpenIncidentOnly\": \"<boolean>\",\n            \"showUptimeHistory\": \"<boolean>\",\n            \"teams\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        {\n          \"impact\": \"<string>\",\n          \"service\": {\n            \"id\": \"<number>\",\n            \"name\": \"<string>\",\n            \"alias\": \"<string>\",\n            \"status\": \"<string>\",\n            \"description\": \"<string>\",\n            \"oneOpenIncidentOnly\": \"<boolean>\",\n            \"showUptimeHistory\": \"<boolean>\",\n            \"teams\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      ],\n      \"resolvedOn\": \"2003-10-19T05:10:27.968Z\"\n    },\n    {\n      \"id\": 7751.309526452821,\n      \"summary\": \"string\",\n      \"status\": \"MONITORING\",\n      \"message\": \"string\",\n      \"sendNotification\": false,\n      \"createdAt\": \"1956-10-18T19:24:19.828Z\",\n      \"updatedAt\": \"2025-08-19T23:55:18.071Z\",\n      \"affectedServices\": [\n        {\n          \"impact\": \"<string>\",\n          \"service\": {\n            \"id\": \"<number>\",\n            \"name\": \"<string>\",\n            \"alias\": \"<string>\",\n            \"status\": \"<string>\",\n            \"description\": \"<string>\",\n            \"oneOpenIncidentOnly\": \"<boolean>\",\n            \"showUptimeHistory\": \"<boolean>\",\n            \"teams\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        {\n          \"impact\": \"<string>\",\n          \"service\": {\n            \"id\": \"<number>\",\n            \"name\": \"<string>\",\n            \"alias\": \"<string>\",\n            \"status\": \"<string>\",\n            \"description\": \"<string>\",\n            \"oneOpenIncidentOnly\": \"<boolean>\",\n            \"showUptimeHistory\": \"<boolean>\",\n            \"teams\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      ],\n      \"resolvedOn\": \"1995-09-03T18:43:26.137Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "929fd727-14ae-461c-8702-84f30675bdc3",
+          "name": "Update the specific service",
+          "request": {
+            "name": "Update the specific service",
+            "description": {},
+            "url": {
+              "path": [
+                "services",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\",\n  \"alias\": \"<string>\",\n  \"status\": \"<string>\",\n  \"description\": \"<string>\",\n  \"oneOpenIncidentOnly\": \"<boolean>\",\n  \"showUptimeHistory\": \"<boolean>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "71840da5-c040-4146-bc47-8110c5a8fb7c",
+              "name": "The updated service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\",\n  \"alias\": \"<string>\",\n  \"status\": \"<string>\",\n  \"description\": \"<string>\",\n  \"oneOpenIncidentOnly\": \"<boolean>\",\n  \"showUptimeHistory\": \"<boolean>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\",\n  \"alias\": \"<string>\",\n  \"status\": \"<string>\",\n  \"description\": \"<string>\",\n  \"oneOpenIncidentOnly\": \"<boolean>\",\n  \"showUptimeHistory\": \"<boolean>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8a031c0-55f6-4a5d-81f9-a02f3f158ba8",
+          "name": "Remove a specific service.",
+          "request": {
+            "name": "Remove a specific service.",
+            "description": {},
+            "url": {
+              "path": [
+                "services",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0eb84cc6-4bd3-4862-a8aa-5dc7cf86d8ef",
+              "name": "Empty body delete response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19c899ef-65b6-4cbc-8df3-ec95d5e86f62",
+          "name": "Get the subscribers (users and teams) of a service",
+          "request": {
+            "name": "Get the subscribers (users and teams) of a service",
+            "description": {},
+            "url": {
+              "path": [
+                "services",
+                ":id",
+                "private-subscribers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a7ffeea8-5c9a-429b-b008-9338ac6e7e65",
+              "name": "The subscribers of the service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    ":id",
+                    "private-subscribers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2645.64010623624,\n    \"name\": \"string\",\n    \"type\": \"USER\"\n  },\n  {\n    \"id\": 1689.5886040095254,\n    \"name\": \"string\",\n    \"type\": \"USER\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10bc17d7-4f82-4f45-9d9f-74688116f7ba",
+          "name": "Set subscribers (users and teams) of a service",
+          "request": {
+            "name": "Set subscribers (users and teams) of a service",
+            "description": {
+              "content": "Note: this is an in place update",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "services",
+                ":id",
+                "private-subscribers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e112536-f391-4379-af2a-7660f3367a15",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    ":id",
+                    "private-subscribers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "32c2b3cd-f44e-4a70-b4a2-d0b75a3dcfb5",
+    "name": "ilert REST Alert Actions Services API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>.",
+      "type": "text/plain"
+    }
+  }
+}

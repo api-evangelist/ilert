@@ -1,0 +1,510 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Notification Preferences API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notification Preferences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get alert notification preferences of a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/users/:user-id/notification-preferences/alerts",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ]
+          },
+          "docs": "Get alert notification preferences of a user"
+        },
+        {
+          "info": {
+            "name": "Create an alert notification preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/users/:user-id/notification-preferences/alerts",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an alert notification preference"
+        },
+        {
+          "info": {
+            "name": "Get specific notification preferences alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/users/:user-id/notification-preferences/alerts/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get specific notification preferences alert"
+        },
+        {
+          "info": {
+            "name": "Update a user's alert notification preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/users/:user-id/notification-preferences/alerts/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a user's alert notification preference"
+        },
+        {
+          "info": {
+            "name": "Delete the user's specified notification preferences alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/users/:user-id/notification-preferences/alerts/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Delete the user's specified notification preferences alert"
+        },
+        {
+          "info": {
+            "name": "Get duty notification preferences of a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/users/:user-id/notification-preferences/duties",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ]
+          },
+          "docs": "Get duty notification preferences of a user"
+        },
+        {
+          "info": {
+            "name": "Create a duty notification preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/users/:user-id/notification-preferences/duties",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a duty notification preference"
+        },
+        {
+          "info": {
+            "name": "Get specific notification preferences duty",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/users/:user-id/notification-preferences/duties/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get specific notification preferences duty"
+        },
+        {
+          "info": {
+            "name": "Update a user's duty notification preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/users/:user-id/notification-preferences/duties/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a user's duty notification preference"
+        },
+        {
+          "info": {
+            "name": "Delete the user's specified notification preferences duty",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/users/:user-id/notification-preferences/duties/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Delete the user's specified notification preferences duty"
+        },
+        {
+          "info": {
+            "name": "Get update notification preferences of a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/users/:user-id/notification-preferences/updates",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ]
+          },
+          "docs": "Get update notification preferences of a user"
+        },
+        {
+          "info": {
+            "name": "Create an update notification preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/users/:user-id/notification-preferences/updates",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an update notification preference"
+        },
+        {
+          "info": {
+            "name": "Get specific notification preferences update",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/users/:user-id/notification-preferences/updates/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get specific notification preferences update"
+        },
+        {
+          "info": {
+            "name": "Update a user's update notification preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/users/:user-id/notification-preferences/updates/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a user's update notification preference"
+        },
+        {
+          "info": {
+            "name": "Delete the user's specified notification preferences update",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/users/:user-id/notification-preferences/updates/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Delete the user's specified notification preferences update"
+        },
+        {
+          "info": {
+            "name": "Get subscription notification preferences of a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/users/:user-id/notification-preferences/subscriptions",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ]
+          },
+          "docs": "Get subscription notification preferences of a user"
+        },
+        {
+          "info": {
+            "name": "Create a subscription notification preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/users/:user-id/notification-preferences/subscriptions",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a subscription notification preference"
+        },
+        {
+          "info": {
+            "name": "Get specific notification preferences subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/users/:user-id/notification-preferences/subscriptions/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get specific notification preferences subscription"
+        },
+        {
+          "info": {
+            "name": "Update a user's subscription notification preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/users/:user-id/notification-preferences/subscriptions/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a user's subscription notification preference"
+        },
+        {
+          "info": {
+            "name": "Delete the user's specified notification preferences subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/users/:user-id/notification-preferences/subscriptions/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Delete the user's specified notification preferences subscription"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

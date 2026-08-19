@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions On-Calls API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "On-Calls",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List on-calls with flexible filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/on-calls",
+            "params": [
+              {
+                "name": "policies",
+                "value": "",
+                "type": "query",
+                "description": "escalation policy ids to filter on call duties for"
+              },
+              {
+                "name": "policy-levels",
+                "value": "",
+                "type": "query",
+                "description": "can be provided instead of 'policies', must be a serialised and urlencoded JSON object e.g. ?policy-levels=\"{ \"id\": 12, \"level\": 1 }\" where id is the policy id and level is the escalation level that should be included"
+              },
+              {
+                "name": "schedules",
+                "value": "",
+                "type": "query",
+                "description": "on call schedule ids to filter on call duties for"
+              },
+              {
+                "name": "users",
+                "value": "",
+                "type": "query",
+                "description": "user ids to filter on call duties for"
+              },
+              {
+                "name": "expand",
+                "value": "",
+                "type": "query",
+                "description": "include full entities for: policy, escalationPolicy or user"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, start of the time range, may not exceed 3 months in total span, defaults to current time"
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, end of the time range, must be after 'from', defaults to current time"
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Time zone in which the results will be rendered, defaults to UTC"
+              },
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "offset for the search results, defaults to 0"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "limit for the search results, defaults to 50, may not exceed 250"
+              }
+            ]
+          },
+          "docs": "List on-calls with flexible filters"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

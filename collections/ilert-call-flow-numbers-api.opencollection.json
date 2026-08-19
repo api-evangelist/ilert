@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Call Flow Numbers API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Call Flow Numbers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List call flow numbers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/call-flow-numbers",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Filter call flow numbers by availability state."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (assignedTo)"
+              },
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of entities."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Filter call flow numbers by name."
+              }
+            ]
+          },
+          "docs": "List call flow numbers."
+        },
+        {
+          "info": {
+            "name": "Get a specific call flow number.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/call-flow-numbers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get a specific call flow number."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

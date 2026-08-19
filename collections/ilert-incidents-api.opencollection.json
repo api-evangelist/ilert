@@ -1,0 +1,207 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Incidents API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Incidents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get incidents.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/incidents",
+            "params": [
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of incidents. (Note: when using ?include maximum is reduced to 25)"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed)"
+              },
+              {
+                "name": "states",
+                "value": "",
+                "type": "query",
+                "description": "state of the alert"
+              },
+              {
+                "name": "services",
+                "value": "",
+                "type": "query",
+                "description": "service IDs of the incident's affected services"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "from date, ISO-UTC e.g. 2021-05-25T21:24:56.771Z, based on reportTime"
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "until date, ISO-UTC e.g. 2021-05-26T21:24:56.771Z, based on reportTime"
+              }
+            ]
+          },
+          "docs": "Get incidents."
+        },
+        {
+          "info": {
+            "name": "Create a new incident.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/incidents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Note: depending on affected services this will publish notifications to subscribers. Use /publish-info to forecast notifications."
+        },
+        {
+          "info": {
+            "name": "Forecast the affected subscribers and status pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/incidents/publish-info",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Forecast the affected subscribers and status pages as well as notifications that would be send out due to created or update incident."
+        },
+        {
+          "info": {
+            "name": "Get a specific incident.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/incidents/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed, affectedTeams, history)"
+              }
+            ]
+          },
+          "docs": "Note: returns an ETag header that can be send to the PUT /incidents/{id} resource as If-Match header to return a 412 Error in case any related resources e.g. Services or Incident have been updated in the mean time."
+        },
+        {
+          "info": {
+            "name": "Update the specific incident.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/incidents/:id",
+            "headers": [
+              {
+                "name": "If-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Note: the update will be automatically appended to the incident's update history and publish notifications to subscribers."
+        },
+        {
+          "info": {
+            "name": "Get the subscribers (users and teams) of an incident",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/incidents/:id/private-subscribers",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get the subscribers (users and teams) of an incident"
+        },
+        {
+          "info": {
+            "name": "Add subscribers (users and teams) to an incident",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/incidents/:id/private-subscribers",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add subscribers (users and teams) to an incident"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

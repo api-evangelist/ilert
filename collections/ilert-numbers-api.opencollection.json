@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Numbers API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Numbers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available phone numbers that ilert uses to send voice and SMS notifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/numbers"
+          },
+          "docs": "List available phone numbers that ilert uses to send voice and SMS notifications"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

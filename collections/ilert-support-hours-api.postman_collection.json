@@ -1,0 +1,535 @@
+{
+  "item": [
+    {
+      "id": "46779a78-8ac4-407b-9599-dc88dc5f1ed7",
+      "name": "Support Hours",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b447efa6-63d4-4a32-9daa-8cd317ef8c8c",
+          "name": "List support hours.",
+          "request": {
+            "name": "List support hours.",
+            "description": {
+              "content": "Returns a shallow list of support hours without exception details. Use the single resource endpoint to retrieve the complete support hour including all exceptions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "support-hours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start-index",
+                  "value": "0",
+                  "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "max-results",
+                  "value": "50",
+                  "description": "the maximum number of results when paging through a list of support hours."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "451225cb-cb0b-4faa-b5a7-ce2f60654b19",
+              "name": "list of support hours",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "support-hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start-index",
+                      "value": "0"
+                    },
+                    {
+                      "key": "max-results",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8551,\n    \"name\": \"string\",\n    \"teams\": [\n      {\n        \"id\": 8956,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 4164,\n        \"name\": \"string\"\n      }\n    ],\n    \"timezone\": \"America/New_York\",\n    \"supportDays\": {\n      \"MONDAY\": {\n        \"end\": \"00:21:54.972Z\",\n        \"start\": \"04:52:01.207Z\"\n      },\n      \"TUESDAY\": {\n        \"end\": \"13:21:15.480Z\",\n        \"start\": \"04:53:25.479Z\"\n      },\n      \"WEDNESDAY\": {\n        \"end\": \"06:51:30.738Z\",\n        \"start\": \"15:24:33.313Z\"\n      },\n      \"THURSDAY\": {\n        \"end\": \"06:16:40.026Z\",\n        \"start\": \"04:57:02.422Z\"\n      },\n      \"FRIDAY\": {\n        \"end\": \"06:20:37.392Z\",\n        \"start\": \"06:44:13.886Z\"\n      },\n      \"SATURDAY\": {\n        \"end\": \"02:25:51.118Z\",\n        \"start\": \"12:18:12.116Z\"\n      },\n      \"SUNDAY\": {\n        \"end\": \"10:55:12.434Z\",\n        \"start\": \"13:32:36.852Z\"\n      }\n    }\n  },\n  {\n    \"id\": 7472,\n    \"name\": \"string\",\n    \"teams\": [\n      {\n        \"id\": 788,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 3765,\n        \"name\": \"string\"\n      }\n    ],\n    \"timezone\": \"America/Los_Angeles\",\n    \"supportDays\": {\n      \"MONDAY\": {\n        \"end\": \"07:00:39.681Z\",\n        \"start\": \"01:17:26.956Z\"\n      },\n      \"TUESDAY\": {\n        \"end\": \"22:38:51.779Z\",\n        \"start\": \"19:19:28.719Z\"\n      },\n      \"WEDNESDAY\": {\n        \"end\": \"16:36:49.627Z\",\n        \"start\": \"03:28:07.237Z\"\n      },\n      \"THURSDAY\": {\n        \"end\": \"17:55:05.488Z\",\n        \"start\": \"22:42:35.876Z\"\n      },\n      \"FRIDAY\": {\n        \"end\": \"15:41:10.396Z\",\n        \"start\": \"11:19:36.765Z\"\n      },\n      \"SATURDAY\": {\n        \"end\": \"19:58:36.063Z\",\n        \"start\": \"08:09:06.223Z\"\n      },\n      \"SUNDAY\": {\n        \"end\": \"21:58:52.033Z\",\n        \"start\": \"17:49:09.370Z\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd6e0e94-9d12-4e26-932e-25ec0471391f",
+          "name": "Create a new support hour.",
+          "request": {
+            "name": "Create a new support hour.",
+            "description": {},
+            "url": {
+              "path": [
+                "support-hours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"supportDays\": {\n    \"MONDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"TUESDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"WEDNESDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"THURSDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"FRIDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"SATURDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"SUNDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    }\n  },\n  \"timezone\": \"<string>\",\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"exceptions\": [\n    {\n      \"name\": \"<string>\",\n      \"start\": \"<date>\",\n      \"end\": \"<date>\",\n      \"supportStatus\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"start\": \"<date>\",\n      \"end\": \"<date>\",\n      \"supportStatus\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b4e73a55-c4df-4ded-98bb-72b1e293f054",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "support-hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"supportDays\": {\n    \"MONDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"TUESDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"WEDNESDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"THURSDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"FRIDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"SATURDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"SUNDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    }\n  },\n  \"timezone\": \"<string>\",\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"exceptions\": [\n    {\n      \"name\": \"<string>\",\n      \"start\": \"<date>\",\n      \"end\": \"<date>\",\n      \"supportStatus\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"start\": \"<date>\",\n      \"end\": \"<date>\",\n      \"supportStatus\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"supportDays\": {\n    \"MONDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"TUESDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"WEDNESDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"THURSDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"FRIDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"SATURDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"SUNDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    }\n  },\n  \"timezone\": \"<string>\",\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"exceptions\": [\n    {\n      \"name\": \"<string>\",\n      \"start\": \"<date>\",\n      \"end\": \"<date>\",\n      \"supportStatus\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"start\": \"<date>\",\n      \"end\": \"<date>\",\n      \"supportStatus\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "253e47e2-3d3c-4d86-a6aa-4db17dec65f9",
+          "name": "Get the support hour with specified id.",
+          "request": {
+            "name": "Get the support hour with specified id.",
+            "description": {},
+            "url": {
+              "path": [
+                "support-hours",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a751953-3b17-4e71-bdae-601ebbfcd73b",
+              "name": "the support hour object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "support-hours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"supportDays\": {\n    \"MONDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"TUESDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"WEDNESDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"THURSDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"FRIDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"SATURDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"SUNDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    }\n  },\n  \"timezone\": \"<string>\",\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"exceptions\": [\n    {\n      \"name\": \"<string>\",\n      \"start\": \"<date>\",\n      \"end\": \"<date>\",\n      \"supportStatus\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"start\": \"<date>\",\n      \"end\": \"<date>\",\n      \"supportStatus\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a87d07e8-6046-429c-b9b5-810ecd13ce8a",
+          "name": "Update an existing support hour.",
+          "request": {
+            "name": "Update an existing support hour.",
+            "description": {},
+            "url": {
+              "path": [
+                "support-hours",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"supportDays\": {\n    \"MONDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"TUESDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"WEDNESDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"THURSDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"FRIDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"SATURDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"SUNDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    }\n  },\n  \"timezone\": \"<string>\",\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"exceptions\": [\n    {\n      \"name\": \"<string>\",\n      \"start\": \"<date>\",\n      \"end\": \"<date>\",\n      \"supportStatus\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"start\": \"<date>\",\n      \"end\": \"<date>\",\n      \"supportStatus\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "33a37de7-1849-4758-b5f4-8988a595f330",
+              "name": "the updated support hour object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "support-hours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"supportDays\": {\n    \"MONDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"TUESDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"WEDNESDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"THURSDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"FRIDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"SATURDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"SUNDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    }\n  },\n  \"timezone\": \"<string>\",\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"exceptions\": [\n    {\n      \"name\": \"<string>\",\n      \"start\": \"<date>\",\n      \"end\": \"<date>\",\n      \"supportStatus\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"start\": \"<date>\",\n      \"end\": \"<date>\",\n      \"supportStatus\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"supportDays\": {\n    \"MONDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"TUESDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"WEDNESDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"THURSDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"FRIDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"SATURDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    },\n    \"SUNDAY\": {\n      \"end\": \"<time>\",\n      \"start\": \"<time>\"\n    }\n  },\n  \"timezone\": \"<string>\",\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"exceptions\": [\n    {\n      \"name\": \"<string>\",\n      \"start\": \"<date>\",\n      \"end\": \"<date>\",\n      \"supportStatus\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"start\": \"<date>\",\n      \"end\": \"<date>\",\n      \"supportStatus\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6fe79fb-e8f3-4357-9267-5af8364e2d8a",
+          "name": "Delete the specified support hour.",
+          "request": {
+            "name": "Delete the specified support hour.",
+            "description": {},
+            "url": {
+              "path": [
+                "support-hours",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1d1f603-46f9-4f87-9ef7-15d08e5191a0",
+              "name": "if deletion was successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "support-hours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "26e7d19c-b3e1-4f35-a85f-58d6cc0a4f27",
+    "name": "ilert REST Alert Actions Support Hours API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>.",
+      "type": "text/plain"
+    }
+  }
+}

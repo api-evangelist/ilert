@@ -1,0 +1,1080 @@
+{
+  "item": [
+    {
+      "id": "9a9b81d8-722e-4b29-9eb8-9167b3efee87",
+      "name": "Schedules",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c03a71a9-dbaf-4b17-bd34-7ab155f2e11d",
+          "name": "List on-call schedules.",
+          "request": {
+            "name": "List on-call schedules.",
+            "description": {},
+            "url": {
+              "path": [
+                "schedules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (currentShift, nextShift, scheduleLayers [only available for RECURRING schedules], shifts [only available for STATIC schedules], past [show shifts in the past, only for STATIC])"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (currentShift, nextShift, scheduleLayers [only available for RECURRING schedules], shifts [only available for STATIC schedules], past [show shifts in the past, only for STATIC])"
+                },
+                {
+                  "disabled": false,
+                  "key": "start-index",
+                  "value": "0",
+                  "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "max-results",
+                  "value": "20",
+                  "description": "the maximum number of results when paging through a list of schedules."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2989306-3f99-4e5f-82ad-cc849d63a7ef",
+              "name": "a list of on-call schedules",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start-index",
+                      "value": "0"
+                    },
+                    {
+                      "key": "max-results",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 7961,\n    \"name\": \"string\",\n    \"timezone\": \"Asia/Istanbul\",\n    \"type\": \"RECURRING\",\n    \"scheduleLayers\": [\n      {\n        \"rotation\": \"string\",\n        \"startsOn\": \"2013-11-03T02:56:10.693Z\",\n        \"users\": [\n          {\n            \"id\": 4971,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          },\n          {\n            \"id\": 9717,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          }\n        ],\n        \"name\": \"string\",\n        \"endsOn\": \"2005-03-04T02:19:48.571Z\",\n        \"restrictionType\": \"TIMES_OF_WEEK\",\n        \"restrictions\": [\n          {\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"rotation\": \"string\",\n        \"startsOn\": \"2019-05-23T14:20:47.670Z\",\n        \"users\": [\n          {\n            \"id\": 682,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          },\n          {\n            \"id\": 6740,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          }\n        ],\n        \"name\": \"string\",\n        \"endsOn\": \"1953-11-11T03:27:23.117Z\",\n        \"restrictionType\": \"TIMES_OF_WEEK\",\n        \"restrictions\": [\n          {\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"shifts\": [\n      {\n        \"user\": {\n          \"id\": 6253,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\"\n        },\n        \"end\": \"1957-12-26T14:11:53.995Z\",\n        \"start\": \"1965-04-16T19:09:24.965Z\"\n      },\n      {\n        \"user\": {\n          \"id\": 9645,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\"\n        },\n        \"end\": \"1996-11-30T02:47:04.579Z\",\n        \"start\": \"1977-06-11T01:55:02.509Z\"\n      }\n    ],\n    \"showGaps\": true,\n    \"defaultShiftDuration\": \"string\",\n    \"currentShift\": {\n      \"user\": {\n        \"id\": 8003,\n        \"firstName\": \"string\",\n        \"lastName\": \"string\"\n      },\n      \"end\": \"2024-02-02T15:33:00.660Z\",\n      \"start\": \"1999-12-19T17:21:38.316Z\"\n    },\n    \"nextShift\": {\n      \"user\": {\n        \"id\": 7450,\n        \"firstName\": \"string\",\n        \"lastName\": \"string\"\n      },\n      \"end\": \"1954-10-31T09:44:01.831Z\",\n      \"start\": \"1962-04-19T18:30:11.608Z\"\n    },\n    \"teams\": [\n      {\n        \"id\": 9633,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 2600,\n        \"name\": \"string\"\n      }\n    ]\n  },\n  {\n    \"id\": 8481,\n    \"name\": \"string\",\n    \"timezone\": \"Asia/Istanbul\",\n    \"type\": \"STATIC\",\n    \"scheduleLayers\": [\n      {\n        \"rotation\": \"string\",\n        \"startsOn\": \"2004-03-06T15:11:42.859Z\",\n        \"users\": [\n          {\n            \"id\": 3465,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          },\n          {\n            \"id\": 9732,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          }\n        ],\n        \"name\": \"string\",\n        \"endsOn\": \"1998-10-14T13:48:13.381Z\",\n        \"restrictionType\": \"TIMES_OF_WEEK\",\n        \"restrictions\": [\n          {\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"rotation\": \"string\",\n        \"startsOn\": \"1969-01-20T01:12:42.416Z\",\n        \"users\": [\n          {\n            \"id\": 1698,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          },\n          {\n            \"id\": 5312,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          }\n        ],\n        \"name\": \"string\",\n        \"endsOn\": \"1967-12-01T21:46:48.528Z\",\n        \"restrictionType\": \"TIMES_OF_WEEK\",\n        \"restrictions\": [\n          {\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"from\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"to\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"shifts\": [\n      {\n        \"user\": {\n          \"id\": 5444,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\"\n        },\n        \"end\": \"1987-09-16T11:59:44.229Z\",\n        \"start\": \"2016-03-29T20:28:16.702Z\"\n      },\n      {\n        \"user\": {\n          \"id\": 207,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\"\n        },\n        \"end\": \"1986-04-28T06:06:40.449Z\",\n        \"start\": \"2019-12-05T12:03:09.432Z\"\n      }\n    ],\n    \"showGaps\": false,\n    \"defaultShiftDuration\": \"string\",\n    \"currentShift\": {\n      \"user\": {\n        \"id\": 6509,\n        \"firstName\": \"string\",\n        \"lastName\": \"string\"\n      },\n      \"end\": \"2021-11-30T13:37:45.821Z\",\n      \"start\": \"1964-08-08T01:37:22.042Z\"\n    },\n    \"nextShift\": {\n      \"user\": {\n        \"id\": 530,\n        \"firstName\": \"string\",\n        \"lastName\": \"string\"\n      },\n      \"end\": \"1953-11-19T00:48:59.129Z\",\n      \"start\": \"1985-05-23T21:42:07.946Z\"\n    },\n    \"teams\": [\n      {\n        \"id\": 5113,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 5318,\n        \"name\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16eb33e0-92b8-4d1e-bb15-5d1a1924c82c",
+          "name": "Create a new on-call schedule.",
+          "request": {
+            "name": "Create a new on-call schedule.",
+            "description": {},
+            "url": {
+              "path": [
+                "schedules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "abort-on-gaps",
+                  "value": "<boolean>",
+                  "description": "Used for static schedules to prevent creating schedules with gaps"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"type\": \"<string>\",\n  \"scheduleLayers\": [\n    {\n      \"rotation\": \"<P7D>\",\n      \"startsOn\": \"<dateTime>\",\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"endsOn\": \"<dateTime>\",\n      \"restrictionType\": \"<string>\",\n      \"restrictions\": [\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        },\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        }\n      ]\n    },\n    {\n      \"rotation\": \"<P7D>\",\n      \"startsOn\": \"<dateTime>\",\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"endsOn\": \"<dateTime>\",\n      \"restrictionType\": \"<string>\",\n      \"restrictions\": [\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        },\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"shifts\": [\n    {\n      \"user\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"end\": \"<dateTime>\",\n      \"start\": \"<dateTime>\"\n    },\n    {\n      \"user\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"end\": \"<dateTime>\",\n      \"start\": \"<dateTime>\"\n    }\n  ],\n  \"showGaps\": \"<boolean>\",\n  \"defaultShiftDuration\": \"<P7D>\",\n  \"currentShift\": {\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"nextShift\": {\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8c5d0660-b8c6-4259-a723-a0568da9010d",
+              "name": "The created on-call schedule",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "abort-on-gaps",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"type\": \"<string>\",\n  \"scheduleLayers\": [\n    {\n      \"rotation\": \"<P7D>\",\n      \"startsOn\": \"<dateTime>\",\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"endsOn\": \"<dateTime>\",\n      \"restrictionType\": \"<string>\",\n      \"restrictions\": [\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        },\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        }\n      ]\n    },\n    {\n      \"rotation\": \"<P7D>\",\n      \"startsOn\": \"<dateTime>\",\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"endsOn\": \"<dateTime>\",\n      \"restrictionType\": \"<string>\",\n      \"restrictions\": [\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        },\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"shifts\": [\n    {\n      \"user\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"end\": \"<dateTime>\",\n      \"start\": \"<dateTime>\"\n    },\n    {\n      \"user\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"end\": \"<dateTime>\",\n      \"start\": \"<dateTime>\"\n    }\n  ],\n  \"showGaps\": \"<boolean>\",\n  \"defaultShiftDuration\": \"<P7D>\",\n  \"currentShift\": {\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"nextShift\": {\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"type\": \"<string>\",\n  \"scheduleLayers\": [\n    {\n      \"rotation\": \"<P7D>\",\n      \"startsOn\": \"<dateTime>\",\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"endsOn\": \"<dateTime>\",\n      \"restrictionType\": \"<string>\",\n      \"restrictions\": [\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        },\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        }\n      ]\n    },\n    {\n      \"rotation\": \"<P7D>\",\n      \"startsOn\": \"<dateTime>\",\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"endsOn\": \"<dateTime>\",\n      \"restrictionType\": \"<string>\",\n      \"restrictions\": [\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        },\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"shifts\": [\n    {\n      \"user\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"end\": \"<dateTime>\",\n      \"start\": \"<dateTime>\"\n    },\n    {\n      \"user\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"end\": \"<dateTime>\",\n      \"start\": \"<dateTime>\"\n    }\n  ],\n  \"showGaps\": \"<boolean>\",\n  \"defaultShiftDuration\": \"<P7D>\",\n  \"currentShift\": {\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"nextShift\": {\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4204a9f3-6e20-4539-979e-85dd331f3384",
+          "name": "Get the on-call schedule with the specified id.",
+          "request": {
+            "name": "Get the on-call schedule with the specified id.",
+            "description": {},
+            "url": {
+              "path": [
+                "schedules",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (currentShift, nextShift, scheduleLayers [only available for RECURRING schedules], shifts [only available for STATIC schedules], past [show shifts in the past, only for STATIC])"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (currentShift, nextShift, scheduleLayers [only available for RECURRING schedules], shifts [only available for STATIC schedules], past [show shifts in the past, only for STATIC])"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "934ab14e-98a2-43ea-9e16-1c5638df1b44",
+              "name": "The schedule object. (scheduleLayers [only available for RECURRING schedules], shifts [only available for STATIC schedules])",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"type\": \"<string>\",\n  \"scheduleLayers\": [\n    {\n      \"rotation\": \"<P7D>\",\n      \"startsOn\": \"<dateTime>\",\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"endsOn\": \"<dateTime>\",\n      \"restrictionType\": \"<string>\",\n      \"restrictions\": [\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        },\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        }\n      ]\n    },\n    {\n      \"rotation\": \"<P7D>\",\n      \"startsOn\": \"<dateTime>\",\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"endsOn\": \"<dateTime>\",\n      \"restrictionType\": \"<string>\",\n      \"restrictions\": [\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        },\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"shifts\": [\n    {\n      \"user\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"end\": \"<dateTime>\",\n      \"start\": \"<dateTime>\"\n    },\n    {\n      \"user\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"end\": \"<dateTime>\",\n      \"start\": \"<dateTime>\"\n    }\n  ],\n  \"showGaps\": \"<boolean>\",\n  \"defaultShiftDuration\": \"<P7D>\",\n  \"currentShift\": {\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"nextShift\": {\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1704c10-b006-4f6c-a395-e52cacd47a2d",
+          "name": "Update an on-call schedule.",
+          "request": {
+            "name": "Update an on-call schedule.",
+            "description": {},
+            "url": {
+              "path": [
+                "schedules",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "abort-on-gaps",
+                  "value": "<boolean>",
+                  "description": "Used for static schedules to prevent updating schedules with gaps"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"type\": \"<string>\",\n  \"scheduleLayers\": [\n    {\n      \"rotation\": \"<P7D>\",\n      \"startsOn\": \"<dateTime>\",\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"endsOn\": \"<dateTime>\",\n      \"restrictionType\": \"<string>\",\n      \"restrictions\": [\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        },\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        }\n      ]\n    },\n    {\n      \"rotation\": \"<P7D>\",\n      \"startsOn\": \"<dateTime>\",\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"endsOn\": \"<dateTime>\",\n      \"restrictionType\": \"<string>\",\n      \"restrictions\": [\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        },\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"shifts\": [\n    {\n      \"user\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"end\": \"<dateTime>\",\n      \"start\": \"<dateTime>\"\n    },\n    {\n      \"user\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"end\": \"<dateTime>\",\n      \"start\": \"<dateTime>\"\n    }\n  ],\n  \"showGaps\": \"<boolean>\",\n  \"defaultShiftDuration\": \"<P7D>\",\n  \"currentShift\": {\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"nextShift\": {\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "98669ff6-340b-4175-8f1f-edd754e95e45",
+              "name": "The updated on-call schedule",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "abort-on-gaps",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"type\": \"<string>\",\n  \"scheduleLayers\": [\n    {\n      \"rotation\": \"<P7D>\",\n      \"startsOn\": \"<dateTime>\",\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"endsOn\": \"<dateTime>\",\n      \"restrictionType\": \"<string>\",\n      \"restrictions\": [\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        },\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        }\n      ]\n    },\n    {\n      \"rotation\": \"<P7D>\",\n      \"startsOn\": \"<dateTime>\",\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"endsOn\": \"<dateTime>\",\n      \"restrictionType\": \"<string>\",\n      \"restrictions\": [\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        },\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"shifts\": [\n    {\n      \"user\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"end\": \"<dateTime>\",\n      \"start\": \"<dateTime>\"\n    },\n    {\n      \"user\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"end\": \"<dateTime>\",\n      \"start\": \"<dateTime>\"\n    }\n  ],\n  \"showGaps\": \"<boolean>\",\n  \"defaultShiftDuration\": \"<P7D>\",\n  \"currentShift\": {\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"nextShift\": {\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"type\": \"<string>\",\n  \"scheduleLayers\": [\n    {\n      \"rotation\": \"<P7D>\",\n      \"startsOn\": \"<dateTime>\",\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"endsOn\": \"<dateTime>\",\n      \"restrictionType\": \"<string>\",\n      \"restrictions\": [\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        },\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        }\n      ]\n    },\n    {\n      \"rotation\": \"<P7D>\",\n      \"startsOn\": \"<dateTime>\",\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"endsOn\": \"<dateTime>\",\n      \"restrictionType\": \"<string>\",\n      \"restrictions\": [\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        },\n        {\n          \"from\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          },\n          \"to\": {\n            \"dayOfWeek\": \"<string>\",\n            \"time\": \"<15:00>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"shifts\": [\n    {\n      \"user\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"end\": \"<dateTime>\",\n      \"start\": \"<dateTime>\"\n    },\n    {\n      \"user\": {\n        \"id\": \"<long>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\"\n      },\n      \"end\": \"<dateTime>\",\n      \"start\": \"<dateTime>\"\n    }\n  ],\n  \"showGaps\": \"<boolean>\",\n  \"defaultShiftDuration\": \"<P7D>\",\n  \"currentShift\": {\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"nextShift\": {\n    \"user\": {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb47a9fc-576a-4a18-9297-2522394b1a77",
+          "name": "Delete the on-call schedule with the specified id.",
+          "request": {
+            "name": "Delete the on-call schedule with the specified id.",
+            "description": {},
+            "url": {
+              "path": [
+                "schedules",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "37e0a1fc-7c70-4a05-97d1-9f472bc1cd6a",
+              "name": "empty response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be7472d1-b4a1-48fa-a4a3-5ec2ad833949",
+          "name": "Get shifts for the specified schedule and date range.",
+          "request": {
+            "name": "Get shifts for the specified schedule and date range.",
+            "description": {},
+            "url": {
+              "path": [
+                "schedules",
+                ":id",
+                "shifts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "from date, default is start of last month"
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<string>",
+                  "description": "until date, default is from date plus 3 months"
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude-overrides",
+                  "value": "false",
+                  "description": "if true, shifts won't include overrides"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff9569b1-c99f-4132-84e9-7ea133fc94a0",
+              "name": "the shift objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules",
+                    ":id",
+                    "shifts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exclude-overrides",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"user\": {\n      \"email\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"id\": 721,\n      \"timezone\": \"<string>\",\n      \"position\": \"string\",\n      \"department\": \"string\",\n      \"avatarUrl\": \"string\",\n      \"language\": \"de\",\n      \"region\": \"FR\",\n      \"role\": \"STAKEHOLDER\",\n      \"shiftColor\": \"string\",\n      \"mutedUntil\": \"1978-10-06T08:39:33.742Z\",\n      \"createdAt\": \"1995-11-24T03:19:41.563Z\",\n      \"updatedAt\": \"1951-03-07T21:10:12.406Z\"\n    },\n    \"end\": \"2019-06-23T13:55:31.385Z\",\n    \"start\": \"2000-04-15T00:31:21.756Z\"\n  },\n  {\n    \"user\": {\n      \"email\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"id\": 9245,\n      \"timezone\": \"<string>\",\n      \"position\": \"string\",\n      \"department\": \"string\",\n      \"avatarUrl\": \"string\",\n      \"language\": \"en\",\n      \"region\": \"ES\",\n      \"role\": \"RESPONDER\",\n      \"shiftColor\": \"string\",\n      \"mutedUntil\": \"2007-03-01T03:33:13.593Z\",\n      \"createdAt\": \"1970-04-14T12:40:18.665Z\",\n      \"updatedAt\": \"1982-01-19T12:24:14.194Z\"\n    },\n    \"end\": \"1998-08-10T13:55:08.277Z\",\n    \"start\": \"2001-02-26T18:00:55.774Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c79d850-1ba4-4e1a-bac3-dfcfdc5eca35",
+          "name": "Get overrides for the specified schedule.",
+          "request": {
+            "name": "Get overrides for the specified schedule.",
+            "description": {},
+            "url": {
+              "path": [
+                "schedules",
+                ":id",
+                "overrides"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e9c5fcb-96a7-4a72-83d5-cd0e5eca0d27",
+              "name": "the shift objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules",
+                    ":id",
+                    "overrides"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"user\": {\n      \"email\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"id\": 721,\n      \"timezone\": \"<string>\",\n      \"position\": \"string\",\n      \"department\": \"string\",\n      \"avatarUrl\": \"string\",\n      \"language\": \"de\",\n      \"region\": \"FR\",\n      \"role\": \"STAKEHOLDER\",\n      \"shiftColor\": \"string\",\n      \"mutedUntil\": \"1978-10-06T08:39:33.742Z\",\n      \"createdAt\": \"1995-11-24T03:19:41.563Z\",\n      \"updatedAt\": \"1951-03-07T21:10:12.406Z\"\n    },\n    \"end\": \"2019-06-23T13:55:31.385Z\",\n    \"start\": \"2000-04-15T00:31:21.756Z\"\n  },\n  {\n    \"user\": {\n      \"email\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"id\": 9245,\n      \"timezone\": \"<string>\",\n      \"position\": \"string\",\n      \"department\": \"string\",\n      \"avatarUrl\": \"string\",\n      \"language\": \"en\",\n      \"region\": \"ES\",\n      \"role\": \"RESPONDER\",\n      \"shiftColor\": \"string\",\n      \"mutedUntil\": \"2007-03-01T03:33:13.593Z\",\n      \"createdAt\": \"1970-04-14T12:40:18.665Z\",\n      \"updatedAt\": \"1982-01-19T12:24:14.194Z\"\n    },\n    \"end\": \"1998-08-10T13:55:08.277Z\",\n    \"start\": \"2001-02-26T18:00:55.774Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c5ac4a5-c081-440a-bbde-a72d72744c04",
+          "name": "Add an override shift to a schedule.",
+          "request": {
+            "name": "Add an override shift to a schedule.",
+            "description": {},
+            "url": {
+              "path": [
+                "schedules",
+                ":id",
+                "overrides"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"id\": \"<long>\",\n    \"timezone\": \"<string>\",\n    \"position\": \"<string>\",\n    \"department\": \"<string>\",\n    \"language\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role\": \"<string>\",\n    \"shiftColor\": \"<string>\",\n    \"mutedUntil\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  },\n  \"end\": \"<dateTime>\",\n  \"start\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8b28dfae-bd02-4f8e-a7b4-41a74460649f",
+              "name": "the overwritten schedule object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules",
+                    ":id",
+                    "overrides"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"id\": \"<long>\",\n    \"timezone\": \"<string>\",\n    \"position\": \"<string>\",\n    \"department\": \"<string>\",\n    \"language\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role\": \"<string>\",\n    \"shiftColor\": \"<string>\",\n    \"mutedUntil\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  },\n  \"end\": \"<dateTime>\",\n  \"start\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6227,\n  \"name\": \"string\",\n  \"type\": \"STATIC\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef1cb593-4a00-4d0b-a600-dd16f80bb871",
+          "name": "Get the user (wrapped in a shift object) on-call for the specified schedule.",
+          "request": {
+            "name": "Get the user (wrapped in a shift object) on-call for the specified schedule.",
+            "description": {},
+            "url": {
+              "path": [
+                "schedules",
+                ":id",
+                "user-on-call"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1463e43-2377-4d00-af12-638706f3c989",
+              "name": "the current shift",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules",
+                    ":id",
+                    "user-on-call"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"id\": \"<long>\",\n    \"timezone\": \"<string>\",\n    \"position\": \"<string>\",\n    \"department\": \"<string>\",\n    \"avatarUrl\": \"string\",\n    \"language\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role\": \"<string>\",\n    \"shiftColor\": \"<string>\",\n    \"mutedUntil\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  },\n  \"end\": \"<dateTime>\",\n  \"start\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a775915-91f3-484d-8c0b-8b782dae1ec2",
+              "name": "if no user is on-call",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedules",
+                    ":id",
+                    "user-on-call"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "655ffac9-1ec5-4fc7-bedc-0f34836702c7",
+    "name": "ilert REST Alert Actions Schedules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,2309 @@
+{
+  "item": [
+    {
+      "id": "915d1a90-ad05-43cb-8b97-70b6dec6483f",
+      "name": "Notification Preferences",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9648d389-adbe-4333-9a07-d9336010320c",
+          "name": "Get alert notification preferences of a user",
+          "request": {
+            "name": "Get alert notification preferences of a user",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "alerts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e4a1945-53c4-44e0-b05e-ece8cd961da3",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8779,\n    \"method\": \"VOICE\",\n    \"contact\": {\n      \"id\": 2081,\n      \"regionCode\": \"string\",\n      \"target\": \"string\",\n      \"primary\": true,\n      \"status\": \"LOCKED\"\n    },\n    \"delayMin\": 7246,\n    \"type\": \"LOW_PRIORITY\"\n  },\n  {\n    \"id\": 5498,\n    \"method\": \"PUSH\",\n    \"contact\": {\n      \"id\": 3784,\n      \"regionCode\": \"string\",\n      \"target\": \"string\",\n      \"primary\": false,\n      \"status\": \"BLACKLISTED\"\n    },\n    \"delayMin\": 3445,\n    \"type\": \"HIGH_PRIORITY\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5dbf05b5-bbda-405f-9029-7bd0bb650b3d",
+          "name": "Create an alert notification preference",
+          "request": {
+            "name": "Create an alert notification preference",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "alerts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"<string>\",\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"delayMin\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9bac5d59-e6cc-4f44-ae69-ae29608c481d",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"method\": \"<string>\",\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"delayMin\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8934,\n  \"method\": \"<string>\",\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"delayMin\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cfc3bdab-250a-47b3-95d0-1169543c3023",
+          "name": "Get specific notification preferences alert",
+          "request": {
+            "name": "Get specific notification preferences alert",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "alerts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c3bd6cf-ceeb-439b-b95d-1600db8cfd03",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "alerts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8934,\n  \"method\": \"<string>\",\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"delayMin\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b3f6ccb-2645-4d5a-b6c9-de9ea15e7b96",
+          "name": "Update a user's alert notification preference",
+          "request": {
+            "name": "Update a user's alert notification preference",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "alerts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"<string>\",\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"delayMin\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6e7bffa8-255c-4f82-9600-17e94c932fb7",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "alerts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"method\": \"<string>\",\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"delayMin\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8934,\n  \"method\": \"<string>\",\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"delayMin\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "18b9d98c-c8cf-4aba-aa06-82375d1dac2b",
+          "name": "Delete the user's specified notification preferences alert",
+          "request": {
+            "name": "Delete the user's specified notification preferences alert",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "alerts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8397aa0a-e6a0-4fe3-84ea-21a7e289ecaf",
+              "name": "if deletion was successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "alerts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b92dce1-5e6a-4827-9cac-d50e2c72bbbf",
+          "name": "Get duty notification preferences of a user",
+          "request": {
+            "name": "Get duty notification preferences of a user",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "duties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08d0f8a0-0bfc-46d1-9cca-c0d2101f1ca8",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "duties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 4821,\n    \"beforeMin\": 180,\n    \"contact\": {\n      \"id\": \"<long>\",\n      \"regionCode\": \"<string>\",\n      \"target\": \"<string>\",\n      \"primary\": \"<boolean>\",\n      \"status\": \"<string>\"\n    },\n    \"method\": \"SMS\",\n    \"type\": \"ON_CALL\"\n  },\n  {\n    \"id\": 5771,\n    \"beforeMin\": 180,\n    \"contact\": {\n      \"id\": \"<long>\",\n      \"regionCode\": \"<string>\",\n      \"target\": \"<string>\",\n      \"primary\": \"<boolean>\",\n      \"status\": \"<string>\"\n    },\n    \"method\": \"EMAIL\",\n    \"type\": \"ON_CALL\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4af5355c-7090-4b5a-ad66-0d11b14288f2",
+          "name": "Create a duty notification preference",
+          "request": {
+            "name": "Create a duty notification preference",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "duties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beforeMin\": \"<integer>\",\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9e0f248f-2477-4bfd-918b-d5f86baa7f56",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "duties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"beforeMin\": \"<integer>\",\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3468,\n  \"beforeMin\": \"<integer>\",\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6ef6166-526e-43e9-a484-722f3a474b3c",
+          "name": "Get specific notification preferences duty",
+          "request": {
+            "name": "Get specific notification preferences duty",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "duties",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cfb85c89-81b4-4eef-b474-1f308dd55149",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "duties",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3468,\n  \"beforeMin\": \"<integer>\",\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7d77163-5cba-4bd9-870b-5e778e83bba7",
+          "name": "Update a user's duty notification preference",
+          "request": {
+            "name": "Update a user's duty notification preference",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "duties",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beforeMin\": \"<integer>\",\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1e1638e1-e462-459a-85c7-3f8d918731e2",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "duties",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"beforeMin\": \"<integer>\",\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3468,\n  \"beforeMin\": \"<integer>\",\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "028e056c-63cd-438a-9a23-e83d5210af80",
+          "name": "Delete the user's specified notification preferences duty",
+          "request": {
+            "name": "Delete the user's specified notification preferences duty",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "duties",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b86ecdcd-5dc9-4545-93b7-0072b6fe6558",
+              "name": "if deletion was successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "duties",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "85231b8d-d76e-44a6-89c9-313cdd83a233",
+          "name": "Get update notification preferences of a user",
+          "request": {
+            "name": "Get update notification preferences of a user",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "updates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9465bd79-5e69-4bc5-8848-5ae036e1d950",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "updates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5200,\n    \"contact\": {\n      \"id\": \"<long>\",\n      \"regionCode\": \"<string>\",\n      \"target\": \"<string>\",\n      \"primary\": \"<boolean>\",\n      \"status\": \"<string>\"\n    },\n    \"method\": \"TELEGRAM\",\n    \"type\": \"ALERT_RESOLVED\"\n  },\n  {\n    \"id\": 5215,\n    \"contact\": {\n      \"id\": \"<long>\",\n      \"regionCode\": \"<string>\",\n      \"target\": \"<string>\",\n      \"primary\": \"<boolean>\",\n      \"status\": \"<string>\"\n    },\n    \"method\": \"WHATSAPP\",\n    \"type\": \"ALERT_RESOLVED\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "300fe189-8d2d-4132-a6e2-96250b9370bd",
+          "name": "Create an update notification preference",
+          "request": {
+            "name": "Create an update notification preference",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "updates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c2e5cfd8-bcc8-4f05-868b-ee614208da45",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "updates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3045,\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a763729e-beb7-4b39-a46b-1b24b09b349e",
+          "name": "Get specific notification preferences update",
+          "request": {
+            "name": "Get specific notification preferences update",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "updates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c462c473-48a8-46ff-a5a2-3e0956923d96",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "updates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3045,\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1de12e02-0394-446d-929b-b270d0b6cced",
+          "name": "Update a user's update notification preference",
+          "request": {
+            "name": "Update a user's update notification preference",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "updates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b475437a-560e-41ef-a177-a6e53b30a43a",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "updates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3045,\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "faffcff4-4872-46dd-a6d5-4c5988bbc6f8",
+          "name": "Delete the user's specified notification preferences update",
+          "request": {
+            "name": "Delete the user's specified notification preferences update",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "updates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a7ad0b63-b05f-4e99-ba14-cd94419d9707",
+              "name": "if deletion was successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "updates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c47235cd-8846-4e05-8369-52de7f8f9354",
+          "name": "Get subscription notification preferences of a user",
+          "request": {
+            "name": "Get subscription notification preferences of a user",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b6bc9d98-ce18-413a-a606-f887c7c79a20",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 3307,\n    \"contact\": {\n      \"id\": \"<long>\",\n      \"regionCode\": \"<string>\",\n      \"target\": \"<string>\",\n      \"primary\": \"<boolean>\",\n      \"status\": \"<string>\"\n    },\n    \"method\": \"PUSH\"\n  },\n  {\n    \"id\": 57,\n    \"contact\": {\n      \"id\": \"<long>\",\n      \"regionCode\": \"<string>\",\n      \"target\": \"<string>\",\n      \"primary\": \"<boolean>\",\n      \"status\": \"<string>\"\n    },\n    \"method\": \"SMS\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72b32323-7be5-4fd6-a88f-01e89d731223",
+          "name": "Create a subscription notification preference",
+          "request": {
+            "name": "Create a subscription notification preference",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0f6eb002-646f-4b7c-9c41-1f670c0ecc50",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6507,\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c0ccb0a-969d-4817-8888-0c7784cef833",
+          "name": "Get specific notification preferences subscription",
+          "request": {
+            "name": "Get specific notification preferences subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "subscriptions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a1e3376-8d06-41bb-8353-74afa65c3bfd",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "subscriptions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6507,\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1931e49a-5be4-4b71-9714-f4e77a97e2dd",
+          "name": "Update a user's subscription notification preference",
+          "request": {
+            "name": "Update a user's subscription notification preference",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "subscriptions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6b4b981f-c82c-4baf-8d97-3b5bea980fd9",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "subscriptions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6507,\n  \"contact\": {\n    \"id\": \"<long>\",\n    \"regionCode\": \"<string>\",\n    \"target\": \"<string>\",\n    \"primary\": \"<boolean>\",\n    \"status\": \"<string>\"\n  },\n  \"method\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "388c7ada-69f4-4392-8061-31cd9e434ad3",
+          "name": "Delete the user's specified notification preferences subscription",
+          "request": {
+            "name": "Delete the user's specified notification preferences subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":user-id",
+                "notification-preferences",
+                "subscriptions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user-id",
+                  "description": "(Required) numeric user id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1bfa9bc-e714-43b7-bbd5-b982a5b7f33f",
+              "name": "if deletion was successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":user-id",
+                    "notification-preferences",
+                    "subscriptions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user-id",
+                      "description": "(Required) numeric user id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a6e86c92-45dc-46a7-b9a5-5ffc0de8dbd3",
+    "name": "ilert REST Alert Actions Notification Preferences API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,842 @@
+{
+  "item": [
+    {
+      "id": "9893ad47-c478-406c-8e72-458f2f288ab1",
+      "name": "Escalation Policies",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "349dd341-434b-4797-8ad6-589c3662b26d",
+          "name": "List escalation policies.",
+          "request": {
+            "name": "List escalation policies.",
+            "description": {},
+            "url": {
+              "path": [
+                "escalation-policies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start-index",
+                  "value": "0",
+                  "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "max-results",
+                  "value": "50",
+                  "description": "the maximum number of results when paging through a list of escalation policies."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3906e216-5e04-499a-ae89-de8615eb5a3d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "escalation-policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start-index",
+                      "value": "0"
+                    },
+                    {
+                      "key": "max-results",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"escalationRules\": [\n      {\n        \"escalationTimeout\": 3734,\n        \"user\": {\n          \"id\": 4108.381428255946\n        },\n        \"schedule\": {\n          \"id\": 8110.843533337937\n        },\n        \"team\": {\n          \"id\": 3508.698379760541\n        },\n        \"users\": [\n          {\n            \"id\": 9202,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          },\n          {\n            \"id\": 9400,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          }\n        ],\n        \"schedules\": [\n          {\n            \"id\": 3210,\n            \"name\": \"string\",\n            \"type\": \"RECURRING\"\n          },\n          {\n            \"id\": 6457,\n            \"name\": \"string\",\n            \"type\": \"RECURRING\"\n          }\n        ],\n        \"teams\": [\n          {\n            \"id\": 3130,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 5850,\n            \"name\": \"string\"\n          }\n        ]\n      },\n      {\n        \"escalationTimeout\": 8408,\n        \"user\": {\n          \"id\": 4067.342242396914\n        },\n        \"schedule\": {\n          \"id\": 7999.901829482019\n        },\n        \"team\": {\n          \"id\": 149.36857771160828\n        },\n        \"users\": [\n          {\n            \"id\": 7689,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          },\n          {\n            \"id\": 4346,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          }\n        ],\n        \"schedules\": [\n          {\n            \"id\": 910,\n            \"name\": \"string\",\n            \"type\": \"RECURRING\"\n          },\n          {\n            \"id\": 3505,\n            \"name\": \"string\",\n            \"type\": \"RECURRING\"\n          }\n        ],\n        \"teams\": [\n          {\n            \"id\": 563,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 6748,\n            \"name\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"name\": \"string\",\n    \"id\": 7810,\n    \"teams\": [\n      {\n        \"id\": 2199,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 2205,\n        \"name\": \"string\"\n      }\n    ],\n    \"repeating\": false,\n    \"frequency\": 1,\n    \"delayMin\": 0,\n    \"routingKey\": \"string\"\n  },\n  {\n    \"escalationRules\": [\n      {\n        \"escalationTimeout\": 6871,\n        \"user\": {\n          \"id\": 2994.59902234122\n        },\n        \"schedule\": {\n          \"id\": 823.0211664157006\n        },\n        \"team\": {\n          \"id\": 5321.5294840742745\n        },\n        \"users\": [\n          {\n            \"id\": 1313,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          },\n          {\n            \"id\": 9884,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          }\n        ],\n        \"schedules\": [\n          {\n            \"id\": 6559,\n            \"name\": \"string\",\n            \"type\": \"STATIC\"\n          },\n          {\n            \"id\": 162,\n            \"name\": \"string\",\n            \"type\": \"STATIC\"\n          }\n        ],\n        \"teams\": [\n          {\n            \"id\": 5722,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 6757,\n            \"name\": \"string\"\n          }\n        ]\n      },\n      {\n        \"escalationTimeout\": 2151,\n        \"user\": {\n          \"id\": 1287.6718734465653\n        },\n        \"schedule\": {\n          \"id\": 2223.981416025057\n        },\n        \"team\": {\n          \"id\": 2721.567624960679\n        },\n        \"users\": [\n          {\n            \"id\": 7905,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          },\n          {\n            \"id\": 5614,\n            \"firstName\": \"string\",\n            \"lastName\": \"string\"\n          }\n        ],\n        \"schedules\": [\n          {\n            \"id\": 8482,\n            \"name\": \"string\",\n            \"type\": \"RECURRING\"\n          },\n          {\n            \"id\": 5517,\n            \"name\": \"string\",\n            \"type\": \"RECURRING\"\n          }\n        ],\n        \"teams\": [\n          {\n            \"id\": 275,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 5228,\n            \"name\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"name\": \"string\",\n    \"id\": 6693,\n    \"teams\": [\n      {\n        \"id\": 2902,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 8351,\n        \"name\": \"string\"\n      }\n    ],\n    \"repeating\": false,\n    \"frequency\": 1,\n    \"delayMin\": 0,\n    \"routingKey\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "38a1756a-d874-4915-9a5a-754736675d85",
+          "name": "Create a new escalation policy.",
+          "request": {
+            "name": "Create a new escalation policy.",
+            "description": {},
+            "url": {
+              "path": [
+                "escalation-policies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"escalationRules\": [\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"name\": \"<string>\",\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"repeating\": false,\n  \"frequency\": 1,\n  \"delayMin\": 0,\n  \"routingKey\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "39bb74f5-1547-43ae-bb48-11b6d8ff9bca",
+              "name": "Created. The URI of the escalation policy is included in the Location header and the entity in the body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "escalation-policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"escalationRules\": [\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"name\": \"<string>\",\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"repeating\": false,\n  \"frequency\": 1,\n  \"delayMin\": 0,\n  \"routingKey\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"escalationRules\": [\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"name\": \"<string>\",\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"repeating\": false,\n  \"frequency\": 1,\n  \"delayMin\": 0,\n  \"routingKey\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e4cd1a7-e550-42aa-bddf-6306ddb06419",
+          "name": "Resolve an escalation policy by routing key.",
+          "request": {
+            "name": "Resolve an escalation policy by routing key.",
+            "description": {},
+            "url": {
+              "path": [
+                "escalation-policies",
+                "resolve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "routing-key",
+                  "value": "<string>",
+                  "description": "(Required) routing key expression used to resolve the escalation policy, including ordered comma-separated keys or the special il:{...} policy reference format."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db01a330-6e56-41ff-aed7-f622facfea4f",
+              "name": "The resolved escalation policy",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "escalation-policies",
+                    "resolve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "routing-key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"escalationRules\": [\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"name\": \"<string>\",\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"repeating\": false,\n  \"frequency\": 1,\n  \"delayMin\": 0,\n  \"routingKey\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77d598b3-9d62-4af0-b530-b0f339549564",
+              "name": "The current user has no permission to access the resolved escalation policy",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "escalation-policies",
+                    "resolve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "routing-key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "579683a3-82b9-4e11-8adb-21eee2cb41b4",
+              "name": "No escalation policy matched the provided routing key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "escalation-policies",
+                    "resolve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "routing-key",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "809ab46d-24bb-47c7-acd9-89c8e17c47a9",
+          "name": "Get escalation policy with the specified id.",
+          "request": {
+            "name": "Get escalation policy with the specified id.",
+            "description": {},
+            "url": {
+              "path": [
+                "escalation-policies",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69237120-01ba-45dc-a14a-52c51e8e327b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "escalation-policies",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"escalationRules\": [\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"name\": \"<string>\",\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"repeating\": false,\n  \"frequency\": 1,\n  \"delayMin\": 0,\n  \"routingKey\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8d41a67-8f0a-46d4-ab77-b3f821e89d5b",
+          "name": "Update an existing escalation policy.",
+          "request": {
+            "name": "Update an existing escalation policy.",
+            "description": {},
+            "url": {
+              "path": [
+                "escalation-policies",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"escalationRules\": [\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"name\": \"<string>\",\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"repeating\": false,\n  \"frequency\": 1,\n  \"delayMin\": 0,\n  \"routingKey\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4650e155-bf12-4e66-a9fe-82cbfcffa7af",
+              "name": "The updated escalation policy",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "escalation-policies",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"escalationRules\": [\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"name\": \"<string>\",\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"repeating\": false,\n  \"frequency\": 1,\n  \"delayMin\": 0,\n  \"routingKey\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"escalationRules\": [\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"escalationTimeout\": \"<integer>\",\n      \"user\": {\n        \"id\": \"<number>\"\n      },\n      \"schedule\": {\n        \"id\": \"<number>\"\n      },\n      \"team\": {\n        \"id\": \"<number>\"\n      },\n      \"users\": [\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\"\n        }\n      ],\n      \"schedules\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"name\": \"<string>\",\n  \"id\": \"<long>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"repeating\": false,\n  \"frequency\": 1,\n  \"delayMin\": 0,\n  \"routingKey\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8f9927a-c3fb-4a4a-8ef6-fcdc3dcd0d83",
+          "name": "Delete the specified escalation policy.",
+          "request": {
+            "name": "Delete the specified escalation policy.",
+            "description": {},
+            "url": {
+              "path": [
+                "escalation-policies",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a275b622-75f6-4df9-9334-63e4446b1d61",
+              "name": "if deletion was successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "escalation-policies",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5dfa7460-3dff-4257-8304-9c86ec556196",
+          "name": "Replace an escalation rule at the specified level.",
+          "request": {
+            "name": "Replace an escalation rule at the specified level.",
+            "description": {},
+            "url": {
+              "path": [
+                "escalation-policies",
+                ":id",
+                "levels",
+                ":level"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "level",
+                  "description": "(Required) zero-based escalation level"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"escalationTimeout\": \"<integer>\",\n  \"user\": {\n    \"id\": \"<number>\"\n  },\n  \"schedule\": {\n    \"id\": \"<number>\"\n  },\n  \"team\": {\n    \"id\": \"<number>\"\n  },\n  \"users\": [\n    {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    }\n  ],\n  \"schedules\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7c920126-1b72-49c6-9413-abbd5c7b086e",
+              "name": "The updated escalation rule",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "escalation-policies",
+                    ":id",
+                    "levels",
+                    ":level"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "level",
+                      "description": "(Required) zero-based escalation level"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"escalationTimeout\": \"<integer>\",\n  \"user\": {\n    \"id\": \"<number>\"\n  },\n  \"schedule\": {\n    \"id\": \"<number>\"\n  },\n  \"team\": {\n    \"id\": \"<number>\"\n  },\n  \"users\": [\n    {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    }\n  ],\n  \"schedules\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"escalationTimeout\": \"<integer>\",\n  \"user\": {\n    \"id\": \"<number>\"\n  },\n  \"schedule\": {\n    \"id\": \"<number>\"\n  },\n  \"team\": {\n    \"id\": \"<number>\"\n  },\n  \"users\": [\n    {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\"\n    }\n  ],\n  \"schedules\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0223317b-55fa-4840-916a-3decd91cd8ef",
+    "name": "ilert REST Alert Actions Escalation Policies API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>.",
+      "type": "text/plain"
+    }
+  }
+}

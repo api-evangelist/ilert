@@ -1,0 +1,1635 @@
+{
+  "item": [
+    {
+      "id": "7c8363c6-a53e-4ed0-aa91-cd86b1e2964f",
+      "name": "Status Pages",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b3bd51ba-bb36-4607-b28c-6babcd306321",
+          "name": "Get status pages.",
+          "request": {
+            "name": "Get status pages.",
+            "description": {},
+            "url": {
+              "path": [
+                "status-pages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start-index",
+                  "value": "0",
+                  "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "max-results",
+                  "value": "25",
+                  "description": "the maximum number of results when paging through a list of status pages."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4717a2f3-25b7-4323-9b4b-5eed66557972",
+              "name": "The status pages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start-index",
+                      "value": "0"
+                    },
+                    {
+                      "key": "max-results",
+                      "value": "25"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 9628.674704201005,\n    \"name\": \"string\",\n    \"domain\": \"string\",\n    \"subdomain\": \"string\",\n    \"timezone\": \"America/New_York\",\n    \"faviconUrl\": \"string\",\n    \"logoUrl\": \"string\",\n    \"visibility\": \"PRIVATE\",\n    \"hiddenFromSearch\": false,\n    \"showSubscribeAction\": true,\n    \"showIncidentHistoryOption\": false,\n    \"pageTitle\": \"string\",\n    \"pageDescription\": \"string\",\n    \"logoRedirectUrl\": \"string\",\n    \"activated\": false,\n    \"status\": \"OPERATIONAL\",\n    \"teams\": [\n      {\n        \"id\": 4928,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 8580,\n        \"name\": \"string\"\n      }\n    ],\n    \"services\": [\n      {\n        \"id\": 3876.891243060092,\n        \"name\": \"string\",\n        \"status\": \"OPERATIONAL\",\n        \"description\": \"string\",\n        \"oneOpenIncidentOnly\": false,\n        \"showUptimeHistory\": true,\n        \"teams\": [\n          {\n            \"id\": 2713,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 293,\n            \"name\": \"string\"\n          }\n        ],\n        \"uptime\": {\n          \"rangeStart\": \"1952-08-08T01:43:51.940Z\",\n          \"rangeEnd\": \"2006-12-02T16:57:22.967Z\",\n          \"outages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"uptimePercentage\": {\n            \"uptimePercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      {\n        \"id\": 7810.091375525665,\n        \"name\": \"string\",\n        \"status\": \"OPERATIONAL\",\n        \"description\": \"string\",\n        \"oneOpenIncidentOnly\": true,\n        \"showUptimeHistory\": true,\n        \"teams\": [\n          {\n            \"id\": 9599,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 1223,\n            \"name\": \"string\"\n          }\n        ],\n        \"uptime\": {\n          \"rangeStart\": \"2007-02-18T04:21:48.391Z\",\n          \"rangeEnd\": \"1967-08-15T23:54:25.072Z\",\n          \"outages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"uptimePercentage\": {\n            \"uptimePercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    ],\n    \"metrics\": [\n      {\n        \"id\": 8408.74720047059,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"aggregationType\": \"MAX\",\n        \"displayType\": \"GRAPH\",\n        \"interpolateGaps\": false,\n        \"lockYAxisMax\": 8955.187847034817,\n        \"lockYAxisMin\": 3071.9965075544155,\n        \"mouseOverDecimal\": 4.550320002893416,\n        \"showValuesOnMouseOver\": false,\n        \"unitLabel\": \"string\",\n        \"teams\": [\n          {\n            \"id\": 1200,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 9923,\n            \"name\": \"string\"\n          }\n        ]\n      },\n      {\n        \"id\": 2901.0295610168546,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"aggregationType\": \"SUM\",\n        \"displayType\": \"GRAPH\",\n        \"interpolateGaps\": false,\n        \"lockYAxisMax\": 2759.4139000975006,\n        \"lockYAxisMin\": 2466.9086190749535,\n        \"mouseOverDecimal\": 2.931458796474203,\n        \"showValuesOnMouseOver\": false,\n        \"unitLabel\": \"string\",\n        \"teams\": [\n          {\n            \"id\": 4902,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 9175,\n            \"name\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"ipWhitelist\": [\n      \"string\",\n      \"string\"\n    ],\n    \"subscribed\": true,\n    \"announcement\": \"string\",\n    \"announcementOnPage\": true,\n    \"announcementInWidget\": false,\n    \"audienceSpecific\": false\n  },\n  {\n    \"id\": 5789.106979865781,\n    \"name\": \"string\",\n    \"domain\": \"string\",\n    \"subdomain\": \"string\",\n    \"timezone\": \"Europe/Berlin\",\n    \"faviconUrl\": \"string\",\n    \"logoUrl\": \"string\",\n    \"visibility\": \"PRIVATE\",\n    \"hiddenFromSearch\": true,\n    \"showSubscribeAction\": false,\n    \"showIncidentHistoryOption\": false,\n    \"pageTitle\": \"string\",\n    \"pageDescription\": \"string\",\n    \"logoRedirectUrl\": \"string\",\n    \"activated\": true,\n    \"status\": \"UNDER_MAINTENANCE\",\n    \"teams\": [\n      {\n        \"id\": 3315,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 5065,\n        \"name\": \"string\"\n      }\n    ],\n    \"services\": [\n      {\n        \"id\": 8728.728819180787,\n        \"name\": \"string\",\n        \"status\": \"UNDER_MAINTENANCE\",\n        \"description\": \"string\",\n        \"oneOpenIncidentOnly\": true,\n        \"showUptimeHistory\": true,\n        \"teams\": [\n          {\n            \"id\": 3420,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 6824,\n            \"name\": \"string\"\n          }\n        ],\n        \"uptime\": {\n          \"rangeStart\": \"1971-05-01T02:05:48.841Z\",\n          \"rangeEnd\": \"1982-04-04T18:36:54.200Z\",\n          \"outages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"uptimePercentage\": {\n            \"uptimePercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      {\n        \"id\": 6.891109140080287,\n        \"name\": \"string\",\n        \"status\": \"MAJOR_OUTAGE\",\n        \"description\": \"string\",\n        \"oneOpenIncidentOnly\": true,\n        \"showUptimeHistory\": false,\n        \"teams\": [\n          {\n            \"id\": 5277,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 9907,\n            \"name\": \"string\"\n          }\n        ],\n        \"uptime\": {\n          \"rangeStart\": \"2001-03-04T00:37:24.316Z\",\n          \"rangeEnd\": \"1997-12-18T00:47:48.342Z\",\n          \"outages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"uptimePercentage\": {\n            \"uptimePercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      }\n    ],\n    \"metrics\": [\n      {\n        \"id\": 8702.868031218723,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"aggregationType\": \"LAST\",\n        \"displayType\": \"GRAPH\",\n        \"interpolateGaps\": false,\n        \"lockYAxisMax\": 3369.6000724323526,\n        \"lockYAxisMin\": 1527.2948648562024,\n        \"mouseOverDecimal\": 3.8263269993750213,\n        \"showValuesOnMouseOver\": false,\n        \"unitLabel\": \"string\",\n        \"teams\": [\n          {\n            \"id\": 9199,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 745,\n            \"name\": \"string\"\n          }\n        ]\n      },\n      {\n        \"id\": 2856.2260523189875,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"aggregationType\": \"AVG\",\n        \"displayType\": \"GRAPH\",\n        \"interpolateGaps\": false,\n        \"lockYAxisMax\": 163.09756952823773,\n        \"lockYAxisMin\": 4137.035714035169,\n        \"mouseOverDecimal\": 3.305034480134224,\n        \"showValuesOnMouseOver\": false,\n        \"unitLabel\": \"string\",\n        \"teams\": [\n          {\n            \"id\": 1502,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 4190,\n            \"name\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"ipWhitelist\": [\n      \"string\",\n      \"string\"\n    ],\n    \"subscribed\": false,\n    \"announcement\": \"string\",\n    \"announcementOnPage\": true,\n    \"announcementInWidget\": false,\n    \"audienceSpecific\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c67416d0-1b48-46ba-8800-f405b0e1d7b1",
+          "name": "Create a new status page.",
+          "request": {
+            "name": "Create a new status page.",
+            "description": {},
+            "url": {
+              "path": [
+                "status-pages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"subdomain\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"faviconUrl\": \"<string>\",\n  \"logoUrl\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"hiddenFromSearch\": \"<boolean>\",\n  \"showSubscribeAction\": \"<boolean>\",\n  \"showIncidentHistoryOption\": \"<boolean>\",\n  \"pageTitle\": \"<string>\",\n  \"pageDescription\": \"<string>\",\n  \"pageLayout\": \"<string>\",\n  \"logoRedirectUrl\": \"<string>\",\n  \"activated\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"services\": [\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"status\": \"<string>\",\n      \"description\": \"<string>\",\n      \"oneOpenIncidentOnly\": \"<boolean>\",\n      \"showUptimeHistory\": \"<boolean>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"status\": \"<string>\",\n      \"description\": \"<string>\",\n      \"oneOpenIncidentOnly\": \"<boolean>\",\n      \"showUptimeHistory\": \"<boolean>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"metrics\": [\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aggregationType\": \"<string>\",\n      \"displayType\": \"<string>\",\n      \"interpolateGaps\": false,\n      \"lockYAxisMax\": \"<double>\",\n      \"lockYAxisMin\": \"<double>\",\n      \"mouseOverDecimal\": \"<int32>\",\n      \"showValuesOnMouseOver\": false,\n      \"unitLabel\": \"<string>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aggregationType\": \"<string>\",\n      \"displayType\": \"<string>\",\n      \"interpolateGaps\": false,\n      \"lockYAxisMax\": \"<double>\",\n      \"lockYAxisMin\": \"<double>\",\n      \"mouseOverDecimal\": \"<int32>\",\n      \"showValuesOnMouseOver\": false,\n      \"unitLabel\": \"<string>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"ipWhitelist\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"structure\": {\n    \"elements\": [\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"options\": \"<string>\",\n        \"children\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"options\": \"<string>\",\n        \"children\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"appearance\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9d58dd1c-55cf-4d0d-b778-2fea5915446d",
+              "name": "The newly created status page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"subdomain\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"faviconUrl\": \"<string>\",\n  \"logoUrl\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"hiddenFromSearch\": \"<boolean>\",\n  \"showSubscribeAction\": \"<boolean>\",\n  \"showIncidentHistoryOption\": \"<boolean>\",\n  \"pageTitle\": \"<string>\",\n  \"pageDescription\": \"<string>\",\n  \"pageLayout\": \"<string>\",\n  \"logoRedirectUrl\": \"<string>\",\n  \"activated\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"services\": [\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"status\": \"<string>\",\n      \"description\": \"<string>\",\n      \"oneOpenIncidentOnly\": \"<boolean>\",\n      \"showUptimeHistory\": \"<boolean>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"status\": \"<string>\",\n      \"description\": \"<string>\",\n      \"oneOpenIncidentOnly\": \"<boolean>\",\n      \"showUptimeHistory\": \"<boolean>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"metrics\": [\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aggregationType\": \"<string>\",\n      \"displayType\": \"<string>\",\n      \"interpolateGaps\": false,\n      \"lockYAxisMax\": \"<double>\",\n      \"lockYAxisMin\": \"<double>\",\n      \"mouseOverDecimal\": \"<int32>\",\n      \"showValuesOnMouseOver\": false,\n      \"unitLabel\": \"<string>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aggregationType\": \"<string>\",\n      \"displayType\": \"<string>\",\n      \"interpolateGaps\": false,\n      \"lockYAxisMax\": \"<double>\",\n      \"lockYAxisMin\": \"<double>\",\n      \"mouseOverDecimal\": \"<int32>\",\n      \"showValuesOnMouseOver\": false,\n      \"unitLabel\": \"<string>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"ipWhitelist\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"structure\": {\n    \"elements\": [\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"options\": \"<string>\",\n        \"children\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"options\": \"<string>\",\n        \"children\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"appearance\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"subdomain\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"faviconUrl\": \"<string>\",\n  \"logoUrl\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"hiddenFromSearch\": \"<boolean>\",\n  \"showSubscribeAction\": \"<boolean>\",\n  \"showIncidentHistoryOption\": \"<boolean>\",\n  \"pageTitle\": \"<string>\",\n  \"pageDescription\": \"<string>\",\n  \"pageLayout\": \"<string>\",\n  \"logoRedirectUrl\": \"<string>\",\n  \"activated\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"services\": [\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"status\": \"<string>\",\n      \"description\": \"<string>\",\n      \"oneOpenIncidentOnly\": \"<boolean>\",\n      \"showUptimeHistory\": \"<boolean>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"status\": \"<string>\",\n      \"description\": \"<string>\",\n      \"oneOpenIncidentOnly\": \"<boolean>\",\n      \"showUptimeHistory\": \"<boolean>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"metrics\": [\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aggregationType\": \"<string>\",\n      \"displayType\": \"<string>\",\n      \"interpolateGaps\": false,\n      \"lockYAxisMax\": \"<double>\",\n      \"lockYAxisMin\": \"<double>\",\n      \"mouseOverDecimal\": \"<int32>\",\n      \"showValuesOnMouseOver\": false,\n      \"unitLabel\": \"<string>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aggregationType\": \"<string>\",\n      \"displayType\": \"<string>\",\n      \"interpolateGaps\": false,\n      \"lockYAxisMax\": \"<double>\",\n      \"lockYAxisMin\": \"<double>\",\n      \"mouseOverDecimal\": \"<int32>\",\n      \"showValuesOnMouseOver\": false,\n      \"unitLabel\": \"<string>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"ipWhitelist\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"structure\": {\n    \"elements\": [\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"options\": \"<string>\",\n        \"children\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"options\": \"<string>\",\n        \"children\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"appearance\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68456f9c-087e-46c9-8bd9-d9b5378cd8a0",
+          "name": "Get a specific status page.",
+          "request": {
+            "name": "Get a specific status page.",
+            "description": {},
+            "url": {
+              "path": [
+                "status-pages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed, uptime, groups, structure). Note: structure is always included by default."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed, uptime, groups, structure). Note: structure is always included by default."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92640894-9415-46a4-8382-39861f4035ac",
+              "name": "The requested status page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6205.922229710146,\n  \"name\": \"string\",\n  \"domain\": \"string\",\n  \"subdomain\": \"string\",\n  \"timezone\": \"<string>\",\n  \"faviconUrl\": \"string\",\n  \"logoUrl\": \"string\",\n  \"visibility\": \"PUBLIC\",\n  \"hiddenFromSearch\": true,\n  \"showSubscribeAction\": true,\n  \"showIncidentHistoryOption\": false,\n  \"pageTitle\": \"string\",\n  \"pageDescription\": \"string\",\n  \"pageLayout\": \"SINGLE_COLUMN\",\n  \"logoRedirectUrl\": \"string\",\n  \"activated\": true,\n  \"status\": \"<string>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"services\": [\n    {\n      \"id\": 9007.527094803876,\n      \"name\": \"string\",\n      \"status\": \"<string>\",\n      \"description\": \"string\",\n      \"oneOpenIncidentOnly\": false,\n      \"showUptimeHistory\": false,\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"uptime\": {\n        \"rangeStart\": \"2020-10-01T01:57:04.027Z\",\n        \"rangeEnd\": \"1989-04-19T08:34:37.954Z\",\n        \"outages\": [\n          {\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"from\": \"2018-12-09T21:57:40.852Z\",\n            \"until\": \"1985-02-05T16:22:35.688Z\"\n          },\n          {\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"from\": \"2018-02-11T22:54:30.863Z\",\n            \"until\": \"1966-05-16T16:33:22.578Z\"\n          }\n        ],\n        \"uptimePercentage\": {\n          \"uptimePercentage\": {\n            \"p90\": 98.15538910996297,\n            \"p60\": 35.86323394862113,\n            \"p30\": 15.378399427953626\n          }\n        }\n      }\n    },\n    {\n      \"id\": 1760.5835964541373,\n      \"name\": \"string\",\n      \"status\": \"<string>\",\n      \"description\": \"string\",\n      \"oneOpenIncidentOnly\": false,\n      \"showUptimeHistory\": false,\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"uptime\": {\n        \"rangeStart\": \"1978-02-22T16:33:49.095Z\",\n        \"rangeEnd\": \"1988-01-24T16:26:02.260Z\",\n        \"outages\": [\n          {\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"from\": \"1955-08-03T12:55:50.733Z\",\n            \"until\": \"2014-11-10T12:01:46.039Z\"\n          },\n          {\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"from\": \"2011-07-11T08:56:07.140Z\",\n            \"until\": \"1983-11-22T10:45:10.964Z\"\n          }\n        ],\n        \"uptimePercentage\": {\n          \"uptimePercentage\": {\n            \"p90\": 56.5243095863565,\n            \"p60\": 15.769808523035033,\n            \"p30\": 6.574822700078265\n          }\n        }\n      }\n    }\n  ],\n  \"metrics\": [\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aggregationType\": \"<string>\",\n      \"displayType\": \"<string>\",\n      \"interpolateGaps\": false,\n      \"lockYAxisMax\": \"<double>\",\n      \"lockYAxisMin\": \"<double>\",\n      \"mouseOverDecimal\": \"<int32>\",\n      \"showValuesOnMouseOver\": false,\n      \"unitLabel\": \"<string>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aggregationType\": \"<string>\",\n      \"displayType\": \"<string>\",\n      \"interpolateGaps\": false,\n      \"lockYAxisMax\": \"<double>\",\n      \"lockYAxisMin\": \"<double>\",\n      \"mouseOverDecimal\": \"<int32>\",\n      \"showValuesOnMouseOver\": false,\n      \"unitLabel\": \"<string>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"ipWhitelist\": [\n    \"string\",\n    \"string\"\n  ],\n  \"structure\": {\n    \"elements\": [\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"options\": \"<string>\",\n        \"children\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"options\": \"<string>\",\n        \"children\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"subscribed\": true,\n  \"groups\": [\n    {\n      \"id\": 8521.849968862402,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 3554.77449842329,\n      \"name\": \"string\"\n    }\n  ],\n  \"appearance\": \"LIGHT\",\n  \"announcement\": \"string\",\n  \"announcementOnPage\": false,\n  \"announcementInWidget\": false,\n  \"audienceSpecific\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b37c442-6653-4688-90ab-f456c076f6e9",
+          "name": "Update the specific status page",
+          "request": {
+            "name": "Update the specific status page",
+            "description": {},
+            "url": {
+              "path": [
+                "status-pages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"subdomain\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"faviconUrl\": \"<string>\",\n  \"logoUrl\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"hiddenFromSearch\": \"<boolean>\",\n  \"showSubscribeAction\": \"<boolean>\",\n  \"showIncidentHistoryOption\": \"<boolean>\",\n  \"pageTitle\": \"<string>\",\n  \"pageDescription\": \"<string>\",\n  \"pageLayout\": \"<string>\",\n  \"logoRedirectUrl\": \"<string>\",\n  \"activated\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"services\": [\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"status\": \"<string>\",\n      \"description\": \"<string>\",\n      \"oneOpenIncidentOnly\": \"<boolean>\",\n      \"showUptimeHistory\": \"<boolean>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"status\": \"<string>\",\n      \"description\": \"<string>\",\n      \"oneOpenIncidentOnly\": \"<boolean>\",\n      \"showUptimeHistory\": \"<boolean>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"metrics\": [\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aggregationType\": \"<string>\",\n      \"displayType\": \"<string>\",\n      \"interpolateGaps\": false,\n      \"lockYAxisMax\": \"<double>\",\n      \"lockYAxisMin\": \"<double>\",\n      \"mouseOverDecimal\": \"<int32>\",\n      \"showValuesOnMouseOver\": false,\n      \"unitLabel\": \"<string>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aggregationType\": \"<string>\",\n      \"displayType\": \"<string>\",\n      \"interpolateGaps\": false,\n      \"lockYAxisMax\": \"<double>\",\n      \"lockYAxisMin\": \"<double>\",\n      \"mouseOverDecimal\": \"<int32>\",\n      \"showValuesOnMouseOver\": false,\n      \"unitLabel\": \"<string>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"ipWhitelist\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"structure\": {\n    \"elements\": [\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"options\": \"<string>\",\n        \"children\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"options\": \"<string>\",\n        \"children\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"appearance\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b90c6077-2df1-4c01-a8f8-444fdb0e9255",
+              "name": "The updated status page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"subdomain\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"faviconUrl\": \"<string>\",\n  \"logoUrl\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"hiddenFromSearch\": \"<boolean>\",\n  \"showSubscribeAction\": \"<boolean>\",\n  \"showIncidentHistoryOption\": \"<boolean>\",\n  \"pageTitle\": \"<string>\",\n  \"pageDescription\": \"<string>\",\n  \"pageLayout\": \"<string>\",\n  \"logoRedirectUrl\": \"<string>\",\n  \"activated\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"services\": [\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"status\": \"<string>\",\n      \"description\": \"<string>\",\n      \"oneOpenIncidentOnly\": \"<boolean>\",\n      \"showUptimeHistory\": \"<boolean>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"status\": \"<string>\",\n      \"description\": \"<string>\",\n      \"oneOpenIncidentOnly\": \"<boolean>\",\n      \"showUptimeHistory\": \"<boolean>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"metrics\": [\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aggregationType\": \"<string>\",\n      \"displayType\": \"<string>\",\n      \"interpolateGaps\": false,\n      \"lockYAxisMax\": \"<double>\",\n      \"lockYAxisMin\": \"<double>\",\n      \"mouseOverDecimal\": \"<int32>\",\n      \"showValuesOnMouseOver\": false,\n      \"unitLabel\": \"<string>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aggregationType\": \"<string>\",\n      \"displayType\": \"<string>\",\n      \"interpolateGaps\": false,\n      \"lockYAxisMax\": \"<double>\",\n      \"lockYAxisMin\": \"<double>\",\n      \"mouseOverDecimal\": \"<int32>\",\n      \"showValuesOnMouseOver\": false,\n      \"unitLabel\": \"<string>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"ipWhitelist\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"structure\": {\n    \"elements\": [\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"options\": \"<string>\",\n        \"children\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"options\": \"<string>\",\n        \"children\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"appearance\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"subdomain\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"faviconUrl\": \"<string>\",\n  \"logoUrl\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"hiddenFromSearch\": \"<boolean>\",\n  \"showSubscribeAction\": \"<boolean>\",\n  \"showIncidentHistoryOption\": \"<boolean>\",\n  \"pageTitle\": \"<string>\",\n  \"pageDescription\": \"<string>\",\n  \"pageLayout\": \"<string>\",\n  \"logoRedirectUrl\": \"<string>\",\n  \"activated\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"services\": [\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"status\": \"<string>\",\n      \"description\": \"<string>\",\n      \"oneOpenIncidentOnly\": \"<boolean>\",\n      \"showUptimeHistory\": \"<boolean>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"alias\": \"<string>\",\n      \"status\": \"<string>\",\n      \"description\": \"<string>\",\n      \"oneOpenIncidentOnly\": \"<boolean>\",\n      \"showUptimeHistory\": \"<boolean>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"metrics\": [\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aggregationType\": \"<string>\",\n      \"displayType\": \"<string>\",\n      \"interpolateGaps\": false,\n      \"lockYAxisMax\": \"<double>\",\n      \"lockYAxisMin\": \"<double>\",\n      \"mouseOverDecimal\": \"<int32>\",\n      \"showValuesOnMouseOver\": false,\n      \"unitLabel\": \"<string>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<number>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aggregationType\": \"<string>\",\n      \"displayType\": \"<string>\",\n      \"interpolateGaps\": false,\n      \"lockYAxisMax\": \"<double>\",\n      \"lockYAxisMin\": \"<double>\",\n      \"mouseOverDecimal\": \"<int32>\",\n      \"showValuesOnMouseOver\": false,\n      \"unitLabel\": \"<string>\",\n      \"teams\": [\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"id\": \"<long>\",\n          \"name\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"ipWhitelist\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"structure\": {\n    \"elements\": [\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"options\": \"<string>\",\n        \"children\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"options\": \"<string>\",\n        \"children\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/StatusPageElement detected>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"appearance\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "47b39d76-0a67-4050-8f36-2f9c3cc9b9a9",
+          "name": "Remove a specific status page.",
+          "request": {
+            "name": "Remove a specific status page.",
+            "description": {},
+            "url": {
+              "path": [
+                "status-pages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb5f4821-6736-498c-a01a-8ca311b2f2b3",
+              "name": "Empty body delete response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1b59db9-e51a-4152-95a2-8be0c26cab1b",
+          "name": "Get the groups of a status page",
+          "request": {
+            "name": "Get the groups of a status page",
+            "description": {},
+            "url": {
+              "path": [
+                "status-pages",
+                ":id",
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start-index",
+                  "value": "0",
+                  "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "max-results",
+                  "value": "50",
+                  "description": "the maximum number of results when paging through a list of entities."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1fc20bee-a94c-4c0c-ba81-a011c557f900",
+              "name": "The groups of the status page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-pages",
+                    ":id",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start-index",
+                      "value": "0"
+                    },
+                    {
+                      "key": "max-results",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 9685.964833071399,\n    \"name\": \"string\"\n  },\n  {\n    \"id\": 4317.349697104187,\n    \"name\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88118fa4-c0c5-4d8a-8ad7-90b3d867cac8",
+          "name": "Add a group to a status page",
+          "request": {
+            "name": "Add a group to a status page",
+            "description": {},
+            "url": {
+              "path": [
+                "status-pages",
+                ":id",
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8dc6f471-ef9f-4463-9961-278939ff4006",
+              "name": "The created group",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-pages",
+                    ":id",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddfaa243-fcff-4163-b3f1-d48bdc947a21",
+          "name": "Get a specific group of a status page",
+          "request": {
+            "name": "Get a specific group of a status page",
+            "description": {},
+            "url": {
+              "path": [
+                "status-pages",
+                ":id",
+                "groups",
+                ":group-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "group-id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b0079c6-34e3-47c7-8629-bfdb73e78669",
+              "name": "The group of the status page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-pages",
+                    ":id",
+                    "groups",
+                    ":group-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "group-id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4403a925-8608-4b8a-a492-d8082f57c5b5",
+              "name": "The group does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-pages",
+                    ":id",
+                    "groups",
+                    ":group-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "group-id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dfd34256-81d9-4ba3-9816-78d2b89c388c",
+          "name": "Update a group of a status page",
+          "request": {
+            "name": "Update a group of a status page",
+            "description": {},
+            "url": {
+              "path": [
+                "status-pages",
+                ":id",
+                "groups",
+                ":group-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "group-id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ff4adc37-f9b6-4e5c-941f-284eb8be46be",
+              "name": "The updated group of the status page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-pages",
+                    ":id",
+                    "groups",
+                    ":group-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "group-id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0092704-4566-490e-9bba-64f2d77fc91c",
+          "name": "Remove group from a status page",
+          "request": {
+            "name": "Remove group from a status page",
+            "description": {},
+            "url": {
+              "path": [
+                "status-pages",
+                ":id",
+                "groups",
+                ":group-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "group-id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c0b0406-79e2-41e5-9fe1-fd7ac435b49d",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-pages",
+                    ":id",
+                    "groups",
+                    ":group-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "group-id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d1a0f2e-6f46-47c6-91d2-448bf577ab3c",
+          "name": "Get the subscribers (users and teams) of a status page",
+          "request": {
+            "name": "Get the subscribers (users and teams) of a status page",
+            "description": {},
+            "url": {
+              "path": [
+                "status-pages",
+                ":id",
+                "private-subscribers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b4dfe258-d64f-4857-ac02-074cab19d9c7",
+              "name": "The subscribers of the status page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-pages",
+                    ":id",
+                    "private-subscribers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1436.726037700603,\n    \"name\": \"string\",\n    \"type\": \"USER\"\n  },\n  {\n    \"id\": 4845.84473989069,\n    \"name\": \"string\",\n    \"type\": \"TEAM\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "753b5410-9a2e-4f74-b404-b16ade9d3d1b",
+          "name": "Set subscribers (users and teams) of a status page",
+          "request": {
+            "name": "Set subscribers (users and teams) of a status page",
+            "description": {
+              "content": "Note: this is an in place update",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "status-pages",
+                ":id",
+                "private-subscribers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bcbedb99-ed76-4c7c-86d4-2882edb4ef5e",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-pages",
+                    ":id",
+                    "private-subscribers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e8e54a7-b312-4b78-aed6-fae50772729f",
+          "name": "Add subscriber (user and team) to a status page",
+          "request": {
+            "name": "Add subscriber (user and team) to a status page",
+            "description": {},
+            "url": {
+              "path": [
+                "status-pages",
+                ":id",
+                "private-subscribers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7089f065-ee36-466b-923a-f7c7420bedf0",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-pages",
+                    ":id",
+                    "private-subscribers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<number>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a43722ec-f9ce-4866-8f8b-1a7ea9da9633",
+          "name": "Remove subscriber (user and team) from a status page",
+          "request": {
+            "name": "Remove subscriber (user and team) from a status page",
+            "description": {},
+            "url": {
+              "path": [
+                "status-pages",
+                ":id",
+                "private-subscribers",
+                ":subscriber-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subscriber-type",
+                  "value": "<string>",
+                  "description": "(Required) the type of subscriber USER or TEAM"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "subscriber-id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22403ea0-ec9a-44dd-b9f5-788f8eff2ee5",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-pages",
+                    ":id",
+                    "private-subscribers",
+                    ":subscriber-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subscriber-type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "subscriber-id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "214f9472-2212-48d6-93b5-ebe327dc8c45",
+    "name": "ilert REST Alert Actions Status Pages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>.",
+      "type": "text/plain"
+    }
+  }
+}

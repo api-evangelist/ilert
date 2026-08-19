@@ -1,0 +1,175 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Teams API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get teams.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/teams",
+            "params": [
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of entities."
+              },
+              {
+                "name": "members",
+                "value": "",
+                "type": "query",
+                "description": "optional, filter teams for specific members (currently only a single occurrence of this param is allowed)"
+              }
+            ]
+          },
+          "docs": "Get teams."
+        },
+        {
+          "info": {
+            "name": "Create a new team.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/teams",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new team."
+        },
+        {
+          "info": {
+            "name": "Get a specific team.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/teams/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get a specific team."
+        },
+        {
+          "info": {
+            "name": "Update the specific team",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/teams/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the specific team"
+        },
+        {
+          "info": {
+            "name": "Remove a specific team.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/teams/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Remove a specific team."
+        },
+        {
+          "info": {
+            "name": "Add a new team member to specific team",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/teams/:id/members",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new team member to specific team"
+        },
+        {
+          "info": {
+            "name": "Remove a specific member of a specific team.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/teams/:id/members/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Remove a specific member of a specific team."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

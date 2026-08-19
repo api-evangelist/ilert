@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Heartbeat Monitors API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Heartbeat Monitors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List heartbeat monitors.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/heartbeat-monitors",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "A cursor identifying the current position in the pagination, leave empty to start at the first item, each call returns a 'next-cursor' header for the next page, do not alter the cursor yourself."
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of results when paging through a list of heartbeat monitors."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (integrationKey, integrationUrl)"
+              }
+            ]
+          },
+          "docs": "This resource uses a 'cursor' to paginate. 'start-index' has no effect here."
+        },
+        {
+          "info": {
+            "name": "Create a new heartbeat monitor.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/heartbeat-monitors",
+            "params": [
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (alertSource (default), integrationKey (default), integrationUrl)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The 'integrationKey' field cannot be set as it is generated automatically. Note: if you are building installation scripts for your hosts, you may send deterministic names and ?include=integrationUrl to still return the 'response.body.integrationUrl' field on 409 (already existing resource) conflict responses. This allows you to run installations with a simple single POST request."
+        },
+        {
+          "info": {
+            "name": "Get the heartbeat monitor with specified id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/heartbeat-monitors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "numeric entity id"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (integrationKey (default), integrationUrl, alertSource (default)); alertSource does not work in lists; may be used for POST and PUT as well."
+              }
+            ]
+          },
+          "docs": "Get the heartbeat monitor with specified id."
+        },
+        {
+          "info": {
+            "name": "Update an existing heartbeat monitor.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/heartbeat-monitors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "ATTENTION: changing 'intervalSec' will regenerate the 'integrationKey', you will have to update your monitoring integrations."
+        },
+        {
+          "info": {
+            "name": "Delete the specified heartbeat monitor.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/heartbeat-monitors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Delete the specified heartbeat monitor."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,552 @@
+{
+  "item": [
+    {
+      "id": "75968aba-cc2e-43ea-bd61-2a3ff376e13e",
+      "name": "Metrics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6c7ad85b-3489-4d1c-a6b7-685129ae749f",
+          "name": "Get metrics.",
+          "request": {
+            "name": "Get metrics.",
+            "description": {},
+            "url": {
+              "path": [
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start-index",
+                  "value": "0",
+                  "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "max-results",
+                  "value": "10",
+                  "description": "the maximum number of results when paging through a list of metrics. (Note: when using ?include maximum is reduced to 25)"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (dataSource, integrationKey)"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (dataSource, integrationKey)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a842963-5e10-45d5-ab7c-283bb35d35b3",
+              "name": "The metrics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start-index",
+                      "value": "0"
+                    },
+                    {
+                      "key": "max-results",
+                      "value": "10"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 4637.234740047345,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"aggregationType\": \"LAST\",\n    \"displayType\": \"SINGLE\",\n    \"interpolateGaps\": false,\n    \"lockYAxisMax\": 8186.2811567315675,\n    \"lockYAxisMin\": 541.88162340292,\n    \"mouseOverDecimal\": 4.171340048061064,\n    \"showValuesOnMouseOver\": false,\n    \"teams\": [\n      {\n        \"id\": 6118,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 5129,\n        \"name\": \"string\"\n      }\n    ],\n    \"unitLabel\": \"string\",\n    \"integrationKey\": \"string\",\n    \"dataSource\": {\n      \"id\": 5916.864825508371,\n      \"name\": \"string\",\n      \"type\": \"PROMETHEUS\",\n      \"teams\": [\n        {\n          \"id\": 4489,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 6243,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  },\n  {\n    \"id\": 2097.766424287346,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"aggregationType\": \"AVG\",\n    \"displayType\": \"SINGLE\",\n    \"interpolateGaps\": false,\n    \"lockYAxisMax\": 9148.155663167123,\n    \"lockYAxisMin\": 5005.34700522633,\n    \"mouseOverDecimal\": 4.952062181719375,\n    \"showValuesOnMouseOver\": false,\n    \"teams\": [\n      {\n        \"id\": 153,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 8612,\n        \"name\": \"string\"\n      }\n    ],\n    \"unitLabel\": \"string\",\n    \"integrationKey\": \"string\",\n    \"dataSource\": {\n      \"id\": 6957.083918126711,\n      \"name\": \"string\",\n      \"type\": \"PROMETHEUS\",\n      \"teams\": [\n        {\n          \"id\": 8784,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 3577,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0a206c1-5221-42bf-b94e-54c9aaae27cc",
+          "name": "Create a new metric.",
+          "request": {
+            "name": "Create a new metric.",
+            "description": {},
+            "url": {
+              "path": [
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aggregationType\": \"<string>\",\n  \"displayType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"interpolateGaps\": false,\n  \"lockYAxisMax\": \"<double>\",\n  \"lockYAxisMin\": \"<double>\",\n  \"mouseOverDecimal\": \"<int32>\",\n  \"showValuesOnMouseOver\": false,\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"unitLabel\": \"<string>\",\n  \"metadata\": {\n    \"query\": \"<string>\"\n  },\n  \"dataSource\": {\n    \"id\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "422b30ca-a8f5-4b5c-afcb-3074f64e6fa8",
+              "name": "The newly created metric",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aggregationType\": \"<string>\",\n  \"displayType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"interpolateGaps\": false,\n  \"lockYAxisMax\": \"<double>\",\n  \"lockYAxisMin\": \"<double>\",\n  \"mouseOverDecimal\": \"<int32>\",\n  \"showValuesOnMouseOver\": false,\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"unitLabel\": \"<string>\",\n  \"metadata\": {\n    \"query\": \"<string>\"\n  },\n  \"dataSource\": {\n    \"id\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7945.445538775398,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"aggregationType\": \"<string>\",\n  \"displayType\": \"<string>\",\n  \"interpolateGaps\": false,\n  \"lockYAxisMax\": 553.1478451887995,\n  \"lockYAxisMin\": 5080.378695280106,\n  \"mouseOverDecimal\": 4.794153921301568,\n  \"showValuesOnMouseOver\": false,\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"unitLabel\": \"string\",\n  \"integrationKey\": \"string\",\n  \"metadata\": {\n    \"query\": \"<string>\"\n  },\n  \"dataSource\": {\n    \"id\": 2911.8804818470257,\n    \"name\": \"string\",\n    \"type\": \"PROMETHEUS\",\n    \"teams\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"metadata\": {\n      \"apiKey\": \"string\",\n      \"applicationKey\": \"string\",\n      \"region\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ffcd45c6-d8d6-46a0-8bca-4cff71551f5a",
+          "name": "Get a specific Metric",
+          "request": {
+            "name": "Get a specific Metric",
+            "description": {},
+            "url": {
+              "path": [
+                "metrics",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6bcc01f0-04dd-41b4-9e24-a8c1c47b29c4",
+              "name": "The requested metric",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6689.157612367782,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"aggregationType\": \"<string>\",\n  \"displayType\": \"<string>\",\n  \"interpolateGaps\": false,\n  \"lockYAxisMax\": 3397.2133089807776,\n  \"lockYAxisMin\": 9693.851227914629,\n  \"mouseOverDecimal\": 2.5788239878819947,\n  \"showValuesOnMouseOver\": false,\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"unitLabel\": \"string\",\n  \"integrationKey\": \"string\",\n  \"metadata\": {\n    \"query\": \"<string>\"\n  },\n  \"dataSource\": {\n    \"id\": 4488.485638051425,\n    \"name\": \"string\",\n    \"type\": \"PROMETHEUS\",\n    \"teams\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"metadata\": {\n      \"apiKey\": \"string\",\n      \"applicationKey\": \"string\",\n      \"region\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac89093f-b627-4f6c-89f9-77c98bf4b3b1",
+          "name": "Update the specific Metric",
+          "request": {
+            "name": "Update the specific Metric",
+            "description": {},
+            "url": {
+              "path": [
+                "metrics",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aggregationType\": \"<string>\",\n  \"displayType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"interpolateGaps\": false,\n  \"lockYAxisMax\": \"<double>\",\n  \"lockYAxisMin\": \"<double>\",\n  \"mouseOverDecimal\": \"<int32>\",\n  \"showValuesOnMouseOver\": false,\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"unitLabel\": \"<string>\",\n  \"metadata\": {\n    \"query\": \"<string>\"\n  },\n  \"dataSource\": {\n    \"id\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "faa59717-05c3-451a-a467-a920caf64346",
+              "name": "The updated metric",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aggregationType\": \"<string>\",\n  \"displayType\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"interpolateGaps\": false,\n  \"lockYAxisMax\": \"<double>\",\n  \"lockYAxisMin\": \"<double>\",\n  \"mouseOverDecimal\": \"<int32>\",\n  \"showValuesOnMouseOver\": false,\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"unitLabel\": \"<string>\",\n  \"metadata\": {\n    \"query\": \"<string>\"\n  },\n  \"dataSource\": {\n    \"id\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6689.157612367782,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"aggregationType\": \"<string>\",\n  \"displayType\": \"<string>\",\n  \"interpolateGaps\": false,\n  \"lockYAxisMax\": 3397.2133089807776,\n  \"lockYAxisMin\": 9693.851227914629,\n  \"mouseOverDecimal\": 2.5788239878819947,\n  \"showValuesOnMouseOver\": false,\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"unitLabel\": \"string\",\n  \"integrationKey\": \"string\",\n  \"metadata\": {\n    \"query\": \"<string>\"\n  },\n  \"dataSource\": {\n    \"id\": 4488.485638051425,\n    \"name\": \"string\",\n    \"type\": \"PROMETHEUS\",\n    \"teams\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"metadata\": {\n      \"apiKey\": \"string\",\n      \"applicationKey\": \"string\",\n      \"region\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52f8b8d2-3c4d-4a55-811f-3abe42175bdb",
+          "name": "Delete the specific Metric",
+          "request": {
+            "name": "Delete the specific Metric",
+            "description": {},
+            "url": {
+              "path": [
+                "metrics",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03405205-271d-45cf-9141-ea6fe853d38e",
+              "name": "Empty body delete response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metrics",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "426a00d9-6f23-48f6-b5a2-710e7892ad8b",
+    "name": "ilert REST Alert Actions Metrics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>.",
+      "type": "text/plain"
+    }
+  }
+}

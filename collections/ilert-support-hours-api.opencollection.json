@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Support Hours API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Support Hours",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List support hours.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/support-hours",
+            "params": [
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of support hours."
+              }
+            ]
+          },
+          "docs": "Returns a shallow list of support hours without exception details. Use the single resource endpoint to retrieve the complete support hour including all exceptions."
+        },
+        {
+          "info": {
+            "name": "Create a new support hour.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/support-hours",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new support hour."
+        },
+        {
+          "info": {
+            "name": "Get the support hour with specified id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/support-hours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get the support hour with specified id."
+        },
+        {
+          "info": {
+            "name": "Update an existing support hour.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/support-hours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing support hour."
+        },
+        {
+          "info": {
+            "name": "Delete the specified support hour.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/support-hours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Delete the specified support hour."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

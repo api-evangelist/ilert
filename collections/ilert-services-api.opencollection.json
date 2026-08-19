@@ -1,0 +1,181 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Services API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Services",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get services.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/services",
+            "params": [
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of services. (Note: when using ?include maximum is reduced to 25)"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed, uptime, incidents)"
+              }
+            ]
+          },
+          "docs": "Get services."
+        },
+        {
+          "info": {
+            "name": "Create a new service.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/services",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new service."
+        },
+        {
+          "info": {
+            "name": "Get a specific service.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/services/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed, uptime, incidents)"
+              }
+            ]
+          },
+          "docs": "Get a specific service."
+        },
+        {
+          "info": {
+            "name": "Update the specific service",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/services/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the specific service"
+        },
+        {
+          "info": {
+            "name": "Remove a specific service.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/services/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Remove a specific service."
+        },
+        {
+          "info": {
+            "name": "Get the subscribers (users and teams) of a service",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/services/:id/private-subscribers",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get the subscribers (users and teams) of a service"
+        },
+        {
+          "info": {
+            "name": "Set subscribers (users and teams) of a service",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/services/:id/private-subscribers",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Note: this is an in place update"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,388 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Alerts API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Alerts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List alerts (optionally matching certain criteria that are specified by query parameters).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts",
+            "params": [
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of entities."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (nextEscalationUser)"
+              },
+              {
+                "name": "states",
+                "value": "",
+                "type": "query",
+                "description": "state of the alert"
+              },
+              {
+                "name": "sources",
+                "value": "",
+                "type": "query",
+                "description": "alert source IDs of the alert's alert source"
+              },
+              {
+                "name": "policies",
+                "value": "",
+                "type": "query",
+                "description": "escalation policy IDs of the alert's escalation policy"
+              },
+              {
+                "name": "responders",
+                "value": "",
+                "type": "query",
+                "description": "user ids of the user that is a responder of the alert"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "from date, ISO-UTC e.g. 2021-05-25T21:24:56.771Z, based on reportTime"
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "until date, ISO-UTC e.g. 2021-05-26T21:24:56.771Z, based on reportTime"
+              }
+            ]
+          },
+          "docs": "**Sample URLs**\n* List only alerts that are either in state `PENDING` or `ACCEPTED`: <br /> https://api.ilert.com/api/alerts?states=PENDING&states=ACCEPTED\n* List only alerts that belong to the alert source with ID `1243` or `1743` and where user `jd` is a responder: <br />\n  https://api.ilert.com/api/alerts?sources=1243&sources=1743&responders=jd\n* Paginate first batch for a range of alerts (note: query parameters should be url encoded): <br />\n https://api.ilert.com/api/alerts?start-index=0&ma"
+        },
+        {
+          "info": {
+            "name": "Create alerts with customised parameters without requiring events from monitoring tools that use our Events API.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/alerts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "ATTENTION: do not use this endpoint to create monitoring related (or high volumes of) alerts, use '/api/events' instead, you have been warned! Escalation of the alert will be based on the alert source's escalation policy or may be overridden by providing a specific escalation policy or lastly specific set of responders (users), latter will only notify the user(s) and will not escalate any further."
+        },
+        {
+          "info": {
+            "name": "Get the alert count matching the specified criteria.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/count",
+            "params": [
+              {
+                "name": "states",
+                "value": "",
+                "type": "query",
+                "description": "state of the alert"
+              },
+              {
+                "name": "sources",
+                "value": "",
+                "type": "query",
+                "description": "alert source IDs of the alert's alert source"
+              },
+              {
+                "name": "responders",
+                "value": "",
+                "type": "query",
+                "description": "user ids of the user that is a responder of the alert"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "from date"
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "until date"
+              }
+            ]
+          },
+          "docs": "Get the alert count matching the specified criteria."
+        },
+        {
+          "info": {
+            "name": "Get the alert with the specified id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (escalationRules, nextEscalationUser, customDetails)"
+              }
+            ]
+          },
+          "docs": "Get the alert with the specified id."
+        },
+        {
+          "info": {
+            "name": "Get available (assignable) responders for the alert with the specified id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/:id/suggested-responders",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "locale for response text eg. 'en' or 'de'"
+              }
+            ]
+          },
+          "docs": "Get available (assignable) responders for the alert with the specified id."
+        },
+        {
+          "info": {
+            "name": "Add an additional responder to the alert.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/alerts/:id/responders",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Add an additional responder to the alert."
+        },
+        {
+          "info": {
+            "name": "Remove a responder from the alert.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/alerts/:id/responders/:user-id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ]
+          },
+          "docs": "Remove a responder from the alert."
+        },
+        {
+          "info": {
+            "name": "Assign the alert.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/alerts/:id/assign",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "query",
+                "description": "numeric user id"
+              },
+              {
+                "name": "policy",
+                "value": "",
+                "type": "query",
+                "description": "numeric policy id"
+              },
+              {
+                "name": "schedule",
+                "value": "",
+                "type": "query",
+                "description": "numeric schedule id"
+              }
+            ]
+          },
+          "docs": "Either provide a user-id, policy-id (escalation policy) or schedule-id (on-call schedule) that the specific alert should be assigned to."
+        },
+        {
+          "info": {
+            "name": "Accept the Alert.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/alerts/:id/accept",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Accept the Alert."
+        },
+        {
+          "info": {
+            "name": "Resolve the alert.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/alerts/:id/resolve",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Resolve the alert."
+        },
+        {
+          "info": {
+            "name": "Get notifications for the specified alert.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/:id/notifications",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get notifications for the specified alert."
+        },
+        {
+          "info": {
+            "name": "Get log entries for the specified alert.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/:id/log-entries",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "log entry language"
+              },
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of entities."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (vars)"
+              },
+              {
+                "name": "filter-types",
+                "value": "",
+                "type": "query",
+                "description": "filter-type (group) of the log"
+              }
+            ]
+          },
+          "docs": "Get log entries for the specified alert."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

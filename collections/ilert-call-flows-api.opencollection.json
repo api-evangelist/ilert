@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Call Flows API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Call Flows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List existing call flows.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/call-flows",
+            "params": [
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of entities."
+              }
+            ]
+          },
+          "docs": "Returns a shallow list of call flows without the full node tree. Use the single resource endpoint to retrieve the complete call flow including all nodes and branches."
+        },
+        {
+          "info": {
+            "name": "Create a new call flow.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/call-flows",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new call flow."
+        },
+        {
+          "info": {
+            "name": "Get a specific call flow.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/call-flows/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get a specific call flow."
+        },
+        {
+          "info": {
+            "name": "Update a specific call flow.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/call-flows/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a specific call flow."
+        },
+        {
+          "info": {
+            "name": "Delete a specific call flow.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/call-flows/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Delete a specific call flow."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

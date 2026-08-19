@@ -1,0 +1,368 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Status Pages API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Status Pages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get status pages.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/status-pages",
+            "params": [
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of status pages."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed)"
+              }
+            ]
+          },
+          "docs": "Get status pages."
+        },
+        {
+          "info": {
+            "name": "Create a new status page.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/status-pages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new status page."
+        },
+        {
+          "info": {
+            "name": "Get a specific status page.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/status-pages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed, uptime, groups, structure). Note: structure is always included by default."
+              }
+            ]
+          },
+          "docs": "Get a specific status page."
+        },
+        {
+          "info": {
+            "name": "Update the specific status page",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/status-pages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the specific status page"
+        },
+        {
+          "info": {
+            "name": "Remove a specific status page.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/status-pages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Remove a specific status page."
+        },
+        {
+          "info": {
+            "name": "Get the groups of a status page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/status-pages/:id/groups",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of entities."
+              }
+            ]
+          },
+          "docs": "Get the groups of a status page"
+        },
+        {
+          "info": {
+            "name": "Add a group to a status page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/status-pages/:id/groups",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a group to a status page"
+        },
+        {
+          "info": {
+            "name": "Get a specific group of a status page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/status-pages/:id/groups/:group-id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "group-id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get a specific group of a status page"
+        },
+        {
+          "info": {
+            "name": "Update a group of a status page",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/status-pages/:id/groups/:group-id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "group-id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a group of a status page"
+        },
+        {
+          "info": {
+            "name": "Remove group from a status page",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/status-pages/:id/groups/:group-id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "group-id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Remove group from a status page"
+        },
+        {
+          "info": {
+            "name": "Get the subscribers (users and teams) of a status page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/status-pages/:id/private-subscribers",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get the subscribers (users and teams) of a status page"
+        },
+        {
+          "info": {
+            "name": "Add subscriber (user and team) to a status page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/status-pages/:id/private-subscribers",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add subscriber (user and team) to a status page"
+        },
+        {
+          "info": {
+            "name": "Set subscribers (users and teams) of a status page",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/status-pages/:id/private-subscribers",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Note: this is an in place update"
+        },
+        {
+          "info": {
+            "name": "Remove subscriber (user and team) from a status page",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/status-pages/:id/private-subscribers/:subscriber-id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "subscriber-id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "subscriber-type",
+                "value": "",
+                "type": "query",
+                "description": "the type of subscriber USER or TEAM"
+              }
+            ]
+          },
+          "docs": "Remove subscriber (user and team) from a status page"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

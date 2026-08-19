@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Events API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Post an event to ilert.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/events",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the Event API to integrate your monitoring or ticketing tools with ilert. It provides a single API endpoint that allows you to create, accept and resolve alerts in ilert. It is designed around the notion that monitoring tools  send events when \n* a problem occurs (an `ALERT` event in ilert terminology)\n* a problem is acknowledged, indicating that someone is working on the resolution of the problem (an `ACCEPT`event)\n* a problem is resolved (a `RESOLVED`event)\n\nThe API accepts these events, r"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

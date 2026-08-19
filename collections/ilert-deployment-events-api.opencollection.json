@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Deployment Events API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deployment Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Post a deployment event to ilert.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/deployment-events",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the Deployment events API to integrate your CI & CD tools or custom deployment workflows with ilert. Create a new deployment pipeline to generate an integration key for this endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

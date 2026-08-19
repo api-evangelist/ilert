@@ -1,0 +1,268 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Contacts API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contacts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a user's emails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/users/:user-id/contacts/emails",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ]
+          },
+          "docs": "Get a user's emails"
+        },
+        {
+          "info": {
+            "name": "Create a new email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/users/:user-id/contacts/emails",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new email"
+        },
+        {
+          "info": {
+            "name": "Get a specific email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/users/:user-id/contacts/emails/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get a specific email"
+        },
+        {
+          "info": {
+            "name": "Update a user's email",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/users/:user-id/contacts/emails/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a user's email"
+        },
+        {
+          "info": {
+            "name": "Delete the user's specified email",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/users/:user-id/contacts/emails/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Delete the user's specified email"
+        },
+        {
+          "info": {
+            "name": "Get a user's phone numbers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/users/:user-id/contacts/phone-numbers",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ]
+          },
+          "docs": "Get a user's phone numbers"
+        },
+        {
+          "info": {
+            "name": "Create a phone number",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/users/:user-id/contacts/phone-numbers",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a phone number"
+        },
+        {
+          "info": {
+            "name": "Get specific phone number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/users/:user-id/contacts/phone-numbers/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get specific phone number"
+        },
+        {
+          "info": {
+            "name": "Update a user's phone number",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/users/:user-id/contacts/phone-numbers/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a user's phone number"
+        },
+        {
+          "info": {
+            "name": "Delete the user's specified phone number",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/users/:user-id/contacts/phone-numbers/:id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Delete the user's specified phone number"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

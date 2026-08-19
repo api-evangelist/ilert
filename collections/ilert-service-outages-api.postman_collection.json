@@ -1,0 +1,669 @@
+{
+  "item": [
+    {
+      "id": "13969ec4-3cc4-4a0e-8c1b-889b76174c2f",
+      "name": "Service Outages",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "98f5764f-f57f-4269-b93b-977b3ed01729",
+          "name": "Get the outages (including applied overrides) of a specific service",
+          "request": {
+            "name": "Get the outages (including applied overrides) of a specific service",
+            "description": {},
+            "url": {
+              "path": [
+                "service-outages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "service",
+                  "value": "<number>",
+                  "description": "the id of the service for which the outages should be fetched"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "from date, ISO-UTC e.g. 2021-05-25T21:24:56.771Z"
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<dateTime>",
+                  "description": "until date, ISO-UTC e.g. 2021-05-26T21:24:56.771Z"
+                },
+                {
+                  "disabled": false,
+                  "key": "ignore-overrides",
+                  "value": "<boolean>",
+                  "description": "if the outages should not take overrides into account, default is false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f76027ce-a6cd-48d5-8e49-7c1d51ab59ff",
+              "name": "The outages of the service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service-outages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "service",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "ignore-overrides",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"status\": \"PARTIAL_OUTAGE\",\n    \"from\": \"2017-11-27T05:39:36.144Z\",\n    \"until\": \"1970-11-01T23:55:15.330Z\"\n  },\n  {\n    \"status\": \"OPERATIONAL\",\n    \"from\": \"1981-01-21T19:56:54.677Z\",\n    \"until\": \"1947-10-05T08:05:42.867Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1177b0b4-f9d3-485e-9625-34874e383cde",
+          "name": "Get the overrides of a specific service",
+          "request": {
+            "name": "Get the overrides of a specific service",
+            "description": {},
+            "url": {
+              "path": [
+                "service-outages",
+                "overrides"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "service",
+                  "value": "<number>",
+                  "description": "the id of the service for which the overrides should be fetched"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "from date, ISO-UTC e.g. 2021-05-25T21:24:56.771Z"
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<dateTime>",
+                  "description": "until date, ISO-UTC e.g. 2021-05-26T21:24:56.771Z"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4371d76f-d96f-4828-ab26-6102247fcc1c",
+              "name": "The overrides of the service",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service-outages",
+                    "overrides"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "service",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"service\": {\n      \"id\": 8127.717080853493,\n      \"name\": \"string\",\n      \"alias\": \"string\",\n      \"status\": \"OPERATIONAL\",\n      \"description\": \"string\",\n      \"oneOpenIncidentOnly\": true,\n      \"showUptimeHistory\": true,\n      \"teams\": [\n        {\n          \"id\": 8968,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 7955,\n          \"name\": \"string\"\n        }\n      ]\n    },\n    \"status\": \"MAJOR_OUTAGE\",\n    \"from\": \"1981-08-04T20:09:27.413Z\",\n    \"until\": \"2009-05-11T05:29:19.635Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"service\": {\n      \"id\": 7887.2354582308,\n      \"name\": \"string\",\n      \"alias\": \"string\",\n      \"status\": \"DEGRADED\",\n      \"description\": \"string\",\n      \"oneOpenIncidentOnly\": true,\n      \"showUptimeHistory\": false,\n      \"teams\": [\n        {\n          \"id\": 1310,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 3692,\n          \"name\": \"string\"\n        }\n      ]\n    },\n    \"status\": \"DEGRADED\",\n    \"from\": \"1987-01-17T00:48:17.467Z\",\n    \"until\": \"2019-07-25T10:56:59.166Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43d23637-84e6-42f7-a8b0-e94b82b0d579",
+          "name": "Override a part of a service's outage history",
+          "request": {
+            "name": "Override a part of a service's outage history",
+            "description": {},
+            "url": {
+              "path": [
+                "service-outages",
+                "overrides"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"service\": {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"alias\": \"<string>\",\n    \"status\": \"<string>\",\n    \"description\": \"<string>\",\n    \"oneOpenIncidentOnly\": \"<boolean>\",\n    \"showUptimeHistory\": \"<boolean>\",\n    \"teams\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ]\n  },\n  \"status\": \"<string>\",\n  \"from\": \"<dateTime>\",\n  \"until\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ee8a1bdc-1bac-45f7-a8e5-a33ec6dc44ae",
+              "name": "The added override",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service-outages",
+                    "overrides"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"service\": {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"alias\": \"<string>\",\n    \"status\": \"<string>\",\n    \"description\": \"<string>\",\n    \"oneOpenIncidentOnly\": \"<boolean>\",\n    \"showUptimeHistory\": \"<boolean>\",\n    \"teams\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ]\n  },\n  \"status\": \"<string>\",\n  \"from\": \"<dateTime>\",\n  \"until\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"service\": {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"alias\": \"<string>\",\n    \"status\": \"<string>\",\n    \"description\": \"<string>\",\n    \"oneOpenIncidentOnly\": \"<boolean>\",\n    \"showUptimeHistory\": \"<boolean>\",\n    \"teams\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ]\n  },\n  \"status\": \"<string>\",\n  \"from\": \"<dateTime>\",\n  \"until\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ef2d64b-fb0d-4ded-b389-908ba9647e51",
+          "name": "Get the specific service outage override",
+          "request": {
+            "name": "Get the specific service outage override",
+            "description": {},
+            "url": {
+              "path": [
+                "service-outages",
+                "overrides",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "98c91ce2-332d-49e8-9110-5269a438e2e8",
+              "name": "The override",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service-outages",
+                    "overrides",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"service\": {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"alias\": \"<string>\",\n    \"status\": \"<string>\",\n    \"description\": \"<string>\",\n    \"oneOpenIncidentOnly\": \"<boolean>\",\n    \"showUptimeHistory\": \"<boolean>\",\n    \"teams\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ]\n  },\n  \"status\": \"<string>\",\n  \"from\": \"<dateTime>\",\n  \"until\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3360ca4b-2f3f-40bd-9ba0-807b2df4b0f9",
+          "name": "Update an existing service outage override",
+          "request": {
+            "name": "Update an existing service outage override",
+            "description": {},
+            "url": {
+              "path": [
+                "service-outages",
+                "overrides",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"service\": {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"alias\": \"<string>\",\n    \"status\": \"<string>\",\n    \"description\": \"<string>\",\n    \"oneOpenIncidentOnly\": \"<boolean>\",\n    \"showUptimeHistory\": \"<boolean>\",\n    \"teams\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ]\n  },\n  \"status\": \"<string>\",\n  \"from\": \"<dateTime>\",\n  \"until\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "40384f4a-03ad-4ab3-8d1a-7e5bc0979b0e",
+              "name": "The updated override",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service-outages",
+                    "overrides",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"service\": {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"alias\": \"<string>\",\n    \"status\": \"<string>\",\n    \"description\": \"<string>\",\n    \"oneOpenIncidentOnly\": \"<boolean>\",\n    \"showUptimeHistory\": \"<boolean>\",\n    \"teams\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ]\n  },\n  \"status\": \"<string>\",\n  \"from\": \"<dateTime>\",\n  \"until\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"service\": {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"alias\": \"<string>\",\n    \"status\": \"<string>\",\n    \"description\": \"<string>\",\n    \"oneOpenIncidentOnly\": \"<boolean>\",\n    \"showUptimeHistory\": \"<boolean>\",\n    \"teams\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ]\n  },\n  \"status\": \"<string>\",\n  \"from\": \"<dateTime>\",\n  \"until\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c54441b6-8fd5-449d-adc6-c2a69dd1c02b",
+          "name": "Remove a service outage override",
+          "request": {
+            "name": "Remove a service outage override",
+            "description": {},
+            "url": {
+              "path": [
+                "service-outages",
+                "overrides",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "75cabc72-f204-4645-84d5-d920c97f8eb9",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "service-outages",
+                    "overrides",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "32c88054-c883-4f0c-babb-7c599a5cc2d4",
+    "name": "ilert REST Alert Actions Service Outages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>.",
+      "type": "text/plain"
+    }
+  }
+}

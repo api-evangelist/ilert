@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Log-Entries API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Log-Entries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get log entries for the specified alert.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/:id/log-entries",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "log entry language"
+              },
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of entities."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (vars)"
+              },
+              {
+                "name": "filter-types",
+                "value": "",
+                "type": "query",
+                "description": "filter-type (group) of the log"
+              }
+            ]
+          },
+          "docs": "Get log entries for the specified alert."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

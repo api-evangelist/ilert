@@ -1,0 +1,133 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Alert Sources API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Alert Sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List alert sources.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alert-sources",
+            "params": [
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of alert sources."
+              }
+            ]
+          },
+          "docs": "List alert sources."
+        },
+        {
+          "info": {
+            "name": "Create a new alert source.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/alert-sources",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new alert source."
+        },
+        {
+          "info": {
+            "name": "Get the alert source with specified id or alternatively integration key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alert-sources/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "numeric source id or integration key"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (detailsTemplate, summaryTemplate, routingTemplate, linkTemplates, priorityTemplate, severityTemplate, textTemplate, eventFilter, alertKeyTemplate, servicesTemplate, eventTypeFilterCreate, eventTypeFilterAccept, eventTypeFilterResolve); some may not work in lists; may be used for POST and PUT as well."
+              }
+            ]
+          },
+          "docs": "Get the alert source with specified id or alternatively integration key."
+        },
+        {
+          "info": {
+            "name": "Update an existing alert source.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/alert-sources/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing alert source."
+        },
+        {
+          "info": {
+            "name": "Delete the specified alert source.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/alert-sources/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Delete the specified alert source."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

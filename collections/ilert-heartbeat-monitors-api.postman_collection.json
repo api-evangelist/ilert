@@ -1,0 +1,671 @@
+{
+  "item": [
+    {
+      "id": "218cdefb-87b5-46c6-afc8-962e01d257db",
+      "name": "Heartbeat Monitors",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "814e507a-a709-4f38-b37d-93fc230d4ef2",
+          "name": "List heartbeat monitors.",
+          "request": {
+            "name": "List heartbeat monitors.",
+            "description": {
+              "content": "This resource uses a 'cursor' to paginate. 'start-index' has no effect here.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "heartbeat-monitors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "",
+                  "description": "A cursor identifying the current position in the pagination, leave empty to start at the first item, each call returns a 'next-cursor' header for the next page, do not alter the cursor yourself."
+                },
+                {
+                  "disabled": false,
+                  "key": "max-results",
+                  "value": "100",
+                  "description": "The maximum number of results when paging through a list of heartbeat monitors."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (integrationKey, integrationUrl)"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (integrationKey, integrationUrl)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68f8393e-2c1d-45df-ab2e-6868647af417",
+              "name": "The heartbeat monitor objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "heartbeat-monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": ""
+                    },
+                    {
+                      "key": "max-results",
+                      "value": "100"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "next-cursor",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"intervalSec\": 830708,\n    \"id\": 7131,\n    \"state\": \"UNKNOWN\",\n    \"alertSummary\": \"string\",\n    \"createdAt\": \"string\",\n    \"updatedAt\": \"string\",\n    \"teams\": [\n      {\n        \"id\": 2487,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 6336,\n        \"name\": \"string\"\n      }\n    ]\n  },\n  {\n    \"name\": \"string\",\n    \"intervalSec\": 734195,\n    \"id\": 6181,\n    \"state\": \"UNKNOWN\",\n    \"alertSummary\": \"string\",\n    \"createdAt\": \"string\",\n    \"updatedAt\": \"string\",\n    \"teams\": [\n      {\n        \"id\": 8652,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 1977,\n        \"name\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6c85fe2-c6ab-4617-8bea-eae82bbcea0e",
+          "name": "Create a new heartbeat monitor.",
+          "request": {
+            "name": "Create a new heartbeat monitor.",
+            "description": {
+              "content": "The 'integrationKey' field cannot be set as it is generated automatically. Note: if you are building installation scripts for your hosts, you may send deterministic names and ?include=integrationUrl to still return the 'response.body.integrationUrl' field on 409 (already existing resource) conflict responses. This allows you to run installations with a simple single POST request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "heartbeat-monitors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (alertSource (default), integrationKey (default), integrationUrl)"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (alertSource (default), integrationKey (default), integrationUrl)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"intervalSec\": \"<integer>\",\n  \"alertSummary\": \"<string>\",\n  \"alertSource\": {\n    \"id\": \"<long>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ad50af32-4beb-441e-ad77-3c20dfb57375",
+              "name": "Your newly created heartbeat monitor",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "heartbeat-monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"intervalSec\": \"<integer>\",\n  \"alertSummary\": \"<string>\",\n  \"alertSource\": {\n    \"id\": \"<long>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"intervalSec\": 614337,\n  \"id\": 8572,\n  \"state\": \"UNKNOWN\",\n  \"alertSummary\": \"string\",\n  \"createdAt\": \"string\",\n  \"updatedAt\": \"string\",\n  \"alertSource\": {\n    \"escalationPolicy\": {\n      \"escalationRules\": [\n        {\n          \"escalationTimeout\": 1892,\n          \"user\": {\n            \"id\": 4520.3849409508675\n          },\n          \"schedule\": {\n            \"id\": 2190.864725998278\n          },\n          \"team\": {\n            \"id\": 6757.8037061328\n          },\n          \"users\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"schedules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"teams\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"escalationTimeout\": 8905,\n          \"user\": {\n            \"id\": 442.8882967057812\n          },\n          \"schedule\": {\n            \"id\": 8972.138782567354\n          },\n          \"team\": {\n            \"id\": 6776.312394790754\n          },\n          \"users\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"schedules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"teams\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"name\": \"string\",\n      \"id\": 7237,\n      \"teams\": [\n        {\n          \"id\": 8836,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 1376,\n          \"name\": \"string\"\n        }\n      ],\n      \"repeating\": false,\n      \"frequency\": 1,\n      \"delayMin\": 0,\n      \"routingKey\": \"string\"\n    },\n    \"integrationType\": \"TERRAFORMCLOUD\",\n    \"name\": \"string\",\n    \"id\": 9816,\n    \"teams\": [\n      {\n        \"id\": 4791,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 4059,\n        \"name\": \"string\"\n      }\n    ],\n    \"iconUrl\": \"string\",\n    \"lightIconUrl\": \"string\",\n    \"darkIconUrl\": \"string\",\n    \"integrationKey\": \"string\",\n    \"integrationUrl\": \"string\",\n    \"autoResolutionTimeout\": \"string\",\n    \"alertGroupingWindow\": \"string\",\n    \"alertCreation\": \"ONE_ALERT_PER_EMAIL\",\n    \"status\": \"PENDING\",\n    \"active\": true,\n    \"alertPriorityRule\": \"HIGH_DURING_SUPPORT_HOURS\",\n    \"supportHours\": {\n      \"id\": \"<long>\"\n    },\n    \"bidirectional\": false,\n    \"summaryTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"VAR\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"TEXT\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"detailsTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"VAR\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"routingTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"linkTemplates\": [\n      {\n        \"hrefTemplate\": {\n          \"textTemplate\": \"string\",\n          \"elements\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"text\": \"string\"\n      },\n      {\n        \"hrefTemplate\": {\n          \"textTemplate\": \"string\",\n          \"elements\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"text\": \"string\"\n      }\n    ],\n    \"priorityTemplate\": {\n      \"mappings\": [\n        {\n          \"priority\": \"HIGH\",\n          \"value\": \"string\"\n        },\n        {\n          \"priority\": \"HIGH\",\n          \"value\": \"string\"\n        }\n      ],\n      \"valueTemplate\": {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"severityTemplate\": {\n      \"mappings\": [\n        {\n          \"severity\": 2727,\n          \"value\": \"string\"\n        },\n        {\n          \"severity\": 2914,\n          \"value\": \"string\"\n        }\n      ],\n      \"valueTemplate\": {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"eventFilter\": \"string\",\n    \"alertKeyTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"TEXT\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"servicesTemplate\": [\n      {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": \"TEXT\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"type\": \"VAR\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": \"TEXT\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"type\": \"VAR\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"eventTypeFilterCreate\": \"string\",\n    \"eventTypeFilterAccept\": \"string\",\n    \"eventTypeFilterResolve\": \"string\",\n    \"autoRaiseAlerts\": false,\n    \"scoreThreshold\": 4219.789738650842,\n    \"severity\": 3444,\n    \"services\": [\n      {\n        \"id\": 506.06600213660704,\n        \"name\": \"string\",\n        \"alias\": \"string\",\n        \"status\": \"OPERATIONAL\",\n        \"description\": \"string\",\n        \"oneOpenIncidentOnly\": true,\n        \"showUptimeHistory\": false,\n        \"teams\": [\n          {\n            \"id\": 1012,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 4252,\n            \"name\": \"string\"\n          }\n        ],\n        \"subscribed\": false,\n        \"uptime\": {\n          \"rangeStart\": \"2014-08-12T22:58:34.890Z\",\n          \"rangeEnd\": \"1963-01-09T15:07:35.845Z\",\n          \"outages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"uptimePercentage\": {\n            \"uptimePercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"incidents\": [\n          {\n            \"id\": 6478.183597148703,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": true,\n            \"createdAt\": \"1995-05-12T20:52:42.905Z\",\n            \"updatedAt\": \"2014-01-21T19:19:46.318Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"2001-07-22T22:24:11.397Z\"\n          },\n          {\n            \"id\": 5235.139097323361,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": false,\n            \"createdAt\": \"1953-03-13T23:49:37.551Z\",\n            \"updatedAt\": \"1948-06-24T23:38:08.098Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"1989-08-05T09:26:19.682Z\"\n          }\n        ]\n      },\n      {\n        \"id\": 9679.748867539312,\n        \"name\": \"string\",\n        \"alias\": \"string\",\n        \"status\": \"DEGRADED\",\n        \"description\": \"string\",\n        \"oneOpenIncidentOnly\": false,\n        \"showUptimeHistory\": true,\n        \"teams\": [\n          {\n            \"id\": 9320,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 925,\n            \"name\": \"string\"\n          }\n        ],\n        \"subscribed\": false,\n        \"uptime\": {\n          \"rangeStart\": \"1987-02-16T15:58:36.229Z\",\n          \"rangeEnd\": \"1955-05-28T16:08:14.719Z\",\n          \"outages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"uptimePercentage\": {\n            \"uptimePercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"incidents\": [\n          {\n            \"id\": 4974.202332868024,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": true,\n            \"createdAt\": \"1954-11-11T02:23:58.784Z\",\n            \"updatedAt\": \"2013-02-01T23:17:10.658Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"2014-10-20T10:05:40.394Z\"\n          },\n          {\n            \"id\": 6554.618976087354,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": false,\n            \"createdAt\": \"1968-12-29T07:43:31.375Z\",\n            \"updatedAt\": \"1982-06-17T21:47:37.272Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"2006-01-06T10:24:26.261Z\"\n          }\n        ]\n      }\n    ],\n    \"setupStatus\": \"FINISHED\",\n    \"autoCreateServices\": false,\n    \"createdAt\": \"string\",\n    \"updatedAt\": \"string\"\n  },\n  \"teams\": [\n    {\n      \"id\": 4046,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 9581,\n      \"name\": \"string\"\n    }\n  ],\n  \"integrationKey\": \"string\",\n  \"integrationUrl\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01789e36-c7f9-4142-a5e5-c09fc3eda1bc",
+              "name": "A heartbeat monitor with this name already exists, this resource will return the details of the already existing heartbeat monitor.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "heartbeat-monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"intervalSec\": \"<integer>\",\n  \"alertSummary\": \"<string>\",\n  \"alertSource\": {\n    \"id\": \"<long>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"intervalSec\": 1078270,\n  \"id\": 789,\n  \"state\": \"UNKNOWN\",\n  \"alertSummary\": \"string\",\n  \"createdAt\": \"string\",\n  \"updatedAt\": \"string\",\n  \"alertSource\": {\n    \"escalationPolicy\": {\n      \"escalationRules\": [\n        {\n          \"escalationTimeout\": 402,\n          \"user\": {\n            \"id\": 6197.766630863581\n          },\n          \"schedule\": {\n            \"id\": 9534.697845838442\n          },\n          \"team\": {\n            \"id\": 4083.323675234302\n          },\n          \"users\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"schedules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"teams\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"escalationTimeout\": 544,\n          \"user\": {\n            \"id\": 287.3720543842517\n          },\n          \"schedule\": {\n            \"id\": 6969.9401081157175\n          },\n          \"team\": {\n            \"id\": 7188.647105373311\n          },\n          \"users\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"schedules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"teams\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"name\": \"string\",\n      \"id\": 6758,\n      \"teams\": [\n        {\n          \"id\": 3146,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 8129,\n          \"name\": \"string\"\n        }\n      ],\n      \"repeating\": false,\n      \"frequency\": 1,\n      \"delayMin\": 0,\n      \"routingKey\": \"string\"\n    },\n    \"integrationType\": \"VICTORIAMETRICS\",\n    \"name\": \"string\",\n    \"id\": 8838,\n    \"teams\": [\n      {\n        \"id\": 7912,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 8636,\n        \"name\": \"string\"\n      }\n    ],\n    \"iconUrl\": \"string\",\n    \"lightIconUrl\": \"string\",\n    \"darkIconUrl\": \"string\",\n    \"integrationKey\": \"string\",\n    \"integrationUrl\": \"string\",\n    \"autoResolutionTimeout\": \"string\",\n    \"alertGroupingWindow\": \"string\",\n    \"alertCreation\": \"ONE_ALERT_PER_EMAIL\",\n    \"status\": \"PENDING\",\n    \"active\": true,\n    \"alertPriorityRule\": \"HIGH_DURING_SUPPORT_HOURS\",\n    \"supportHours\": {\n      \"id\": \"<long>\"\n    },\n    \"bidirectional\": true,\n    \"summaryTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"TEXT\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"detailsTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"routingTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"VAR\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"linkTemplates\": [\n      {\n        \"hrefTemplate\": {\n          \"textTemplate\": \"string\",\n          \"elements\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"text\": \"string\"\n      },\n      {\n        \"hrefTemplate\": {\n          \"textTemplate\": \"string\",\n          \"elements\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"text\": \"string\"\n      }\n    ],\n    \"priorityTemplate\": {\n      \"mappings\": [\n        {\n          \"priority\": \"LOW\",\n          \"value\": \"string\"\n        },\n        {\n          \"priority\": \"HIGH\",\n          \"value\": \"string\"\n        }\n      ],\n      \"valueTemplate\": {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"severityTemplate\": {\n      \"mappings\": [\n        {\n          \"severity\": 1482,\n          \"value\": \"string\"\n        },\n        {\n          \"severity\": 3050,\n          \"value\": \"string\"\n        }\n      ],\n      \"valueTemplate\": {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"eventFilter\": \"string\",\n    \"alertKeyTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"VAR\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"TEXT\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"servicesTemplate\": [\n      {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": \"TEXT\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"type\": \"VAR\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": \"RAW\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"type\": \"TEXT\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"eventTypeFilterCreate\": \"string\",\n    \"eventTypeFilterAccept\": \"string\",\n    \"eventTypeFilterResolve\": \"string\",\n    \"autoRaiseAlerts\": false,\n    \"scoreThreshold\": 6967.513225765933,\n    \"severity\": 5027,\n    \"services\": [\n      {\n        \"id\": 7623.62834801497,\n        \"name\": \"string\",\n        \"alias\": \"string\",\n        \"status\": \"OPERATIONAL\",\n        \"description\": \"string\",\n        \"oneOpenIncidentOnly\": true,\n        \"showUptimeHistory\": true,\n        \"teams\": [\n          {\n            \"id\": 7636,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 3574,\n            \"name\": \"string\"\n          }\n        ],\n        \"subscribed\": false,\n        \"uptime\": {\n          \"rangeStart\": \"2023-01-09T01:44:02.736Z\",\n          \"rangeEnd\": \"2003-09-10T07:17:10.847Z\",\n          \"outages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"uptimePercentage\": {\n            \"uptimePercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"incidents\": [\n          {\n            \"id\": 207.56912367284497,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": false,\n            \"createdAt\": \"2004-01-02T19:39:44.343Z\",\n            \"updatedAt\": \"1955-08-24T12:09:46.618Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"1997-07-04T13:45:08.831Z\"\n          },\n          {\n            \"id\": 3950.3480867877993,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": false,\n            \"createdAt\": \"1997-11-29T05:05:33.501Z\",\n            \"updatedAt\": \"1956-06-05T04:33:15.236Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"1998-07-09T07:53:48.970Z\"\n          }\n        ]\n      },\n      {\n        \"id\": 4934.605724751191,\n        \"name\": \"string\",\n        \"alias\": \"string\",\n        \"status\": \"DEGRADED\",\n        \"description\": \"string\",\n        \"oneOpenIncidentOnly\": false,\n        \"showUptimeHistory\": true,\n        \"teams\": [\n          {\n            \"id\": 8698,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 4520,\n            \"name\": \"string\"\n          }\n        ],\n        \"subscribed\": false,\n        \"uptime\": {\n          \"rangeStart\": \"2011-04-10T06:23:19.886Z\",\n          \"rangeEnd\": \"1988-09-03T09:31:18.947Z\",\n          \"outages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"uptimePercentage\": {\n            \"uptimePercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"incidents\": [\n          {\n            \"id\": 3214.025542816864,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": true,\n            \"createdAt\": \"1998-02-26T14:35:28.185Z\",\n            \"updatedAt\": \"1952-06-06T21:14:34.114Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"2013-06-20T05:05:15.016Z\"\n          },\n          {\n            \"id\": 3679.383930975367,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": false,\n            \"createdAt\": \"2004-10-13T06:09:12.081Z\",\n            \"updatedAt\": \"2009-12-13T06:55:34.741Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"1974-01-06T03:39:49.292Z\"\n          }\n        ]\n      }\n    ],\n    \"setupStatus\": \"CREATED_BIDIRECTIONAL\",\n    \"autoCreateServices\": false,\n    \"createdAt\": \"string\",\n    \"updatedAt\": \"string\"\n  },\n  \"teams\": [\n    {\n      \"id\": 7001,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 6117,\n      \"name\": \"string\"\n    }\n  ],\n  \"integrationKey\": \"string\",\n  \"integrationUrl\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d5260ac-5ef7-42dc-bebc-f9f3bc485ad2",
+          "name": "Get the heartbeat monitor with specified id.",
+          "request": {
+            "name": "Get the heartbeat monitor with specified id.",
+            "description": {},
+            "url": {
+              "path": [
+                "heartbeat-monitors",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (integrationKey (default), integrationUrl, alertSource (default)); alertSource does not work in lists; may be used for POST and PUT as well."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (integrationKey (default), integrationUrl, alertSource (default)); alertSource does not work in lists; may be used for POST and PUT as well."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) numeric entity id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "088c4fce-5ff7-4bce-b53d-03185deb6772",
+              "name": "the heartbeat monitor object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "heartbeat-monitors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) numeric entity id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"intervalSec\": 1078270,\n  \"id\": 789,\n  \"state\": \"UNKNOWN\",\n  \"alertSummary\": \"string\",\n  \"createdAt\": \"string\",\n  \"updatedAt\": \"string\",\n  \"alertSource\": {\n    \"escalationPolicy\": {\n      \"escalationRules\": [\n        {\n          \"escalationTimeout\": 402,\n          \"user\": {\n            \"id\": 6197.766630863581\n          },\n          \"schedule\": {\n            \"id\": 9534.697845838442\n          },\n          \"team\": {\n            \"id\": 4083.323675234302\n          },\n          \"users\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"schedules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"teams\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"escalationTimeout\": 544,\n          \"user\": {\n            \"id\": 287.3720543842517\n          },\n          \"schedule\": {\n            \"id\": 6969.9401081157175\n          },\n          \"team\": {\n            \"id\": 7188.647105373311\n          },\n          \"users\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"schedules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"teams\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"name\": \"string\",\n      \"id\": 6758,\n      \"teams\": [\n        {\n          \"id\": 3146,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 8129,\n          \"name\": \"string\"\n        }\n      ],\n      \"repeating\": false,\n      \"frequency\": 1,\n      \"delayMin\": 0,\n      \"routingKey\": \"string\"\n    },\n    \"integrationType\": \"VICTORIAMETRICS\",\n    \"name\": \"string\",\n    \"id\": 8838,\n    \"teams\": [\n      {\n        \"id\": 7912,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 8636,\n        \"name\": \"string\"\n      }\n    ],\n    \"iconUrl\": \"string\",\n    \"lightIconUrl\": \"string\",\n    \"darkIconUrl\": \"string\",\n    \"integrationKey\": \"string\",\n    \"integrationUrl\": \"string\",\n    \"autoResolutionTimeout\": \"string\",\n    \"alertGroupingWindow\": \"string\",\n    \"alertCreation\": \"ONE_ALERT_PER_EMAIL\",\n    \"status\": \"PENDING\",\n    \"active\": true,\n    \"alertPriorityRule\": \"HIGH_DURING_SUPPORT_HOURS\",\n    \"supportHours\": {\n      \"id\": \"<long>\"\n    },\n    \"bidirectional\": true,\n    \"summaryTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"TEXT\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"detailsTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"routingTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"VAR\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"linkTemplates\": [\n      {\n        \"hrefTemplate\": {\n          \"textTemplate\": \"string\",\n          \"elements\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"text\": \"string\"\n      },\n      {\n        \"hrefTemplate\": {\n          \"textTemplate\": \"string\",\n          \"elements\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"text\": \"string\"\n      }\n    ],\n    \"priorityTemplate\": {\n      \"mappings\": [\n        {\n          \"priority\": \"LOW\",\n          \"value\": \"string\"\n        },\n        {\n          \"priority\": \"HIGH\",\n          \"value\": \"string\"\n        }\n      ],\n      \"valueTemplate\": {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"severityTemplate\": {\n      \"mappings\": [\n        {\n          \"severity\": 1482,\n          \"value\": \"string\"\n        },\n        {\n          \"severity\": 3050,\n          \"value\": \"string\"\n        }\n      ],\n      \"valueTemplate\": {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"eventFilter\": \"string\",\n    \"alertKeyTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"VAR\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"TEXT\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"servicesTemplate\": [\n      {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": \"TEXT\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"type\": \"VAR\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": \"RAW\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"type\": \"TEXT\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"eventTypeFilterCreate\": \"string\",\n    \"eventTypeFilterAccept\": \"string\",\n    \"eventTypeFilterResolve\": \"string\",\n    \"autoRaiseAlerts\": false,\n    \"scoreThreshold\": 6967.513225765933,\n    \"severity\": 5027,\n    \"services\": [\n      {\n        \"id\": 7623.62834801497,\n        \"name\": \"string\",\n        \"alias\": \"string\",\n        \"status\": \"OPERATIONAL\",\n        \"description\": \"string\",\n        \"oneOpenIncidentOnly\": true,\n        \"showUptimeHistory\": true,\n        \"teams\": [\n          {\n            \"id\": 7636,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 3574,\n            \"name\": \"string\"\n          }\n        ],\n        \"subscribed\": false,\n        \"uptime\": {\n          \"rangeStart\": \"2023-01-09T01:44:02.736Z\",\n          \"rangeEnd\": \"2003-09-10T07:17:10.847Z\",\n          \"outages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"uptimePercentage\": {\n            \"uptimePercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"incidents\": [\n          {\n            \"id\": 207.56912367284497,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": false,\n            \"createdAt\": \"2004-01-02T19:39:44.343Z\",\n            \"updatedAt\": \"1955-08-24T12:09:46.618Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"1997-07-04T13:45:08.831Z\"\n          },\n          {\n            \"id\": 3950.3480867877993,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": false,\n            \"createdAt\": \"1997-11-29T05:05:33.501Z\",\n            \"updatedAt\": \"1956-06-05T04:33:15.236Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"1998-07-09T07:53:48.970Z\"\n          }\n        ]\n      },\n      {\n        \"id\": 4934.605724751191,\n        \"name\": \"string\",\n        \"alias\": \"string\",\n        \"status\": \"DEGRADED\",\n        \"description\": \"string\",\n        \"oneOpenIncidentOnly\": false,\n        \"showUptimeHistory\": true,\n        \"teams\": [\n          {\n            \"id\": 8698,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 4520,\n            \"name\": \"string\"\n          }\n        ],\n        \"subscribed\": false,\n        \"uptime\": {\n          \"rangeStart\": \"2011-04-10T06:23:19.886Z\",\n          \"rangeEnd\": \"1988-09-03T09:31:18.947Z\",\n          \"outages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"uptimePercentage\": {\n            \"uptimePercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"incidents\": [\n          {\n            \"id\": 3214.025542816864,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": true,\n            \"createdAt\": \"1998-02-26T14:35:28.185Z\",\n            \"updatedAt\": \"1952-06-06T21:14:34.114Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"2013-06-20T05:05:15.016Z\"\n          },\n          {\n            \"id\": 3679.383930975367,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": false,\n            \"createdAt\": \"2004-10-13T06:09:12.081Z\",\n            \"updatedAt\": \"2009-12-13T06:55:34.741Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"1974-01-06T03:39:49.292Z\"\n          }\n        ]\n      }\n    ],\n    \"setupStatus\": \"CREATED_BIDIRECTIONAL\",\n    \"autoCreateServices\": false,\n    \"createdAt\": \"string\",\n    \"updatedAt\": \"string\"\n  },\n  \"teams\": [\n    {\n      \"id\": 7001,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 6117,\n      \"name\": \"string\"\n    }\n  ],\n  \"integrationKey\": \"string\",\n  \"integrationUrl\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f7e8ca4-2442-4cfe-a094-27c1240f5aab",
+          "name": "Update an existing heartbeat monitor.",
+          "request": {
+            "name": "Update an existing heartbeat monitor.",
+            "description": {
+              "content": "ATTENTION: changing 'intervalSec' will regenerate the 'integrationKey', you will have to update your monitoring integrations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "heartbeat-monitors",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"intervalSec\": \"<integer>\",\n  \"alertSummary\": \"<string>\",\n  \"alertSource\": {\n    \"id\": \"<long>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f17f10a2-5980-49a7-9cf8-df2e3df371e4",
+              "name": "the updated heartbeat monitor object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "heartbeat-monitors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"intervalSec\": \"<integer>\",\n  \"alertSummary\": \"<string>\",\n  \"alertSource\": {\n    \"id\": \"<long>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"intervalSec\": 1078270,\n  \"id\": 789,\n  \"state\": \"UNKNOWN\",\n  \"alertSummary\": \"string\",\n  \"createdAt\": \"string\",\n  \"updatedAt\": \"string\",\n  \"alertSource\": {\n    \"escalationPolicy\": {\n      \"escalationRules\": [\n        {\n          \"escalationTimeout\": 402,\n          \"user\": {\n            \"id\": 6197.766630863581\n          },\n          \"schedule\": {\n            \"id\": 9534.697845838442\n          },\n          \"team\": {\n            \"id\": 4083.323675234302\n          },\n          \"users\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"schedules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"teams\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"escalationTimeout\": 544,\n          \"user\": {\n            \"id\": 287.3720543842517\n          },\n          \"schedule\": {\n            \"id\": 6969.9401081157175\n          },\n          \"team\": {\n            \"id\": 7188.647105373311\n          },\n          \"users\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"schedules\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"teams\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"name\": \"string\",\n      \"id\": 6758,\n      \"teams\": [\n        {\n          \"id\": 3146,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 8129,\n          \"name\": \"string\"\n        }\n      ],\n      \"repeating\": false,\n      \"frequency\": 1,\n      \"delayMin\": 0,\n      \"routingKey\": \"string\"\n    },\n    \"integrationType\": \"VICTORIAMETRICS\",\n    \"name\": \"string\",\n    \"id\": 8838,\n    \"teams\": [\n      {\n        \"id\": 7912,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 8636,\n        \"name\": \"string\"\n      }\n    ],\n    \"iconUrl\": \"string\",\n    \"lightIconUrl\": \"string\",\n    \"darkIconUrl\": \"string\",\n    \"integrationKey\": \"string\",\n    \"integrationUrl\": \"string\",\n    \"autoResolutionTimeout\": \"string\",\n    \"alertGroupingWindow\": \"string\",\n    \"alertCreation\": \"ONE_ALERT_PER_EMAIL\",\n    \"status\": \"PENDING\",\n    \"active\": true,\n    \"alertPriorityRule\": \"HIGH_DURING_SUPPORT_HOURS\",\n    \"supportHours\": {\n      \"id\": \"<long>\"\n    },\n    \"bidirectional\": true,\n    \"summaryTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"TEXT\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"detailsTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"routingTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"VAR\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"RAW\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"linkTemplates\": [\n      {\n        \"hrefTemplate\": {\n          \"textTemplate\": \"string\",\n          \"elements\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"text\": \"string\"\n      },\n      {\n        \"hrefTemplate\": {\n          \"textTemplate\": \"string\",\n          \"elements\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"text\": \"string\"\n      }\n    ],\n    \"priorityTemplate\": {\n      \"mappings\": [\n        {\n          \"priority\": \"LOW\",\n          \"value\": \"string\"\n        },\n        {\n          \"priority\": \"HIGH\",\n          \"value\": \"string\"\n        }\n      ],\n      \"valueTemplate\": {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"severityTemplate\": {\n      \"mappings\": [\n        {\n          \"severity\": 1482,\n          \"value\": \"string\"\n        },\n        {\n          \"severity\": 3050,\n          \"value\": \"string\"\n        }\n      ],\n      \"valueTemplate\": {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"val\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"func\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"args\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"eventFilter\": \"string\",\n    \"alertKeyTemplate\": {\n      \"textTemplate\": \"string\",\n      \"elements\": [\n        {\n          \"type\": \"VAR\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"type\": \"TEXT\",\n          \"val\": \"string\",\n          \"func\": \"string\",\n          \"args\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"servicesTemplate\": [\n      {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": \"TEXT\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"type\": \"VAR\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"textTemplate\": \"string\",\n        \"elements\": [\n          {\n            \"type\": \"RAW\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"type\": \"TEXT\",\n            \"val\": \"string\",\n            \"func\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"eventTypeFilterCreate\": \"string\",\n    \"eventTypeFilterAccept\": \"string\",\n    \"eventTypeFilterResolve\": \"string\",\n    \"autoRaiseAlerts\": false,\n    \"scoreThreshold\": 6967.513225765933,\n    \"severity\": 5027,\n    \"services\": [\n      {\n        \"id\": 7623.62834801497,\n        \"name\": \"string\",\n        \"alias\": \"string\",\n        \"status\": \"OPERATIONAL\",\n        \"description\": \"string\",\n        \"oneOpenIncidentOnly\": true,\n        \"showUptimeHistory\": true,\n        \"teams\": [\n          {\n            \"id\": 7636,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 3574,\n            \"name\": \"string\"\n          }\n        ],\n        \"subscribed\": false,\n        \"uptime\": {\n          \"rangeStart\": \"2023-01-09T01:44:02.736Z\",\n          \"rangeEnd\": \"2003-09-10T07:17:10.847Z\",\n          \"outages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"uptimePercentage\": {\n            \"uptimePercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"incidents\": [\n          {\n            \"id\": 207.56912367284497,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": false,\n            \"createdAt\": \"2004-01-02T19:39:44.343Z\",\n            \"updatedAt\": \"1955-08-24T12:09:46.618Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"1997-07-04T13:45:08.831Z\"\n          },\n          {\n            \"id\": 3950.3480867877993,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": false,\n            \"createdAt\": \"1997-11-29T05:05:33.501Z\",\n            \"updatedAt\": \"1956-06-05T04:33:15.236Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"1998-07-09T07:53:48.970Z\"\n          }\n        ]\n      },\n      {\n        \"id\": 4934.605724751191,\n        \"name\": \"string\",\n        \"alias\": \"string\",\n        \"status\": \"DEGRADED\",\n        \"description\": \"string\",\n        \"oneOpenIncidentOnly\": false,\n        \"showUptimeHistory\": true,\n        \"teams\": [\n          {\n            \"id\": 8698,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 4520,\n            \"name\": \"string\"\n          }\n        ],\n        \"subscribed\": false,\n        \"uptime\": {\n          \"rangeStart\": \"2011-04-10T06:23:19.886Z\",\n          \"rangeEnd\": \"1988-09-03T09:31:18.947Z\",\n          \"outages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"uptimePercentage\": {\n            \"uptimePercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"incidents\": [\n          {\n            \"id\": 3214.025542816864,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": true,\n            \"createdAt\": \"1998-02-26T14:35:28.185Z\",\n            \"updatedAt\": \"1952-06-06T21:14:34.114Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"2013-06-20T05:05:15.016Z\"\n          },\n          {\n            \"id\": 3679.383930975367,\n            \"summary\": \"string\",\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"message\": \"string\",\n            \"sendNotification\": false,\n            \"createdAt\": \"2004-10-13T06:09:12.081Z\",\n            \"updatedAt\": \"2009-12-13T06:55:34.741Z\",\n            \"affectedServices\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"resolvedOn\": \"1974-01-06T03:39:49.292Z\"\n          }\n        ]\n      }\n    ],\n    \"setupStatus\": \"CREATED_BIDIRECTIONAL\",\n    \"autoCreateServices\": false,\n    \"createdAt\": \"string\",\n    \"updatedAt\": \"string\"\n  },\n  \"teams\": [\n    {\n      \"id\": 7001,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 6117,\n      \"name\": \"string\"\n    }\n  ],\n  \"integrationKey\": \"string\",\n  \"integrationUrl\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90b1a69e-1b34-403d-8204-3108f7f1ca77",
+          "name": "Delete the specified heartbeat monitor.",
+          "request": {
+            "name": "Delete the specified heartbeat monitor.",
+            "description": {},
+            "url": {
+              "path": [
+                "heartbeat-monitors",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a19bdd6-9fbe-4cd1-8204-aa9bb43eeb87",
+              "name": "if deletion was successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "heartbeat-monitors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "89ec4006-9e45-4129-b8f4-138b43b129b4",
+    "name": "ilert REST Alert Actions Heartbeat Monitors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>.",
+      "type": "text/plain"
+    }
+  }
+}

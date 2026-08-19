@@ -1,0 +1,535 @@
+{
+  "item": [
+    {
+      "id": "7e17000f-21a3-4f66-be68-11e81e3cf45e",
+      "name": "Call Flows",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5d9b9402-4e63-4d8c-b5c3-87db6b7d0812",
+          "name": "List existing call flows.",
+          "request": {
+            "name": "List existing call flows.",
+            "description": {
+              "content": "Returns a shallow list of call flows without the full node tree. Use the single resource endpoint to retrieve the complete call flow including all nodes and branches.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "call-flows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start-index",
+                  "value": "0",
+                  "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "max-results",
+                  "value": "50",
+                  "description": "the maximum number of results when paging through a list of entities."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b2b780a-1750-44f4-b46b-14538ab0ae40",
+              "name": "The call flows",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "call-flows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start-index",
+                      "value": "0"
+                    },
+                    {
+                      "key": "max-results",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8838,\n    \"name\": \"string\",\n    \"assignedNumber\": {\n      \"id\": 4875,\n      \"name\": \"string\",\n      \"phoneNumber\": {\n        \"regionCode\": \"string\",\n        \"number\": \"string\"\n      }\n    },\n    \"teams\": [\n      {\n        \"id\": 6883,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 3287,\n        \"name\": \"string\"\n      }\n    ]\n  },\n  {\n    \"id\": 5813,\n    \"name\": \"string\",\n    \"assignedNumber\": {\n      \"id\": 5538,\n      \"name\": \"string\",\n      \"phoneNumber\": {\n        \"regionCode\": \"string\",\n        \"number\": \"string\"\n      }\n    },\n    \"teams\": [\n      {\n        \"id\": 6785,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 7556,\n        \"name\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2afb239-970d-4e79-a8ba-d3c3853c17c0",
+          "name": "Create a new call flow.",
+          "request": {
+            "name": "Create a new call flow.",
+            "description": {},
+            "url": {
+              "path": [
+                "call-flows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"root\": {\n    \"nodeType\": \"<string>\",\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"metadata\": {\n      \"textMessage\": \"<string>\",\n      \"customAudioUrl\": \"<string>\",\n      \"language\": \"<string>\",\n      \"aiVoiceModel\": \"<string>\"\n    },\n    \"branches\": [\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/CallFlowNode detected>\"\n        }\n      },\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/CallFlowNode detected>\"\n        }\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"assignedNumber\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"phoneNumber\": {\n      \"regionCode\": \"<string>\",\n      \"number\": \"<string>\"\n    }\n  },\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6022eec6-afe5-432d-976a-1cf60f5db605",
+              "name": "The newly created call flow",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "call-flows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"root\": {\n    \"nodeType\": \"<string>\",\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"metadata\": {\n      \"textMessage\": \"<string>\",\n      \"customAudioUrl\": \"<string>\",\n      \"language\": \"<string>\",\n      \"aiVoiceModel\": \"<string>\"\n    },\n    \"branches\": [\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/CallFlowNode detected>\"\n        }\n      },\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/CallFlowNode detected>\"\n        }\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"assignedNumber\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"phoneNumber\": {\n      \"regionCode\": \"<string>\",\n      \"number\": \"<string>\"\n    }\n  },\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"root\": {\n    \"nodeType\": \"<string>\",\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"metadata\": {\n      \"textMessage\": \"<string>\",\n      \"customAudioUrl\": \"<string>\",\n      \"language\": \"<string>\",\n      \"aiVoiceModel\": \"<string>\"\n    },\n    \"branches\": [\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/CallFlowNode detected>\"\n        }\n      },\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/CallFlowNode detected>\"\n        }\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"assignedNumber\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"phoneNumber\": {\n      \"regionCode\": \"<string>\",\n      \"number\": \"<string>\"\n    }\n  },\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19a21219-3f97-4ef7-a0be-99a037e1cade",
+          "name": "Get a specific call flow.",
+          "request": {
+            "name": "Get a specific call flow.",
+            "description": {},
+            "url": {
+              "path": [
+                "call-flows",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d85393c-4ea2-42d0-aa0d-f916667b5565",
+              "name": "The requested call flow",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "call-flows",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"root\": {\n    \"nodeType\": \"<string>\",\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"metadata\": {\n      \"textMessage\": \"<string>\",\n      \"customAudioUrl\": \"<string>\",\n      \"language\": \"<string>\",\n      \"aiVoiceModel\": \"<string>\"\n    },\n    \"branches\": [\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/CallFlowNode detected>\"\n        }\n      },\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/CallFlowNode detected>\"\n        }\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"assignedNumber\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"phoneNumber\": {\n      \"regionCode\": \"<string>\",\n      \"number\": \"<string>\"\n    }\n  },\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f42f319-1caf-4202-9a06-0b2f1a4bfd36",
+          "name": "Update a specific call flow.",
+          "request": {
+            "name": "Update a specific call flow.",
+            "description": {},
+            "url": {
+              "path": [
+                "call-flows",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"root\": {\n    \"nodeType\": \"<string>\",\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"metadata\": {\n      \"textMessage\": \"<string>\",\n      \"customAudioUrl\": \"<string>\",\n      \"language\": \"<string>\",\n      \"aiVoiceModel\": \"<string>\"\n    },\n    \"branches\": [\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/CallFlowNode detected>\"\n        }\n      },\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/CallFlowNode detected>\"\n        }\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"assignedNumber\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"phoneNumber\": {\n      \"regionCode\": \"<string>\",\n      \"number\": \"<string>\"\n    }\n  },\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "174dfce0-c5e9-4163-81d0-7071df7496c6",
+              "name": "The updated call flow",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "call-flows",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"root\": {\n    \"nodeType\": \"<string>\",\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"metadata\": {\n      \"textMessage\": \"<string>\",\n      \"customAudioUrl\": \"<string>\",\n      \"language\": \"<string>\",\n      \"aiVoiceModel\": \"<string>\"\n    },\n    \"branches\": [\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/CallFlowNode detected>\"\n        }\n      },\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/CallFlowNode detected>\"\n        }\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"assignedNumber\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"phoneNumber\": {\n      \"regionCode\": \"<string>\",\n      \"number\": \"<string>\"\n    }\n  },\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"root\": {\n    \"nodeType\": \"<string>\",\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"metadata\": {\n      \"textMessage\": \"<string>\",\n      \"customAudioUrl\": \"<string>\",\n      \"language\": \"<string>\",\n      \"aiVoiceModel\": \"<string>\"\n    },\n    \"branches\": [\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/CallFlowNode detected>\"\n        }\n      },\n      {\n        \"branchType\": \"<string>\",\n        \"id\": \"<long>\",\n        \"condition\": \"<string>\",\n        \"target\": {\n          \"value\": \"<Circular reference to #/components/schemas/CallFlowNode detected>\"\n        }\n      }\n    ]\n  },\n  \"id\": \"<long>\",\n  \"assignedNumber\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"phoneNumber\": {\n      \"regionCode\": \"<string>\",\n      \"number\": \"<string>\"\n    }\n  },\n  \"teams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5876b05a-96b7-4305-8f27-e4cc6505995c",
+          "name": "Delete a specific call flow.",
+          "request": {
+            "name": "Delete a specific call flow.",
+            "description": {},
+            "url": {
+              "path": [
+                "call-flows",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4fee2071-802f-4f55-87dc-cb4040680eef",
+              "name": "Empty body delete response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "call-flows",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f118e440-cd65-44d6-b460-b996bb7cc526",
+    "name": "ilert REST Alert Actions Call Flows API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>.",
+      "type": "text/plain"
+    }
+  }
+}

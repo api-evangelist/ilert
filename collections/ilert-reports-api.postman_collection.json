@@ -1,0 +1,513 @@
+{
+  "item": [
+    {
+      "id": "eec7da9e-1aeb-47a9-98f7-96bee55f11b1",
+      "name": "Reports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a7e5bb7d-fd98-4d0c-815e-088a63f7ff29",
+          "name": "List alert metrics for the requested resources",
+          "request": {
+            "name": "List alert metrics for the requested resources",
+            "description": {},
+            "url": {
+              "path": [
+                "reports",
+                "alerts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sources",
+                  "value": "<number>",
+                  "description": "alert source ids to filter metrics for"
+                },
+                {
+                  "disabled": false,
+                  "key": "policies",
+                  "value": "<number>",
+                  "description": "escalation policy ids to filter metrics for"
+                },
+                {
+                  "disabled": false,
+                  "key": "numbers",
+                  "value": "<string>",
+                  "description": "phone numbers of call routing numbers to filter metrics for"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "(Required) date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, start of the time range, may not exceed 1 year in total span"
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<string>",
+                  "description": "(Required) date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, end of the time range, must be after 'from', must not be in the future"
+                },
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "Time zone in which the results will be rendered, defaults to tenant's configured default timezone"
+                },
+                {
+                  "disabled": false,
+                  "key": "metric",
+                  "value": "<string>",
+                  "description": "Describes the metric that should be fetched choose one of: COUNT, MTTA or MTTR - defaults to COUNT"
+                },
+                {
+                  "disabled": false,
+                  "key": "group-by",
+                  "value": "<string>",
+                  "description": "Defines the grouping of metrics, choose one of: DAY, WEEK or MONTH - defaults to WEEK"
+                },
+                {
+                  "disabled": false,
+                  "key": "priority",
+                  "value": "<string>",
+                  "description": "Sets the priority filter that should be applied, choose one of: LOW, HIGH or ALL - defaults to ALL"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b54ea967-3b1f-4b94-8bfe-13dd57f57435",
+              "name": "an array of alert report metrics, each metric is another array containing data in the following order: \n\n[long:alertSourceId, long:escalationPolicyId, string:callRoutingNumberPhoneNumber, string:ISO-8601, long:value]\n\ne.g. [ [202541, 13541, \"\", \"2021-08\", 15] ]\n\nPlease note: the ISO-8601 (4th column) in this case depends on the chosen 'group-by' parameter. DAY=2021-08-01, WEEK=2021-W12, MONTH=2021-08",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sources",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "policies",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "numbers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group-by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  [\n    2745.5107208755912,\n    6284.3053157342465\n  ],\n  [\n    8503.225159253212,\n    8826.502883034836\n  ]\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3ade13a-871c-4db9-954e-f3e4eb932b2c",
+          "name": "Summarize a list of alert metrics",
+          "request": {
+            "name": "Summarize a list of alert metrics",
+            "description": {},
+            "url": {
+              "path": [
+                "reports",
+                "alerts",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sources",
+                  "value": "<number>",
+                  "description": "alert source ids to filter metrics for"
+                },
+                {
+                  "disabled": false,
+                  "key": "policies",
+                  "value": "<number>",
+                  "description": "escalation policy ids to filter metrics for"
+                },
+                {
+                  "disabled": false,
+                  "key": "numbers",
+                  "value": "<string>",
+                  "description": "phone numbers of call routing numbers to filter metrics for"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "(Required) date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, start of the time range, may not exceed 1 year in total span"
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<string>",
+                  "description": "(Required) date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, end of the time range, must be after 'from', must not be in the future"
+                },
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "Time zone in which the results will be rendered, defaults to tenant's configured default timezone"
+                },
+                {
+                  "disabled": false,
+                  "key": "metric",
+                  "value": "<string>",
+                  "description": "Describes the metric that should be fetched choose one of: COUNT, MTTA or MTTR - defaults to COUNT"
+                },
+                {
+                  "disabled": false,
+                  "key": "group-by",
+                  "value": "<string>",
+                  "description": "Defines the grouping of metrics, choose one of: DAY, WEEK or MONTH - defaults to WEEK"
+                },
+                {
+                  "disabled": false,
+                  "key": "priority",
+                  "value": "<string>",
+                  "description": "Sets the priority filter that should be applied, choose one of: LOW, HIGH or ALL - defaults to ALL"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a26fd430-e124-491f-8788-40f2729f2603",
+              "name": "an array containing summarized alert report metrics for the requested resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "alerts",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sources",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "policies",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "numbers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group-by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "priority",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"alertSourceId\": 9883.174662826159,\n    \"escalationPolicyId\": 9658.732499046528,\n    \"callRoutingNumberPhoneNumber\": \"string\",\n    \"count\": 1318.1305340261595,\n    \"mtta\": 7896.906903423576,\n    \"mttr\": 6457.611706782805\n  },\n  {\n    \"alertSourceId\": 509.8186730329146,\n    \"escalationPolicyId\": 536.7921374492735,\n    \"callRoutingNumberPhoneNumber\": \"string\",\n    \"count\": 5937.879657933994,\n    \"mtta\": 782.3850612932937,\n    \"mttr\": 4212.171679525633\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0712a835-aad8-48ff-8cd0-ebe4651c088a",
+          "name": "List API key usage metrics for the requested resources",
+          "request": {
+            "name": "List API key usage metrics for the requested resources",
+            "description": {
+              "content": "This endpoint requires 'ADMIN' permissions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reports",
+                "api-keys",
+                "usage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "scopes",
+                  "value": "<string>",
+                  "description": "scopes of our API resources e.g. alert see https://docs.ilert.com/rest-api/developing-ilert-apps/token-lifetimes-error-codes-app-verification-etc.#ilert-oauth2-scopes"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "(Required) date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, start of the time range, may not exceed 1 month (31 days) in total span (use this to paginate)"
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<string>",
+                  "description": "(Required) date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, end of the time range, must be after 'from', must not be in the future (use this to paginate)"
+                },
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "Time zone in which the results will be rendered, defaults to tenant's configured default timezone"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65fb9fcb-0150-4be1-ad97-7b1cf2c58b40",
+              "name": "an array of usage metrics, each metric is another array containing data in the following order: \n\n[long:userId, string:scope, string:ISO-8601, long:value]\n\ne.g. [ [202541, \"source\", \"2023-04-21\", 15] ]\n\nPlease note: the ISO-8601 (3th column) in this case is always DAY (2021-08-01) usually 24 hours apart, but there is a slight chance that the same userId and scope have multiple entries for the same DAY",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reports",
+                    "api-keys",
+                    "usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scopes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  [\n    2745.5107208755912,\n    6284.3053157342465\n  ],\n  [\n    8503.225159253212,\n    8826.502883034836\n  ]\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b0c2a85b-1bb8-466d-b094-7d26b2be0879",
+    "name": "ilert REST Alert Actions Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>.",
+      "type": "text/plain"
+    }
+  }
+}

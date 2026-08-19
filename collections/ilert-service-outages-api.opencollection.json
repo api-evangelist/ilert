@@ -1,0 +1,170 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Service Outages API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Service Outages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the outages (including applied overrides) of a specific service",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/service-outages",
+            "params": [
+              {
+                "name": "service",
+                "value": "",
+                "type": "query",
+                "description": "the id of the service for which the outages should be fetched"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "from date, ISO-UTC e.g. 2021-05-25T21:24:56.771Z"
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "until date, ISO-UTC e.g. 2021-05-26T21:24:56.771Z"
+              },
+              {
+                "name": "ignore-overrides",
+                "value": "",
+                "type": "query",
+                "description": "if the outages should not take overrides into account, default is false"
+              }
+            ]
+          },
+          "docs": "Get the outages (including applied overrides) of a specific service"
+        },
+        {
+          "info": {
+            "name": "Get the overrides of a specific service",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/service-outages/overrides",
+            "params": [
+              {
+                "name": "service",
+                "value": "",
+                "type": "query",
+                "description": "the id of the service for which the overrides should be fetched"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "from date, ISO-UTC e.g. 2021-05-25T21:24:56.771Z"
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "until date, ISO-UTC e.g. 2021-05-26T21:24:56.771Z"
+              }
+            ]
+          },
+          "docs": "Get the overrides of a specific service"
+        },
+        {
+          "info": {
+            "name": "Override a part of a service's outage history",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/service-outages/overrides",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Override a part of a service's outage history"
+        },
+        {
+          "info": {
+            "name": "Get the specific service outage override",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/service-outages/overrides/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get the specific service outage override"
+        },
+        {
+          "info": {
+            "name": "Update an existing service outage override",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/service-outages/overrides/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing service outage override"
+        },
+        {
+          "info": {
+            "name": "Remove a service outage override",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/service-outages/overrides/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Remove a service outage override"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

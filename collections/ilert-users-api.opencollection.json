@@ -1,0 +1,176 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Users API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the specified user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/users/:user-id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ]
+          },
+          "docs": "Get the specified user."
+        },
+        {
+          "info": {
+            "name": "Update an existing user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/users/:user-id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing user."
+        },
+        {
+          "info": {
+            "name": "Delete the specified user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/users/:user-id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "numeric user id"
+              }
+            ]
+          },
+          "docs": "Delete the specified user."
+        },
+        {
+          "info": {
+            "name": "List existing users.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/users",
+            "params": [
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of entities."
+              }
+            ]
+          },
+          "docs": "List existing users."
+        },
+        {
+          "info": {
+            "name": "Create a new user. Requires ADMIN privileges.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/users",
+            "params": [
+              {
+                "name": "send-no-invitation",
+                "value": "",
+                "type": "query",
+                "description": "Provide ?send-no-invitation=true if you do not wish to send an invitation email."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Sample request**\n\n```json\nRequest URL: https://api.ilert.com/api/users\n\n{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john@acme.com\",\n  \"position\": \"Software Engineer\",\n}\n```\n\n**Response**\n\n````json\n{\n  \"id\": 2188373,\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john@acme.com\",\n  \"position\": \"Software Engineer\",\n  \"timezone\": \"Europe/Berlin\",\n  \"language\": \"de\",\n  \"role\": \"RESPONDER\",\n }\n````\n"
+        },
+        {
+          "info": {
+            "name": "Find a user by email address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/users/search-email",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search for a user by their email address within the scope of the current account. This endpoint uses POST instead of GET to prevent email addresses from being exposed in URLs, server access logs, and browser history."
+        },
+        {
+          "info": {
+            "name": "Get the currently authenticated user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/users/current"
+          },
+          "docs": "Get the currently authenticated user."
+        },
+        {
+          "info": {
+            "name": "Update the current user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/users/current",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the current user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

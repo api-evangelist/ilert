@@ -1,0 +1,175 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Escalation Policies API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Escalation Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List escalation policies.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/escalation-policies",
+            "params": [
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of escalation policies."
+              }
+            ]
+          },
+          "docs": "List escalation policies."
+        },
+        {
+          "info": {
+            "name": "Create a new escalation policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/escalation-policies",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new escalation policy."
+        },
+        {
+          "info": {
+            "name": "Resolve an escalation policy by routing key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/escalation-policies/resolve",
+            "params": [
+              {
+                "name": "routing-key",
+                "value": "",
+                "type": "query",
+                "description": "routing key expression used to resolve the escalation policy, including ordered comma-separated keys or the special il:{...} policy reference format."
+              }
+            ]
+          },
+          "docs": "Resolve an escalation policy by routing key."
+        },
+        {
+          "info": {
+            "name": "Get escalation policy with the specified id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/escalation-policies/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get escalation policy with the specified id."
+        },
+        {
+          "info": {
+            "name": "Update an existing escalation policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/escalation-policies/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing escalation policy."
+        },
+        {
+          "info": {
+            "name": "Delete the specified escalation policy.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/escalation-policies/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Delete the specified escalation policy."
+        },
+        {
+          "info": {
+            "name": "Replace an escalation rule at the specified level.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/escalation-policies/:id/levels/:level",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              },
+              {
+                "name": "level",
+                "value": "",
+                "type": "path",
+                "description": "zero-based escalation level"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace an escalation rule at the specified level."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

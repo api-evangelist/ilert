@@ -1,0 +1,197 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Reports API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List alert metrics for the requested resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/reports/alerts",
+            "params": [
+              {
+                "name": "sources",
+                "value": "",
+                "type": "query",
+                "description": "alert source ids to filter metrics for"
+              },
+              {
+                "name": "policies",
+                "value": "",
+                "type": "query",
+                "description": "escalation policy ids to filter metrics for"
+              },
+              {
+                "name": "numbers",
+                "value": "",
+                "type": "query",
+                "description": "phone numbers of call routing numbers to filter metrics for"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, start of the time range, may not exceed 1 year in total span"
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, end of the time range, must be after 'from', must not be in the future"
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Time zone in which the results will be rendered, defaults to tenant's configured default timezone"
+              },
+              {
+                "name": "metric",
+                "value": "",
+                "type": "query",
+                "description": "Describes the metric that should be fetched choose one of: COUNT, MTTA or MTTR - defaults to COUNT"
+              },
+              {
+                "name": "group-by",
+                "value": "",
+                "type": "query",
+                "description": "Defines the grouping of metrics, choose one of: DAY, WEEK or MONTH - defaults to WEEK"
+              },
+              {
+                "name": "priority",
+                "value": "",
+                "type": "query",
+                "description": "Sets the priority filter that should be applied, choose one of: LOW, HIGH or ALL - defaults to ALL"
+              }
+            ]
+          },
+          "docs": "List alert metrics for the requested resources"
+        },
+        {
+          "info": {
+            "name": "Summarize a list of alert metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/reports/alerts/summary",
+            "params": [
+              {
+                "name": "sources",
+                "value": "",
+                "type": "query",
+                "description": "alert source ids to filter metrics for"
+              },
+              {
+                "name": "policies",
+                "value": "",
+                "type": "query",
+                "description": "escalation policy ids to filter metrics for"
+              },
+              {
+                "name": "numbers",
+                "value": "",
+                "type": "query",
+                "description": "phone numbers of call routing numbers to filter metrics for"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, start of the time range, may not exceed 1 year in total span"
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, end of the time range, must be after 'from', must not be in the future"
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Time zone in which the results will be rendered, defaults to tenant's configured default timezone"
+              },
+              {
+                "name": "metric",
+                "value": "",
+                "type": "query",
+                "description": "Describes the metric that should be fetched choose one of: COUNT, MTTA or MTTR - defaults to COUNT"
+              },
+              {
+                "name": "group-by",
+                "value": "",
+                "type": "query",
+                "description": "Defines the grouping of metrics, choose one of: DAY, WEEK or MONTH - defaults to WEEK"
+              },
+              {
+                "name": "priority",
+                "value": "",
+                "type": "query",
+                "description": "Sets the priority filter that should be applied, choose one of: LOW, HIGH or ALL - defaults to ALL"
+              }
+            ]
+          },
+          "docs": "Summarize a list of alert metrics"
+        },
+        {
+          "info": {
+            "name": "List API key usage metrics for the requested resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/reports/api-keys/usage",
+            "params": [
+              {
+                "name": "scopes",
+                "value": "",
+                "type": "query",
+                "description": "scopes of our API resources e.g. alert see https://docs.ilert.com/rest-api/developing-ilert-apps/token-lifetimes-error-codes-app-verification-etc.#ilert-oauth2-scopes"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, start of the time range, may not exceed 1 month (31 days) in total span (use this to paginate)"
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "date-time ISO-UTC e.g. 2021-05-25T21:24:56.771Z, end of the time range, must be after 'from', must not be in the future (use this to paginate)"
+              },
+              {
+                "name": "timezone",
+                "value": "",
+                "type": "query",
+                "description": "Time zone in which the results will be rendered, defaults to tenant's configured default timezone"
+              }
+            ]
+          },
+          "docs": "This endpoint requires 'ADMIN' permissions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

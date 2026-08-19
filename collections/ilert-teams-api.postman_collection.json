@@ -1,0 +1,745 @@
+{
+  "item": [
+    {
+      "id": "bb141917-9324-4068-a405-141404ea3599",
+      "name": "Teams",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7537869d-bde4-40c7-b5bb-dac5f6399d51",
+          "name": "Get teams.",
+          "request": {
+            "name": "Get teams.",
+            "description": {},
+            "url": {
+              "path": [
+                "teams"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start-index",
+                  "value": "0",
+                  "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "max-results",
+                  "value": "50",
+                  "description": "the maximum number of results when paging through a list of entities."
+                },
+                {
+                  "disabled": false,
+                  "key": "members",
+                  "value": "<number>",
+                  "description": "optional, filter teams for specific members (currently only a single occurrence of this param is allowed)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b62c1ed-c077-4716-aa1c-7f2c53dbc9fa",
+              "name": "The teams",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "teams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start-index",
+                      "value": "0"
+                    },
+                    {
+                      "key": "max-results",
+                      "value": "50"
+                    },
+                    {
+                      "key": "members",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 640,\n    \"name\": \"string\",\n    \"visibility\": \"PUBLIC\",\n    \"members\": [\n      {\n        \"user\": {\n          \"email\": \"string\",\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"id\": 6135,\n          \"timezone\": \"America/New_York\",\n          \"position\": \"string\",\n          \"department\": \"string\",\n          \"avatarUrl\": \"string\",\n          \"language\": \"en\",\n          \"region\": \"IE\",\n          \"role\": \"USER\",\n          \"shiftColor\": \"string\",\n          \"mutedUntil\": \"1959-10-03T08:11:44.348Z\",\n          \"createdAt\": \"1967-06-11T11:59:59.887Z\",\n          \"updatedAt\": \"2018-07-28T12:00:32.233Z\"\n        },\n        \"role\": \"RESPONDER\"\n      },\n      {\n        \"user\": {\n          \"email\": \"string\",\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"id\": 8543,\n          \"timezone\": \"America/New_York\",\n          \"position\": \"string\",\n          \"department\": \"string\",\n          \"avatarUrl\": \"string\",\n          \"language\": \"en\",\n          \"region\": \"CH\",\n          \"role\": \"ADMIN\",\n          \"shiftColor\": \"string\",\n          \"mutedUntil\": \"2002-07-28T07:55:25.662Z\",\n          \"createdAt\": \"2017-11-24T10:57:13.033Z\",\n          \"updatedAt\": \"1969-08-27T20:08:09.168Z\"\n        },\n        \"role\": \"RESPONDER\"\n      }\n    ],\n    \"createdAt\": \"1962-11-14T03:53:48.704Z\",\n    \"updatedAt\": \"1996-10-01T13:54:28.351Z\"\n  },\n  {\n    \"id\": 397,\n    \"name\": \"string\",\n    \"visibility\": \"PUBLIC\",\n    \"members\": [\n      {\n        \"user\": {\n          \"email\": \"string\",\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"id\": 2269,\n          \"timezone\": \"America/New_York\",\n          \"position\": \"string\",\n          \"department\": \"string\",\n          \"avatarUrl\": \"string\",\n          \"language\": \"en\",\n          \"region\": \"DE\",\n          \"role\": \"GUEST\",\n          \"shiftColor\": \"string\",\n          \"mutedUntil\": \"1968-03-24T06:12:04.234Z\",\n          \"createdAt\": \"1985-07-20T10:27:31.241Z\",\n          \"updatedAt\": \"1984-10-29T04:48:53.319Z\"\n        },\n        \"role\": \"ADMIN\"\n      },\n      {\n        \"user\": {\n          \"email\": \"string\",\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"id\": 4420,\n          \"timezone\": \"America/Los_Angeles\",\n          \"position\": \"string\",\n          \"department\": \"string\",\n          \"avatarUrl\": \"string\",\n          \"language\": \"de\",\n          \"region\": \"GB\",\n          \"role\": \"USER\",\n          \"shiftColor\": \"string\",\n          \"mutedUntil\": \"1947-07-06T05:50:00.473Z\",\n          \"createdAt\": \"2004-09-18T11:24:35.387Z\",\n          \"updatedAt\": \"1949-05-19T23:29:56.584Z\"\n        },\n        \"role\": \"ADMIN\"\n      }\n    ],\n    \"createdAt\": \"2011-09-24T22:59:37.213Z\",\n    \"updatedAt\": \"1953-01-21T07:37:42.689Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68d89c98-02f5-4e71-b285-ada4edc6023b",
+          "name": "Create a new team.",
+          "request": {
+            "name": "Create a new team.",
+            "description": {},
+            "url": {
+              "path": [
+                "teams"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"members\": [\n    {\n      \"user\": {\n        \"email\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"id\": \"<long>\",\n        \"timezone\": \"<string>\",\n        \"position\": \"<string>\",\n        \"department\": \"<string>\",\n        \"language\": \"<string>\",\n        \"region\": \"<string>\",\n        \"role\": \"<string>\",\n        \"shiftColor\": \"<string>\",\n        \"mutedUntil\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      \"role\": \"<string>\"\n    },\n    {\n      \"user\": {\n        \"email\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"id\": \"<long>\",\n        \"timezone\": \"<string>\",\n        \"position\": \"<string>\",\n        \"department\": \"<string>\",\n        \"language\": \"<string>\",\n        \"region\": \"<string>\",\n        \"role\": \"<string>\",\n        \"shiftColor\": \"<string>\",\n        \"mutedUntil\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      \"role\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9267510d-f757-44ed-96a7-35aab0a5705b",
+              "name": "The newly created team",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "teams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"members\": [\n    {\n      \"user\": {\n        \"email\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"id\": \"<long>\",\n        \"timezone\": \"<string>\",\n        \"position\": \"<string>\",\n        \"department\": \"<string>\",\n        \"language\": \"<string>\",\n        \"region\": \"<string>\",\n        \"role\": \"<string>\",\n        \"shiftColor\": \"<string>\",\n        \"mutedUntil\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      \"role\": \"<string>\"\n    },\n    {\n      \"user\": {\n        \"email\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"id\": \"<long>\",\n        \"timezone\": \"<string>\",\n        \"position\": \"<string>\",\n        \"department\": \"<string>\",\n        \"language\": \"<string>\",\n        \"region\": \"<string>\",\n        \"role\": \"<string>\",\n        \"shiftColor\": \"<string>\",\n        \"mutedUntil\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      \"role\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"members\": [\n    {\n      \"user\": {\n        \"email\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"id\": \"<long>\",\n        \"timezone\": \"<string>\",\n        \"position\": \"<string>\",\n        \"department\": \"<string>\",\n        \"avatarUrl\": \"string\",\n        \"language\": \"<string>\",\n        \"region\": \"<string>\",\n        \"role\": \"<string>\",\n        \"shiftColor\": \"<string>\",\n        \"mutedUntil\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      \"role\": \"<string>\"\n    },\n    {\n      \"user\": {\n        \"email\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"id\": \"<long>\",\n        \"timezone\": \"<string>\",\n        \"position\": \"<string>\",\n        \"department\": \"<string>\",\n        \"avatarUrl\": \"string\",\n        \"language\": \"<string>\",\n        \"region\": \"<string>\",\n        \"role\": \"<string>\",\n        \"shiftColor\": \"<string>\",\n        \"mutedUntil\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      \"role\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8762ccac-39dd-40f5-a8a6-0520f65d4a2a",
+          "name": "Get a specific team.",
+          "request": {
+            "name": "Get a specific team.",
+            "description": {},
+            "url": {
+              "path": [
+                "teams",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b90222e-b8e3-4ad5-85d9-6af86c8ac81a",
+              "name": "The requested team",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "teams",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"members\": [\n    {\n      \"user\": {\n        \"email\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"id\": \"<long>\",\n        \"timezone\": \"<string>\",\n        \"position\": \"<string>\",\n        \"department\": \"<string>\",\n        \"avatarUrl\": \"string\",\n        \"language\": \"<string>\",\n        \"region\": \"<string>\",\n        \"role\": \"<string>\",\n        \"shiftColor\": \"<string>\",\n        \"mutedUntil\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      \"role\": \"<string>\"\n    },\n    {\n      \"user\": {\n        \"email\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"id\": \"<long>\",\n        \"timezone\": \"<string>\",\n        \"position\": \"<string>\",\n        \"department\": \"<string>\",\n        \"avatarUrl\": \"string\",\n        \"language\": \"<string>\",\n        \"region\": \"<string>\",\n        \"role\": \"<string>\",\n        \"shiftColor\": \"<string>\",\n        \"mutedUntil\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      \"role\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "681bcea5-e78d-46e7-85a8-5a1a9722071b",
+          "name": "Update the specific team",
+          "request": {
+            "name": "Update the specific team",
+            "description": {},
+            "url": {
+              "path": [
+                "teams",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"members\": [\n    {\n      \"user\": {\n        \"email\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"id\": \"<long>\",\n        \"timezone\": \"<string>\",\n        \"position\": \"<string>\",\n        \"department\": \"<string>\",\n        \"language\": \"<string>\",\n        \"region\": \"<string>\",\n        \"role\": \"<string>\",\n        \"shiftColor\": \"<string>\",\n        \"mutedUntil\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      \"role\": \"<string>\"\n    },\n    {\n      \"user\": {\n        \"email\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"id\": \"<long>\",\n        \"timezone\": \"<string>\",\n        \"position\": \"<string>\",\n        \"department\": \"<string>\",\n        \"language\": \"<string>\",\n        \"region\": \"<string>\",\n        \"role\": \"<string>\",\n        \"shiftColor\": \"<string>\",\n        \"mutedUntil\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      \"role\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fcecf5d9-f16b-40e8-81ce-8480e451ddf9",
+              "name": "The updated team",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "teams",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"members\": [\n    {\n      \"user\": {\n        \"email\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"id\": \"<long>\",\n        \"timezone\": \"<string>\",\n        \"position\": \"<string>\",\n        \"department\": \"<string>\",\n        \"language\": \"<string>\",\n        \"region\": \"<string>\",\n        \"role\": \"<string>\",\n        \"shiftColor\": \"<string>\",\n        \"mutedUntil\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      \"role\": \"<string>\"\n    },\n    {\n      \"user\": {\n        \"email\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"id\": \"<long>\",\n        \"timezone\": \"<string>\",\n        \"position\": \"<string>\",\n        \"department\": \"<string>\",\n        \"language\": \"<string>\",\n        \"region\": \"<string>\",\n        \"role\": \"<string>\",\n        \"shiftColor\": \"<string>\",\n        \"mutedUntil\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      \"role\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"members\": [\n    {\n      \"user\": {\n        \"email\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"id\": \"<long>\",\n        \"timezone\": \"<string>\",\n        \"position\": \"<string>\",\n        \"department\": \"<string>\",\n        \"avatarUrl\": \"string\",\n        \"language\": \"<string>\",\n        \"region\": \"<string>\",\n        \"role\": \"<string>\",\n        \"shiftColor\": \"<string>\",\n        \"mutedUntil\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      \"role\": \"<string>\"\n    },\n    {\n      \"user\": {\n        \"email\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"id\": \"<long>\",\n        \"timezone\": \"<string>\",\n        \"position\": \"<string>\",\n        \"department\": \"<string>\",\n        \"avatarUrl\": \"string\",\n        \"language\": \"<string>\",\n        \"region\": \"<string>\",\n        \"role\": \"<string>\",\n        \"shiftColor\": \"<string>\",\n        \"mutedUntil\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\"\n      },\n      \"role\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45347b3c-e2a9-4307-949a-94129c76d007",
+          "name": "Remove a specific team.",
+          "request": {
+            "name": "Remove a specific team.",
+            "description": {},
+            "url": {
+              "path": [
+                "teams",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fac4218c-2778-47cd-b83d-4788cdd06105",
+              "name": "Empty body delete response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "teams",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0327b0b-89b0-4be9-87ba-6030d463c285",
+          "name": "Add a new team member to specific team",
+          "request": {
+            "name": "Add a new team member to specific team",
+            "description": {},
+            "url": {
+              "path": [
+                "teams",
+                ":id",
+                "members"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"id\": \"<long>\",\n    \"timezone\": \"<string>\",\n    \"position\": \"<string>\",\n    \"department\": \"<string>\",\n    \"language\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role\": \"<string>\",\n    \"shiftColor\": \"<string>\",\n    \"mutedUntil\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  },\n  \"role\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "827e7757-263f-4dac-b548-6892c095c811",
+              "name": "The added team member",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "teams",
+                    ":id",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"id\": \"<long>\",\n    \"timezone\": \"<string>\",\n    \"position\": \"<string>\",\n    \"department\": \"<string>\",\n    \"language\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role\": \"<string>\",\n    \"shiftColor\": \"<string>\",\n    \"mutedUntil\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  },\n  \"role\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"id\": \"<long>\",\n    \"timezone\": \"<string>\",\n    \"position\": \"<string>\",\n    \"department\": \"<string>\",\n    \"avatarUrl\": \"string\",\n    \"language\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role\": \"<string>\",\n    \"shiftColor\": \"<string>\",\n    \"mutedUntil\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  },\n  \"role\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf525faa-828f-4e7d-acee-0a6aeda53f46",
+          "name": "Remove a specific member of a specific team.",
+          "request": {
+            "name": "Remove a specific member of a specific team.",
+            "description": {},
+            "url": {
+              "path": [
+                "teams",
+                ":id",
+                "members",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23be01c6-6505-4396-9db7-7d03bdd3c999",
+              "name": "Empty body delete response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "teams",
+                    ":id",
+                    "members",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "975fd282-39ab-4895-8395-9b0890e9aa23",
+    "name": "ilert REST Alert Actions Teams API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>.",
+      "type": "text/plain"
+    }
+  }
+}

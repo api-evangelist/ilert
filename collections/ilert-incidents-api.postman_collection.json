@@ -1,0 +1,882 @@
+{
+  "item": [
+    {
+      "id": "93ecace2-a2a3-40d4-bd7c-b25d3133e0f6",
+      "name": "Incidents",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "07270cee-c4f9-405c-8fd2-d6dc3ae27eb9",
+          "name": "Get incidents.",
+          "request": {
+            "name": "Get incidents.",
+            "description": {},
+            "url": {
+              "path": [
+                "incidents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start-index",
+                  "value": "0",
+                  "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+                },
+                {
+                  "disabled": false,
+                  "key": "max-results",
+                  "value": "10",
+                  "description": "the maximum number of results when paging through a list of incidents. (Note: when using ?include maximum is reduced to 25)"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "states",
+                  "value": "<string>",
+                  "description": "state of the alert"
+                },
+                {
+                  "disabled": false,
+                  "key": "states",
+                  "value": "<string>",
+                  "description": "state of the alert"
+                },
+                {
+                  "disabled": false,
+                  "key": "services",
+                  "value": "<long>",
+                  "description": "service IDs of the incident's affected services"
+                },
+                {
+                  "disabled": false,
+                  "key": "services",
+                  "value": "<long>",
+                  "description": "service IDs of the incident's affected services"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "from date, ISO-UTC e.g. 2021-05-25T21:24:56.771Z, based on reportTime"
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<dateTime>",
+                  "description": "until date, ISO-UTC e.g. 2021-05-26T21:24:56.771Z, based on reportTime"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57490ee5-9e1a-49dc-a2de-9257ddeb3f65",
+              "name": "The incidents",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "incidents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start-index",
+                      "value": "0"
+                    },
+                    {
+                      "key": "max-results",
+                      "value": "10"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "states",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "states",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "services",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "services",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 482.61498794955116,\n    \"summary\": \"string\",\n    \"status\": \"IDENTIFIED\",\n    \"message\": \"string\",\n    \"sendNotification\": true,\n    \"createdAt\": \"1982-02-26T11:20:33.510Z\",\n    \"updatedAt\": \"1992-07-02T10:46:04.313Z\",\n    \"affectedServices\": [\n      {\n        \"impact\": \"UNDER_MAINTENANCE\",\n        \"service\": {\n          \"id\": 93.15454423423519,\n          \"name\": \"string\",\n          \"alias\": \"string\",\n          \"status\": \"UNDER_MAINTENANCE\",\n          \"description\": \"string\",\n          \"oneOpenIncidentOnly\": false,\n          \"showUptimeHistory\": true,\n          \"teams\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      },\n      {\n        \"impact\": \"MAJOR_OUTAGE\",\n        \"service\": {\n          \"id\": 5952.979349878362,\n          \"name\": \"string\",\n          \"alias\": \"string\",\n          \"status\": \"UNDER_MAINTENANCE\",\n          \"description\": \"string\",\n          \"oneOpenIncidentOnly\": false,\n          \"showUptimeHistory\": false,\n          \"teams\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      }\n    ],\n    \"resolvedOn\": \"1968-09-05T02:37:37.653Z\",\n    \"subscribed\": true,\n    \"affectedTeams\": [\n      {\n        \"id\": 1674,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 13,\n        \"name\": \"string\"\n      }\n    ]\n  },\n  {\n    \"id\": 9816.401810338042,\n    \"summary\": \"string\",\n    \"status\": \"MONITORING\",\n    \"message\": \"string\",\n    \"sendNotification\": false,\n    \"createdAt\": \"1954-08-24T08:07:49.061Z\",\n    \"updatedAt\": \"2014-09-28T09:55:25.616Z\",\n    \"affectedServices\": [\n      {\n        \"impact\": \"PARTIAL_OUTAGE\",\n        \"service\": {\n          \"id\": 4769.679550117619,\n          \"name\": \"string\",\n          \"alias\": \"string\",\n          \"status\": \"OPERATIONAL\",\n          \"description\": \"string\",\n          \"oneOpenIncidentOnly\": false,\n          \"showUptimeHistory\": true,\n          \"teams\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      },\n      {\n        \"impact\": \"DEGRADED\",\n        \"service\": {\n          \"id\": 9820.044192361858,\n          \"name\": \"string\",\n          \"alias\": \"string\",\n          \"status\": \"MAJOR_OUTAGE\",\n          \"description\": \"string\",\n          \"oneOpenIncidentOnly\": true,\n          \"showUptimeHistory\": true,\n          \"teams\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      }\n    ],\n    \"resolvedOn\": \"2022-08-09T07:15:36.815Z\",\n    \"subscribed\": false,\n    \"affectedTeams\": [\n      {\n        \"id\": 2024,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 1811,\n        \"name\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7375e1c7-a16e-4130-9059-b2b93fc04cd9",
+          "name": "Create a new incident.",
+          "request": {
+            "name": "Create a new incident.",
+            "description": {
+              "content": "Note: depending on affected services this will publish notifications to subscribers. Use /publish-info to forecast notifications.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "incidents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<number>\",\n  \"summary\": \"<string>\",\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"sendNotification\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"affectedServices\": [\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    },\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "32c46640-1aa7-4948-be80-e7f792b15473",
+              "name": "The newly created incident",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "incidents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<number>\",\n  \"summary\": \"<string>\",\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"sendNotification\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"affectedServices\": [\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    },\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<number>\",\n  \"summary\": \"<string>\",\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"sendNotification\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"affectedServices\": [\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    },\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    }\n  ],\n  \"resolvedOn\": \"1978-11-03T19:52:15.352Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9680cb9-e17d-433e-9b93-90bf8e748f30",
+          "name": "Forecast the affected subscribers and status pages",
+          "request": {
+            "name": "Forecast the affected subscribers and status pages",
+            "description": {
+              "content": "Forecast the affected subscribers and status pages as well as notifications that would be send out due to created or update incident.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "incidents",
+                "publish-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<number>\",\n  \"summary\": \"<string>\",\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"sendNotification\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"affectedServices\": [\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    },\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e5e15b80-dad6-4dae-9f58-70252b596519",
+              "name": "The forecast for the provided incident",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "incidents",
+                    "publish-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<number>\",\n  \"summary\": \"<string>\",\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"sendNotification\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"affectedServices\": [\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    },\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusPagesInfo\": {\n    \"id\": 1754.980605104305,\n    \"label\": \"string\"\n  },\n  \"privateStatusPages\": 7835.466233203033,\n  \"publicStatusPages\": 7097.609539909381,\n  \"privateSubscribers\": 3014.69626707204,\n  \"publicSubscribers\": 7223.974250169519\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4dd3d4c0-63d2-466f-b3ff-d026bdf45173",
+          "name": "Get a specific incident.",
+          "request": {
+            "name": "Get a specific incident.",
+            "description": {
+              "content": "Note: returns an ETag header that can be send to the PUT /incidents/{id} resource as If-Match header to return a 412 Error in case any related resources e.g. Services or Incident have been updated in the mean time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "incidents",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed, affectedTeams, history)"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Describes optional properties that should be included in the response. You may declare multiple. (subscribed, affectedTeams, history)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4163456-8ddf-408c-b873-b6d6103b1097",
+              "name": "The requested incident",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "incidents",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Send to the PUT /incidents/{id} resource as If-Match header to return a 412 Error in case any related resources e.g. Services or Incident have been updated in the mean time.",
+                  "key": "ETag",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8072.801839864477,\n  \"summary\": \"string\",\n  \"status\": \"<string>\",\n  \"message\": \"string\",\n  \"sendNotification\": false,\n  \"createdAt\": \"1982-08-30T11:47:55.258Z\",\n  \"updatedAt\": \"2005-11-20T02:44:35.644Z\",\n  \"history\": [\n    {\n      \"id\": \"string\",\n      \"content\": \"string\",\n      \"creator\": {\n        \"id\": 6916,\n        \"firstName\": \"string\",\n        \"lastName\": \"string\"\n      },\n      \"incidentStatus\": \"<string>\",\n      \"sendNotification\": true,\n      \"createdAt\": \"1965-01-09T18:21:46.063Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"content\": \"string\",\n      \"creator\": {\n        \"id\": 7948,\n        \"firstName\": \"string\",\n        \"lastName\": \"string\"\n      },\n      \"incidentStatus\": \"<string>\",\n      \"sendNotification\": true,\n      \"createdAt\": \"2013-09-13T14:03:29.896Z\"\n    }\n  ],\n  \"affectedServices\": [\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    },\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    }\n  ],\n  \"resolvedOn\": \"1990-05-07T17:36:50.187Z\",\n  \"subscribed\": true,\n  \"affectedTeams\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eabdce25-c1b6-4a4a-9963-317895adb570",
+          "name": "Update the specific incident.",
+          "request": {
+            "name": "Update the specific incident.",
+            "description": {
+              "content": "Note: the update will be automatically appended to the incident's update history and publish notifications to subscribers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "incidents",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Should be the ETag response header retrieved from GET /incidents/{id} to prevent updating the incident based on outdated information. Will return 412 status code in case of conflict.",
+                "key": "If-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<number>\",\n  \"summary\": \"<string>\",\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"sendNotification\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"affectedServices\": [\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    },\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d692884-91ca-4699-9be2-858dcf0ebe85",
+              "name": "The updated incident",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "incidents",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Should be the ETag response header retrieved from GET /incidents/{id} to prevent updating the incident based on outdated information. Will return 412 status code in case of conflict.",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<number>\",\n  \"summary\": \"<string>\",\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"sendNotification\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"affectedServices\": [\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    },\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<number>\",\n  \"summary\": \"<string>\",\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"sendNotification\": \"<boolean>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"affectedServices\": [\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    },\n    {\n      \"impact\": \"<string>\",\n      \"service\": {\n        \"id\": \"<number>\",\n        \"name\": \"<string>\",\n        \"alias\": \"<string>\",\n        \"status\": \"<string>\",\n        \"description\": \"<string>\",\n        \"oneOpenIncidentOnly\": \"<boolean>\",\n        \"showUptimeHistory\": \"<boolean>\",\n        \"teams\": [\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<long>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    }\n  ],\n  \"resolvedOn\": \"1978-11-03T19:52:15.352Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4418bc69-cf8f-4a07-bb70-8c793d35d679",
+          "name": "Get the subscribers (users and teams) of an incident",
+          "request": {
+            "name": "Get the subscribers (users and teams) of an incident",
+            "description": {},
+            "url": {
+              "path": [
+                "incidents",
+                ":id",
+                "private-subscribers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b92abde7-5147-46de-8ada-c4de9525efe9",
+              "name": "The subscribers of the incident",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "incidents",
+                    ":id",
+                    "private-subscribers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 156.94006697829056,\n    \"name\": \"string\",\n    \"type\": \"TEAM\"\n  },\n  {\n    \"id\": 9123.576040630385,\n    \"name\": \"string\",\n    \"type\": \"USER\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e01618a9-505f-4973-81b3-af51988788e3",
+          "name": "Add subscribers (users and teams) to an incident",
+          "request": {
+            "name": "Add subscribers (users and teams) to an incident",
+            "description": {},
+            "url": {
+              "path": [
+                "incidents",
+                ":id",
+                "private-subscribers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) entity ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6c686a44-4173-44fa-9bc6-c6546460f3d8",
+              "name": "the response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "incidents",
+                    ":id",
+                    "private-subscribers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) entity ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  {\n    \"id\": \"<number>\",\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e8b0fc74-437e-4acd-9e3d-dd853364bac0",
+    "name": "ilert REST Alert Actions Incidents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>.",
+      "type": "text/plain"
+    }
+  }
+}

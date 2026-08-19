@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Connectors API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Connectors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get connectors.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/connectors",
+            "params": [
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of entities."
+              }
+            ]
+          },
+          "docs": "Get connectors."
+        },
+        {
+          "info": {
+            "name": "Create a new connector.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/connectors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new connector."
+        },
+        {
+          "info": {
+            "name": "Get a specific connector.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/connectors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get a specific connector."
+        },
+        {
+          "info": {
+            "name": "Update the specific connector. (note: type cannot be changed)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/connectors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the specific connector. (note: type cannot be changed)"
+        },
+        {
+          "info": {
+            "name": "Remove a specific connector.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/connectors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Remove a specific connector."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,133 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ilert REST Alert Actions Metrics API",
+    "version": "v2.2026.5-r.3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get metrics.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/metrics",
+            "params": [
+              {
+                "name": "start-index",
+                "value": "",
+                "type": "query",
+                "description": "an integer specifying the starting point (beginning with 0) when paging through a list of entities"
+              },
+              {
+                "name": "max-results",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of results when paging through a list of metrics. (Note: when using ?include maximum is reduced to 25)"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Describes optional properties that should be included in the response. You may declare multiple. (dataSource, integrationKey)"
+              }
+            ]
+          },
+          "docs": "Get metrics."
+        },
+        {
+          "info": {
+            "name": "Create a new metric.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/metrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new metric."
+        },
+        {
+          "info": {
+            "name": "Get a specific Metric",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/metrics/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Get a specific Metric"
+        },
+        {
+          "info": {
+            "name": "Update the specific Metric",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "/api/metrics/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the specific Metric"
+        },
+        {
+          "info": {
+            "name": "Delete the specific Metric",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/metrics/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "entity ID"
+              }
+            ]
+          },
+          "docs": "Delete the specific Metric"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
