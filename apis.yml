@@ -439,6 +439,8 @@ apis:
   humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
   baseURL: https://api.ilert.com
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -583,6 +585,8 @@ apis:
   humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
   baseURL: https://api.ilert.com
   tags:
+  - Integration
+  tags_raw:
   - Integrations
   properties:
   - type: OpenAPI
@@ -619,6 +623,8 @@ apis:
   humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
   baseURL: https://api.ilert.com
   tags:
+  - Log Entries
+  tags_raw:
   - Log-Entries
   properties:
   - type: OpenAPI
@@ -800,6 +806,8 @@ apis:
   humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
   baseURL: https://api.ilert.com
   tags:
+  - Notification
+  tags_raw:
   - Notifications
   properties:
   - type: OpenAPI
@@ -1160,6 +1168,8 @@ apis:
   humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
   baseURL: https://api.ilert.com
   tags:
+  - Team
+  tags_raw:
   - Teams
   properties:
   - type: OpenAPI
@@ -1196,6 +1206,8 @@ apis:
   humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
   baseURL: https://api.ilert.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
