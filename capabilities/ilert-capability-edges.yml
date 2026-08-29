@@ -1,0 +1,178 @@
+slug: ilert
+provider: ilert
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 16
+edges:
+- tag: Alerts
+  spec_file: ilert-alerts-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.9
+  evidence: PUT /alerts/{id}/assign Assign the alert; PUT /alerts/{id}/accept; PUT /alerts/{id}/resolve;
+    GET /alerts/{id}/suggested-responders Get available (assignable) responders
+  reason: Operations assign, accept and resolve alerts and manage responders and notifications — this
+    is on-call incident detection, coordination and response, not financial-crime or business alerting.
+    Clear fit with Incident Response Management.
+- tag: Escalation Policies
+  spec_file: ilert-escalation-policies-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.9
+  evidence: PUT /escalation-policies/{id}/levels/{level} — Replace an escalation rule at the specified
+    level; schemas EscalationRule, ScheduleRel, UserRel
+  reason: Escalation policies bind on-call schedules and users to escalation levels for alert routing
+    — the core of on-call response and incident coordination on this platform.
+- tag: Incidents
+  spec_file: ilert-incidents-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.9
+  evidence: POST /incidents — Create a new incident; POST /incidents/publish-info — Forecast the affected
+    subscribers and status pages
+  reason: Declaring and updating production incidents, tracking status and notifying subscribers/status
+    pages is squarely incident detection, coordination and customer communication for a running service.
+- tag: Metric Data Sources
+  spec_file: ilert-metric-data-sources-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.8
+  evidence: POST /metric-data-sources — 'Create a new Metric Data Source.'; schemas MParamsPrometheus,
+    MParamsDatadog
+  reason: Configuring Prometheus/Datadog metric data sources is monitoring instrumentation for a running
+    service — observability management, not business KPI reporting.
+- tag: On-Calls
+  spec_file: ilert-on-calls-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.8
+  evidence: GET /on-calls — 'List on-calls with flexible filters'; schemas OnCall, EscalationPolicy, EscalationRule
+  reason: On-call rosters and escalation policies are exactly the on-call response element of incident
+    response management for a production service.
+- tag: Schedules
+  spec_file: ilert-schedules-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.8
+  evidence: POST /schedules — 'Create a new on-call schedule.'; GET /schedules/{id}/user-on-call — 'Get
+    the user ... on-call for the specified schedule.'
+  reason: On-call rotation schedules, shifts and overrides for responders — the staffing mechanism of
+    production incident/on-call response, not general workforce scheduling.
+- tag: Metrics
+  spec_file: ilert-metrics-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.78
+  evidence: GET /metrics — 'Get metrics.'; schemas MetricAggregationType, MPrometheusMetadata, MetricDataSource
+  reason: Metrics are defined against Prometheus/Datadog data sources on an incident-management platform,
+    i.e. service telemetry that makes the running service understandable — observability, not financial
+    or product analytics.
+- tag: Alert Actions
+  spec_file: ilert-alert-actions-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.75
+  evidence: 'POST /alerts/{id}/actions Invoke a specific alert action; vendor: "AI-first incident management
+    and on-call alerting platform"'
+  reason: Alert actions are configurable response actions invoked against an alert (connector params for
+    ServiceNow, Slack-like chat, Autotask, Topdesk visible in schemas) — part of on-call incident detection
+    and response tooling. Some ambiguity versus IT Service Management, hence 0.75.
+- tag: Heartbeat Monitors
+  spec_file: ilert-heartbeat-monitors-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.75
+  evidence: POST /heartbeat-monitors — Create a new heartbeat monitor; schemas ServiceUptimePercentage,
+    ServiceOutage, ServiceStatus
+  reason: Heartbeat monitors are dead-man's-switch/synthetic monitoring producing uptime and outage state
+    for services — observability of the running service, with alerting on failure.
+- tag: Incident Templates
+  spec_file: ilert-incident-templates-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.75
+  evidence: POST /incident-templates — Create a new incident template; schemas IncidentTemplate, IncidentStatus
+  reason: Reusable templates for declaring incidents and their status messaging on this incident-management
+    platform — supports incident coordination and customer communication.
+- tag: Status Pages
+  spec_file: ilert-status-pages-api-openapi.yml
+  capability_id: BC-4290.30
+  capability_id_l1: BC-4290
+  capability_name: Trust Portal & Public Disclosure
+  confidence: 0.75
+  evidence: POST /status-pages  Create a new status page.; GET /status-pages/{id}/private-subscribers  Get
+    the subscribers (users and teams) of a status page
+  reason: Manages public/private status pages, their service groups and subscriber notifications — operation
+    of a public service-status disclosure surface for customers.
+- tag: Series
+  spec_file: ilert-series-api-openapi.yml
+  capability_id: BC-4220.20
+  capability_id_l1: BC-4220
+  capability_name: Observability Management
+  confidence: 0.72
+  evidence: POST /series/{key} — 'Ingest a series for a metric'; schemas SingleTimePoint, MultipleTimePoint
+  reason: Ingestion of time-series data points against a metric is telemetry collection for service monitoring
+    on this alerting platform, i.e. observability rather than product usage analytics.
+- tag: Alert Sources
+  spec_file: ilert-alert-sources-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.7
+  evidence: POST /alert-sources Create a new alert source; schemas AlertSourceSeverityTemplate, EscalationPolicy,
+    AlertPriorityRule
+  reason: Alert sources are the inbound monitoring integrations that generate alerts, carrying escalation
+    policies, support hours and priority rules — configuration of incident detection and on-call routing.
+    Chose incident response over observability because the schemas are escalation/priority oriented rather
+    than logs/metrics/traces.
+- tag: Call Flows
+  spec_file: ilert-call-flows-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.7
+  evidence: POST /call-flows — Create a new call flow; schemas CallFlowNodeMetadataCreateAlert, CallFlowNodeMetadataRouteCall,
+    CallFlowNodeMetadataIvrMenu, CallFlowNodeMetadataSupportHours
+  reason: On an incident-management/on-call platform, call flows model inbound call routing that raises
+    alerts and reaches responders (CreateAlert, RouteCall, SupportHours nodes). This is on-call/incident
+    intake and response coordination, not a customer contact-centre product.
+- tag: Deployment Pipelines
+  spec_file: ilert-deployment-pipelines-api-openapi.yml
+  capability_id: BC-4210
+  capability_id_l1: BC-4210
+  capability_name: Software Release & Deployment Management
+  confidence: 0.7
+  evidence: POST /deployment-pipelines — Create a new deployment pipeline; schemas DPipeGithubParams,
+    DPipeAPIParams
+  reason: Full CRUD over deployment pipeline definitions (GitHub or generic API sourced), the mechanism
+    by which release/deploy activity is registered. Clearly software release & deployment management;
+    ambiguous between CI management and deployment orchestration, so no L2 asserted.
+- tag: Notification Preferences
+  spec_file: ilert-notification-preferences-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.7
+  evidence: GET /users/{user-id}/notification-preferences/alerts — 'Get alert notification preferences
+    of a user'; NotificationPreferencesDuty
+  reason: Per-responder alert and on-call duty notification routing rules are the mechanics of on-call
+    response for production alerts. Some chance this is judged mere user-settings plumbing, hence 0.7.

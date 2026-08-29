@@ -1251,6 +1251,9 @@ apis:
   - type: JSONLDContext
     url: json-ld/ilert-context.jsonld
 common:
+  - type: CapabilityMap
+    url: capabilities/ilert-capability-edges.yml
+    name: ilert Business Capability Map
   - type: AgenticAccess
     url: agentic-access/ilert-agentic-access.yml
   - type: TrustCenter
