@@ -635,7 +635,7 @@ apis:
   humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
   baseURL: https://api.ilert.com
   tags:
-  - Log Entries
+  - Log-Entries
   tags_raw:
   - Log-Entries
   properties:
