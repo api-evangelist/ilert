@@ -965,6 +965,8 @@ apis:
   humanURL: https://docs.ilert.com/developer-docs/rest-api/api-reference
   baseURL: https://api.ilert.com
   tags:
+  - Schedule
+  tags_raw:
   - Schedules
   properties:
   - type: OpenAPI
