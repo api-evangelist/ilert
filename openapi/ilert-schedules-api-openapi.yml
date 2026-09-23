@@ -1,7 +1,9 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: ilert REST Alert Actions Schedules API
-  description: "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>."
+  title: ilert REST Schedules API
+  description: '# Introduction
+
+    The ilert API is a RESTful API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools.'
   version: v2.2026.5-r.3
   x-logo:
     url: ./ilert-logo-spaced.png
@@ -18,7 +20,7 @@ paths:
     get:
       tags:
       - Schedules
-      summary: List on-call schedules.
+      summary: List on-call schedules
       parameters:
       - name: include
         in: query
@@ -59,10 +61,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Schedule'
+      operationId: getSchedules
+      x-operation-id-source: derived
     post:
       tags:
       - Schedules
-      summary: Create a new on-call schedule.
+      summary: Create a new on-call schedule
       parameters:
       - name: abort-on-gaps
         in: query
@@ -84,11 +88,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/Schedule'
       x-codegen-request-body-name: schedule
+      operationId: postSchedules
+      x-operation-id-source: derived
   /schedules/{id}:
     get:
       tags:
       - Schedules
-      summary: Get the on-call schedule with the specified id.
+      summary: Get the on-call schedule with the specified id
       parameters:
       - name: id
         in: path
@@ -118,10 +124,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Schedule'
+      operationId: getSchedulesById
+      x-operation-id-source: derived
     put:
       tags:
       - Schedules
-      summary: Update an on-call schedule.
+      summary: Update an on-call schedule
       parameters:
       - name: id
         in: path
@@ -149,10 +157,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Schedule'
       x-codegen-request-body-name: schedule
+      operationId: putSchedulesById
+      x-operation-id-source: derived
     delete:
       tags:
       - Schedules
-      summary: Delete the on-call schedule with the specified id.
+      summary: Delete the on-call schedule with the specified id
       parameters:
       - name: id
         in: path
@@ -164,11 +174,13 @@ paths:
         '204':
           description: empty response
           content: {}
+      operationId: deleteSchedulesById
+      x-operation-id-source: derived
   /schedules/{id}/shifts:
     get:
       tags:
       - Schedules
-      summary: Get shifts for the specified schedule and date range.
+      summary: Get shifts for the specified schedule and date range
       parameters:
       - name: id
         in: path
@@ -202,11 +214,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Shift'
+      operationId: getSchedulesByIdShifts
+      x-operation-id-source: derived
   /schedules/{id}/overrides:
     get:
       tags:
       - Schedules
-      summary: Get overrides for the specified schedule.
+      summary: Get overrides for the specified schedule
       parameters:
       - name: id
         in: path
@@ -223,10 +237,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Shift'
+      operationId: getSchedulesByIdOverrides
+      x-operation-id-source: derived
     put:
       tags:
       - Schedules
-      summary: Add an override shift to a schedule.
+      summary: Add an override shift to a schedule
       parameters:
       - name: id
         in: path
@@ -249,11 +265,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/ScheduleRel'
       x-codegen-request-body-name: shift
+      operationId: putSchedulesByIdOverrides
+      x-operation-id-source: derived
   /schedules/{id}/user-on-call:
     get:
       tags:
       - Schedules
-      summary: Get the user (wrapped in a shift object) on-call for the specified schedule.
+      summary: Get the user (wrapped in a shift object) on-call for the specified schedule
       parameters:
       - name: id
         in: path
@@ -271,126 +289,15 @@ paths:
         '204':
           description: if no user is on-call
           content: {}
+      operationId: getSchedulesByIdUserOnCall
+      x-operation-id-source: derived
 components:
   schemas:
-    TimeZone:
-      type: string
-      enum:
-      - Europe/Berlin
-      - America/New_York
-      - America/Los_Angeles
-      - Asia/Istanbul
-    TeamRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-    UserRel:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        firstName:
-          type: string
-        lastName:
-          type: string
     ShiftRel:
       type: object
       properties:
         user:
           $ref: '#/components/schemas/UserRel'
-        end:
-          type: string
-          format: date-time
-        start:
-          type: string
-          format: date-time
-    ScheduleLayerConfig:
-      required:
-      - rotation
-      - startsOn
-      - users
-      type: object
-      properties:
-        name:
-          type: string
-        startsOn:
-          type: string
-          format: date-time
-        endsOn:
-          type: string
-          format: date-time
-        users:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserRel'
-        rotation:
-          type: string
-          format: P7D
-        restrictionType:
-          type: string
-          description: 'Note: ''TIMES_OF_DAY'' is just a UI state representation, the API always uses ''TIMES_OF_WEEK'''
-          enum:
-          - TIMES_OF_WEEK
-        restrictions:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScheduleLayerRestriction'
-    Role:
-      type: string
-      enum:
-      - STAKEHOLDER
-      - GUEST
-      - RESPONDER
-      - USER
-      - ADMIN
-    Schedule:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        timezone:
-          $ref: '#/components/schemas/TimeZone'
-        type:
-          type: string
-          enum:
-          - STATIC
-          - RECURRING
-        scheduleLayers:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScheduleLayerConfig'
-        shifts:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShiftRel'
-        showGaps:
-          type: boolean
-        defaultShiftDuration:
-          type: string
-          format: P7D
-        currentShift:
-          $ref: '#/components/schemas/ShiftRel'
-        nextShift:
-          $ref: '#/components/schemas/ShiftRel'
-        teams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamRel'
-    Shift:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/User'
         end:
           type: string
           format: date-time
@@ -457,19 +364,24 @@ components:
           type: string
           description: Date in ISO-8601
           format: date-time
-    ScheduleRel:
+    Shift:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-        name:
+        user:
+          $ref: '#/components/schemas/User'
+        end:
           type: string
-        type:
+          format: date-time
+        start:
           type: string
-          enum:
-          - STATIC
-          - RECURRING
+          format: date-time
+    TimeZone:
+      type: string
+      enum:
+      - Europe/Berlin
+      - America/New_York
+      - America/Los_Angeles
+      - Asia/Istanbul
     TimeOfWeek:
       required:
       - dayOfWeek
@@ -489,6 +401,27 @@ components:
         time:
           type: string
           format: '15:00'
+    Role:
+      type: string
+      enum:
+      - STAKEHOLDER
+      - GUEST
+      - RESPONDER
+      - USER
+      - ADMIN
+    ScheduleRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - STATIC
+          - RECURRING
     ScheduleLayerRestriction:
       required:
       - from
@@ -499,6 +432,93 @@ components:
           $ref: '#/components/schemas/TimeOfWeek'
         to:
           $ref: '#/components/schemas/TimeOfWeek'
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    UserRel:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+    ScheduleLayerConfig:
+      required:
+      - rotation
+      - startsOn
+      - users
+      type: object
+      properties:
+        name:
+          type: string
+        startsOn:
+          type: string
+          format: date-time
+        endsOn:
+          type: string
+          format: date-time
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRel'
+        rotation:
+          type: string
+          format: P7D
+        restrictionType:
+          type: string
+          description: 'Note: ''TIMES_OF_DAY'' is just a UI state representation, the API always uses ''TIMES_OF_WEEK'''
+          enum:
+          - TIMES_OF_WEEK
+        restrictions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleLayerRestriction'
+    Schedule:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        timezone:
+          $ref: '#/components/schemas/TimeZone'
+        type:
+          type: string
+          enum:
+          - STATIC
+          - RECURRING
+        scheduleLayers:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleLayerConfig'
+        shifts:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShiftRel'
+        showGaps:
+          type: boolean
+        defaultShiftDuration:
+          type: string
+          format: P7D
+        currentShift:
+          $ref: '#/components/schemas/ShiftRel'
+        nextShift:
+          $ref: '#/components/schemas/ShiftRel'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
   securitySchemes:
     apiKey:
       type: apiKey

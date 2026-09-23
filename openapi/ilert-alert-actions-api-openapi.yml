@@ -1,7 +1,9 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: ilert REST Alert Actions API
-  description: "# Introduction\nThe ilert API is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools. If you are looking to develop an inbound integration (e.g. for a monitoring tool), please use our [Events API](#tag/events). \n\nThe API supports the JSON content type for requests and responses. The response content type is requested via the HTTP Accept header (`application/json`). All resources are accessible via https and are located at `api.ilert.com/api`. \n\n You may download ilert's latest [OpenAPI.json {...} here](https://api.ilert.com/api-docs/openapi.json).\n\n If you are looking for a classic Swagger-UI view you may also open [this link](https://api.ilert.com/api-docs/swagger-ui). \n\n ## Authentication\nThe REST API accepts bearer API tokens. Each user may create API keys using the ilert web application. Note: Make sure to send the `Bearer ` prefix e.g. `Bearer APIKEY` when sending api key requests. By default, access to all resources (using any method) requires the client to be authenticated.\n\n ## Team Context\n When using API tokens, the currently selected team context of the user will not be taken into account, i.e. list results will always return all entities to which the user has a view permission. When using basic auth credentials the currently selected team context of the user will be used to filter resource results. The context may be overwritten for API key calls using the `team-context` HTTP header. Specifying `0` for ALL teams, `-1` for MY teams or a specific team id e.g. `team-context=901` to fetch results for a certain team.  \n\n ## Errors\nilert uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate a client error (e.g. a missing required parameter) and codes in the 5xx range indicate an error with ilert's servers. In case of an error, the response body contains the following information:\n\n Attribute     | Description \n ------------- | ------------- \n status  | the corresponsing HTTP status code  \n message  | a human readable description of the error \n code  | error code, used to identify error type  \n\n ## API Versioning\nChanges to our API are always backwards-compatible. To get more information about our API versioning and historical changes, please <a href='https://docs.ilert.com/rest-api/api-version-history' target='_blank'>take a look here</a>."
+  description: '# Introduction
+
+    The ilert API is a RESTful API and provides programmatic access to entities in ilert and lets you easily integrate ilert with 3rd party tools.'
   version: v2.2026.5-r.3
   x-logo:
     url: ./ilert-logo-spaced.png
@@ -18,7 +20,7 @@ paths:
     get:
       tags:
       - Alert Actions
-      summary: Get available actions for specified alert.
+      summary: Get available actions for specified alert
       parameters:
       - name: id
         in: path
@@ -33,10 +35,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AlertActionTrigger'
+      operationId: getAlertsByIdActions
+      x-operation-id-source: derived
     post:
       tags:
       - Alert Actions
-      summary: Invoke a specific alert action.
+      summary: Invoke a specific alert action
       parameters:
       - name: id
         in: path
@@ -59,11 +63,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/AlertActionResult'
       x-codegen-request-body-name: alert-action
+      operationId: postAlertsByIdActions
+      x-operation-id-source: derived
   /alert-actions:
     get:
       tags:
       - Alert Actions
-      summary: Get alert actions.
+      summary: Get alert actions
       parameters:
       - name: source
         in: query
@@ -99,10 +105,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AlertAction'
+      operationId: getAlertActions
+      x-operation-id-source: derived
     post:
       tags:
       - Alert Actions
-      summary: Create a new alert action.
+      summary: Create a new alert action
       requestBody:
         description: the alert action
         content:
@@ -118,11 +126,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/AlertAction'
       x-codegen-request-body-name: alert action
+      operationId: postAlertActions
+      x-operation-id-source: derived
   /alert-actions/{id}:
     get:
       tags:
       - Alert Actions
-      summary: Get a specific alert action.
+      summary: Get a specific alert action
       parameters:
       - name: id
         in: path
@@ -148,6 +158,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AlertAction'
+      operationId: getAlertActionsById
+      x-operation-id-source: derived
     put:
       tags:
       - Alert Actions
@@ -174,10 +186,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/AlertAction'
       x-codegen-request-body-name: alert action
+      operationId: putAlertActionsById
+      x-operation-id-source: derived
     delete:
       tags:
       - Alert Actions
-      summary: Remove a specific alert action.
+      summary: Remove a specific alert action
       parameters:
       - name: id
         in: path
@@ -189,22 +203,398 @@ paths:
         '204':
           description: Empty body delete response
           content: {}
+      operationId: deleteAlertActionsById
+      x-operation-id-source: derived
 components:
   schemas:
-    CParamsZoomChat:
+    SupportDay:
+      required:
+      - end
+      - start
       type: object
       properties:
-        channelId:
+        start:
           type: string
-    ServiceStatus:
-      type: string
-      description: the service status
-      enum:
-      - OPERATIONAL
-      - UNDER_MAINTENANCE
-      - DEGRADED
-      - PARTIAL_OUTAGE
-      - MAJOR_OUTAGE
+          format: time
+        end:
+          type: string
+          format: time
+    AlertAction:
+      required:
+      - connectorType
+      - name
+      type: object
+      properties:
+        id:
+          type: string
+        alertSources:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertSource'
+        connectorId:
+          type: string
+        connectorType:
+          $ref: '#/components/schemas/AlertActionType'
+        name:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        triggerMode:
+          type: string
+          enum:
+          - AUTOMATIC
+          - MANUAL
+        bidirectional:
+          type: boolean
+          readOnly: true
+        escalationEndedDelaySec:
+          maximum: 7200
+          minimum: 0
+          type: number
+          description: May only be used with triggerType 'alert-escalation-ended' selected
+        notResolvedDelaySec:
+          maximum: 7200
+          minimum: 0
+          type: number
+          description: May only be used with triggerType 'v-alert-not-resolved' selected
+        triggerTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - alert-created
+            - alert-assigned
+            - alert-auto-escalated
+            - alert-acknowledged
+            - alert-raised
+            - alert-comment-added
+            - alert-escalation-ended
+            - alert-resolved
+            - alert-responder-added
+            - alert-responder-removed
+            - alert-channel-attached
+            - alert-channel-detached
+            - v-alert-not-resolved
+        alertFilter:
+          type: object
+          description: This field is deprecated, use 'conditions' instead. If both are used this field is ignored.
+          properties:
+            operator:
+              type: string
+              enum:
+              - AND
+              - OR
+            predicates:
+              type: array
+              items:
+                type: object
+                properties:
+                  field:
+                    type: string
+                    enum:
+                    - ALERT_SUMMARY
+                    - ALERT_DETAILS
+                    - ESCALATION_POLICY
+                    - ALERT_PRIORITY
+                  criteria:
+                    type: string
+                    enum:
+                    - CONTAINS_ANY_WORDS
+                    - CONTAINS_NOT_WORDS
+                    - CONTAINS_STRING
+                    - CONTAINS_NOT_STRING
+                    - IS_STRING
+                    - IS_NOT_STRING
+                    - MATCHES_REGEX
+                    - MATCHES_NOT_REGEX
+                  value:
+                    type: string
+        conditions:
+          type: string
+          description: 'Defines an optional alert filter condition in ICL language. This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. Note: this field is an ?include, it will not appear in lists.'
+        params:
+          type: object
+          oneOf:
+          - $ref: '#/components/schemas/CParamsDatadog'
+          - $ref: '#/components/schemas/CParamsJira'
+          - $ref: '#/components/schemas/CParamsMicrosoftTeams'
+          - $ref: '#/components/schemas/CParamsMicrosoftTeamsWebhookOnly'
+          - $ref: '#/components/schemas/CParamsServiceNow'
+          - $ref: '#/components/schemas/CParamsAutotask'
+          - $ref: '#/components/schemas/CParamsSlack'
+          - $ref: '#/components/schemas/CParamsWebhook'
+          - $ref: '#/components/schemas/CParamsZendesk'
+          - $ref: '#/components/schemas/CParamsDiscord'
+          - $ref: '#/components/schemas/CParamsGithub'
+          - $ref: '#/components/schemas/CParamsTopdesk'
+          - $ref: '#/components/schemas/CParamsAWSLambda'
+          - $ref: '#/components/schemas/CParamsAzureFunction'
+          - $ref: '#/components/schemas/CParamsGoogleFunction'
+          - $ref: '#/components/schemas/CParamsEmail'
+          - $ref: '#/components/schemas/CParamsSysdig'
+          - $ref: '#/components/schemas/CParamsZapier'
+          - $ref: '#/components/schemas/CParamsZoomChat'
+          - $ref: '#/components/schemas/CParamsZoomMeeting'
+          - $ref: '#/components/schemas/CParamsStatusPageIO'
+          - $ref: '#/components/schemas/CParamsDingTalk'
+          - $ref: '#/components/schemas/CParamsDingTalkAction'
+          - $ref: '#/components/schemas/CParamsAutomationRule'
+          - $ref: '#/components/schemas/CParamsAutomationRule'
+          - $ref: '#/components/schemas/CParamsTelegram'
+          - $ref: '#/components/schemas/CParamsGoogleChat'
+          - $ref: '#/components/schemas/CParamsGoogleChatWebhookOnly'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+    AlertSourceTemplateElement:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - TEXT
+          - VAR
+          - RAW
+        val:
+          type: string
+        func:
+          type: string
+        args:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertSourceTemplateElementArg'
+    IncidentNoIncludes:
+      type: object
+      properties:
+        id:
+          type: number
+        summary:
+          type: string
+        status:
+          $ref: '#/components/schemas/IncidentStatus'
+        message:
+          type: string
+        sendNotification:
+          type: boolean
+        createdAt:
+          type: string
+          description: May be overwritten during the creation of the incident, otherwise read-only
+          format: date-time
+        updatedAt:
+          type: string
+          description: May be overwritten during the creation of the incident, otherwise read-only
+          format: date-time
+        affectedServices:
+          type: array
+          items:
+            type: object
+            properties:
+              impact:
+                $ref: '#/components/schemas/ServiceStatus'
+              service:
+                $ref: '#/components/schemas/ServiceNoIncludes'
+        resolvedOn:
+          type: string
+          format: date-time
+          readOnly: true
+    AlertSourceSeverityTemplate:
+      required:
+      - mappings
+      - valueTemplate
+      type: object
+      properties:
+        valueTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        mappings:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertSourceSeverityTemplateMapping'
+    CParamsGithub:
+      type: object
+      properties:
+        owner:
+          type: string
+        repository:
+          type: string
+        labels:
+          type: array
+          items:
+            type: string
+    CParamsAutotask:
+      required:
+      - queueId
+      type: object
+      properties:
+        companyId:
+          type: string
+        queueId:
+          type: string
+        ticketCategory:
+          type: string
+        ticketType:
+          type: string
+        noteType:
+          type: string
+        notePublish:
+          type: string
+        status:
+          type: string
+    AlertSourceSeverityTemplateMapping:
+      required:
+      - severity
+      - value
+      type: object
+      properties:
+        value:
+          type: string
+        severity:
+          type: integer
+          format: int32
+    CParamsEmail:
+      type: object
+      properties:
+        recipients:
+          type: array
+          items:
+            type: string
+        subject:
+          type: string
+        bodyTemplate:
+          type: string
+    AlertSource:
+      required:
+      - escalationPolicy
+      - integrationType
+      - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        name:
+          type: string
+        iconUrl:
+          type: string
+        lightIconUrl:
+          type: string
+        darkIconUrl:
+          type: string
+        escalationPolicy:
+          $ref: '#/components/schemas/EscalationPolicy'
+        integrationType:
+          $ref: '#/components/schemas/IntegrationType'
+        integrationKey:
+          type: string
+        integrationUrl:
+          type: string
+          readOnly: true
+        autoResolutionTimeout:
+          type: string
+          format: ISO-8601
+        alertGroupingWindow:
+          type: string
+          format: ISO-8601
+        alertCreation:
+          type: string
+          default: ONE_ALERT_PER_EMAIL
+          enum:
+          - ONE_ALERT_PER_EMAIL
+          - ONE_ALERT_PER_EMAIL_SUBJECT
+          - ONE_PENDING_ALERT_ALLOWED
+          - ONE_OPEN_ALERT_ALLOWED
+          - OPEN_RESOLVE_ON_EXTRACTION
+          - ONE_ALERT_GROUPED_PER_WINDOW
+          - INTELLIGENT_GROUPING
+        status:
+          type: string
+          readOnly: true
+          enum:
+          - PENDING
+          - ALL_ACCEPTED
+          - ALL_RESOLVED
+          - IN_MAINTENANCE
+          - DISABLED
+        active:
+          type: boolean
+          default: true
+        alertPriorityRule:
+          $ref: '#/components/schemas/AlertPriorityRule'
+        supportHours:
+          $ref: '#/components/schemas/SupportHour'
+        bidirectional:
+          type: boolean
+          readOnly: true
+        summaryTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        detailsTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        routingTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        linkTemplates:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertSourceLinkTemplate'
+        priorityTemplate:
+          $ref: '#/components/schemas/AlertSourcePriorityTemplate'
+        severityTemplate:
+          $ref: '#/components/schemas/AlertSourceSeverityTemplate'
+        eventFilter:
+          type: string
+          description: 'Defines an optional event filter condition in ICL language. This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
+        alertKeyTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        servicesTemplate:
+          type: array
+          description: 'Optional list of templates that extract service identifiers from the inbound event payload. Each rendered value is comma-split, and each resulting token is resolved against the tenant''s services by alias or name (case-insensitive). Unmatched tokens are silently dropped. Capped at 10 templates and at the alert''s per-event services limit. Note: this field is an ?include, it will not appear in lists.'
+          items:
+            $ref: '#/components/schemas/AlertSourceTemplate'
+        eventTypeFilterCreate:
+          type: string
+          description: 'Defines an optional create alert rule in ICL language. This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
+        eventTypeFilterAccept:
+          type: string
+          description: 'Defines an optional accept alert rule in ICL language This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
+        eventTypeFilterResolve:
+          type: string
+          description: 'Defines an optional resolve alert rule in ICL language This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
+        autoRaiseAlerts:
+          type: boolean
+          description: Only effective when a support hour is linked to this alert source.
+        scoreThreshold:
+          type: number
+          format: double
+          description: Only used when alertCreation is set to INTELLIGENT_GROUPING.
+        severity:
+          type: integer
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
+        setupStatus:
+          type: string
+          enum:
+          - CREATED
+          - CREATED_ADVANCED
+          - CREATED_BIDIRECTIONAL
+          - FINISHED
+        autoCreateServices:
+          type: boolean
+          default: false
+        createdAt:
+          type: string
+          readOnly: true
+        updatedAt:
+          type: string
+          readOnly: true
     CParamsSlack:
       required:
       - channelId
@@ -218,6 +608,317 @@ components:
           type: string
         teamId:
           type: string
+    CParamsDingTalk:
+      type: object
+      properties:
+        isAtAll:
+          type: boolean
+        atMobiles:
+          type: array
+          items:
+            type: string
+    SupportHour:
+      required:
+      - name
+      - supportDays
+      - timezone
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        timezone:
+          $ref: '#/components/schemas/TimeZone'
+        supportDays:
+          type: object
+          properties:
+            MONDAY:
+              $ref: '#/components/schemas/SupportDay'
+            TUESDAY:
+              $ref: '#/components/schemas/SupportDay'
+            WEDNESDAY:
+              $ref: '#/components/schemas/SupportDay'
+            THURSDAY:
+              $ref: '#/components/schemas/SupportDay'
+            FRIDAY:
+              $ref: '#/components/schemas/SupportDay'
+            SATURDAY:
+              $ref: '#/components/schemas/SupportDay'
+            SUNDAY:
+              $ref: '#/components/schemas/SupportDay'
+        exceptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/SupportHourException'
+    ScheduleRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - STATIC
+          - RECURRING
+    AlertActionType:
+      type: string
+      enum:
+      - autotask
+      - jira
+      - microsoft_teams_bot
+      - microsoft_teams_webhook
+      - servicenow
+      - slack
+      - slack_webhook
+      - webhook
+      - zendesk
+      - discord
+      - github
+      - topdesk
+      - email
+      - zapier
+      - zammad
+      - mattermost
+      - zoom_chat
+      - dingtalk
+      - aws_event_bridge
+      - dynamic
+      - zabbix
+      - automation_rule
+      - telegram
+      - google_chat_bot
+      - google_chat_webhook
+    CParamsServiceNow:
+      type: object
+      properties:
+        callerId:
+          type: string
+        impact:
+          type: string
+        urgency:
+          type: string
+        closeCode:
+          type: string
+        assignmentGroup:
+          type: string
+        ownerGroup:
+          type: string
+        service:
+          type: string
+        serviceOffering:
+          type: string
+        contactType:
+          type: string
+    AlertActionResult:
+      type: object
+      properties:
+        id:
+          type: string
+        alertActionId:
+          type: string
+        connectorId:
+          type: string
+        alertId:
+          type: number
+        success:
+          type: boolean
+        actor:
+          $ref: '#/components/schemas/User'
+    AlertSourcePriorityTemplate:
+      required:
+      - mappings
+      - valueTemplate
+      type: object
+      properties:
+        valueTemplate:
+          $ref: '#/components/schemas/AlertSourceTemplate'
+        mappings:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertSourcePriorityTemplateMapping'
+    CParamsDingTalkAction:
+      type: object
+      properties:
+        url:
+          type: string
+        secret:
+          type: string
+        isAtAll:
+          type: boolean
+        atMobiles:
+          type: array
+          items:
+            type: string
+    ServiceNoIncludes:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        alias:
+          type: string
+        status:
+          $ref: '#/components/schemas/ServiceStatus'
+        description:
+          type: string
+        oneOpenIncidentOnly:
+          type: boolean
+        showUptimeHistory:
+          type: boolean
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+    AlertActionTrigger:
+      type: object
+      properties:
+        alertActionId:
+          type: string
+        connectorId:
+          type: string
+        type:
+          type: string
+        name:
+          type: string
+        iconUrl:
+          type: string
+        history:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertActionResult'
+    CParamsGoogleChatWebhookOnly:
+      type: object
+    CParamsDiscord:
+      type: object
+    Role:
+      type: string
+      enum:
+      - STAKEHOLDER
+      - GUEST
+      - RESPONDER
+      - USER
+      - ADMIN
+    AlertSourceTemplate:
+      type: object
+      properties:
+        textTemplate:
+          type: string
+          description: "For more information on alert source templating, please visit: https://docs.ilert.com/alerting/alert-sources#alert-template.\n\n Example: <br />`Hi {{ users[0].name }} there!` \n\nYou can use the text template instead of elements by adding the include `textTemplate` to your request. Any version can be used for POST or PUT requests."
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertSourceTemplateElement'
+    CParamsTelegram:
+      required:
+      - channelId
+      type: object
+      properties:
+        channelId:
+          type: string
+          description: The telegram group id, usually i64, as string
+    CParamsZendesk:
+      type: object
+      properties:
+        priority:
+          type: string
+    EscalationRule:
+      required:
+      - escalationTimeout
+      type: object
+      properties:
+        escalationTimeout:
+          type: integer
+        user:
+          type: object
+          properties:
+            id:
+              type: number
+          description: 'This field (type: User) is deprecated, please use ''users'' instead'
+        schedule:
+          type: object
+          properties:
+            id:
+              type: number
+          description: 'This field (type: Schedule) is deprecated, please use ''schedules'' instead'
+        team:
+          type: object
+          properties:
+            id:
+              type: number
+          description: 'This field (type: Team) is deprecated, please use ''teams'' instead'
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRel'
+        schedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleRel'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+    Service:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        alias:
+          type: string
+        status:
+          $ref: '#/components/schemas/ServiceStatus'
+        description:
+          type: string
+        oneOpenIncidentOnly:
+          type: boolean
+        showUptimeHistory:
+          type: boolean
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        subscribed:
+          type: boolean
+          readOnly: true
+        uptime:
+          $ref: '#/components/schemas/ServiceUptime'
+        incidents:
+          type: array
+          description: Note that this only contains the latest 10 unresolved incidents, use /api/incidents?service=x if more or specific results are needed
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/IncidentNoIncludes'
+    CParamsZoomMeeting:
+      type: object
+      properties:
+        password:
+          type: string
+    CParamsAzureFunction:
+      type: object
+      properties:
+        webhookUrl:
+          type: string
+        bodyTemplate:
+          type: string
+    AlertSourceTemplateElementArg:
+      type: object
+      properties:
+        S:
+          type: string
+        N:
+          type: integer
     IntegrationType:
       type: string
       enum:
@@ -372,497 +1073,42 @@ components:
       - PULSETIC
       - WAZUH
       - SEKOIA
-    EscalationRule:
-      required:
-      - escalationTimeout
+    ServiceUptime:
       type: object
       properties:
-        escalationTimeout:
-          type: integer
-        user:
-          type: object
-          properties:
-            id:
-              type: number
-          description: 'This field (type: User) is deprecated, please use ''users'' instead'
-        schedule:
-          type: object
-          properties:
-            id:
-              type: number
-          description: 'This field (type: Schedule) is deprecated, please use ''schedules'' instead'
-        team:
-          type: object
-          properties:
-            id:
-              type: number
-          description: 'This field (type: Team) is deprecated, please use ''teams'' instead'
-        users:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserRel'
-        schedules:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScheduleRel'
-        teams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamRel'
-    AlertActionTrigger:
-      type: object
-      properties:
-        alertActionId:
-          type: string
-        connectorId:
-          type: string
-        type:
-          type: string
-        name:
-          type: string
-        iconUrl:
-          type: string
-        history:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertActionResult'
-    CParamsAutotask:
-      required:
-      - queueId
-      type: object
-      properties:
-        companyId:
-          type: string
-        queueId:
-          type: string
-        ticketCategory:
-          type: string
-        ticketType:
-          type: string
-        noteType:
-          type: string
-        notePublish:
-          type: string
-        status:
-          type: string
-    AlertSource:
-      required:
-      - escalationPolicy
-      - integrationType
-      - name
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        teams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamRel'
-        name:
-          type: string
-        iconUrl:
-          type: string
-        lightIconUrl:
-          type: string
-        darkIconUrl:
-          type: string
-        escalationPolicy:
-          $ref: '#/components/schemas/EscalationPolicy'
-        integrationType:
-          $ref: '#/components/schemas/IntegrationType'
-        integrationKey:
-          type: string
-        integrationUrl:
-          type: string
-          readOnly: true
-        autoResolutionTimeout:
-          type: string
-          format: ISO-8601
-        alertGroupingWindow:
-          type: string
-          format: ISO-8601
-        alertCreation:
-          type: string
-          default: ONE_ALERT_PER_EMAIL
-          enum:
-          - ONE_ALERT_PER_EMAIL
-          - ONE_ALERT_PER_EMAIL_SUBJECT
-          - ONE_PENDING_ALERT_ALLOWED
-          - ONE_OPEN_ALERT_ALLOWED
-          - OPEN_RESOLVE_ON_EXTRACTION
-          - ONE_ALERT_GROUPED_PER_WINDOW
-          - INTELLIGENT_GROUPING
-        status:
-          type: string
-          readOnly: true
-          enum:
-          - PENDING
-          - ALL_ACCEPTED
-          - ALL_RESOLVED
-          - IN_MAINTENANCE
-          - DISABLED
-        active:
-          type: boolean
-          default: true
-        alertPriorityRule:
-          $ref: '#/components/schemas/AlertPriorityRule'
-        supportHours:
-          $ref: '#/components/schemas/SupportHour'
-        bidirectional:
-          type: boolean
-          readOnly: true
-        summaryTemplate:
-          $ref: '#/components/schemas/AlertSourceTemplate'
-        detailsTemplate:
-          $ref: '#/components/schemas/AlertSourceTemplate'
-        routingTemplate:
-          $ref: '#/components/schemas/AlertSourceTemplate'
-        linkTemplates:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertSourceLinkTemplate'
-        priorityTemplate:
-          $ref: '#/components/schemas/AlertSourcePriorityTemplate'
-        severityTemplate:
-          $ref: '#/components/schemas/AlertSourceSeverityTemplate'
-        eventFilter:
-          type: string
-          description: 'Defines an optional event filter condition in ICL language. This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
-        alertKeyTemplate:
-          $ref: '#/components/schemas/AlertSourceTemplate'
-        servicesTemplate:
-          type: array
-          description: 'Optional list of templates that extract service identifiers from the inbound event payload. Each rendered value is comma-split, and each resulting token is resolved against the tenant''s services by alias or name (case-insensitive). Unmatched tokens are silently dropped. Capped at 10 templates and at the alert''s per-event services limit. Note: this field is an ?include, it will not appear in lists.'
-          items:
-            $ref: '#/components/schemas/AlertSourceTemplate'
-        eventTypeFilterCreate:
-          type: string
-          description: 'Defines an optional create alert rule in ICL language. This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
-        eventTypeFilterAccept:
-          type: string
-          description: 'Defines an optional accept alert rule in ICL language This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
-        eventTypeFilterResolve:
-          type: string
-          description: 'Defines an optional resolve alert rule in ICL language This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. It has no effect on manually created alerts. Note: this field is an ?include, it will not appear in lists.'
-        autoRaiseAlerts:
-          type: boolean
-          description: Only effective when a support hour is linked to this alert source.
-        scoreThreshold:
-          type: number
-          format: double
-          description: Only used when alertCreation is set to INTELLIGENT_GROUPING.
-        severity:
-          type: integer
-        services:
-          type: array
-          items:
-            $ref: '#/components/schemas/Service'
-        setupStatus:
-          type: string
-          enum:
-          - CREATED
-          - CREATED_ADVANCED
-          - CREATED_BIDIRECTIONAL
-          - FINISHED
-        autoCreateServices:
-          type: boolean
-          default: false
-        createdAt:
-          type: string
-          readOnly: true
-        updatedAt:
-          type: string
-          readOnly: true
-    CParamsDatadog:
-      type: object
-      properties:
-        tags:
-          type: array
-          items:
-            type: string
-        priority:
-          type: string
-        site:
-          type: string
-    SupportHour:
-      required:
-      - name
-      - supportDays
-      - timezone
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        teams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamRel'
-        timezone:
-          $ref: '#/components/schemas/TimeZone'
-        supportDays:
-          type: object
-          properties:
-            MONDAY:
-              $ref: '#/components/schemas/SupportDay'
-            TUESDAY:
-              $ref: '#/components/schemas/SupportDay'
-            WEDNESDAY:
-              $ref: '#/components/schemas/SupportDay'
-            THURSDAY:
-              $ref: '#/components/schemas/SupportDay'
-            FRIDAY:
-              $ref: '#/components/schemas/SupportDay'
-            SATURDAY:
-              $ref: '#/components/schemas/SupportDay'
-            SUNDAY:
-              $ref: '#/components/schemas/SupportDay'
-        exceptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/SupportHourException'
-    IncidentNoIncludes:
-      type: object
-      properties:
-        id:
-          type: number
-        summary:
-          type: string
-        status:
-          $ref: '#/components/schemas/IncidentStatus'
-        message:
-          type: string
-        sendNotification:
-          type: boolean
-        createdAt:
-          type: string
-          description: May be overwritten during the creation of the incident, otherwise read-only
-          format: date-time
-        updatedAt:
-          type: string
-          description: May be overwritten during the creation of the incident, otherwise read-only
-          format: date-time
-        affectedServices:
-          type: array
-          items:
-            type: object
-            properties:
-              impact:
-                $ref: '#/components/schemas/ServiceStatus'
-              service:
-                $ref: '#/components/schemas/ServiceNoIncludes'
-        resolvedOn:
+        rangeStart:
           type: string
           format: date-time
-          readOnly: true
-    AlertSourceTemplate:
-      type: object
-      properties:
-        textTemplate:
+        rangeEnd:
           type: string
-          description: "For more information on alert source templating, please visit: https://docs.ilert.com/alerting/alert-sources#alert-template.\n\n Example: <br />`Hi {{ users[0].name }} there!` \n\nYou can use the text template instead of elements by adding the include `textTemplate` to your request. Any version can be used for POST or PUT requests."
-        elements:
+          format: date-time
+        outages:
           type: array
           items:
-            $ref: '#/components/schemas/AlertSourceTemplateElement'
-    AlertSourceSeverityTemplateMapping:
-      required:
-      - severity
-      - value
-      type: object
-      properties:
-        value:
-          type: string
-        severity:
-          type: integer
-          format: int32
-    CParamsGoogleFunction:
-      type: object
-      properties:
-        webhookUrl:
-          type: string
-        bodyTemplate:
-          type: string
-    CParamsDiscord:
-      type: object
-    CParamsStatusPageIO:
-      type: object
-      properties:
-        pageId:
-          type: string
-    CParamsMicrosoftTeamsWebhookOnly:
-      type: object
-    UserRel:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        firstName:
-          type: string
-        lastName:
-          type: string
-    CParamsAWSLambda:
-      type: object
-      properties:
-        webhookUrl:
-          type: string
-        bodyTemplate:
-          type: string
-    CParamsTelegram:
+            $ref: '#/components/schemas/ServiceOutage'
+        uptimePercentage:
+          $ref: '#/components/schemas/ServiceUptimePercentage'
+    CParamsGoogleChat:
       required:
       - channelId
       type: object
       properties:
         channelId:
           type: string
-          description: The telegram group id, usually i64, as string
-    CParamsServiceNow:
+        channelName:
+          type: string
+    CParamsMicrosoftTeamsWebhookOnly:
       type: object
-      properties:
-        callerId:
-          type: string
-        impact:
-          type: string
-        urgency:
-          type: string
-        closeCode:
-          type: string
-        assignmentGroup:
-          type: string
-        ownerGroup:
-          type: string
-        service:
-          type: string
-        serviceOffering:
-          type: string
-        contactType:
-          type: string
-    CParamsAzureFunction:
-      type: object
-      properties:
-        webhookUrl:
-          type: string
-        bodyTemplate:
-          type: string
-    AlertSourcePriorityTemplate:
+    AlertSourceLinkTemplate:
       required:
-      - mappings
-      - valueTemplate
+      - hrefTemplate
+      - text
       type: object
       properties:
-        valueTemplate:
+        text:
+          type: string
+        hrefTemplate:
           $ref: '#/components/schemas/AlertSourceTemplate'
-        mappings:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertSourcePriorityTemplateMapping'
-    CParamsEmail:
-      type: object
-      properties:
-        recipients:
-          type: array
-          items:
-            type: string
-        subject:
-          type: string
-        bodyTemplate:
-          type: string
-    CParamsZendesk:
-      type: object
-      properties:
-        priority:
-          type: string
-    CParamsWebhook:
-      required:
-      - webhookUrl
-      type: object
-      properties:
-        webhookUrl:
-          type: string
-        bodyTemplate:
-          type: string
-        headers:
-          type: array
-          items:
-            type: object
-            required:
-            - key
-            - value
-            properties:
-              key:
-                type: string
-              value:
-                type: string
-    AlertActionResult:
-      type: object
-      properties:
-        id:
-          type: string
-        alertActionId:
-          type: string
-        connectorId:
-          type: string
-        alertId:
-          type: number
-        success:
-          type: boolean
-        actor:
-          $ref: '#/components/schemas/User'
-    CParamsZapier:
-      type: object
-      properties:
-        webhookUrl:
-          type: string
-    CParamsTopdesk:
-      type: object
-      properties:
-        status:
-          type: string
-    SupportHourException:
-      type: object
-      required:
-      - name
-      - start
-      - end
-      - supportStatus
-      properties:
-        name:
-          type: string
-        start:
-          type: string
-          format: date
-        end:
-          type: string
-          format: date
-        supportStatus:
-          type: string
-          enum:
-          - DURING
-          - OUTSIDE
-    ServiceOutage:
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/ServiceStatus'
-        from:
-          type: string
-          format: date-time
-        until:
-          type: string
-          format: date-time
-    AlertPriorityRule:
-      type: string
-      enum:
-      - HIGH
-      - LOW
-      - HIGH_DURING_SUPPORT_HOURS
-      - LOW_DURING_SUPPORT_HOURS
     CParamsSysdig:
       type: object
       properties:
@@ -872,57 +1118,35 @@ components:
             type: string
         eventFilter:
           type: string
-    ScheduleRel:
+    TimeZone:
+      type: string
+      enum:
+      - Europe/Berlin
+      - America/New_York
+      - America/Los_Angeles
+      - Asia/Istanbul
+    AlertSourcePriorityTemplateMapping:
+      required:
+      - priority
+      - value
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-        name:
+        value:
           type: string
-        type:
+        priority:
           type: string
           enum:
-          - STATIC
-          - RECURRING
-    ServiceNoIncludes:
+          - LOW
+          - HIGH
+    CParamsJira:
       type: object
       properties:
-        id:
-          type: number
-        name:
+        project:
           type: string
-        alias:
+        issueType:
           type: string
-        status:
-          $ref: '#/components/schemas/ServiceStatus'
-        description:
+        bodyTemplate:
           type: string
-        oneOpenIncidentOnly:
-          type: boolean
-        showUptimeHistory:
-          type: boolean
-        teams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamRel'
-    AlertSourceTemplateElement:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - TEXT
-          - VAR
-          - RAW
-        val:
-          type: string
-        func:
-          type: string
-        args:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertSourceTemplateElementArg'
     CParamsAutomationRule:
       required:
       - alertType
@@ -951,207 +1175,94 @@ components:
           items:
             type: integer
             format: int64
-    IncidentStatus:
+    CParamsGoogleFunction:
+      type: object
+      properties:
+        webhookUrl:
+          type: string
+        bodyTemplate:
+          type: string
+    CParamsAWSLambda:
+      type: object
+      properties:
+        webhookUrl:
+          type: string
+        bodyTemplate:
+          type: string
+    ServiceStatus:
       type: string
-      description: the incident status
+      description: the service status
       enum:
-      - INVESTIGATING
-      - IDENTIFIED
-      - MONITORING
-      - RESOLVED
-    Service:
+      - OPERATIONAL
+      - UNDER_MAINTENANCE
+      - DEGRADED
+      - PARTIAL_OUTAGE
+      - MAJOR_OUTAGE
+    AlertPriorityRule:
+      type: string
+      enum:
+      - HIGH
+      - LOW
+      - HIGH_DURING_SUPPORT_HOURS
+      - LOW_DURING_SUPPORT_HOURS
+    CParamsZapier:
+      type: object
+      properties:
+        webhookUrl:
+          type: string
+    UserRel:
+      required:
+      - id
       type: object
       properties:
         id:
-          type: number
-        name:
+          type: integer
+          format: int64
+        firstName:
           type: string
-        alias:
+        lastName:
           type: string
+    CParamsStatusPageIO:
+      type: object
+      properties:
+        pageId:
+          type: string
+    ServiceOutage:
+      type: object
+      properties:
         status:
           $ref: '#/components/schemas/ServiceStatus'
-        description:
-          type: string
-        oneOpenIncidentOnly:
-          type: boolean
-        showUptimeHistory:
-          type: boolean
-        teams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamRel'
-        subscribed:
-          type: boolean
-          readOnly: true
-        uptime:
-          $ref: '#/components/schemas/ServiceUptime'
-        incidents:
-          type: array
-          description: Note that this only contains the latest 10 unresolved incidents, use /api/incidents?service=x if more or specific results are needed
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/IncidentNoIncludes'
-    AlertSourcePriorityTemplateMapping:
-      required:
-      - priority
-      - value
-      type: object
-      properties:
-        value:
-          type: string
-        priority:
-          type: string
-          enum:
-          - LOW
-          - HIGH
-    Role:
-      type: string
-      enum:
-      - STAKEHOLDER
-      - GUEST
-      - RESPONDER
-      - USER
-      - ADMIN
-    AlertAction:
-      required:
-      - connectorType
-      - name
-      type: object
-      properties:
-        id:
-          type: string
-        alertSources:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertSource'
-        connectorId:
-          type: string
-        connectorType:
-          $ref: '#/components/schemas/AlertActionType'
-        name:
-          type: string
-        createdAt:
+        from:
           type: string
           format: date-time
-        updatedAt:
+        until:
           type: string
           format: date-time
-        triggerMode:
-          type: string
-          enum:
-          - AUTOMATIC
-          - MANUAL
-        bidirectional:
-          type: boolean
-          readOnly: true
-        escalationEndedDelaySec:
-          maximum: 7200
-          minimum: 0
-          type: number
-          description: May only be used with triggerType 'alert-escalation-ended' selected
-        notResolvedDelaySec:
-          maximum: 7200
-          minimum: 0
-          type: number
-          description: May only be used with triggerType 'v-alert-not-resolved' selected
-        triggerTypes:
-          type: array
-          items:
-            type: string
-            enum:
-            - alert-created
-            - alert-assigned
-            - alert-auto-escalated
-            - alert-acknowledged
-            - alert-raised
-            - alert-comment-added
-            - alert-escalation-ended
-            - alert-resolved
-            - alert-responder-added
-            - alert-responder-removed
-            - alert-channel-attached
-            - alert-channel-detached
-            - v-alert-not-resolved
-        alertFilter:
-          type: object
-          description: This field is deprecated, use 'conditions' instead. If both are used this field is ignored.
-          properties:
-            operator:
-              type: string
-              enum:
-              - AND
-              - OR
-            predicates:
-              type: array
-              items:
-                type: object
-                properties:
-                  field:
-                    type: string
-                    enum:
-                    - ALERT_SUMMARY
-                    - ALERT_DETAILS
-                    - ESCALATION_POLICY
-                    - ALERT_PRIORITY
-                  criteria:
-                    type: string
-                    enum:
-                    - CONTAINS_ANY_WORDS
-                    - CONTAINS_NOT_WORDS
-                    - CONTAINS_STRING
-                    - CONTAINS_NOT_STRING
-                    - IS_STRING
-                    - IS_NOT_STRING
-                    - MATCHES_REGEX
-                    - MATCHES_NOT_REGEX
-                  value:
-                    type: string
-        conditions:
-          type: string
-          description: 'Defines an optional alert filter condition in ICL language. This is a code based implementation, more info on syntax: https://docs.ilert.com/rest-api/icl-ilert-condition-language. For block based configuration please use the web UI. Note: this field is an ?include, it will not appear in lists.'
-        params:
-          type: object
-          oneOf:
-          - $ref: '#/components/schemas/CParamsDatadog'
-          - $ref: '#/components/schemas/CParamsJira'
-          - $ref: '#/components/schemas/CParamsMicrosoftTeams'
-          - $ref: '#/components/schemas/CParamsMicrosoftTeamsWebhookOnly'
-          - $ref: '#/components/schemas/CParamsServiceNow'
-          - $ref: '#/components/schemas/CParamsAutotask'
-          - $ref: '#/components/schemas/CParamsSlack'
-          - $ref: '#/components/schemas/CParamsWebhook'
-          - $ref: '#/components/schemas/CParamsZendesk'
-          - $ref: '#/components/schemas/CParamsDiscord'
-          - $ref: '#/components/schemas/CParamsGithub'
-          - $ref: '#/components/schemas/CParamsTopdesk'
-          - $ref: '#/components/schemas/CParamsAWSLambda'
-          - $ref: '#/components/schemas/CParamsAzureFunction'
-          - $ref: '#/components/schemas/CParamsGoogleFunction'
-          - $ref: '#/components/schemas/CParamsEmail'
-          - $ref: '#/components/schemas/CParamsSysdig'
-          - $ref: '#/components/schemas/CParamsZapier'
-          - $ref: '#/components/schemas/CParamsZoomChat'
-          - $ref: '#/components/schemas/CParamsZoomMeeting'
-          - $ref: '#/components/schemas/CParamsStatusPageIO'
-          - $ref: '#/components/schemas/CParamsDingTalk'
-          - $ref: '#/components/schemas/CParamsDingTalkAction'
-          - $ref: '#/components/schemas/CParamsAutomationRule'
-          - $ref: '#/components/schemas/CParamsAutomationRule'
-          - $ref: '#/components/schemas/CParamsTelegram'
-          - $ref: '#/components/schemas/CParamsGoogleChat'
-          - $ref: '#/components/schemas/CParamsGoogleChatWebhookOnly'
-        teams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamRel'
-    CParamsGoogleChat:
+    CParamsWebhook:
       required:
-      - channelId
+      - webhookUrl
+      type: object
+      properties:
+        webhookUrl:
+          type: string
+        bodyTemplate:
+          type: string
+        headers:
+          type: array
+          items:
+            type: object
+            required:
+            - key
+            - value
+            properties:
+              key:
+                type: string
+              value:
+                type: string
+    CParamsZoomChat:
       type: object
       properties:
         channelId:
-          type: string
-        channelName:
           type: string
     User:
       required:
@@ -1213,61 +1324,83 @@ components:
           type: string
           description: Date in ISO-8601
           format: date-time
-    SupportDay:
-      required:
-      - end
-      - start
+    SupportHourException:
       type: object
+      required:
+      - name
+      - start
+      - end
+      - supportStatus
       properties:
+        name:
+          type: string
         start:
           type: string
-          format: time
+          format: date
         end:
           type: string
-          format: time
-    ServiceUptime:
+          format: date
+        supportStatus:
+          type: string
+          enum:
+          - DURING
+          - OUTSIDE
+    CParamsTopdesk:
       type: object
       properties:
-        rangeStart:
+        status:
           type: string
-          format: date-time
-        rangeEnd:
-          type: string
-          format: date-time
-        outages:
+    ServiceUptimePercentage:
+      type: object
+      properties:
+        uptimePercentage:
+          type: object
+          properties:
+            p90:
+              maximum: 100
+              minimum: 0
+              type: number
+              format: float
+              readOnly: true
+            p60:
+              maximum: 100
+              minimum: 0
+              type: number
+              format: float
+              readOnly: true
+            p30:
+              maximum: 100
+              minimum: 0
+              type: number
+              format: float
+              readOnly: true
+    CParamsDatadog:
+      type: object
+      properties:
+        tags:
           type: array
           items:
-            $ref: '#/components/schemas/ServiceOutage'
-        uptimePercentage:
-          $ref: '#/components/schemas/ServiceUptimePercentage'
-    AlertActionType:
+            type: string
+        priority:
+          type: string
+        site:
+          type: string
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    IncidentStatus:
       type: string
+      description: the incident status
       enum:
-      - autotask
-      - jira
-      - microsoft_teams_bot
-      - microsoft_teams_webhook
-      - servicenow
-      - slack
-      - slack_webhook
-      - webhook
-      - zendesk
-      - discord
-      - github
-      - topdesk
-      - email
-      - zapier
-      - zammad
-      - mattermost
-      - zoom_chat
-      - dingtalk
-      - aws_event_bridge
-      - dynamic
-      - zabbix
-      - automation_rule
-      - telegram
-      - google_chat_bot
-      - google_chat_webhook
+      - INVESTIGATING
+      - IDENTIFIED
+      - MONITORING
+      - RESOLVED
     EscalationPolicy:
       required:
       - escalationRules
@@ -1305,106 +1438,6 @@ components:
         routingKey:
           type: string
           description: optional
-    CParamsZoomMeeting:
-      type: object
-      properties:
-        password:
-          type: string
-    CParamsGoogleChatWebhookOnly:
-      type: object
-    TeamRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-    AlertSourceSeverityTemplate:
-      required:
-      - mappings
-      - valueTemplate
-      type: object
-      properties:
-        valueTemplate:
-          $ref: '#/components/schemas/AlertSourceTemplate'
-        mappings:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertSourceSeverityTemplateMapping'
-    CParamsDingTalkAction:
-      type: object
-      properties:
-        url:
-          type: string
-        secret:
-          type: string
-        isAtAll:
-          type: boolean
-        atMobiles:
-          type: array
-          items:
-            type: string
-    ServiceUptimePercentage:
-      type: object
-      properties:
-        uptimePercentage:
-          type: object
-          properties:
-            p90:
-              maximum: 100
-              minimum: 0
-              type: number
-              format: float
-              readOnly: true
-            p60:
-              maximum: 100
-              minimum: 0
-              type: number
-              format: float
-              readOnly: true
-            p30:
-              maximum: 100
-              minimum: 0
-              type: number
-              format: float
-              readOnly: true
-    CParamsGithub:
-      type: object
-      properties:
-        owner:
-          type: string
-        repository:
-          type: string
-        labels:
-          type: array
-          items:
-            type: string
-    CParamsJira:
-      type: object
-      properties:
-        project:
-          type: string
-        issueType:
-          type: string
-        bodyTemplate:
-          type: string
-    CParamsDingTalk:
-      type: object
-      properties:
-        isAtAll:
-          type: boolean
-        atMobiles:
-          type: array
-          items:
-            type: string
-    AlertSourceTemplateElementArg:
-      type: object
-      properties:
-        S:
-          type: string
-        N:
-          type: integer
     CParamsMicrosoftTeams:
       required:
       - channelId
@@ -1424,23 +1457,6 @@ components:
           enum:
           - chat
           - meeting
-    AlertSourceLinkTemplate:
-      required:
-      - hrefTemplate
-      - text
-      type: object
-      properties:
-        text:
-          type: string
-        hrefTemplate:
-          $ref: '#/components/schemas/AlertSourceTemplate'
-    TimeZone:
-      type: string
-      enum:
-      - Europe/Berlin
-      - America/New_York
-      - America/Los_Angeles
-      - Asia/Istanbul
   securitySchemes:
     apiKey:
       type: apiKey
