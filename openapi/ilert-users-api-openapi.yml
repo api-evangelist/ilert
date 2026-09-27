@@ -258,6 +258,13 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    TimeZone:
+      type: string
+      enum:
+      - Europe/Berlin
+      - America/New_York
+      - America/Los_Angeles
+      - Asia/Istanbul
     UserPost:
       required:
       - email
@@ -303,6 +310,14 @@ components:
         shiftColor:
           type: string
           description: Optional hex-color code for the user's shifts in schedules calendars
+    Role:
+      type: string
+      enum:
+      - STAKEHOLDER
+      - GUEST
+      - RESPONDER
+      - USER
+      - ADMIN
     User:
       required:
       - email
@@ -363,21 +378,6 @@ components:
           type: string
           description: Date in ISO-8601
           format: date-time
-    TimeZone:
-      type: string
-      enum:
-      - Europe/Berlin
-      - America/New_York
-      - America/Los_Angeles
-      - Asia/Istanbul
-    Role:
-      type: string
-      enum:
-      - STAKEHOLDER
-      - GUEST
-      - RESPONDER
-      - USER
-      - ADMIN
   securitySchemes:
     apiKey:
       type: apiKey

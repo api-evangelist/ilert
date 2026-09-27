@@ -208,6 +208,31 @@ components:
           format: int64
         name:
           type: string
+    ScheduleRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - STATIC
+          - RECURRING
+    UserRel:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
     EscalationRule:
       required:
       - escalationTimeout
@@ -245,18 +270,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TeamRel'
-    UserRel:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        firstName:
-          type: string
-        lastName:
-          type: string
     EscalationPolicy:
       required:
       - escalationRules
@@ -294,19 +307,6 @@ components:
         routingKey:
           type: string
           description: optional
-    ScheduleRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-          - STATIC
-          - RECURRING
   securitySchemes:
     apiKey:
       type: apiKey

@@ -149,13 +149,19 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MetricMetadata:
+    MParamsDatadog:
+      required:
+      - apiKey
+      - applicationKey
+      - region
       type: object
-      description: Only required if the metric has a dataSource. You may not change this after creation.
-      default: 'null'
-      oneOf:
-      - $ref: '#/components/schemas/MDataDogMetadata'
-      - $ref: '#/components/schemas/MPrometheusMetadata'
+      properties:
+        region:
+          type: string
+        apiKey:
+          type: string
+        applicationKey:
+          type: string
     MetricDataSource:
       type: object
       properties:
@@ -171,33 +177,36 @@ components:
             $ref: '#/components/schemas/TeamRel'
         metadata:
           $ref: '#/components/schemas/MetricDataSourceMetadata'
-    MParamsDatadog:
-      required:
-      - apiKey
-      - applicationKey
-      - region
+    MetricDataSourceType:
+      type: string
+      enum:
+      - DATADOG
+      - PROMETHEUS
+    TeamRel:
       type: object
       properties:
-        region:
+        id:
+          type: integer
+          format: int64
+        name:
           type: string
-        apiKey:
-          type: string
-        applicationKey:
-          type: string
-    MDataDogMetadata:
-      required:
-      - query
+    MetricDataSourceMetadata:
       type: object
-      properties:
-        query:
-          type: string
-    MPrometheusMetadata:
-      required:
-      - query
+      oneOf:
+      - $ref: '#/components/schemas/MParamsDatadog'
+      - $ref: '#/components/schemas/MParamsPrometheus'
+    MetricDisplayType:
+      type: string
+      enum:
+      - GRAPH
+      - SINGLE
+    MetricMetadata:
       type: object
-      properties:
-        query:
-          type: string
+      description: Only required if the metric has a dataSource. You may not change this after creation.
+      default: 'null'
+      oneOf:
+      - $ref: '#/components/schemas/MDataDogMetadata'
+      - $ref: '#/components/schemas/MPrometheusMetadata'
     MetricPost:
       required:
       - aggregationType
@@ -244,6 +253,32 @@ components:
             id:
               type: number
               description: dataSource is required when providing metadata
+    MParamsPrometheus:
+      required:
+      - authType
+      - url
+      type: object
+      properties:
+        url:
+          type: string
+        authType:
+          type: string
+          enum:
+          - NONE
+          - BASIC
+          - HEADER
+        basicUser:
+          type: string
+          description: Optional, required for 'BASIC'
+        basicPass:
+          type: string
+          description: Optional, required for 'BASIC'
+        headerKey:
+          type: string
+          description: Optional, required for 'HEADER'
+        headerValue:
+          type: string
+          description: Optional, required for 'HEADER'
     MetricDataSourceNoIncludes:
       type: object
       properties:
@@ -299,37 +334,28 @@ components:
           $ref: '#/components/schemas/MetricMetadata'
         dataSource:
           $ref: '#/components/schemas/MetricDataSource'
-    MetricDisplayType:
+    MetricAggregationType:
       type: string
       enum:
-      - GRAPH
-      - SINGLE
-    MParamsPrometheus:
+      - AVG
+      - SUM
+      - MIN
+      - MAX
+      - LAST
+    MPrometheusMetadata:
       required:
-      - authType
-      - url
+      - query
       type: object
       properties:
-        url:
+        query:
           type: string
-        authType:
+    MDataDogMetadata:
+      required:
+      - query
+      type: object
+      properties:
+        query:
           type: string
-          enum:
-          - NONE
-          - BASIC
-          - HEADER
-        basicUser:
-          type: string
-          description: Optional, required for 'BASIC'
-        basicPass:
-          type: string
-          description: Optional, required for 'BASIC'
-        headerKey:
-          type: string
-          description: Optional, required for 'HEADER'
-        headerValue:
-          type: string
-          description: Optional, required for 'HEADER'
     MetricList:
       type: object
       properties:
@@ -370,32 +396,6 @@ components:
           type: string
         dataSource:
           $ref: '#/components/schemas/MetricDataSourceNoIncludes'
-    MetricDataSourceMetadata:
-      type: object
-      oneOf:
-      - $ref: '#/components/schemas/MParamsDatadog'
-      - $ref: '#/components/schemas/MParamsPrometheus'
-    TeamRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-    MetricAggregationType:
-      type: string
-      enum:
-      - AVG
-      - SUM
-      - MIN
-      - MAX
-      - LAST
-    MetricDataSourceType:
-      type: string
-      enum:
-      - DATADOG
-      - PROMETHEUS
   securitySchemes:
     apiKey:
       type: apiKey

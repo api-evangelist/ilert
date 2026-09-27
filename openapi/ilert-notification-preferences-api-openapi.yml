@@ -550,33 +550,33 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    NotificationPreferencesDutyPost:
+    NotificationPreferenceSubscriptionMethod:
+      type: string
+      enum:
+      - EMAIL
+      - SMS
+      - PUSH
+    NotificationPreferencesUpdateType:
+      type: string
+      enum:
+      - ALERT_ACCEPTED
+      - ALERT_RESOLVED
+      - ALERT_ESCALATED
+    ContactPhoneNumber:
       type: object
       properties:
-        beforeMin:
-          $ref: '#/components/schemas/NotificationPreferencesDutyBeforeMin'
-        contact:
-          type: object
-          oneOf:
-          - $ref: '#/components/schemas/ContactPhoneNumber'
-          - $ref: '#/components/schemas/ContactEmail'
-        method:
-          $ref: '#/components/schemas/NotificationPreferenceDutyMethod'
-        type:
-          $ref: '#/components/schemas/NotificationPreferencesDutyTypes'
-    NotificationPreferencesAlertDelayMin:
-      type: integer
-    NotificationPreferenceAlertType:
-      type: string
-      enum:
-      - LOW_PRIORITY
-      - HIGH_PRIORITY
-    ContactStatus:
-      type: string
-      enum:
-      - OK
-      - LOCKED
-      - BLACKLISTED
+        id:
+          type: integer
+          format: int64
+        regionCode:
+          type: string
+        target:
+          type: string
+        primary:
+          type: boolean
+          description: May only be enabled for a single phone number contact at a time
+        status:
+          $ref: '#/components/schemas/ContactStatus'
     NotificationPreferencesSubscription:
       type: object
       properties:
@@ -590,21 +590,31 @@ components:
           - $ref: '#/components/schemas/ContactEmail'
         method:
           $ref: '#/components/schemas/NotificationPreferenceSubscriptionMethod'
-    NotificationPreferencesUpdate:
+    NotificationPreferenceDutyMethod:
+      type: string
+      enum:
+      - EMAIL
+      - SMS
+      - PUSH
+      - WHATSAPP
+      - TELEGRAM
+    NotificationPreferencesAlert:
       type: object
       properties:
         id:
           type: integer
           format: int64
+        method:
+          $ref: '#/components/schemas/NotificationPreferenceAlertMethod'
         contact:
           type: object
           oneOf:
           - $ref: '#/components/schemas/ContactPhoneNumber'
           - $ref: '#/components/schemas/ContactEmail'
-        method:
-          $ref: '#/components/schemas/NotificationPreferenceUpdateMethod'
+        delayMin:
+          $ref: '#/components/schemas/NotificationPreferencesAlertDelayMin'
         type:
-          $ref: '#/components/schemas/NotificationPreferencesUpdateType'
+          $ref: '#/components/schemas/NotificationPreferenceAlertType'
     ContactEmail:
       type: object
       properties:
@@ -632,6 +642,52 @@ components:
           $ref: '#/components/schemas/NotificationPreferenceDutyMethod'
         type:
           $ref: '#/components/schemas/NotificationPreferencesDutyTypes'
+    NotificationPreferencesSubscriptionPost:
+      type: object
+      properties:
+        contact:
+          type: object
+          oneOf:
+          - $ref: '#/components/schemas/ContactPhoneNumber'
+          - $ref: '#/components/schemas/ContactEmail'
+        method:
+          $ref: '#/components/schemas/NotificationPreferenceSubscriptionMethod'
+    NotificationPreferencesAlertDelayMin:
+      type: integer
+    NotificationPreferenceUpdateMethod:
+      type: string
+      enum:
+      - EMAIL
+      - SMS
+      - PUSH
+      - WHATSAPP
+      - TELEGRAM
+    NotificationPreferenceAlertMethod:
+      type: string
+      enum:
+      - EMAIL
+      - SMS
+      - PUSH
+      - VOICE
+      - WHATSAPP
+      - TELEGRAM
+    NotificationPreferenceAlertType:
+      type: string
+      enum:
+      - LOW_PRIORITY
+      - HIGH_PRIORITY
+    NotificationPreferencesUpdatePost:
+      type: object
+      properties:
+        contact:
+          type: object
+          oneOf:
+          - $ref: '#/components/schemas/ContactPhoneNumber'
+          - $ref: '#/components/schemas/ContactEmail'
+        method:
+          $ref: '#/components/schemas/NotificationPreferenceUpdateMethod'
+        type:
+          $ref: '#/components/schemas/NotificationPreferencesUpdateType'
     NotificationPreferencesAlertPost:
       type: object
       properties:
@@ -646,77 +702,32 @@ components:
           $ref: '#/components/schemas/NotificationPreferencesAlertDelayMin'
         type:
           $ref: '#/components/schemas/NotificationPreferenceAlertType'
-    NotificationPreferencesAlert:
+    NotificationPreferencesDutyPost:
+      type: object
+      properties:
+        beforeMin:
+          $ref: '#/components/schemas/NotificationPreferencesDutyBeforeMin'
+        contact:
+          type: object
+          oneOf:
+          - $ref: '#/components/schemas/ContactPhoneNumber'
+          - $ref: '#/components/schemas/ContactEmail'
+        method:
+          $ref: '#/components/schemas/NotificationPreferenceDutyMethod'
+        type:
+          $ref: '#/components/schemas/NotificationPreferencesDutyTypes'
+    ContactStatus:
+      type: string
+      enum:
+      - OK
+      - LOCKED
+      - BLACKLISTED
+    NotificationPreferencesUpdate:
       type: object
       properties:
         id:
           type: integer
           format: int64
-        method:
-          $ref: '#/components/schemas/NotificationPreferenceAlertMethod'
-        contact:
-          type: object
-          oneOf:
-          - $ref: '#/components/schemas/ContactPhoneNumber'
-          - $ref: '#/components/schemas/ContactEmail'
-        delayMin:
-          $ref: '#/components/schemas/NotificationPreferencesAlertDelayMin'
-        type:
-          $ref: '#/components/schemas/NotificationPreferenceAlertType'
-    NotificationPreferenceDutyMethod:
-      type: string
-      enum:
-      - EMAIL
-      - SMS
-      - PUSH
-      - WHATSAPP
-      - TELEGRAM
-    NotificationPreferencesDutyTypes:
-      type: string
-      enum:
-      - ON_CALL
-    NotificationPreferenceSubscriptionMethod:
-      type: string
-      enum:
-      - EMAIL
-      - SMS
-      - PUSH
-    NotificationPreferencesSubscriptionPost:
-      type: object
-      properties:
-        contact:
-          type: object
-          oneOf:
-          - $ref: '#/components/schemas/ContactPhoneNumber'
-          - $ref: '#/components/schemas/ContactEmail'
-        method:
-          $ref: '#/components/schemas/NotificationPreferenceSubscriptionMethod'
-    NotificationPreferenceAlertMethod:
-      type: string
-      enum:
-      - EMAIL
-      - SMS
-      - PUSH
-      - VOICE
-      - WHATSAPP
-      - TELEGRAM
-    NotificationPreferencesUpdateType:
-      type: string
-      enum:
-      - ALERT_ACCEPTED
-      - ALERT_RESOLVED
-      - ALERT_ESCALATED
-    NotificationPreferenceUpdateMethod:
-      type: string
-      enum:
-      - EMAIL
-      - SMS
-      - PUSH
-      - WHATSAPP
-      - TELEGRAM
-    NotificationPreferencesUpdatePost:
-      type: object
-      properties:
         contact:
           type: object
           oneOf:
@@ -737,21 +748,10 @@ components:
       - 360
       - 720
       - 1440
-    ContactPhoneNumber:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        regionCode:
-          type: string
-        target:
-          type: string
-        primary:
-          type: boolean
-          description: May only be enabled for a single phone number contact at a time
-        status:
-          $ref: '#/components/schemas/ContactStatus'
+    NotificationPreferencesDutyTypes:
+      type: string
+      enum:
+      - ON_CALL
   securitySchemes:
     apiKey:
       type: apiKey

@@ -135,6 +135,14 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
     DeploymentPipeline:
       type: object
       required:
@@ -166,6 +174,18 @@ components:
           $ref: '#/components/schemas/DeploymentPipelineParams'
         integrationUrl:
           type: string
+    DeploymentPipelineParams:
+      type: object
+      description: Dynamic params based on the chosen integration type of the pipeline
+      default: 'null'
+      oneOf:
+      - $ref: '#/components/schemas/DPipeAPIParams'
+      - $ref: '#/components/schemas/DPipeGithubParams'
+    DPipeAPIParams:
+      type: object
+      description: Deployment pipeline API integration params
+      default: null
+      properties: {}
     DPipeGithubParams:
       type: object
       description: Deployment pipeline Github integration params
@@ -178,26 +198,6 @@ components:
           type: array
           items:
             type: string
-    TeamRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-    DPipeAPIParams:
-      type: object
-      description: Deployment pipeline API integration params
-      default: null
-      properties: {}
-    DeploymentPipelineParams:
-      type: object
-      description: Dynamic params based on the chosen integration type of the pipeline
-      default: 'null'
-      oneOf:
-      - $ref: '#/components/schemas/DPipeAPIParams'
-      - $ref: '#/components/schemas/DPipeGithubParams'
   securitySchemes:
     apiKey:
       type: apiKey

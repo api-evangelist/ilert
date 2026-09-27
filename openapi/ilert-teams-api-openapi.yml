@@ -189,6 +189,55 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    TeamMember:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        role:
+          $ref: '#/components/schemas/TeamRole'
+    Role:
+      type: string
+      enum:
+      - STAKEHOLDER
+      - GUEST
+      - RESPONDER
+      - USER
+      - ADMIN
+    TimeZone:
+      type: string
+      enum:
+      - Europe/Berlin
+      - America/New_York
+      - America/Los_Angeles
+      - Asia/Istanbul
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        visibility:
+          $ref: '#/components/schemas/TeamVisibilityType'
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamMember'
+        createdAt:
+          type: string
+          description: Date in ISO-8601
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date in ISO-8601
+          format: date-time
+    TeamVisibilityType:
+      type: string
+      enum:
+      - PUBLIC
+      - PRIVATE
     User:
       required:
       - email
@@ -249,55 +298,6 @@ components:
           type: string
           description: Date in ISO-8601
           format: date-time
-    TeamVisibilityType:
-      type: string
-      enum:
-      - PUBLIC
-      - PRIVATE
-    TimeZone:
-      type: string
-      enum:
-      - Europe/Berlin
-      - America/New_York
-      - America/Los_Angeles
-      - Asia/Istanbul
-    TeamMember:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/User'
-        role:
-          $ref: '#/components/schemas/TeamRole'
-    Team:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        visibility:
-          $ref: '#/components/schemas/TeamVisibilityType'
-        members:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamMember'
-        createdAt:
-          type: string
-          description: Date in ISO-8601
-          format: date-time
-        updatedAt:
-          type: string
-          description: Date in ISO-8601
-          format: date-time
-    Role:
-      type: string
-      enum:
-      - STAKEHOLDER
-      - GUEST
-      - RESPONDER
-      - USER
-      - ADMIN
     TeamRole:
       type: string
       enum:

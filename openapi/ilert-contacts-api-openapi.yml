@@ -300,11 +300,6 @@ components:
       - OK
       - LOCKED
       - BLACKLISTED
-    ContactEmailPost:
-      type: object
-      properties:
-        target:
-          type: string
     ContactEmail:
       type: object
       properties:
@@ -330,6 +325,11 @@ components:
           description: May only be enabled for a single phone number contact at a time
         status:
           $ref: '#/components/schemas/ContactStatus'
+    ContactEmailPost:
+      type: object
+      properties:
+        target:
+          type: string
   securitySchemes:
     apiKey:
       type: apiKey

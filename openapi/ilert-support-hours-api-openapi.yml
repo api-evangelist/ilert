@@ -138,18 +138,42 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    SupportDay:
-      required:
-      - end
-      - start
+    SupportHourException:
       type: object
+      required:
+      - name
+      - start
+      - end
+      - supportStatus
       properties:
+        name:
+          type: string
         start:
           type: string
-          format: time
+          format: date
         end:
           type: string
-          format: time
+          format: date
+        supportStatus:
+          type: string
+          enum:
+          - DURING
+          - OUTSIDE
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    TimeZone:
+      type: string
+      enum:
+      - Europe/Berlin
+      - America/New_York
+      - America/Los_Angeles
+      - Asia/Istanbul
     SupportHourListItem:
       type: object
       properties:
@@ -181,42 +205,6 @@ components:
               $ref: '#/components/schemas/SupportDay'
             SUNDAY:
               $ref: '#/components/schemas/SupportDay'
-    TimeZone:
-      type: string
-      enum:
-      - Europe/Berlin
-      - America/New_York
-      - America/Los_Angeles
-      - Asia/Istanbul
-    SupportHourException:
-      type: object
-      required:
-      - name
-      - start
-      - end
-      - supportStatus
-      properties:
-        name:
-          type: string
-        start:
-          type: string
-          format: date
-        end:
-          type: string
-          format: date
-        supportStatus:
-          type: string
-          enum:
-          - DURING
-          - OUTSIDE
-    TeamRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
     SupportHour:
       required:
       - name
@@ -256,6 +244,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SupportHourException'
+    SupportDay:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: time
+        end:
+          type: string
+          format: time
   securitySchemes:
     apiKey:
       type: apiKey

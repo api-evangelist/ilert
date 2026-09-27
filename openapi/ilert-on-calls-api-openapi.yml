@@ -85,6 +85,108 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    Role:
+      type: string
+      enum:
+      - STAKEHOLDER
+      - GUEST
+      - RESPONDER
+      - USER
+      - ADMIN
+    OnCall:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        escalationPolicy:
+          $ref: '#/components/schemas/EscalationPolicy'
+        schedule:
+          $ref: '#/components/schemas/ScheduleRel'
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        escalationLevel:
+          type: number
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    TimeZone:
+      type: string
+      enum:
+      - Europe/Berlin
+      - America/New_York
+      - America/Los_Angeles
+      - Asia/Istanbul
+    ScheduleRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - STATIC
+          - RECURRING
+    EscalationRule:
+      required:
+      - escalationTimeout
+      type: object
+      properties:
+        escalationTimeout:
+          type: integer
+        user:
+          type: object
+          properties:
+            id:
+              type: number
+          description: 'This field (type: User) is deprecated, please use ''users'' instead'
+        schedule:
+          type: object
+          properties:
+            id:
+              type: number
+          description: 'This field (type: Schedule) is deprecated, please use ''schedules'' instead'
+        team:
+          type: object
+          properties:
+            id:
+              type: number
+          description: 'This field (type: Team) is deprecated, please use ''teams'' instead'
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRel'
+        schedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleRel'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+    UserRel:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
     User:
       required:
       - email
@@ -145,95 +247,6 @@ components:
           type: string
           description: Date in ISO-8601
           format: date-time
-    OnCall:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/User'
-        escalationPolicy:
-          $ref: '#/components/schemas/EscalationPolicy'
-        schedule:
-          $ref: '#/components/schemas/ScheduleRel'
-        start:
-          type: string
-          format: date-time
-        end:
-          type: string
-          format: date-time
-        escalationLevel:
-          type: number
-    TimeZone:
-      type: string
-      enum:
-      - Europe/Berlin
-      - America/New_York
-      - America/Los_Angeles
-      - Asia/Istanbul
-    Role:
-      type: string
-      enum:
-      - STAKEHOLDER
-      - GUEST
-      - RESPONDER
-      - USER
-      - ADMIN
-    TeamRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-    EscalationRule:
-      required:
-      - escalationTimeout
-      type: object
-      properties:
-        escalationTimeout:
-          type: integer
-        user:
-          type: object
-          properties:
-            id:
-              type: number
-          description: 'This field (type: User) is deprecated, please use ''users'' instead'
-        schedule:
-          type: object
-          properties:
-            id:
-              type: number
-          description: 'This field (type: Schedule) is deprecated, please use ''schedules'' instead'
-        team:
-          type: object
-          properties:
-            id:
-              type: number
-          description: 'This field (type: Team) is deprecated, please use ''teams'' instead'
-        users:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserRel'
-        schedules:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScheduleRel'
-        teams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamRel'
-    UserRel:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        firstName:
-          type: string
-        lastName:
-          type: string
     EscalationPolicy:
       required:
       - escalationRules
@@ -271,19 +284,6 @@ components:
         routingKey:
           type: string
           description: optional
-    ScheduleRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-          - STATIC
-          - RECURRING
   securitySchemes:
     apiKey:
       type: apiKey

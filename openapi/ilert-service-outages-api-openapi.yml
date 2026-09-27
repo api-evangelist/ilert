@@ -193,6 +193,14 @@ components:
         until:
           type: string
           format: date-time
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
     ServiceNoIncludes:
       type: object
       properties:
@@ -214,23 +222,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TeamRel'
-    ServiceStatus:
-      type: string
-      description: the service status
-      enum:
-      - OPERATIONAL
-      - UNDER_MAINTENANCE
-      - DEGRADED
-      - PARTIAL_OUTAGE
-      - MAJOR_OUTAGE
-    TeamRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
     ServiceOutage:
       type: object
       properties:
@@ -242,6 +233,15 @@ components:
         until:
           type: string
           format: date-time
+    ServiceStatus:
+      type: string
+      description: the service status
+      enum:
+      - OPERATIONAL
+      - UNDER_MAINTENANCE
+      - DEGRADED
+      - PARTIAL_OUTAGE
+      - MAJOR_OUTAGE
   securitySchemes:
     apiKey:
       type: apiKey
