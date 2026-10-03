@@ -91,14 +91,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    LogFilterType:
-      type: string
-      enum:
-      - NOTIFICATIONS
-      - ALERT_SOURCE_EVENTS
-      - CALL_ROUTING_EVENTS
-      - ALERT_UPDATES
-      - CONNECTOR_EVENTS
     LogEntry:
       type: object
       properties:
@@ -176,6 +168,14 @@ components:
           type: object
           additionalProperties:
             type: string
+    LogFilterType:
+      type: string
+      enum:
+      - NOTIFICATIONS
+      - ALERT_SOURCE_EVENTS
+      - CALL_ROUTING_EVENTS
+      - ALERT_UPDATES
+      - CONNECTOR_EVENTS
   securitySchemes:
     apiKey:
       type: apiKey

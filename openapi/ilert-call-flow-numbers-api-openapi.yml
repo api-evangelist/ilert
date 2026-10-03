@@ -97,6 +97,14 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    CallFlowNumberAssignedTo:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
     CallFlowNumberDetails:
       type: object
       properties:
@@ -117,14 +125,6 @@ components:
         regionCode:
           type: string
         number:
-          type: string
-    CallFlowNumberAssignedTo:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
           type: string
     CallFlowNumberState:
       type: string

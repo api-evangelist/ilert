@@ -137,39 +137,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    EParamsJira:
-      type: object
-      properties:
-        url:
-          type: string
-        email:
-          type: string
-        password:
-          type: string
-    EParamsSlack:
-      type: object
-    EParamsDingTalk:
-      type: object
-      properties:
-        url:
-          type: string
-        secret:
-          type: string
-    EParamsAzureFunction:
-      type: object
-      properties:
-        authorization:
-          type: string
-    EParamsDiscord:
-      type: object
-      properties:
-        url:
-          type: string
-    EParamsSysdig:
-      type: object
-      properties:
-        apiKey:
-          type: string
     EParamsMicrosoftTeams:
       type: object
       properties:
@@ -178,6 +145,46 @@ components:
     EParamsDatadog:
       type: object
       properties:
+        apiKey:
+          type: string
+    EParamsServiceNow:
+      type: object
+      properties:
+        url:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+    EParamsAzureFunction:
+      type: object
+      properties:
+        authorization:
+          type: string
+    EParamsStatusPageIO:
+      type: object
+      properties:
+        apiKey:
+          type: string
+    EParamsTopdesk:
+      type: object
+      properties:
+        url:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+    EParamsAWSLambda:
+      type: object
+      properties:
+        authorization:
+          type: string
+    EParamsZabbix:
+      type: object
+      properties:
+        url:
+          type: string
         apiKey:
           type: string
     ConnectorType:
@@ -199,19 +206,38 @@ components:
       - zabbix
       - autotask
       - google_chat_bot
-    EParamsServiceNow:
+    EParamsSysdig:
+      type: object
+      properties:
+        apiKey:
+          type: string
+    EParamsSlack:
+      type: object
+    EParamsGithub:
+      type: object
+      properties:
+        apiKey:
+          type: string
+    EParamsJira:
       type: object
       properties:
         url:
           type: string
-        username:
+        email:
           type: string
         password:
           type: string
-    EParamsZabbix:
+    EParamsGoogleFunction:
+      type: object
+      properties:
+        authorization:
+          type: string
+    EParamsZendesk:
       type: object
       properties:
         url:
+          type: string
+        email:
           type: string
         apiKey:
           type: string
@@ -252,43 +278,17 @@ components:
           - $ref: '#/components/schemas/EParamsStatusPageIO'
           - $ref: '#/components/schemas/EParamsDingTalk'
           - $ref: '#/components/schemas/EParamsZabbix'
-    EParamsGoogleFunction:
-      type: object
-      properties:
-        authorization:
-          type: string
-    EParamsZendesk:
+    EParamsDingTalk:
       type: object
       properties:
         url:
           type: string
-        email:
+        secret:
           type: string
-        apiKey:
-          type: string
-    EParamsStatusPageIO:
-      type: object
-      properties:
-        apiKey:
-          type: string
-    EParamsAWSLambda:
-      type: object
-      properties:
-        authorization:
-          type: string
-    EParamsTopdesk:
+    EParamsDiscord:
       type: object
       properties:
         url:
-          type: string
-        username:
-          type: string
-        password:
-          type: string
-    EParamsGithub:
-      type: object
-      properties:
-        apiKey:
           type: string
   securitySchemes:
     apiKey:

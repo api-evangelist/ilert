@@ -196,6 +196,25 @@ components:
           $ref: '#/components/schemas/User'
         role:
           $ref: '#/components/schemas/TeamRole'
+    TimeZone:
+      type: string
+      enum:
+      - Europe/Berlin
+      - America/New_York
+      - America/Los_Angeles
+      - Asia/Istanbul
+    TeamRole:
+      type: string
+      enum:
+      - STAKEHOLDER
+      - RESPONDER
+      - USER
+      - ADMIN
+    TeamVisibilityType:
+      type: string
+      enum:
+      - PUBLIC
+      - PRIVATE
     Role:
       type: string
       enum:
@@ -204,40 +223,6 @@ components:
       - RESPONDER
       - USER
       - ADMIN
-    TimeZone:
-      type: string
-      enum:
-      - Europe/Berlin
-      - America/New_York
-      - America/Los_Angeles
-      - Asia/Istanbul
-    Team:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        visibility:
-          $ref: '#/components/schemas/TeamVisibilityType'
-        members:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamMember'
-        createdAt:
-          type: string
-          description: Date in ISO-8601
-          format: date-time
-        updatedAt:
-          type: string
-          description: Date in ISO-8601
-          format: date-time
-    TeamVisibilityType:
-      type: string
-      enum:
-      - PUBLIC
-      - PRIVATE
     User:
       required:
       - email
@@ -298,13 +283,28 @@ components:
           type: string
           description: Date in ISO-8601
           format: date-time
-    TeamRole:
-      type: string
-      enum:
-      - STAKEHOLDER
-      - RESPONDER
-      - USER
-      - ADMIN
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        visibility:
+          $ref: '#/components/schemas/TeamVisibilityType'
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamMember'
+        createdAt:
+          type: string
+          description: Date in ISO-8601
+          format: date-time
+        updatedAt:
+          type: string
+          description: Date in ISO-8601
+          format: date-time
   securitySchemes:
     apiKey:
       type: apiKey

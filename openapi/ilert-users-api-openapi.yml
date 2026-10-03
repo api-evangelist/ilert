@@ -258,66 +258,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    TimeZone:
-      type: string
-      enum:
-      - Europe/Berlin
-      - America/New_York
-      - America/Los_Angeles
-      - Asia/Istanbul
-    UserPost:
-      required:
-      - email
-      - firstName
-      - lastName
-      type: object
-      properties:
-        firstName:
-          type: string
-        lastName:
-          type: string
-        email:
-          type: string
-        timezone:
-          $ref: '#/components/schemas/TimeZone'
-        position:
-          type: string
-        department:
-          type: string
-        avatarUrl:
-          type: string
-          readOnly: true
-        language:
-          type: string
-          enum:
-          - de
-          - en
-        region:
-          type: string
-          enum:
-          - DE
-          - GB
-          - CH
-          - CN
-          - IN
-          - US
-          - FR
-          - ES
-          - CA
-          - IE
-        role:
-          $ref: '#/components/schemas/Role'
-        shiftColor:
-          type: string
-          description: Optional hex-color code for the user's shifts in schedules calendars
-    Role:
-      type: string
-      enum:
-      - STAKEHOLDER
-      - GUEST
-      - RESPONDER
-      - USER
-      - ADMIN
     User:
       required:
       - email
@@ -378,6 +318,66 @@ components:
           type: string
           description: Date in ISO-8601
           format: date-time
+    TimeZone:
+      type: string
+      enum:
+      - Europe/Berlin
+      - America/New_York
+      - America/Los_Angeles
+      - Asia/Istanbul
+    UserPost:
+      required:
+      - email
+      - firstName
+      - lastName
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        timezone:
+          $ref: '#/components/schemas/TimeZone'
+        position:
+          type: string
+        department:
+          type: string
+        avatarUrl:
+          type: string
+          readOnly: true
+        language:
+          type: string
+          enum:
+          - de
+          - en
+        region:
+          type: string
+          enum:
+          - DE
+          - GB
+          - CH
+          - CN
+          - IN
+          - US
+          - FR
+          - ES
+          - CA
+          - IE
+        role:
+          $ref: '#/components/schemas/Role'
+        shiftColor:
+          type: string
+          description: Optional hex-color code for the user's shifts in schedules calendars
+    Role:
+      type: string
+      enum:
+      - STAKEHOLDER
+      - GUEST
+      - RESPONDER
+      - USER
+      - ADMIN
   securitySchemes:
     apiKey:
       type: apiKey

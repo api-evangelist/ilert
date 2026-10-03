@@ -137,6 +137,41 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    MetricDataSourceMetadata:
+      type: object
+      oneOf:
+      - $ref: '#/components/schemas/MParamsDatadog'
+      - $ref: '#/components/schemas/MParamsPrometheus'
+    MetricDataSourcePost:
+      required:
+      - metadata
+      - name
+      - type
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/MetricDataSourceType'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        metadata:
+          $ref: '#/components/schemas/MetricDataSourceMetadata'
+    MetricDataSourceType:
+      type: string
+      enum:
+      - DATADOG
+      - PROMETHEUS
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
     MParamsDatadog:
       required:
       - apiKey
@@ -149,24 +184,6 @@ components:
         apiKey:
           type: string
         applicationKey:
-          type: string
-    MetricDataSourceType:
-      type: string
-      enum:
-      - DATADOG
-      - PROMETHEUS
-    MetricDataSourceMetadata:
-      type: object
-      oneOf:
-      - $ref: '#/components/schemas/MParamsDatadog'
-      - $ref: '#/components/schemas/MParamsPrometheus'
-    TeamRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
           type: string
     MParamsPrometheus:
       required:
@@ -194,23 +211,6 @@ components:
         headerValue:
           type: string
           description: Optional, required for 'HEADER'
-    MetricDataSourcePost:
-      required:
-      - metadata
-      - name
-      - type
-      type: object
-      properties:
-        name:
-          type: string
-        type:
-          $ref: '#/components/schemas/MetricDataSourceType'
-        teams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamRel'
-        metadata:
-          $ref: '#/components/schemas/MetricDataSourceMetadata'
     MetricDataSource:
       type: object
       properties:

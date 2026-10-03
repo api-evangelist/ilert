@@ -39,6 +39,11 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    AlertPriority:
+      type: string
+      enum:
+      - HIGH
+      - LOW
     EventImage:
       type: object
       properties:
@@ -58,11 +63,6 @@ components:
         alias:
           type: string
           description: Service alias (preferred).
-    AlertPriority:
-      type: string
-      enum:
-      - HIGH
-      - LOW
     EventComment:
       type: object
       properties:

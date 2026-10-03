@@ -281,6 +281,97 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    IncidentNoIncludes:
+      type: object
+      properties:
+        id:
+          type: number
+        summary:
+          type: string
+        status:
+          $ref: '#/components/schemas/IncidentStatus'
+        message:
+          type: string
+        sendNotification:
+          type: boolean
+        createdAt:
+          type: string
+          description: May be overwritten during the creation of the incident, otherwise read-only
+          format: date-time
+        updatedAt:
+          type: string
+          description: May be overwritten during the creation of the incident, otherwise read-only
+          format: date-time
+        affectedServices:
+          type: array
+          items:
+            type: object
+            properties:
+              impact:
+                $ref: '#/components/schemas/ServiceStatus'
+              service:
+                $ref: '#/components/schemas/ServiceNoIncludes'
+        resolvedOn:
+          type: string
+          format: date-time
+          readOnly: true
+    ServiceNoIncludes:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        alias:
+          type: string
+        status:
+          $ref: '#/components/schemas/ServiceStatus'
+        description:
+          type: string
+        oneOpenIncidentOnly:
+          type: boolean
+        showUptimeHistory:
+          type: boolean
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+    IncidentUpdate:
+      type: object
+      properties:
+        id:
+          type: string
+        content:
+          type: string
+        creator:
+          $ref: '#/components/schemas/UserRel'
+        incidentStatus:
+          $ref: '#/components/schemas/IncidentStatus'
+        sendNotification:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    TeamUserOption:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - USER
+          - TEAM
     Incident:
       type: object
       properties:
@@ -321,62 +412,6 @@ components:
           readOnly: true
           items:
             $ref: '#/components/schemas/TeamRel'
-    TeamRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-    ServiceNoIncludes:
-      type: object
-      properties:
-        id:
-          type: number
-        name:
-          type: string
-        alias:
-          type: string
-        status:
-          $ref: '#/components/schemas/ServiceStatus'
-        description:
-          type: string
-        oneOpenIncidentOnly:
-          type: boolean
-        showUptimeHistory:
-          type: boolean
-        teams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamRel'
-    UIMenuItem:
-      type: object
-      properties:
-        id:
-          type: number
-        label:
-          type: string
-    TeamUserOption:
-      type: object
-      properties:
-        id:
-          type: number
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-          - USER
-          - TEAM
-    IncidentStatus:
-      type: string
-      description: the incident status
-      enum:
-      - INVESTIGATING
-      - IDENTIFIED
-      - MONITORING
-      - RESOLVED
     IncidentWithHistory:
       type: object
       properties:
@@ -433,56 +468,21 @@ components:
           type: string
         lastName:
           type: string
-    IncidentUpdate:
-      type: object
-      properties:
-        id:
-          type: string
-        content:
-          type: string
-        creator:
-          $ref: '#/components/schemas/UserRel'
-        incidentStatus:
-          $ref: '#/components/schemas/IncidentStatus'
-        sendNotification:
-          type: boolean
-        createdAt:
-          type: string
-          format: date-time
-    IncidentNoIncludes:
+    IncidentStatus:
+      type: string
+      description: the incident status
+      enum:
+      - INVESTIGATING
+      - IDENTIFIED
+      - MONITORING
+      - RESOLVED
+    UIMenuItem:
       type: object
       properties:
         id:
           type: number
-        summary:
+        label:
           type: string
-        status:
-          $ref: '#/components/schemas/IncidentStatus'
-        message:
-          type: string
-        sendNotification:
-          type: boolean
-        createdAt:
-          type: string
-          description: May be overwritten during the creation of the incident, otherwise read-only
-          format: date-time
-        updatedAt:
-          type: string
-          description: May be overwritten during the creation of the incident, otherwise read-only
-          format: date-time
-        affectedServices:
-          type: array
-          items:
-            type: object
-            properties:
-              impact:
-                $ref: '#/components/schemas/ServiceStatus'
-              service:
-                $ref: '#/components/schemas/ServiceNoIncludes'
-        resolvedOn:
-          type: string
-          format: date-time
-          readOnly: true
     ServiceStatus:
       type: string
       description: the service status

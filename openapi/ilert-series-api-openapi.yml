@@ -46,6 +46,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    SeriesOption:
+      type: object
+      description: Can either be a single time point, omitting timestamp field is allowed as it will be replaced with now() - or a series of multiple time points
+      oneOf:
+      - $ref: '#/components/schemas/SingleTimePoint'
+      - $ref: '#/components/schemas/MultipleTimePoint'
     SingleTimePoint:
       required:
       - value
@@ -66,12 +72,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SingleTimePoint'
-    SeriesOption:
-      type: object
-      description: Can either be a single time point, omitting timestamp field is allowed as it will be replaced with now() - or a series of multiple time points
-      oneOf:
-      - $ref: '#/components/schemas/SingleTimePoint'
-      - $ref: '#/components/schemas/MultipleTimePoint'
   securitySchemes:
     apiKey:
       type: apiKey

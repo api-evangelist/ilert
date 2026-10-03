@@ -293,6 +293,121 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ScheduleRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - STATIC
+          - RECURRING
+    ScheduleLayerRestriction:
+      required:
+      - from
+      - to
+      type: object
+      properties:
+        from:
+          $ref: '#/components/schemas/TimeOfWeek'
+        to:
+          $ref: '#/components/schemas/TimeOfWeek'
+    Shift:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        end:
+          type: string
+          format: date-time
+        start:
+          type: string
+          format: date-time
+    TimeOfWeek:
+      required:
+      - dayOfWeek
+      - time
+      type: object
+      properties:
+        dayOfWeek:
+          type: string
+          enum:
+          - MONDAY
+          - TUESDAY
+          - WEDNESDAY
+          - THURSDAY
+          - FRIDAY
+          - SATURDAY
+          - SUNDAY
+        time:
+          type: string
+          format: '15:00'
+    Schedule:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        timezone:
+          $ref: '#/components/schemas/TimeZone'
+        type:
+          type: string
+          enum:
+          - STATIC
+          - RECURRING
+        scheduleLayers:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleLayerConfig'
+        shifts:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShiftRel'
+        showGaps:
+          type: boolean
+        defaultShiftDuration:
+          type: string
+          format: P7D
+        currentShift:
+          $ref: '#/components/schemas/ShiftRel'
+        nextShift:
+          $ref: '#/components/schemas/ShiftRel'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+    TimeZone:
+      type: string
+      enum:
+      - Europe/Berlin
+      - America/New_York
+      - America/Los_Angeles
+      - Asia/Istanbul
+    ShiftRel:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/UserRel'
+        end:
+          type: string
+          format: date-time
+        start:
+          type: string
+          format: date-time
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
     ScheduleLayerConfig:
       required:
       - rotation
@@ -332,133 +447,6 @@ components:
       - RESPONDER
       - USER
       - ADMIN
-    Schedule:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        timezone:
-          $ref: '#/components/schemas/TimeZone'
-        type:
-          type: string
-          enum:
-          - STATIC
-          - RECURRING
-        scheduleLayers:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScheduleLayerConfig'
-        shifts:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShiftRel'
-        showGaps:
-          type: boolean
-        defaultShiftDuration:
-          type: string
-          format: P7D
-        currentShift:
-          $ref: '#/components/schemas/ShiftRel'
-        nextShift:
-          $ref: '#/components/schemas/ShiftRel'
-        teams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamRel'
-    TimeOfWeek:
-      required:
-      - dayOfWeek
-      - time
-      type: object
-      properties:
-        dayOfWeek:
-          type: string
-          enum:
-          - MONDAY
-          - TUESDAY
-          - WEDNESDAY
-          - THURSDAY
-          - FRIDAY
-          - SATURDAY
-          - SUNDAY
-        time:
-          type: string
-          format: '15:00'
-    TeamRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-    TimeZone:
-      type: string
-      enum:
-      - Europe/Berlin
-      - America/New_York
-      - America/Los_Angeles
-      - Asia/Istanbul
-    Shift:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/User'
-        end:
-          type: string
-          format: date-time
-        start:
-          type: string
-          format: date-time
-    ScheduleRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-          - STATIC
-          - RECURRING
-    ShiftRel:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/UserRel'
-        end:
-          type: string
-          format: date-time
-        start:
-          type: string
-          format: date-time
-    UserRel:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        firstName:
-          type: string
-        lastName:
-          type: string
-    ScheduleLayerRestriction:
-      required:
-      - from
-      - to
-      type: object
-      properties:
-        from:
-          $ref: '#/components/schemas/TimeOfWeek'
-        to:
-          $ref: '#/components/schemas/TimeOfWeek'
     User:
       required:
       - email
@@ -519,6 +507,18 @@ components:
           type: string
           description: Date in ISO-8601
           format: date-time
+    UserRel:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
   securitySchemes:
     apiKey:
       type: apiKey

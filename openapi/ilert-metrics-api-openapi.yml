@@ -149,20 +149,19 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MParamsDatadog:
-      required:
-      - apiKey
-      - applicationKey
-      - region
+    MetricDataSourceMetadata:
       type: object
-      properties:
-        region:
-          type: string
-        apiKey:
-          type: string
-        applicationKey:
-          type: string
-    MetricDataSource:
+      oneOf:
+      - $ref: '#/components/schemas/MParamsDatadog'
+      - $ref: '#/components/schemas/MParamsPrometheus'
+    MetricMetadata:
+      type: object
+      description: Only required if the metric has a dataSource. You may not change this after creation.
+      default: 'null'
+      oneOf:
+      - $ref: '#/components/schemas/MDataDogMetadata'
+      - $ref: '#/components/schemas/MPrometheusMetadata'
+    MetricDataSourceNoIncludes:
       type: object
       properties:
         id:
@@ -175,38 +174,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TeamRel'
-        metadata:
-          $ref: '#/components/schemas/MetricDataSourceMetadata'
-    MetricDataSourceType:
-      type: string
-      enum:
-      - DATADOG
-      - PROMETHEUS
-    TeamRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-    MetricDataSourceMetadata:
-      type: object
-      oneOf:
-      - $ref: '#/components/schemas/MParamsDatadog'
-      - $ref: '#/components/schemas/MParamsPrometheus'
-    MetricDisplayType:
-      type: string
-      enum:
-      - GRAPH
-      - SINGLE
-    MetricMetadata:
-      type: object
-      description: Only required if the metric has a dataSource. You may not change this after creation.
-      default: 'null'
-      oneOf:
-      - $ref: '#/components/schemas/MDataDogMetadata'
-      - $ref: '#/components/schemas/MPrometheusMetadata'
     MetricPost:
       required:
       - aggregationType
@@ -253,6 +220,39 @@ components:
             id:
               type: number
               description: dataSource is required when providing metadata
+    MetricDataSourceType:
+      type: string
+      enum:
+      - DATADOG
+      - PROMETHEUS
+    MDataDogMetadata:
+      required:
+      - query
+      type: object
+      properties:
+        query:
+          type: string
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    MParamsDatadog:
+      required:
+      - apiKey
+      - applicationKey
+      - region
+      type: object
+      properties:
+        region:
+          type: string
+        apiKey:
+          type: string
+        applicationKey:
+          type: string
     MParamsPrometheus:
       required:
       - authType
@@ -279,19 +279,46 @@ components:
         headerValue:
           type: string
           description: Optional, required for 'HEADER'
-    MetricDataSourceNoIncludes:
+    MetricList:
       type: object
       properties:
         id:
           type: number
         name:
           type: string
-        type:
-          $ref: '#/components/schemas/MetricDataSourceType'
+        description:
+          type: string
+        aggregationType:
+          $ref: '#/components/schemas/MetricAggregationType'
+        displayType:
+          $ref: '#/components/schemas/MetricDisplayType'
+        interpolateGaps:
+          type: boolean
+          default: false
+        lockYAxisMax:
+          type: number
+          format: double
+        lockYAxisMin:
+          type: number
+          format: double
+        mouseOverDecimal:
+          maximum: 6
+          minimum: 0
+          type: number
+          format: int32
+        showValuesOnMouseOver:
+          type: boolean
+          default: false
         teams:
           type: array
           items:
             $ref: '#/components/schemas/TeamRel'
+        unitLabel:
+          type: string
+        integrationKey:
+          type: string
+        dataSource:
+          $ref: '#/components/schemas/MetricDataSourceNoIncludes'
     Metric:
       type: object
       properties:
@@ -334,6 +361,33 @@ components:
           $ref: '#/components/schemas/MetricMetadata'
         dataSource:
           $ref: '#/components/schemas/MetricDataSource'
+    MPrometheusMetadata:
+      required:
+      - query
+      type: object
+      properties:
+        query:
+          type: string
+    MetricDisplayType:
+      type: string
+      enum:
+      - GRAPH
+      - SINGLE
+    MetricDataSource:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/MetricDataSourceType'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        metadata:
+          $ref: '#/components/schemas/MetricDataSourceMetadata'
     MetricAggregationType:
       type: string
       enum:
@@ -342,60 +396,6 @@ components:
       - MIN
       - MAX
       - LAST
-    MPrometheusMetadata:
-      required:
-      - query
-      type: object
-      properties:
-        query:
-          type: string
-    MDataDogMetadata:
-      required:
-      - query
-      type: object
-      properties:
-        query:
-          type: string
-    MetricList:
-      type: object
-      properties:
-        id:
-          type: number
-        name:
-          type: string
-        description:
-          type: string
-        aggregationType:
-          $ref: '#/components/schemas/MetricAggregationType'
-        displayType:
-          $ref: '#/components/schemas/MetricDisplayType'
-        interpolateGaps:
-          type: boolean
-          default: false
-        lockYAxisMax:
-          type: number
-          format: double
-        lockYAxisMin:
-          type: number
-          format: double
-        mouseOverDecimal:
-          maximum: 6
-          minimum: 0
-          type: number
-          format: int32
-        showValuesOnMouseOver:
-          type: boolean
-          default: false
-        teams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamRel'
-        unitLabel:
-          type: string
-        integrationKey:
-          type: string
-        dataSource:
-          $ref: '#/components/schemas/MetricDataSourceNoIncludes'
   securitySchemes:
     apiKey:
       type: apiKey

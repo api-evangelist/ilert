@@ -137,14 +137,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    IncidentStatus:
-      type: string
-      description: the incident status
-      enum:
-      - INVESTIGATING
-      - IDENTIFIED
-      - MONITORING
-      - RESOLVED
     IncidentTemplate:
       type: object
       properties:
@@ -164,6 +156,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TeamRel'
+    IncidentStatus:
+      type: string
+      description: the incident status
+      enum:
+      - INVESTIGATING
+      - IDENTIFIED
+      - MONITORING
+      - RESOLVED
     TeamRel:
       type: object
       properties:
