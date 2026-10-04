@@ -137,31 +137,19 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    EParamsMicrosoftTeams:
-      type: object
-      properties:
-        url:
-          type: string
-    EParamsDatadog:
+    EParamsSysdig:
       type: object
       properties:
         apiKey:
           type: string
-    EParamsServiceNow:
+    EParamsDingTalk:
       type: object
       properties:
         url:
           type: string
-        username:
+        secret:
           type: string
-        password:
-          type: string
-    EParamsAzureFunction:
-      type: object
-      properties:
-        authorization:
-          type: string
-    EParamsStatusPageIO:
+    EParamsDatadog:
       type: object
       properties:
         apiKey:
@@ -174,72 +162,6 @@ components:
         username:
           type: string
         password:
-          type: string
-    EParamsAWSLambda:
-      type: object
-      properties:
-        authorization:
-          type: string
-    EParamsZabbix:
-      type: object
-      properties:
-        url:
-          type: string
-        apiKey:
-          type: string
-    ConnectorType:
-      type: string
-      enum:
-      - jira
-      - microsoft_teams_bot
-      - servicenow
-      - slack
-      - zendesk
-      - discord
-      - github
-      - topdesk
-      - zammad
-      - mattermost
-      - zoom_chat
-      - dingtalk
-      - dynamic
-      - zabbix
-      - autotask
-      - google_chat_bot
-    EParamsSysdig:
-      type: object
-      properties:
-        apiKey:
-          type: string
-    EParamsSlack:
-      type: object
-    EParamsGithub:
-      type: object
-      properties:
-        apiKey:
-          type: string
-    EParamsJira:
-      type: object
-      properties:
-        url:
-          type: string
-        email:
-          type: string
-        password:
-          type: string
-    EParamsGoogleFunction:
-      type: object
-      properties:
-        authorization:
-          type: string
-    EParamsZendesk:
-      type: object
-      properties:
-        url:
-          type: string
-        email:
-          type: string
-        apiKey:
           type: string
     Connector:
       required:
@@ -278,14 +200,92 @@ components:
           - $ref: '#/components/schemas/EParamsStatusPageIO'
           - $ref: '#/components/schemas/EParamsDingTalk'
           - $ref: '#/components/schemas/EParamsZabbix'
-    EParamsDingTalk:
+    EParamsDiscord:
       type: object
       properties:
         url:
           type: string
-        secret:
+    EParamsStatusPageIO:
+      type: object
+      properties:
+        apiKey:
           type: string
-    EParamsDiscord:
+    EParamsServiceNow:
+      type: object
+      properties:
+        url:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+    EParamsZendesk:
+      type: object
+      properties:
+        url:
+          type: string
+        email:
+          type: string
+        apiKey:
+          type: string
+    ConnectorType:
+      type: string
+      enum:
+      - jira
+      - microsoft_teams_bot
+      - servicenow
+      - slack
+      - zendesk
+      - discord
+      - github
+      - topdesk
+      - zammad
+      - mattermost
+      - zoom_chat
+      - dingtalk
+      - dynamic
+      - zabbix
+      - autotask
+      - google_chat_bot
+    EParamsGithub:
+      type: object
+      properties:
+        apiKey:
+          type: string
+    EParamsZabbix:
+      type: object
+      properties:
+        url:
+          type: string
+        apiKey:
+          type: string
+    EParamsJira:
+      type: object
+      properties:
+        url:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+    EParamsSlack:
+      type: object
+    EParamsAWSLambda:
+      type: object
+      properties:
+        authorization:
+          type: string
+    EParamsAzureFunction:
+      type: object
+      properties:
+        authorization:
+          type: string
+    EParamsGoogleFunction:
+      type: object
+      properties:
+        authorization:
+          type: string
+    EParamsMicrosoftTeams:
       type: object
       properties:
         url:

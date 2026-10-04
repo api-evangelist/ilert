@@ -39,13 +39,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    EventLink:
-      type: object
-      properties:
-        href:
-          type: string
-        text:
-          type: string
     DeploymentEvent:
       type: object
       required:
@@ -70,6 +63,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/EventLink'
+    EventLink:
+      type: object
+      properties:
+        href:
+          type: string
+        text:
+          type: string
   securitySchemes:
     apiKey:
       type: apiKey

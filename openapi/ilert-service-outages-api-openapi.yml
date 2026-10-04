@@ -178,6 +178,32 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ServiceOutageOverride:
+      type: object
+      properties:
+        id:
+          type: string
+        service:
+          $ref: '#/components/schemas/ServiceNoIncludes'
+        status:
+          $ref: '#/components/schemas/ServiceStatus'
+        from:
+          type: string
+          format: date-time
+        until:
+          type: string
+          format: date-time
+    ServiceOutage:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ServiceStatus'
+        from:
+          type: string
+          format: date-time
+        until:
+          type: string
+          format: date-time
     ServiceNoIncludes:
       type: object
       properties:
@@ -199,17 +225,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TeamRel'
-    ServiceOutage:
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/ServiceStatus'
-        from:
-          type: string
-          format: date-time
-        until:
-          type: string
-          format: date-time
     TeamRel:
       type: object
       properties:
@@ -218,21 +233,6 @@ components:
           format: int64
         name:
           type: string
-    ServiceOutageOverride:
-      type: object
-      properties:
-        id:
-          type: string
-        service:
-          $ref: '#/components/schemas/ServiceNoIncludes'
-        status:
-          $ref: '#/components/schemas/ServiceStatus'
-        from:
-          type: string
-          format: date-time
-        until:
-          type: string
-          format: date-time
     ServiceStatus:
       type: string
       description: the service status

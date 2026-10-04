@@ -142,19 +142,18 @@ components:
       oneOf:
       - $ref: '#/components/schemas/DPipeAPIParams'
       - $ref: '#/components/schemas/DPipeGithubParams'
-    DPipeAPIParams:
+    DPipeGithubParams:
       type: object
-      description: Deployment pipeline API integration params
-      default: null
-      properties: {}
-    TeamRel:
-      type: object
+      description: Deployment pipeline Github integration params
       properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
+        branchFilters:
+          type: array
+          items:
+            type: string
+        eventFilters:
+          type: array
+          items:
+            type: string
     DeploymentPipeline:
       type: object
       required:
@@ -186,18 +185,19 @@ components:
           $ref: '#/components/schemas/DeploymentPipelineParams'
         integrationUrl:
           type: string
-    DPipeGithubParams:
+    DPipeAPIParams:
       type: object
-      description: Deployment pipeline Github integration params
+      description: Deployment pipeline API integration params
+      default: null
+      properties: {}
+    TeamRel:
+      type: object
       properties:
-        branchFilters:
-          type: array
-          items:
-            type: string
-        eventFilters:
-          type: array
-          items:
-            type: string
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
   securitySchemes:
     apiKey:
       type: apiKey

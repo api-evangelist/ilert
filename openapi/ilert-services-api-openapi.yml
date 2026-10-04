@@ -214,6 +214,30 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ServiceUptimePercentage:
+      type: object
+      properties:
+        uptimePercentage:
+          type: object
+          properties:
+            p90:
+              maximum: 100
+              minimum: 0
+              type: number
+              format: float
+              readOnly: true
+            p60:
+              maximum: 100
+              minimum: 0
+              type: number
+              format: float
+              readOnly: true
+            p30:
+              maximum: 100
+              minimum: 0
+              type: number
+              format: float
+              readOnly: true
     IncidentNoIncludes:
       type: object
       properties:
@@ -280,21 +304,29 @@ components:
           readOnly: true
           items:
             $ref: '#/components/schemas/IncidentNoIncludes'
-    ServiceUptime:
+    ServiceOutage:
       type: object
       properties:
-        rangeStart:
+        status:
+          $ref: '#/components/schemas/ServiceStatus'
+        from:
           type: string
           format: date-time
-        rangeEnd:
+        until:
           type: string
           format: date-time
-        outages:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceOutage'
-        uptimePercentage:
-          $ref: '#/components/schemas/ServiceUptimePercentage'
+    TeamUserOption:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - USER
+          - TEAM
     ServiceNoIncludes:
       type: object
       properties:
@@ -316,61 +348,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TeamRel'
-    ServiceUptimePercentage:
-      type: object
-      properties:
-        uptimePercentage:
-          type: object
-          properties:
-            p90:
-              maximum: 100
-              minimum: 0
-              type: number
-              format: float
-              readOnly: true
-            p60:
-              maximum: 100
-              minimum: 0
-              type: number
-              format: float
-              readOnly: true
-            p30:
-              maximum: 100
-              minimum: 0
-              type: number
-              format: float
-              readOnly: true
-    ServiceOutage:
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/ServiceStatus'
-        from:
-          type: string
-          format: date-time
-        until:
-          type: string
-          format: date-time
-    TeamRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-    TeamUserOption:
-      type: object
-      properties:
-        id:
-          type: number
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-          - USER
-          - TEAM
     IncidentStatus:
       type: string
       description: the incident status
@@ -379,6 +356,29 @@ components:
       - IDENTIFIED
       - MONITORING
       - RESOLVED
+    ServiceUptime:
+      type: object
+      properties:
+        rangeStart:
+          type: string
+          format: date-time
+        rangeEnd:
+          type: string
+          format: date-time
+        outages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceOutage'
+        uptimePercentage:
+          $ref: '#/components/schemas/ServiceUptimePercentage'
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
     ServiceStatus:
       type: string
       description: the service status

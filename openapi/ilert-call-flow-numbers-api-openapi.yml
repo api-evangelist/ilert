@@ -105,6 +105,13 @@ components:
           format: int64
         name:
           type: string
+    PhoneNumber:
+      type: object
+      properties:
+        regionCode:
+          type: string
+        number:
+          type: string
     CallFlowNumberDetails:
       type: object
       properties:
@@ -119,13 +126,6 @@ components:
           $ref: '#/components/schemas/PhoneNumber'
         assignedTo:
           $ref: '#/components/schemas/CallFlowNumberAssignedTo'
-    PhoneNumber:
-      type: object
-      properties:
-        regionCode:
-          type: string
-        number:
-          type: string
     CallFlowNumberState:
       type: string
       enum:

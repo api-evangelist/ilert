@@ -39,20 +39,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    AlertPriority:
-      type: string
-      enum:
-      - HIGH
-      - LOW
-    EventImage:
-      type: object
-      properties:
-        src:
-          type: string
-        href:
-          type: string
-        alt:
-          type: string
     EventServiceRef:
       type: object
       properties:
@@ -69,6 +55,15 @@ components:
         creator:
           type: string
         content:
+          type: string
+    EventImage:
+      type: object
+      properties:
+        src:
+          type: string
+        href:
+          type: string
+        alt:
           type: string
     EventLink:
       type: object
@@ -139,6 +134,11 @@ components:
         routingKey:
           type: string
           description: Optional routing key that overwrites the escalation policy of the alert source for ALERT events. Must map to routingKey of escalation policy
+    AlertPriority:
+      type: string
+      enum:
+      - HIGH
+      - LOW
   securitySchemes:
     apiKey:
       type: apiKey

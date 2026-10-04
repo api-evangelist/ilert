@@ -190,13 +190,6 @@ components:
               $ref: '#/components/schemas/SupportDay'
             SUNDAY:
               $ref: '#/components/schemas/SupportDay'
-    TimeZone:
-      type: string
-      enum:
-      - Europe/Berlin
-      - America/New_York
-      - America/Los_Angeles
-      - Asia/Istanbul
     SupportDay:
       required:
       - end
@@ -209,6 +202,13 @@ components:
         end:
           type: string
           format: time
+    TimeZone:
+      type: string
+      enum:
+      - Europe/Berlin
+      - America/New_York
+      - America/Los_Angeles
+      - Asia/Istanbul
     TeamRel:
       type: object
       properties:

@@ -138,28 +138,85 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    CallFlowNodeMetadataIvrMenu:
+    CallFlowNodeMetadataCode:
       type: object
       required:
-      - enabledOptions
+      - label
+      properties:
+        code:
+          type: integer
+          format: int64
+        label:
+          type: string
+    PhoneNumber:
+      type: object
+      properties:
+        regionCode:
+          type: string
+        number:
+          type: string
+    CallFlowBranch:
+      type: object
+      required:
+      - branchType
+      properties:
+        id:
+          type: integer
+          format: int64
+        branchType:
+          type: string
+          enum:
+          - BRANCH
+          - CATCH_ALL
+          - ANSWERED
+        condition:
+          type: string
+        target:
+          $ref: '#/components/schemas/CallFlowNode'
+    CallFlowNodeMetadataEnrichment:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        informationTypes:
+          type: array
+          items:
+            type: string
+            enum:
+            - INCIDENT
+            - MAINTENANCE
+            - SERVICE_STATUS
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/CallFlowNodeMetadataEnrichmentSource'
+    CallFlowNodeMetadataCallTarget:
+      type: object
+      required:
+      - target
+      - type
+      properties:
+        target:
+          type: string
+        type:
+          type: string
+          enum:
+          - USER
+          - ON_CALL_SCHEDULE
+          - NUMBER
+    CallFlowNodeMetadataPinCode:
+      type: object
+      required:
+      - codes
       properties:
         textMessage:
           type: string
         customAudioUrl:
           type: string
-        enabledOptions:
+        codes:
           type: array
           items:
-            type: string
-        aiVoiceModel:
-          type: string
-          enum:
-          - emma
-          - liam
-          - isabelle
-          - gordon
-          - ivy
-          - ellen
+            $ref: '#/components/schemas/CallFlowNodeMetadataCode'
         language:
           type: string
           enum:
@@ -173,6 +230,71 @@ components:
         retries:
           type: integer
           format: int64
+        aiVoiceModel:
+          type: string
+          enum:
+          - emma
+          - liam
+          - isabelle
+          - gordon
+          - ivy
+          - ellen
+    CallFlow:
+      type: object
+      required:
+      - name
+      - language
+      - root
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        language:
+          type: string
+          enum:
+          - de
+          - en
+        assignedNumber:
+          $ref: '#/components/schemas/CallFlowNumber'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        root:
+          $ref: '#/components/schemas/CallFlowNode'
+    CallFlowNodeMetadataCreateAlert:
+      type: object
+      required:
+      - alertSourceId
+      properties:
+        alertSourceId:
+          type: integer
+          format: int64
+        acceptAlertOnAnswer:
+          type: boolean
+    CallFlowNodeMetadata:
+      oneOf:
+      - $ref: '#/components/schemas/CallFlowNodeMetadataAudioMessage'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataIvrMenu'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataVoicemail'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataPinCode'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataSupportHours'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataRouteCall'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataCreateAlert'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataBlockNumbers'
+      - $ref: '#/components/schemas/CallFlowNodeMetadataAgentic'
+    CallFlowNumber:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        phoneNumber:
+          $ref: '#/components/schemas/PhoneNumber'
     CallFlowNodeMetadataRouteCall:
       type: object
       required:
@@ -196,56 +318,14 @@ components:
         callTimeoutSec:
           type: integer
           format: int64
-    TeamRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-    CallFlowNodeMetadataGather:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - CALLER_NAME
-          - CONTACT_NUMBER
-          - EMAIL
-          - INCIDENT
-          - AFFECTED_SERVICES
-        label:
-          type: string
-        varType:
-          type: string
-          enum:
-          - NUMBER
-          - DATE
-          - BOOLEAN
-          - STRING
-        required:
-          type: boolean
-        question:
-          type: string
-    CallFlowBranch:
+    CallFlowNodeMetadataSupportHours:
       type: object
       required:
-      - branchType
+      - supportHoursId
       properties:
-        id:
+        supportHoursId:
           type: integer
           format: int64
-        branchType:
-          type: string
-          enum:
-          - BRANCH
-          - CATCH_ALL
-          - ANSWERED
-        condition:
-          type: string
-        target:
-          $ref: '#/components/schemas/CallFlowNode'
     CallFlowListItem:
       type: object
       properties:
@@ -260,56 +340,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TeamRel'
-    CallFlowNodeMetadataSupportHours:
+    TeamRel:
       type: object
-      required:
-      - supportHoursId
       properties:
-        supportHoursId:
+        id:
           type: integer
           format: int64
-    CallFlowNodeMetadataIntent:
-      type: object
-      properties:
-        type:
+        name:
           type: string
-          enum:
-          - INCIDENT
-          - SYSTEM_OUTAGE
-          - SECURITY_BREACH
-          - TECHNICAL_SUPPORT
-          - INQUIRY
-        label:
-          type: string
-        description:
-          type: string
-        examples:
-          type: array
-          items:
-            type: string
-    CallFlowNodeMetadataCallTarget:
-      type: object
-      required:
-      - target
-      - type
-      properties:
-        target:
-          type: string
-        type:
-          type: string
-          enum:
-          - USER
-          - ON_CALL_SCHEDULE
-          - NUMBER
-    CallFlowNodeMetadataBlockNumbers:
-      type: object
-      required:
-      - blacklist
-      properties:
-        blacklist:
-          type: array
-          items:
-            type: string
     CallFlowNodeMetadataVoicemail:
       type: object
       properties:
@@ -377,68 +415,6 @@ components:
             $ref: '#/components/schemas/CallFlowNodeMetadataGather'
         enrichment:
           $ref: '#/components/schemas/CallFlowNodeMetadataEnrichment'
-    CallFlowNumber:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        phoneNumber:
-          $ref: '#/components/schemas/PhoneNumber'
-    CallFlowNodeMetadataEnrichment:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        informationTypes:
-          type: array
-          items:
-            type: string
-            enum:
-            - INCIDENT
-            - MAINTENANCE
-            - SERVICE_STATUS
-        sources:
-          type: array
-          items:
-            $ref: '#/components/schemas/CallFlowNodeMetadataEnrichmentSource'
-    CallFlowNodeMetadataPinCode:
-      type: object
-      required:
-      - codes
-      properties:
-        textMessage:
-          type: string
-        customAudioUrl:
-          type: string
-        codes:
-          type: array
-          items:
-            $ref: '#/components/schemas/CallFlowNodeMetadataCode'
-        language:
-          type: string
-          enum:
-          - en
-          - de
-          - fr
-          - es
-          - nl
-          - ru
-          - it
-        retries:
-          type: integer
-          format: int64
-        aiVoiceModel:
-          type: string
-          enum:
-          - emma
-          - liam
-          - isabelle
-          - gordon
-          - ivy
-          - ellen
     CallFlowNode:
       type: object
       required:
@@ -469,6 +445,65 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CallFlowBranch'
+    CallFlowNodeMetadataGather:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - CALLER_NAME
+          - CONTACT_NUMBER
+          - EMAIL
+          - INCIDENT
+          - AFFECTED_SERVICES
+        label:
+          type: string
+        varType:
+          type: string
+          enum:
+          - NUMBER
+          - DATE
+          - BOOLEAN
+          - STRING
+        required:
+          type: boolean
+        question:
+          type: string
+    CallFlowNodeMetadataIvrMenu:
+      type: object
+      required:
+      - enabledOptions
+      properties:
+        textMessage:
+          type: string
+        customAudioUrl:
+          type: string
+        enabledOptions:
+          type: array
+          items:
+            type: string
+        aiVoiceModel:
+          type: string
+          enum:
+          - emma
+          - liam
+          - isabelle
+          - gordon
+          - ivy
+          - ellen
+        language:
+          type: string
+          enum:
+          - en
+          - de
+          - fr
+          - es
+          - nl
+          - ru
+          - it
+        retries:
+          type: integer
+          format: int64
     CallFlowNodeMetadataAudioMessage:
       type: object
       properties:
@@ -495,13 +530,6 @@ components:
           - gordon
           - ivy
           - ellen
-    PhoneNumber:
-      type: object
-      properties:
-        regionCode:
-          type: string
-        number:
-          type: string
     CallFlowNodeMetadataEnrichmentSource:
       type: object
       required:
@@ -516,62 +544,34 @@ components:
           enum:
           - STATUS_PAGE
           - SERVICE
-    CallFlowNodeMetadata:
-      oneOf:
-      - $ref: '#/components/schemas/CallFlowNodeMetadataAudioMessage'
-      - $ref: '#/components/schemas/CallFlowNodeMetadataIvrMenu'
-      - $ref: '#/components/schemas/CallFlowNodeMetadataVoicemail'
-      - $ref: '#/components/schemas/CallFlowNodeMetadataPinCode'
-      - $ref: '#/components/schemas/CallFlowNodeMetadataSupportHours'
-      - $ref: '#/components/schemas/CallFlowNodeMetadataRouteCall'
-      - $ref: '#/components/schemas/CallFlowNodeMetadataCreateAlert'
-      - $ref: '#/components/schemas/CallFlowNodeMetadataBlockNumbers'
-      - $ref: '#/components/schemas/CallFlowNodeMetadataAgentic'
-    CallFlowNodeMetadataCreateAlert:
+    CallFlowNodeMetadataIntent:
       type: object
-      required:
-      - alertSourceId
       properties:
-        alertSourceId:
-          type: integer
-          format: int64
-        acceptAlertOnAnswer:
-          type: boolean
-    CallFlowNodeMetadataCode:
-      type: object
-      required:
-      - label
-      properties:
-        code:
-          type: integer
-          format: int64
-        label:
-          type: string
-    CallFlow:
-      type: object
-      required:
-      - name
-      - language
-      - root
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        language:
+        type:
           type: string
           enum:
-          - de
-          - en
-        assignedNumber:
-          $ref: '#/components/schemas/CallFlowNumber'
-        teams:
+          - INCIDENT
+          - SYSTEM_OUTAGE
+          - SECURITY_BREACH
+          - TECHNICAL_SUPPORT
+          - INQUIRY
+        label:
+          type: string
+        description:
+          type: string
+        examples:
           type: array
           items:
-            $ref: '#/components/schemas/TeamRel'
-        root:
-          $ref: '#/components/schemas/CallFlowNode'
+            type: string
+    CallFlowNodeMetadataBlockNumbers:
+      type: object
+      required:
+      - blacklist
+      properties:
+        blacklist:
+          type: array
+          items:
+            type: string
   securitySchemes:
     apiKey:
       type: apiKey

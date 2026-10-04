@@ -196,13 +196,14 @@ components:
           $ref: '#/components/schemas/User'
         role:
           $ref: '#/components/schemas/TeamRole'
-    TimeZone:
+    Role:
       type: string
       enum:
-      - Europe/Berlin
-      - America/New_York
-      - America/Los_Angeles
-      - Asia/Istanbul
+      - STAKEHOLDER
+      - GUEST
+      - RESPONDER
+      - USER
+      - ADMIN
     TeamRole:
       type: string
       enum:
@@ -215,14 +216,6 @@ components:
       enum:
       - PUBLIC
       - PRIVATE
-    Role:
-      type: string
-      enum:
-      - STAKEHOLDER
-      - GUEST
-      - RESPONDER
-      - USER
-      - ADMIN
     User:
       required:
       - email
@@ -305,6 +298,13 @@ components:
           type: string
           description: Date in ISO-8601
           format: date-time
+    TimeZone:
+      type: string
+      enum:
+      - Europe/Berlin
+      - America/New_York
+      - America/Los_Angeles
+      - Asia/Istanbul
   securitySchemes:
     apiKey:
       type: apiKey
