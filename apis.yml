@@ -37,6 +37,9 @@ url: https://raw.githubusercontent.com/api-evangelist/ilert/refs/heads/main/apis
 created: '2026-06-13'
 modified: '2026-06-13'
 specificationVersion: '0.23'
+x-docs-platform: gitbook
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-10-03
 tags:
   - Incident Management
   - On-Call Alerting
@@ -45,7 +48,6 @@ tags:
   - On-Call Schedules
   - Status Pages
   - Heartbeat Monitoring
-  - Event Management
   - DevOps
   - SRE
   - IT Operations
@@ -1290,3 +1292,5 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-tags-removed:
+- Event Management
