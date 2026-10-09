@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 name: ilert Plans and Pricing
 description: Pricing plans for the ilert incident management and on-call alerting
   platform. Plans are per-user per-month with annual billing available at a 20% discount.
@@ -118,3 +122,41 @@ notes:
     subscriptions of EUR 2000 or more or Enterprise).
   - 14-day free trial available with no credit card required.
   - API access is available across all plans including Free.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - negotiated
+  - seat
+  units:
+  - seat
+  plans:
+  - name: Free
+    access: other
+    model: free
+    model_how: derived
+    units:
+    - other
+    periods: []
+  - name: Pro
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods: []
+  - name: Scale
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods: []
+  - name: Enterprise
+    access: other
+    model: negotiated
+    model_how: derived
+    units:
+    - other
+    periods: []
