@@ -138,6 +138,21 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    EventFlowNodeMetadataDefineBranches:
+      type: object
+      properties:
+        definitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventFlowNodeDefinition'
+    EventFlowNodeMetadataSupportHours:
+      type: object
+      required:
+      - supportHoursId
+      properties:
+        supportHoursId:
+          type: integer
+          format: int64
     EventFlowNode:
       type: object
       required:
@@ -163,67 +178,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/EventFlowBranch'
-    EventFlowListItem:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        teams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamRel'
-    EventFlowNodeDefinition:
-      type: object
-      required:
-      - branchName
-      properties:
-        branchName:
-          type: string
-        conditions:
-          type: string
-    EventFlowNodeMetadata:
-      oneOf:
-      - $ref: '#/components/schemas/EventFlowNodeMetadataSupportHours'
-      - $ref: '#/components/schemas/EventFlowNodeMetadataRouteEvent'
-      - $ref: '#/components/schemas/EventFlowNodeMetadataDefineBranches'
-      - $ref: '#/components/schemas/EventFlowNodeMetadataWait'
-      - $ref: '#/components/schemas/EventFlowNodeMetadataTransform'
-    DynamicValue:
-      oneOf:
-      - type: string
-      - type: number
-      - type: boolean
-      - type: object
-        additionalProperties: true
-      - type: array
-        items: {}
-    EventFlowNodeMetadataRouteEvent:
-      type: object
-      required:
-      - alertSourceId
-      properties:
-        alertSourceId:
-          type: integer
-          format: int64
-        overwritePriority:
-          type: string
-          enum:
-          - HIGH
-          - LOW
-        escalationPolicyId:
-          type: integer
-          format: int64
-    TeamRel:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
     EventFlow:
       type: object
       required:
@@ -241,6 +195,26 @@ components:
             $ref: '#/components/schemas/TeamRel'
         root:
           $ref: '#/components/schemas/EventFlowNode'
+    EventFlowNodeDefinition:
+      type: object
+      required:
+      - branchName
+      properties:
+        branchName:
+          type: string
+        conditions:
+          type: string
+    EventFlowNodeMetadataWait:
+      type: object
+      properties:
+        waitForDuration:
+          type: string
+        waitStartSupportHoursId:
+          type: integer
+          format: int64
+        waitEndSupportHoursId:
+          type: integer
+          format: int64
     EventFlowNodeMetadataTransform:
       type: object
       properties:
@@ -250,13 +224,38 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/EventFlowNodeRule'
-    EventFlowNodeMetadataDefineBranches:
+    EventFlowNodeMetadata:
+      oneOf:
+      - $ref: '#/components/schemas/EventFlowNodeMetadataSupportHours'
+      - $ref: '#/components/schemas/EventFlowNodeMetadataRouteEvent'
+      - $ref: '#/components/schemas/EventFlowNodeMetadataDefineBranches'
+      - $ref: '#/components/schemas/EventFlowNodeMetadataWait'
+      - $ref: '#/components/schemas/EventFlowNodeMetadataTransform'
+    EventFlowNodeMetadataRouteEvent:
       type: object
+      required:
+      - alertSourceId
       properties:
-        definitions:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventFlowNodeDefinition'
+        alertSourceId:
+          type: integer
+          format: int64
+        overwritePriority:
+          type: string
+          enum:
+          - HIGH
+          - LOW
+        escalationPolicyId:
+          type: integer
+          format: int64
+    DynamicValue:
+      oneOf:
+      - type: string
+      - type: number
+      - type: boolean
+      - type: object
+        additionalProperties: true
+      - type: array
+        items: {}
     EventFlowNodeRule:
       type: object
       required:
@@ -303,6 +302,14 @@ components:
               type:
               - string
               - 'null'
+    TeamRel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
     EventFlowBranch:
       type: object
       required:
@@ -321,25 +328,18 @@ components:
           type: string
         target:
           $ref: '#/components/schemas/EventFlowNode'
-    EventFlowNodeMetadataWait:
+    EventFlowListItem:
       type: object
       properties:
-        waitForDuration:
+        id:
+          type: integer
+          format: int64
+        name:
           type: string
-        waitStartSupportHoursId:
-          type: integer
-          format: int64
-        waitEndSupportHoursId:
-          type: integer
-          format: int64
-    EventFlowNodeMetadataSupportHours:
-      type: object
-      required:
-      - supportHoursId
-      properties:
-        supportHoursId:
-          type: integer
-          format: int64
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
   securitySchemes:
     apiKey:
       type: apiKey

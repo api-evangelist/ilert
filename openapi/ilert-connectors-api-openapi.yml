@@ -137,11 +137,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    EParamsSysdig:
-      type: object
-      properties:
-        apiKey:
-          type: string
     EParamsDingTalk:
       type: object
       properties:
@@ -149,9 +144,42 @@ components:
           type: string
         secret:
           type: string
-    EParamsDatadog:
+    EParamsAWSLambda:
       type: object
       properties:
+        authorization:
+          type: string
+    ConnectorType:
+      type: string
+      enum:
+      - jira
+      - microsoft_teams_bot
+      - servicenow
+      - slack
+      - zendesk
+      - discord
+      - github
+      - topdesk
+      - zammad
+      - mattermost
+      - zoom_chat
+      - dingtalk
+      - dynamic
+      - zabbix
+      - autotask
+      - google_chat_bot
+    EParamsAzureFunction:
+      type: object
+      properties:
+        authorization:
+          type: string
+    EParamsZendesk:
+      type: object
+      properties:
+        url:
+          type: string
+        email:
+          type: string
         apiKey:
           type: string
     EParamsTopdesk:
@@ -160,6 +188,58 @@ components:
         url:
           type: string
         username:
+          type: string
+        password:
+          type: string
+    EParamsServiceNow:
+      type: object
+      properties:
+        url:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+    EParamsGithub:
+      type: object
+      properties:
+        apiKey:
+          type: string
+    EParamsGoogleFunction:
+      type: object
+      properties:
+        authorization:
+          type: string
+    EParamsZabbix:
+      type: object
+      properties:
+        url:
+          type: string
+        apiKey:
+          type: string
+    EParamsSlack:
+      type: object
+    EParamsDiscord:
+      type: object
+      properties:
+        url:
+          type: string
+    EParamsStatusPageIO:
+      type: object
+      properties:
+        apiKey:
+          type: string
+    EParamsMicrosoftTeams:
+      type: object
+      properties:
+        url:
+          type: string
+    EParamsJira:
+      type: object
+      properties:
+        url:
+          type: string
+        email:
           type: string
         password:
           type: string
@@ -200,95 +280,15 @@ components:
           - $ref: '#/components/schemas/EParamsStatusPageIO'
           - $ref: '#/components/schemas/EParamsDingTalk'
           - $ref: '#/components/schemas/EParamsZabbix'
-    EParamsDiscord:
-      type: object
-      properties:
-        url:
-          type: string
-    EParamsStatusPageIO:
+    EParamsSysdig:
       type: object
       properties:
         apiKey:
           type: string
-    EParamsServiceNow:
-      type: object
-      properties:
-        url:
-          type: string
-        username:
-          type: string
-        password:
-          type: string
-    EParamsZendesk:
-      type: object
-      properties:
-        url:
-          type: string
-        email:
-          type: string
-        apiKey:
-          type: string
-    ConnectorType:
-      type: string
-      enum:
-      - jira
-      - microsoft_teams_bot
-      - servicenow
-      - slack
-      - zendesk
-      - discord
-      - github
-      - topdesk
-      - zammad
-      - mattermost
-      - zoom_chat
-      - dingtalk
-      - dynamic
-      - zabbix
-      - autotask
-      - google_chat_bot
-    EParamsGithub:
+    EParamsDatadog:
       type: object
       properties:
         apiKey:
-          type: string
-    EParamsZabbix:
-      type: object
-      properties:
-        url:
-          type: string
-        apiKey:
-          type: string
-    EParamsJira:
-      type: object
-      properties:
-        url:
-          type: string
-        email:
-          type: string
-        password:
-          type: string
-    EParamsSlack:
-      type: object
-    EParamsAWSLambda:
-      type: object
-      properties:
-        authorization:
-          type: string
-    EParamsAzureFunction:
-      type: object
-      properties:
-        authorization:
-          type: string
-    EParamsGoogleFunction:
-      type: object
-      properties:
-        authorization:
-          type: string
-    EParamsMicrosoftTeams:
-      type: object
-      properties:
-        url:
           type: string
   securitySchemes:
     apiKey:

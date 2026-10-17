@@ -135,6 +135,11 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    DPipeAPIParams:
+      type: object
+      description: Deployment pipeline API integration params
+      default: null
+      properties: {}
     DeploymentPipelineParams:
       type: object
       description: Dynamic params based on the chosen integration type of the pipeline
@@ -142,18 +147,6 @@ components:
       oneOf:
       - $ref: '#/components/schemas/DPipeAPIParams'
       - $ref: '#/components/schemas/DPipeGithubParams'
-    DPipeGithubParams:
-      type: object
-      description: Deployment pipeline Github integration params
-      properties:
-        branchFilters:
-          type: array
-          items:
-            type: string
-        eventFilters:
-          type: array
-          items:
-            type: string
     DeploymentPipeline:
       type: object
       required:
@@ -185,11 +178,18 @@ components:
           $ref: '#/components/schemas/DeploymentPipelineParams'
         integrationUrl:
           type: string
-    DPipeAPIParams:
+    DPipeGithubParams:
       type: object
-      description: Deployment pipeline API integration params
-      default: null
-      properties: {}
+      description: Deployment pipeline Github integration params
+      properties:
+        branchFilters:
+          type: array
+          items:
+            type: string
+        eventFilters:
+          type: array
+          items:
+            type: string
     TeamRel:
       type: object
       properties:

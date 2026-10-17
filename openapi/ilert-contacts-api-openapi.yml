@@ -294,6 +294,11 @@ components:
         primary:
           type: boolean
           description: May only be enabled for a single phone number contact at a time
+    ContactEmailPost:
+      type: object
+      properties:
+        target:
+          type: string
     ContactEmail:
       type: object
       properties:
@@ -304,17 +309,6 @@ components:
           type: string
         status:
           $ref: '#/components/schemas/ContactStatus'
-    ContactStatus:
-      type: string
-      enum:
-      - OK
-      - LOCKED
-      - BLACKLISTED
-    ContactEmailPost:
-      type: object
-      properties:
-        target:
-          type: string
     ContactPhoneNumber:
       type: object
       properties:
@@ -330,6 +324,12 @@ components:
           description: May only be enabled for a single phone number contact at a time
         status:
           $ref: '#/components/schemas/ContactStatus'
+    ContactStatus:
+      type: string
+      enum:
+      - OK
+      - LOCKED
+      - BLACKLISTED
   securitySchemes:
     apiKey:
       type: apiKey

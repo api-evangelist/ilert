@@ -149,56 +149,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MParamsPrometheus:
-      required:
-      - authType
-      - url
-      type: object
-      properties:
-        url:
-          type: string
-        authType:
-          type: string
-          enum:
-          - NONE
-          - BASIC
-          - HEADER
-        basicUser:
-          type: string
-          description: Optional, required for 'BASIC'
-        basicPass:
-          type: string
-          description: Optional, required for 'BASIC'
-        headerKey:
-          type: string
-          description: Optional, required for 'HEADER'
-        headerValue:
-          type: string
-          description: Optional, required for 'HEADER'
-    MetricMetadata:
-      type: object
-      description: Only required if the metric has a dataSource. You may not change this after creation.
-      default: 'null'
-      oneOf:
-      - $ref: '#/components/schemas/MDataDogMetadata'
-      - $ref: '#/components/schemas/MPrometheusMetadata'
-    MPrometheusMetadata:
-      required:
-      - query
-      type: object
-      properties:
-        query:
-          type: string
-    MetricDataSourceMetadata:
-      type: object
-      oneOf:
-      - $ref: '#/components/schemas/MParamsDatadog'
-      - $ref: '#/components/schemas/MParamsPrometheus'
-    MetricDisplayType:
-      type: string
-      enum:
-      - GRAPH
-      - SINGLE
     MDataDogMetadata:
       required:
       - query
@@ -206,34 +156,6 @@ components:
       properties:
         query:
           type: string
-    MetricDataSourceType:
-      type: string
-      enum:
-      - DATADOG
-      - PROMETHEUS
-    MetricAggregationType:
-      type: string
-      enum:
-      - AVG
-      - SUM
-      - MIN
-      - MAX
-      - LAST
-    MetricDataSource:
-      type: object
-      properties:
-        id:
-          type: number
-        name:
-          type: string
-        type:
-          $ref: '#/components/schemas/MetricDataSourceType'
-        teams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamRel'
-        metadata:
-          $ref: '#/components/schemas/MetricDataSourceMetadata'
     MetricPost:
       required:
       - aggregationType
@@ -280,59 +202,18 @@ components:
             id:
               type: number
               description: dataSource is required when providing metadata
-    MetricList:
-      type: object
-      properties:
-        id:
-          type: number
-        name:
-          type: string
-        description:
-          type: string
-        aggregationType:
-          $ref: '#/components/schemas/MetricAggregationType'
-        displayType:
-          $ref: '#/components/schemas/MetricDisplayType'
-        interpolateGaps:
-          type: boolean
-          default: false
-        lockYAxisMax:
-          type: number
-          format: double
-        lockYAxisMin:
-          type: number
-          format: double
-        mouseOverDecimal:
-          maximum: 6
-          minimum: 0
-          type: number
-          format: int32
-        showValuesOnMouseOver:
-          type: boolean
-          default: false
-        teams:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamRel'
-        unitLabel:
-          type: string
-        integrationKey:
-          type: string
-        dataSource:
-          $ref: '#/components/schemas/MetricDataSourceNoIncludes'
-    MParamsDatadog:
+    MPrometheusMetadata:
       required:
-      - apiKey
-      - applicationKey
-      - region
+      - query
       type: object
       properties:
-        region:
+        query:
           type: string
-        apiKey:
-          type: string
-        applicationKey:
-          type: string
+    MetricDisplayType:
+      type: string
+      enum:
+      - GRAPH
+      - SINGLE
     MetricDataSourceNoIncludes:
       type: object
       properties:
@@ -346,6 +227,65 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TeamRel'
+    MetricDataSource:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/MetricDataSourceType'
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        metadata:
+          $ref: '#/components/schemas/MetricDataSourceMetadata'
+    MetricDataSourceType:
+      type: string
+      enum:
+      - DATADOG
+      - PROMETHEUS
+    MetricDataSourceMetadata:
+      type: object
+      oneOf:
+      - $ref: '#/components/schemas/MParamsDatadog'
+      - $ref: '#/components/schemas/MParamsPrometheus'
+    MetricAggregationType:
+      type: string
+      enum:
+      - AVG
+      - SUM
+      - MIN
+      - MAX
+      - LAST
+    MParamsPrometheus:
+      required:
+      - authType
+      - url
+      type: object
+      properties:
+        url:
+          type: string
+        authType:
+          type: string
+          enum:
+          - NONE
+          - BASIC
+          - HEADER
+        basicUser:
+          type: string
+          description: Optional, required for 'BASIC'
+        basicPass:
+          type: string
+          description: Optional, required for 'BASIC'
+        headerKey:
+          type: string
+          description: Optional, required for 'HEADER'
+        headerValue:
+          type: string
+          description: Optional, required for 'HEADER'
     Metric:
       type: object
       properties:
@@ -396,6 +336,66 @@ components:
           format: int64
         name:
           type: string
+    MParamsDatadog:
+      required:
+      - apiKey
+      - applicationKey
+      - region
+      type: object
+      properties:
+        region:
+          type: string
+        apiKey:
+          type: string
+        applicationKey:
+          type: string
+    MetricList:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        description:
+          type: string
+        aggregationType:
+          $ref: '#/components/schemas/MetricAggregationType'
+        displayType:
+          $ref: '#/components/schemas/MetricDisplayType'
+        interpolateGaps:
+          type: boolean
+          default: false
+        lockYAxisMax:
+          type: number
+          format: double
+        lockYAxisMin:
+          type: number
+          format: double
+        mouseOverDecimal:
+          maximum: 6
+          minimum: 0
+          type: number
+          format: int32
+        showValuesOnMouseOver:
+          type: boolean
+          default: false
+        teams:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamRel'
+        unitLabel:
+          type: string
+        integrationKey:
+          type: string
+        dataSource:
+          $ref: '#/components/schemas/MetricDataSourceNoIncludes'
+    MetricMetadata:
+      type: object
+      description: Only required if the metric has a dataSource. You may not change this after creation.
+      default: 'null'
+      oneOf:
+      - $ref: '#/components/schemas/MDataDogMetadata'
+      - $ref: '#/components/schemas/MPrometheusMetadata'
   securitySchemes:
     apiKey:
       type: apiKey

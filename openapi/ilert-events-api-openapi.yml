@@ -39,6 +39,20 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    EventLink:
+      type: object
+      properties:
+        href:
+          type: string
+        text:
+          type: string
+    EventComment:
+      type: object
+      properties:
+        creator:
+          type: string
+        content:
+          type: string
     EventServiceRef:
       type: object
       properties:
@@ -49,29 +63,6 @@ components:
         alias:
           type: string
           description: Service alias (preferred).
-    EventComment:
-      type: object
-      properties:
-        creator:
-          type: string
-        content:
-          type: string
-    EventImage:
-      type: object
-      properties:
-        src:
-          type: string
-        href:
-          type: string
-        alt:
-          type: string
-    EventLink:
-      type: object
-      properties:
-        href:
-          type: string
-        text:
-          type: string
     Event:
       required:
       - integrationKey
@@ -139,6 +130,15 @@ components:
       enum:
       - HIGH
       - LOW
+    EventImage:
+      type: object
+      properties:
+        src:
+          type: string
+        href:
+          type: string
+        alt:
+          type: string
   securitySchemes:
     apiKey:
       type: apiKey

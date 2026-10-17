@@ -189,6 +189,13 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    TimeZone:
+      type: string
+      enum:
+      - Europe/Berlin
+      - America/New_York
+      - America/Los_Angeles
+      - Asia/Istanbul
     TeamMember:
       type: object
       properties:
@@ -204,18 +211,6 @@ components:
       - RESPONDER
       - USER
       - ADMIN
-    TeamRole:
-      type: string
-      enum:
-      - STAKEHOLDER
-      - RESPONDER
-      - USER
-      - ADMIN
-    TeamVisibilityType:
-      type: string
-      enum:
-      - PUBLIC
-      - PRIVATE
     User:
       required:
       - email
@@ -298,13 +293,18 @@ components:
           type: string
           description: Date in ISO-8601
           format: date-time
-    TimeZone:
+    TeamVisibilityType:
       type: string
       enum:
-      - Europe/Berlin
-      - America/New_York
-      - America/Los_Angeles
-      - Asia/Istanbul
+      - PUBLIC
+      - PRIVATE
+    TeamRole:
+      type: string
+      enum:
+      - STAKEHOLDER
+      - RESPONDER
+      - USER
+      - ADMIN
   securitySchemes:
     apiKey:
       type: apiKey
