@@ -11,6 +11,7 @@ checked:
 - zoom/integrations/zoom-integration-edges.yml
 - opentofu/integrations/opentofu-integration-edges.yml
 - terraform/integrations/terraform-integration-edges.yml
+- backstage/integrations/backstage-integration-edges.yml
 source:
 - datadog/integrations/datadog-integration-edges.yml
 edges:
@@ -180,3 +181,20 @@ edges:
   badges:
   - Verified publisher (Terraform partner tier)
   - Verified publisher (GitHub domain-verified organization)
+- partner_name: Backstage (own)
+  partner: backstage
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/backstage/backstage/tree/d72327203d5d0812bee2eace8688fa5ab22867be/microsite/data/plugins/ilert.yaml
+  mirror_of: backstage/integrations/backstage-integration-edges.yml
+  apps:
+  - iLert
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Monitoring
